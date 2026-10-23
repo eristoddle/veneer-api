@@ -1,0 +1,25 @@
+{
+  "name": "@veneer/api",
+  "version": "0.39.0",
+  "description": "The Veneer plugin API: the only module a Veneer plugin imports (AD-3)",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./testing": {
+      "types": "./testing.d.ts",
+      "default": "./testing.js"
+    }
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "README.md"
+  ],
+  "sideEffects": false
+}

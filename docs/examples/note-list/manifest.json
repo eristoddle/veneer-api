@@ -1,0 +1,12 @@
+{
+  "id": "note-list",
+  "name": "Note List",
+  "version": "1.0.0",
+  "apiVersion": "^0.39.0",
+  "main": "index.js",
+  "contributes": {
+    "surfaces": [
+      { "id": "note-list:panel", "title": "Notes", "icon": "notebook", "side": "left" }
+    ]
+  }
+}

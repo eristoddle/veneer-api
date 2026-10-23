@@ -1,0 +1,25 @@
+{
+  "id": "novel-checklist",
+  "name": "Novel Checklist",
+  "version": "1.0.0",
+  "apiVersion": "^0.39.0",
+  "main": "index.js",
+  "requiredProjectType": "novel-checklist/novel",
+  "contributes": {
+    "projectTypes": [
+      {
+        "id": "novel-checklist/novel",
+        "name": "Novel (chapters)",
+        "description": "Chapters with a point of view, a number, and a status.",
+        "frontmatter": [
+          { "key": "pov", "type": "text", "label": "Point of view", "required": true },
+          { "key": "chapter", "type": "number", "label": "Chapter number", "required": true },
+          { "key": "status", "type": "text", "label": "Status" }
+        ]
+      }
+    ],
+    "surfaces": [
+      { "id": "novel-checklist:advice", "title": "Chapter check", "icon": "list-checks", "side": "right" }
+    ]
+  }
+}

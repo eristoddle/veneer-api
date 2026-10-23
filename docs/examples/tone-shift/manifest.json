@@ -1,0 +1,35 @@
+{
+  "id": "tone-shift",
+  "name": "Tone Shift",
+  "version": "1.0.0",
+  "apiVersion": "^0.39.0",
+  "main": "index.js",
+  "needs": ["model provider"],
+  "contributes": {
+    "tools": [
+      {
+        "id": "tone-shift:rewrite",
+        "name": "Change tone",
+        "description": "Rewrite the selection in another tone, as a few options.",
+        "appliesTo": ["sentence", "paragraph"],
+        "context": ["selection", "title"],
+        "needsProvider": true
+      }
+    ],
+    "settings": [
+      {
+        "id": "tone-shift:tone",
+        "type": "enum",
+        "default": "warm",
+        "label": "Tone",
+        "description": "The tone Change tone aims for.",
+        "scope": "both",
+        "options": [
+          { "value": "warm", "label": "Warm" },
+          { "value": "formal", "label": "Formal" },
+          { "value": "plain", "label": "Plain" }
+        ]
+      }
+    ]
+  }
+}

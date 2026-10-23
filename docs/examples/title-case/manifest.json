@@ -1,0 +1,18 @@
+{
+  "id": "title-case",
+  "name": "Title Case",
+  "version": "1.0.0",
+  "apiVersion": "^0.39.0",
+  "main": "index.js",
+  "contributes": {
+    "tools": [
+      {
+        "id": "title-case:convert",
+        "name": "Change case",
+        "description": "Offer Title Case, Sentence case, and UPPER CASE versions of the selection.",
+        "appliesTo": ["phrase", "sentence", "paragraph"],
+        "readOnly": false
+      }
+    ]
+  }
+}
