@@ -1367,7 +1367,7 @@ export function createFakeHost(manifest, entry, options = {}) {
         secrets,
         projectData,
         notices,
-        projectDataChanged: (key) => emitEvent({ type: 'projectData:changed', key }),
+        projectDataChanged: (key) => emitEvent({ type: 'project-data:changed', key }),
         exported,
         async load() {
             await entry.onload(api);

@@ -1,6 +1,6 @@
 # Interface: ThemeContribution
 
-Defined in: [index.ts:1745](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1745)
+Defined in: [index.ts:1745](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1745)
 
 A theme a plugin offers (FR-45, AD-5): a light and dark pair of color values. The ID is
 `<pluginId>:<name>`. A token a mode leaves out keeps Veneer's own value for that mode, so a
@@ -18,7 +18,7 @@ lays over whichever theme is showing.
 
 > **id**: `string`
 
-Defined in: [index.ts:1746](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1746)
+Defined in: [index.ts:1746](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1746)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:1746](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **name**: `string`
 
-Defined in: [index.ts:1747](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1747)
+Defined in: [index.ts:1747](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1747)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [index.ts:1747](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **scope?**: `"code"`
 
-Defined in: [index.ts:1748](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1748)
+Defined in: [index.ts:1748](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1748)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [index.ts:1748](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **light**: [`ThemeColors`](../type-aliases/ThemeColors.md)
 
-Defined in: [index.ts:1749](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1749)
+Defined in: [index.ts:1749](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1749)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [index.ts:1749](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **dark**: [`ThemeColors`](../type-aliases/ThemeColors.md)
 
-Defined in: [index.ts:1750](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1750)
+Defined in: [index.ts:1750](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1750)

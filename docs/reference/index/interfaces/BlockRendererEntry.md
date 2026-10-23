@@ -1,6 +1,6 @@
 # Interface: BlockRendererEntry
 
-Defined in: [index.ts:836](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L836)
+Defined in: [index.ts:836](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L836)
 
 One available renderer as the kernel hands it to the editor (`EditorHost.setBlockRenderers`).
 
@@ -10,7 +10,7 @@ One available renderer as the kernel hands it to the editor (`EditorHost.setBloc
 
 > **id**: `string`
 
-Defined in: [index.ts:837](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L837)
+Defined in: [index.ts:837](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L837)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:837](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **languages**: `string`[]
 
-Defined in: [index.ts:838](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L838)
+Defined in: [index.ts:838](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L838)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:838](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **render**: [`BlockRenderer`](../type-aliases/BlockRenderer.md)
 
-Defined in: [index.ts:839](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L839)
+Defined in: [index.ts:839](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L839)
 
 ## Methods
 
@@ -34,7 +34,7 @@ Defined in: [index.ts:839](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **report**(`err`): `void`
 
-Defined in: [index.ts:841](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L841)
+Defined in: [index.ts:841](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L841)
 
 Called at most once per renderer per session with a failure; the kernel raises the notice.
 

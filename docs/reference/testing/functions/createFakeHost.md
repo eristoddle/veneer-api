@@ -2,7 +2,7 @@
 
 > **createFakeHost**(`manifest`, `entry`, `options?`): [`FakeHost`](../interfaces/FakeHost.md)
 
-Defined in: [testing.ts:590](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/testing.ts#L590)
+Defined in: [testing.ts:590](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L590)
 
 A fake host for unit-testing a plugin without the app: it loads the plugin's entry against in-memory text, files, settings, and a stubbed provider, and records what the plugin did.
 

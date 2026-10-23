@@ -1,6 +1,6 @@
 # Interface: EditorHost
 
-Defined in: [index.ts:2027](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2027)
+Defined in: [index.ts:2027](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2027)
 
 The kernel's only route to the editor (AD-18). The editor plugin registers a factory; the
 kernel calls it once with the mount and talks to the result through these methods only.
@@ -12,7 +12,7 @@ Later stories add coordinates.
 
 > **getFind**(): [`EditorFindSnapshot`](EditorFindSnapshot.md)
 
-Defined in: [index.ts:2028](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2028)
+Defined in: [index.ts:2028](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2028)
 
 #### Returns
 
@@ -24,7 +24,7 @@ Defined in: [index.ts:2028](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **onFindChanged**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2029](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2029)
+Defined in: [index.ts:2029](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2029)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [index.ts:2029](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **setFindQuery**(`query`): `void`
 
-Defined in: [index.ts:2031](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2031)
+Defined in: [index.ts:2031](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2031)
 
 Selects the first non-overlapping match at/after the caret, wrapping; origin `find`.
 
@@ -62,7 +62,7 @@ Selects the first non-overlapping match at/after the caret, wrapping; origin `fi
 
 > **findNext**(`backwards?`): `void`
 
-Defined in: [index.ts:2032](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2032)
+Defined in: [index.ts:2032](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2032)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [index.ts:2032](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **clearFind**(): `void`
 
-Defined in: [index.ts:2034](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2034)
+Defined in: [index.ts:2034](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2034)
 
 Removes highlights without changing text, selection, or undo history.
 
@@ -94,7 +94,7 @@ Removes highlights without changing text, selection, or undo history.
 
 > **replaceFind**(`text`): `void`
 
-Defined in: [index.ts:2036](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2036)
+Defined in: [index.ts:2036](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2036)
 
 One isolated undo step; refuses read-only writes. Current replacement skips inserted text.
 
@@ -114,7 +114,7 @@ One isolated undo step; refuses read-only writes. Current replacement skips inse
 
 > **replaceAllFind**(`text`): `void`
 
-Defined in: [index.ts:2037](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2037)
+Defined in: [index.ts:2037](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2037)
 
 #### Parameters
 
@@ -132,7 +132,7 @@ Defined in: [index.ts:2037](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **setDocument**(`text`): `void`
 
-Defined in: [index.ts:2039](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2039)
+Defined in: [index.ts:2039](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2039)
 
 Replaces the whole document with `text` (`\n` line endings) and resets undo history.
 
@@ -152,7 +152,7 @@ Replaces the whole document with `text` (`\n` line endings) and resets undo hist
 
 > **getText**(): `string`
 
-Defined in: [index.ts:2040](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2040)
+Defined in: [index.ts:2040](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2040)
 
 #### Returns
 
@@ -164,7 +164,7 @@ Defined in: [index.ts:2040](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **getSelection**(): [`EditorSelection`](EditorSelection.md)
 
-Defined in: [index.ts:2041](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2041)
+Defined in: [index.ts:2041](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2041)
 
 #### Returns
 
@@ -176,7 +176,7 @@ Defined in: [index.ts:2041](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **select**(`from`, `to`): `void`
 
-Defined in: [index.ts:2047](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2047)
+Defined in: [index.ts:2047](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2047)
 
 Selects `from`..`to` (clamped to the text) with origin `find`, so the selection pill never
 rises, and scrolls it into view, revealing hidden source it touches like a find match
@@ -202,7 +202,7 @@ rises, and scrolls it into view, revealing hidden source it touches like a find 
 
 > **onSelectionChanged**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2048](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2048)
+Defined in: [index.ts:2048](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2048)
 
 #### Parameters
 
@@ -220,7 +220,7 @@ Defined in: [index.ts:2048](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **coordsAtPos**(`pos`): \{ `left`: `number`; `top`: `number`; `bottom`: `number`; \} \| `null`
 
-Defined in: [index.ts:2054](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2054)
+Defined in: [index.ts:2054](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2054)
 
 Viewport pixel coordinates of the character edge at `pos` (clamped to the text): `left`, and
 the line's `top` and `bottom`. Null when the position is not rendered or the view is hidden.
@@ -242,7 +242,7 @@ The kernel places the selection pill with it (FR-14, UX-DR11).
 
 > **setHighlight**(`from`, `to`): `void`
 
-Defined in: [index.ts:2060](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2060)
+Defined in: [index.ts:2060](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2060)
 
 Marks `from`..`to` (clamped) with the selection tint whether or not the editor has focus,
 so a selection stays visible while the selection card holds focus (UX-DR12). The mark
@@ -268,7 +268,7 @@ follows edits; text, selection, and undo history are untouched.
 
 > **clearHighlight**(): `void`
 
-Defined in: [index.ts:2062](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2062)
+Defined in: [index.ts:2062](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2062)
 
 Removes the mark `setHighlight` made.
 
@@ -282,7 +282,7 @@ Removes the mark `setHighlight` made.
 
 > **onTyping**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2064](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2064)
+Defined in: [index.ts:2064](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2064)
 
 Fires when the writer changes the text (typing, deleting, pasting).
 
@@ -302,7 +302,7 @@ Fires when the writer changes the text (typing, deleting, pasting).
 
 > **onChanged**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2069](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2069)
+Defined in: [index.ts:2069](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2069)
 
 Fires after every document change from any source: typing, undo, paste, a plugin edit.
 Not fired by `setDocument`. The kernel's autosave hangs off this (AD-8).
@@ -323,7 +323,7 @@ Not fired by `setDocument`. The kernel's autosave hangs off this (AD-8).
 
 > **linkAtCaret**(): `string` \| `null`
 
-Defined in: [index.ts:2074](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2074)
+Defined in: [index.ts:2074](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2074)
 
 The destination of the link under the caret (`[text](dest)`, `[text][ref]` resolved through
 its definition, an autolink, or a bare URL), as written, or null. Story 9.1.
@@ -338,7 +338,7 @@ its definition, an autolink, or a bare URL), as written, or null. Story 9.1.
 
 > **onLinkFollowed**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2079](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2079)
+Defined in: [index.ts:2079](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2079)
 
 Fires with a link's destination when the writer Cmd/Ctrl-clicks it. A plain click only places
 the cursor and never fires this. The kernel decides what following means (Story 9.1).
@@ -359,7 +359,7 @@ the cursor and never fires this. The kernel decides what following means (Story 
 
 > **applyResult**(`changes`, `source`): `void`
 
-Defined in: [index.ts:2086](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2086)
+Defined in: [index.ts:2086](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2086)
 
 Applies `changes` (see `TextChange`; checked with `checkTextChanges`) as one transaction
 and exactly one undo step that never merges with the writer's typing before or after it,
@@ -386,7 +386,7 @@ tagged with `source` (e.g. `plugin:<id>`) (AD-8, AD-18). Fires `onChanged`, not
 
 > **setReadOnly**(`on`): `void`
 
-Defined in: [index.ts:2088](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2088)
+Defined in: [index.ts:2088](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2088)
 
 Turns read-only on or off: the editor still shows the text but takes no edits.
 
@@ -406,7 +406,7 @@ Turns read-only on or off: the editor still shows the text but takes no edits.
 
 > **setMode**(`extension`): `void`
 
-Defined in: [index.ts:2098](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2098)
+Defined in: [index.ts:2098](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2098)
 
 Draws the document with an editing mode's extension set (see `EditingModeExtension`),
 replacing the previous mode's (FR-12, AD-7). Only how the text is drawn changes: no new
@@ -432,7 +432,7 @@ providers. The kernel calls it; plugins use `api.editor.registerMode`.
 
 > **setBlockRenderers**(`entries`): `void`
 
-Defined in: [index.ts:2105](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2105)
+Defined in: [index.ts:2105](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2105)
 
 Replaces the available fenced-block renderers (Story 9.4, AD-19). The editor asks the one
 that best matches each top-level fenced block (see `BlockRendererContribution`) and draws its
@@ -455,7 +455,7 @@ registers or goes away, and when a host mounts.
 
 > **setMarks**(`owner`, `setId`, `marks`): `void`
 
-Defined in: [index.ts:2113](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2113)
+Defined in: [index.ts:2113](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2113)
 
 Draws a plugin's marks over the real text (Story 9.17): a tint and an underline per kind, no
 borders. `owner` is the plugin ID and `setId` the plugin's name for the set; setting a set
@@ -487,7 +487,7 @@ drops every mark.
 
 > **clearMarks**(`owner`): `void`
 
-Defined in: [index.ts:2115](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2115)
+Defined in: [index.ts:2115](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2115)
 
 Removes every mark of `owner`'s sets.
 
@@ -507,7 +507,7 @@ Removes every mark of `owner`'s sets.
 
 > **onMarkClick**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2117](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2117)
+Defined in: [index.ts:2117](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2117)
 
 Fires when the writer plainly clicks a mark: the caret still moves.
 
@@ -527,7 +527,7 @@ Fires when the writer plainly clicks a mark: the caret still moves.
 
 > **focus**(): `void`
 
-Defined in: [index.ts:2118](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2118)
+Defined in: [index.ts:2118](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2118)
 
 #### Returns
 
@@ -539,7 +539,7 @@ Defined in: [index.ts:2118](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **destroy**(): `void`
 
-Defined in: [index.ts:2120](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2120)
+Defined in: [index.ts:2120](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2120)
 
 Tears the editor down and removes it from the mount.
 

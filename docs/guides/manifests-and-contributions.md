@@ -7,7 +7,7 @@
   "id": "word-goals",
   "name": "Word Goals",
   "version": "1.0.0",
-  "apiVersion": "^0.39.0",
+  "apiVersion": "^0.40.0",
   "main": "index.js",
   "contributes": {
     "commands": [{ "id": "word-goals:show", "title": "Show Word Goals" }],

@@ -1,6 +1,6 @@
 # Brief: the BookForge plugin for Veneer
 
-Build a Veneer plugin that turns a writer's markdown project into an EPUB with the BookForge server. Read `README.md` here first (how to depend on the API, lay out, test, and release). The API version is 0.39.0. Repository for the plugin: the BookForge repository (`~/Dropbox/python/book_forge` on Stephan's machine), in a new folder such as `veneer-plugin/`.
+Build a Veneer plugin that turns a writer's markdown project into an EPUB with the BookForge server. Read `README.md` here first (how to depend on the API, lay out, test, and release). The API version is 0.40.0. Repository for the plugin: the BookForge repository (`~/Dropbox/python/book_forge` on Stephan's machine), in a new folder such as `veneer-plugin/`.
 
 ## What BookForge is
 

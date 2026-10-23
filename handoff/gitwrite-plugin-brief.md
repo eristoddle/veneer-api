@@ -1,6 +1,6 @@
 # Brief: the GitWrite plugin for Veneer
 
-Build a Veneer plugin that brings GitWrite's writer-facing ideas (save a version, see history, explore alternatives, compare, annotate, share) into Veneer, on top of plain git. Read `README.md` here first (how to depend on the API, lay out, test, and release). The API version is 0.39.0. Repository for the plugin: the GitWrite repository (`~/Dropbox/python/git-write` on Stephan's machine), in a new folder such as `veneer-plugin/`.
+Build a Veneer plugin that brings GitWrite's writer-facing ideas (save a version, see history, explore alternatives, compare, annotate, share) into Veneer, on top of plain git. Read `README.md` here first (how to depend on the API, lay out, test, and release). The API version is 0.40.0. Repository for the plugin: the GitWrite repository (`~/Dropbox/python/git-write` on Stephan's machine), in a new folder such as `veneer-plugin/`.
 
 ## What GitWrite is
 

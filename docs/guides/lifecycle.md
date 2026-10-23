@@ -23,7 +23,7 @@ export function onunload(): void {
 ## Install, enable, disable
 
 - **Install** from Settings > Plugins (a folder or a `.zip`). The package goes to `userData/plugins/<id>/` and is enabled everywhere by default. A package with a missing or invalid manifest is refused with one plain sentence and leaves nothing behind.
-- **Compatibility.** `apiVersion` in your manifest is `^x.y.z` or an exact `x.y.z`. While the API is below 1.0, `^0.39.0` accepts only `0.17.x`. A plugin built for another version is installed but not enabled, and Settings marks it "Incompatible".
+- **Compatibility.** `apiVersion` in your manifest is `^x.y.z` or an exact `x.y.z`. While the API is below 1.0, `^0.40.0` accepts only `0.17.x`. A plugin built for another version is installed but not enabled, and Settings marks it "Incompatible".
 - **Disable / enable** from Settings > Plugins, with no restart. Disabling runs `onunload`, disposes every registration you made, and withdraws your contributions. Enabling brings you back unloaded; you wake on first use.
 - **Project overrides.** A project may turn plugins on or off in `.veneer/plugins.json`; the writer is asked once before it applies.
 

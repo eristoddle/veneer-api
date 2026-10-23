@@ -2,7 +2,7 @@
 
 `@veneer/api` is the plugin API for Veneer, a desktop writing app where everything, the editor included, is a plugin. This is the reference for building one. It is meant to be read by a person or an agent with nothing else: the guides below explain how the parts fit together, and the generated [reference](reference/README.md) lists every type and method with its signature, notes, and an example.
 
-**API version: 0.39.0** (`API_VERSION` in `@veneer/api`). It follows [semantic versioning](https://semver.org): while the major version is 0, a *minor* bump may include breaking changes, and each one is listed under Breaking changes below with a migration note; a *patch* bump never breaks. A plugin's `apiVersion` (`^0.34.0` or an exact `0.34.0`) must accept the running version, or it is installed but not enabled. Both `@veneer/api` (the types package) and the manifest carry this number.
+**API version: 0.40.0** (`API_VERSION` in `@veneer/api`). It follows [semantic versioning](https://semver.org): while the major version is 0, a *minor* bump may include breaking changes, and each one is listed under Breaking changes below with a migration note; a *patch* bump never breaks. A plugin's `apiVersion` (`^0.34.0` or an exact `0.34.0`) must accept the running version, or it is installed but not enabled. Both `@veneer/api` (the types package) and the manifest carry this number.
 
 ## Start here
 
@@ -82,6 +82,7 @@ Every version so far has only **added** to the API.
 | 0.37 | `api.notify` (a limited, kernel-drawn notice a plugin may request; AD-21) |
 | 0.38 | the `diff` view and `api.surfaces.onDiffAction` (a host-drawn compare with Accept and Reject) |
 | 0.39 | `api.editor.setMarks` and `onMarkClick` (marks on the text in the page) |
+| 0.40 | the project-data change event is `project-data:changed` (was `projectData:changed`), so a plugin can list it in `activationEvents` |
 
 ## Breaking changes
 

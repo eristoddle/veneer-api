@@ -1,6 +1,6 @@
 # Interface: SearchFileResult
 
-Defined in: [index.ts:235](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L235)
+Defined in: [index.ts:235](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L235)
 
 One document's hits, in document order. `path` is an API path.
 
@@ -10,7 +10,7 @@ One document's hits, in document order. `path` is an API path.
 
 > **path**: `string`
 
-Defined in: [index.ts:236](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L236)
+Defined in: [index.ts:236](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L236)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:236](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **matches**: [`SearchMatch`](SearchMatch.md)[]
 
-Defined in: [index.ts:237](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L237)
+Defined in: [index.ts:237](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L237)

@@ -1,6 +1,6 @@
 {
   "name": "@veneer/api",
-  "version": "0.39.0",
+  "version": "0.40.0",
   "description": "The Veneer plugin API: the only module a Veneer plugin imports (AD-3)",
   "license": "MIT",
   "type": "module",

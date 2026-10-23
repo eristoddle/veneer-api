@@ -1,6 +1,6 @@
 # Interface: HistorySyncResult
 
-Defined in: [index.ts:3156](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3156)
+Defined in: [index.ts:3156](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3156)
 
 What a sync did (Story 9.18).
 
@@ -10,7 +10,7 @@ What a sync did (Story 9.18).
 
 > **fetched**: `boolean`
 
-Defined in: [index.ts:3158](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3158)
+Defined in: [index.ts:3158](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3158)
 
 The remote had commits this project did not.
 
@@ -20,7 +20,7 @@ The remote had commits this project did not.
 
 > **merged**: `"none"` \| `"fast-forward"` \| `"merge"`
 
-Defined in: [index.ts:3160](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3160)
+Defined in: [index.ts:3160](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3160)
 
 How they came in: not at all, by fast-forward, or by a merge commit.
 
@@ -30,7 +30,7 @@ How they came in: not at all, by fast-forward, or by a merge commit.
 
 > **pushed**: `boolean`
 
-Defined in: [index.ts:3162](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3162)
+Defined in: [index.ts:3162](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3162)
 
 This project's commits went to the remote.
 
@@ -40,7 +40,7 @@ This project's commits went to the remote.
 
 > **upToDate**: `boolean`
 
-Defined in: [index.ts:3164](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3164)
+Defined in: [index.ts:3164](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3164)
 
 Nothing moved either way.
 
@@ -50,6 +50,6 @@ Nothing moved either way.
 
 > **commit**: [`HistoryCommit`](HistoryCommit.md) \| `null`
 
-Defined in: [index.ts:3166](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3166)
+Defined in: [index.ts:3166](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3166)
 
 The merge commit, when `merged` is `merge`; otherwise null.

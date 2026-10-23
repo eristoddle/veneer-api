@@ -23,7 +23,7 @@ describe('novel-checklist', () => {
   it('declares the type it requires, so it is valid and satisfiable', () => {
     expect(manifest.requiredProjectType).toBe('novel-checklist/novel')
     expect(manifest.contributes.projectTypes?.[0].id).toBe(manifest.requiredProjectType)
-    expect(validateManifest(manifest, '0.39.0').ok).toBe(true)
+    expect(validateManifest(manifest, '0.40.0').ok).toBe(true)
   })
 
   it('reads the frontmatter block of a document', () => {

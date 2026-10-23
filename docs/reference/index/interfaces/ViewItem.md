@@ -1,6 +1,6 @@
 # Interface: ViewItem
 
-Defined in: [index.ts:1018](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1018)
+Defined in: [index.ts:1018](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1018)
 
 One row of a list or tree view. `id` is what `onOpen` handlers receive.
 
@@ -10,7 +10,7 @@ One row of a list or tree view. `id` is what `onOpen` handlers receive.
 
 > **id**: `string`
 
-Defined in: [index.ts:1019](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1019)
+Defined in: [index.ts:1019](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1019)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:1019](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **label**: `string`
 
-Defined in: [index.ts:1020](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1020)
+Defined in: [index.ts:1020](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1020)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:1020](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **children?**: `ViewItem`[]
 
-Defined in: [index.ts:1022](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1022)
+Defined in: [index.ts:1022](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1022)
 
 A tree row's children; the kernel indents them and collapses them with Left/Right.
 
@@ -36,7 +36,7 @@ A tree row's children; the kernel indents them and collapses them with Left/Righ
 
 > `optional` **group?**: `boolean`
 
-Defined in: [index.ts:1027](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1027)
+Defined in: [index.ts:1027](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1027)
 
 A group row, like a folder: Enter or a click expands or collapses it instead of opening it,
 and the panel stays open. `onOpen` never receives a group row's ID.
@@ -47,7 +47,7 @@ and the panel stays open. `onOpen` never receives a group row's ID.
 
 > `optional` **expanded?**: `boolean`
 
-Defined in: [index.ts:1032](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1032)
+Defined in: [index.ts:1032](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1032)
 
 Whether a tree row with children starts expanded (default true). Read only the first time
 the kernel sees the row's ID; after that, the writer's own toggles win.
@@ -58,7 +58,7 @@ the kernel sees the row's ID; after that, the writer's own toggles win.
 
 > `optional` **kind?**: [`RowKind`](../type-aliases/RowKind.md)
 
-Defined in: [index.ts:1034](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1034)
+Defined in: [index.ts:1034](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1034)
 
 What the row stands for; the surface's row actions for that kind apply to it.
 
@@ -68,7 +68,7 @@ What the row stands for; the surface's row actions for that kind apply to it.
 
 > `optional` **opens?**: `boolean`
 
-Defined in: [index.ts:1039](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1039)
+Defined in: [index.ts:1039](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1039)
 
 False when Enter or a click only selects the row: the panel stays and `onOpen` never gets
 it (an image in Files). Default true.
@@ -79,7 +79,7 @@ it (an image in Files). Default true.
 
 > `optional` **detail?**: `string`
 
-Defined in: [index.ts:1044](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1044)
+Defined in: [index.ts:1044](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1044)
 
 A second line in quieter, smaller text under the label (a search hit's snippet, Story
 2.10). A row with an empty `label` shows only its detail.
@@ -90,7 +90,7 @@ A second line in quieter, smaller text under the label (a search hit's snippet, 
 
 > `optional` **marks?**: \[`number`, `number`\][]
 
-Defined in: [index.ts:1046](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1046)
+Defined in: [index.ts:1046](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1046)
 
 Spans of `detail` (`[from, to]` offsets) drawn on the accent tint, e.g. matched words.
 
@@ -100,7 +100,7 @@ Spans of `detail` (`[from, to]` offsets) drawn on the accent tint, e.g. matched 
 
 > `optional` **depth?**: `number`
 
-Defined in: [index.ts:1052](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1052)
+Defined in: [index.ts:1052](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1052)
 
 A list row's indent level (Story 2.11): an integer 0 to `MAX_LIST_DEPTH`, each level
 indenting the row 10px, like an Outline heading under H1. Others are clamped; a tree
@@ -112,7 +112,7 @@ ignores it (its rows indent by nesting). Default 0.
 
 > `optional` **image?**: `string`
 
-Defined in: [index.ts:1058](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1058)
+Defined in: [index.ts:1058](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1058)
 
 A picture for a card (Story 9.23, `ItemsView.layout: 'cards'`): a path to an image inside
 the project, such as `images/mara.png`. Remote URLs, `data:` URLs, files outside the

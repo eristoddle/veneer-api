@@ -1,6 +1,6 @@
 # Interface: RowActionContribution
 
-Defined in: [index.ts:983](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L983)
+Defined in: [index.ts:983](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L983)
 
 A row action contribution (FR-10, AD-4, AD-5), declared in a surface's `rowActions`. `id` is
 `<pluginId>:<name>`; `title` labels it in the row's native right-click menu; `appliesTo`
@@ -16,7 +16,7 @@ is the confirmation hint's word (default `confirm`).
 
 > **id**: `string`
 
-Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L984)
+Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L984)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **title**: `string`
 
-Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L985)
+Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L985)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **input**: [`RowActionInput`](../type-aliases/RowActionInput.md)
 
-Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L986)
+Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L986)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **appliesTo**: [`RowActionTarget`](../type-aliases/RowActionTarget.md)[]
 
-Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L987)
+Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L987)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **key?**: `string`
 
-Defined in: [index.ts:988](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L988)
+Defined in: [index.ts:988](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L988)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [index.ts:988](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **prompt?**: `string`
 
-Defined in: [index.ts:989](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L989)
+Defined in: [index.ts:989](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L989)
 
 ***
 
@@ -64,4 +64,4 @@ Defined in: [index.ts:989](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **verb?**: `string`
 
-Defined in: [index.ts:990](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L990)
+Defined in: [index.ts:990](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L990)

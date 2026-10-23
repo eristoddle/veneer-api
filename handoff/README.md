@@ -1,13 +1,13 @@
 # Building a Veneer plugin in its own repo
 
-This folder is for an agent or a person who builds a Veneer plugin outside the Veneer app's repository. The two plugins planned this way are GitWrite and BookForge; each has a brief here. Everything a plugin may use is `@veneer/api`, documented in `docs/` (start with `docs/README.md`, then `docs/guides/`). The API version these briefs were written against is 0.39.0.
+This folder is for an agent or a person who builds a Veneer plugin outside the Veneer app's repository. The two plugins planned this way are GitWrite and BookForge; each has a brief here. Everything a plugin may use is `@veneer/api`, documented in `docs/` (start with `docs/README.md`, then `docs/guides/`). The API version these briefs were written against is 0.40.0.
 
 ## Depend on the API
 
 `@veneer/api` is not on npm. Install it from this repository, pinned to a release tag:
 
 ```
-npm install --save-dev github:eristoddle/veneer-api#v0.39.0
+npm install --save-dev github:eristoddle/veneer-api#v0.40.0
 ```
 
 npm 12 and later refuse git dependencies unless the project allows them, so a plugin repo carries an `.npmrc` with this one line (older npm only warns about it):
@@ -18,7 +18,7 @@ allow-git=all
 
 The repository root is the built package (compiled JavaScript, `.d.ts` files, no build step on install). `src/` holds the TypeScript source for reading. The package has two entry points: `@veneer/api` (types, plus the runtime helpers `wordDiff`, `splitFrontmatter`, `adviseFrontmatter`, `findInText`, `veneerError`, `isVeneerError`) and `@veneer/api/testing` (the fake host).
 
-A plugin's manifest names the API range it needs, for example `"apiVersion": "^0.39.0"`. While the API is below 1.0.0, a minor bump may change things, so `^0.39.0` accepts 0.39.x only. When the plugin needs a newer API, bump the dependency tag and the range together.
+A plugin's manifest names the API range it needs, for example `"apiVersion": "^0.40.0"`. While the API is below 1.0.0, a minor bump may change things, so `^0.40.0` accepts 0.39.x only. When the plugin needs a newer API, bump the dependency tag and the range together.
 
 ## Layout
 

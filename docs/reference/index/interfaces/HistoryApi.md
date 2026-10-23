@@ -1,6 +1,6 @@
 # Interface: HistoryApi
 
-Defined in: [index.ts:3188](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3188)
+Defined in: [index.ts:3188](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3188)
 
 Save points and history for the open project (Story 9.13, AD-20), kept as plain git in the
 project folder on the writer's own computer, so other git tools (GitWrite, the command line)
@@ -14,7 +14,7 @@ has no history: every call rejects `history/no-project`.
 
 > **isRepository**(): `Promise`\<`boolean`\>
 
-Defined in: [index.ts:3197](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3197)
+Defined in: [index.ts:3197](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3197)
 
 Whether the open project folder is a git repository (its own `.git`, not a parent's).
 
@@ -34,7 +34,7 @@ if (!(await api.history.isRepository())) console.log('No history yet')
 
 > **init**(): `Promise`\<`boolean`\>
 
-Defined in: [index.ts:3209](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3209)
+Defined in: [index.ts:3209](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3209)
 
 Makes the open project a repository, with a `.gitignore` that keeps out only derived
 files (`.veneer/cache/`, `.DS_Store`). Resolves true when it made one, false when the
@@ -57,7 +57,7 @@ console.log(created ? 'History started' : 'History was already on')
 
 > **save**(`message`): `Promise`\<[`HistoryCommit`](HistoryCommit.md) \| `null`\>
 
-Defined in: [index.ts:3222](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3222)
+Defined in: [index.ts:3222](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3222)
 
 Saves the open document, then commits every change in the project (images and other files
 too, and deletions) as the writer, with `message`. Resolves with the new commit, or null
@@ -87,7 +87,7 @@ if (commit !== null) console.log(`Saved ${commit.id.slice(0, 7)}`)
 
 > **log**(`options?`): `Promise`\<[`HistoryCommit`](HistoryCommit.md)[]\>
 
-Defined in: [index.ts:3233](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3233)
+Defined in: [index.ts:3233](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3233)
 
 Commits newest first, for the whole project or one file, on the current branch or another.
 An empty repository lists none. An unknown branch rejects `history/not-found`.
@@ -115,7 +115,7 @@ for (const c of recent) console.log(c.date, c.message)
 
 > **show**(`commit`, `path`): `Promise`\<`string`\>
 
-Defined in: [index.ts:3246](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3246)
+Defined in: [index.ts:3246](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3246)
 
 A file's text as of a commit (a full ID, or a unique prefix of at least 4 characters),
 with `\n` line endings. An unknown commit, or a file that isn't in it, rejects
@@ -149,7 +149,7 @@ console.log(wordDiff(then, api.editor.getText() ?? '').length)
 
 > **branches**(): `Promise`\<[`HistoryBranch`](HistoryBranch.md)[]\>
 
-Defined in: [index.ts:3256](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3256)
+Defined in: [index.ts:3256](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3256)
 
 Every branch, sorted by name, with the current one marked.
 
@@ -170,7 +170,7 @@ console.log(`On ${current?.name ?? 'no branch'}`)
 
 > **createBranch**(`name`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3267](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3267)
+Defined in: [index.ts:3267](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3267)
 
 Makes a branch at the current commit, without switching to it. Names are letters, digits,
 `.`, `_`, `-`, and `/` between parts. Rejects `history/exists` for a name in use, and
@@ -198,7 +198,7 @@ await api.history.createBranch('ending-b')
 
 > **switchTo**(`name`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3279](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3279)
+Defined in: [index.ts:3279](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3279)
 
 Saves the open document, then changes the project's files to another branch: they change
 on disk, the page reloads, and `history:switched` follows. Every change must already be in
@@ -227,7 +227,7 @@ await api.history.switchTo('ending-b')
 
 > **merge**(`name`): `Promise`\<[`HistoryCommit`](HistoryCommit.md) \| `null`\>
 
-Defined in: [index.ts:3292](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3292)
+Defined in: [index.ts:3292](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3292)
 
 Saves the open document, then merges another branch into the current one: a fast-forward
 or a clean three-way merge, and the files on disk follow. Resolves with the new commit, or
@@ -257,7 +257,7 @@ console.log(merged === null ? 'Already there' : merged.message)
 
 > **tags**(): `Promise`\<[`HistoryTag`](HistoryTag.md)[]\>
 
-Defined in: [index.ts:3301](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3301)
+Defined in: [index.ts:3301](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3301)
 
 Every tag, sorted by name, with the commit it names.
 
@@ -277,7 +277,7 @@ for (const tag of await api.history.tags()) console.log(tag.name, tag.commit.sli
 
 > **createTag**(`name`, `commit?`, `message?`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3311](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3311)
+Defined in: [index.ts:3311](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3311)
 
 Names a commit (the current one by default) as a milestone, with an optional message.
 Rejects `history/exists` for a name in use.
@@ -312,7 +312,7 @@ await api.history.createTag('first-draft', undefined, 'Sent to beta readers')
 
 > **commitOn**(`branch`, `message`, `options`): `Promise`\<[`HistoryCommit`](HistoryCommit.md)\>
 
-Defined in: [index.ts:3329](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3329)
+Defined in: [index.ts:3329](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3329)
 
 Writes a commit onto another branch without switching to it or touching the files: a
 message-only commit (git's `--allow-empty`), so `allowEmpty: true` is required. `log({
@@ -357,7 +357,7 @@ console.log(note.body)
 
 > **remotes**(): `Promise`\<[`HistoryRemote`](HistoryRemote.md)[]\>
 
-Defined in: [index.ts:3343](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3343)
+Defined in: [index.ts:3343](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3343)
 
 The project's remotes, with any credentials taken out of the address.
 
@@ -378,7 +378,7 @@ console.log(origin?.url ?? 'Not connected')
 
 > **setRemote**(`name`, `url`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3354](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3354)
+Defined in: [index.ts:3354](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3354)
 
 Adds or replaces a remote. Only `https://` (or `http://`) addresses: an SSH remote rejects
 `history/ssh-unsupported`, and an address holding a user or token rejects
@@ -410,7 +410,7 @@ await api.history.setRemote('origin', 'https://github.com/writer/novel.git')
 
 > **sync**(`options?`): `Promise`\<[`HistorySyncResult`](HistorySyncResult.md)\>
 
-Defined in: [index.ts:3370](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3370)
+Defined in: [index.ts:3370](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3370)
 
 Saves the open document, then fetches from the remote, fast-forwards or merges cleanly,
 and pushes, over HTTPS through Veneer's network rules. The first sync to a host asks the

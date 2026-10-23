@@ -1,6 +1,6 @@
 # Interface: SurfaceContribution
 
-Defined in: [index.ts:935](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L935)
+Defined in: [index.ts:935](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L935)
 
 A side-panel surface contribution (FR-7, AD-4, AD-15). `id` is the full contribution ID,
 `<pluginId>:<name>`; `title` names it for assistive tech and tooltips; `icon` is a Lucide icon
@@ -14,7 +14,7 @@ panel frame, the tab, and the rows; the plugin only hands it a view (`api.surfac
 
 > **id**: `string`
 
-Defined in: [index.ts:936](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L936)
+Defined in: [index.ts:936](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L936)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [index.ts:936](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **title**: `string`
 
-Defined in: [index.ts:937](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L937)
+Defined in: [index.ts:937](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L937)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [index.ts:937](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **icon**: `string`
 
-Defined in: [index.ts:938](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L938)
+Defined in: [index.ts:938](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L938)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [index.ts:938](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **side**: [`SurfaceSide`](../type-aliases/SurfaceSide.md)
 
-Defined in: [index.ts:939](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L939)
+Defined in: [index.ts:939](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L939)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [index.ts:939](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **width?**: [`SurfaceWidth`](../type-aliases/SurfaceWidth.md)
 
-Defined in: [index.ts:944](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L944)
+Defined in: [index.ts:944](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L944)
 
 `wide` (Story 9.23) opens the panel at twice a side's width, for cards: the writer drags
 its edge to resize it, and the width is remembered for this surface alone. Default `normal`.
@@ -57,6 +57,6 @@ its edge to resize it, and the width is remembered for this surface alone. Defau
 
 > `optional` **rowActions?**: [`RowActionContribution`](RowActionContribution.md)[]
 
-Defined in: [index.ts:946](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L946)
+Defined in: [index.ts:946](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L946)
 
 Actions on the surface's rows, drawn and run by the kernel (Story 2.8, AD-4).

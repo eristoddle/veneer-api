@@ -1,6 +1,6 @@
 # Interface: WorkspaceApi
 
-Defined in: [index.ts:676](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L676)
+Defined in: [index.ts:676](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L676)
 
 The window's project and open document (FR-10, AD-14). Plugins never touch the filesystem
 (AD-6): opening goes through main, which scope-checks every path.
@@ -11,7 +11,7 @@ The window's project and open document (FR-10, AD-14). Plugins never touch the f
 
 > **current**(): [`WorkspaceState`](WorkspaceState.md)
 
-Defined in: [index.ts:688](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L688)
+Defined in: [index.ts:688](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L688)
 
 What is open now: the project or loose file's folder and the open document's API path.
 
@@ -34,7 +34,7 @@ if (project?.kind === 'project' && document !== null) {
 
 > **projectType**(): [`ResolvedProjectType`](ResolvedProjectType.md) \| `null`
 
-Defined in: [index.ts:700](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L700)
+Defined in: [index.ts:700](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L700)
 
 The open project's type with its inheritance applied, or null (no project, no type set, or
 the plugin that offers it is off). A project has one type, stored in `.veneer/project.json`
@@ -57,7 +57,7 @@ const needsPov = type?.frontmatter.some((f) => f.key === 'pov' && f.required)
 
 > **open**(`path`, `options?`): `Promise`\<`void`\>
 
-Defined in: [index.ts:720](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L720)
+Defined in: [index.ts:720](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L720)
 
 Makes the document at `path` (an API path) the open one, the way a Finder open does: the
 current document is saved first. Resolves once main has opened it. Rejects, carrying
@@ -98,7 +98,7 @@ await api.workspace.open('chapters/one.md', { select: { from: 0, to: 5 } })
 
 > **openFolderAsProject**(): `Promise`\<`void`\>
 
-Defined in: [index.ts:732](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L732)
+Defined in: [index.ts:732](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L732)
 
 Opens the loose file's folder as a project, the same flow as File > Open Folder…: the
 document stays open with the same key, so its snapshots and session survive (AD-14).

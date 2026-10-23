@@ -143,7 +143,7 @@ export interface FakeHost {
     }[];
     /** The JSON text `api.projectData` holds for this plugin, by key (Story 9.26). */
     readonly projectData: Map<string, string>;
-    /** Simulates a pull or checkout changing `key` on disk: emits `projectData:changed` to the plugin. */
+    /** Simulates a pull or checkout changing `key` on disk: emits `project-data:changed` to the plugin. */
     projectDataChanged(key: string): Promise<void>;
     /** Every `api.net.fetch` request that was allowed through, in order. */
     readonly netRequests: NetRequest[];

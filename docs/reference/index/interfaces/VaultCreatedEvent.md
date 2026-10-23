@@ -1,6 +1,6 @@
 # Interface: VaultCreatedEvent
 
-Defined in: [index.ts:166](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L166)
+Defined in: [index.ts:166](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L166)
 
 Emitted after `api.vault.create` or `createFolder` made something (FR-10). `kind` is `file`
 for a document, `folder` for a folder.
@@ -15,7 +15,7 @@ for a document, `folder` for a folder.
 
 > `readonly` **type**: `"vault:created"`
 
-Defined in: [index.ts:167](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L167)
+Defined in: [index.ts:167](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L167)
 
 #### Overrides
 
@@ -27,7 +27,7 @@ Defined in: [index.ts:167](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `readonly` **path**: `string`
 
-Defined in: [index.ts:168](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L168)
+Defined in: [index.ts:168](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L168)
 
 ***
 
@@ -35,4 +35,4 @@ Defined in: [index.ts:168](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `readonly` **kind**: `"file"` \| `"folder"`
 
-Defined in: [index.ts:169](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L169)
+Defined in: [index.ts:169](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L169)

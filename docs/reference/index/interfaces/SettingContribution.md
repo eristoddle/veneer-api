@@ -1,6 +1,6 @@
 # Interface: SettingContribution
 
-Defined in: [index.ts:872](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L872)
+Defined in: [index.ts:872](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L872)
 
 A setting contribution (FR-44, AD-5). `id` is the full contribution ID, `<pluginId>:<name>`.
 The kernel draws the control from this declaration alone; plugins never draw settings UI.
@@ -13,7 +13,7 @@ path, or `''` for none).
 
 > **id**: `string`
 
-Defined in: [index.ts:873](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L873)
+Defined in: [index.ts:873](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L873)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:873](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **type**: [`SettingType`](../type-aliases/SettingType.md)
 
-Defined in: [index.ts:874](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L874)
+Defined in: [index.ts:874](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L874)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [index.ts:874](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **default**: [`SettingValue`](../type-aliases/SettingValue.md)
 
-Defined in: [index.ts:875](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L875)
+Defined in: [index.ts:875](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L875)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [index.ts:875](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **label**: `string`
 
-Defined in: [index.ts:876](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L876)
+Defined in: [index.ts:876](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L876)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [index.ts:876](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **description?**: `string`
 
-Defined in: [index.ts:877](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L877)
+Defined in: [index.ts:877](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L877)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [index.ts:877](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **category?**: `string`
 
-Defined in: [index.ts:883](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L883)
+Defined in: [index.ts:883](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L883)
 
 A page of this plugin's settings in the Settings sidebar, such as `Appearance`. Settings with
 the same category (up to 40 characters) share a page, listed under the plugin's name; settings
@@ -65,7 +65,7 @@ with none stay on the plugin's own page. Optional, and a plugin with few setting
 
 > **scope**: [`SettingScope`](../type-aliases/SettingScope.md)
 
-Defined in: [index.ts:884](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L884)
+Defined in: [index.ts:884](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L884)
 
 ***
 
@@ -73,6 +73,6 @@ Defined in: [index.ts:884](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > `optional` **options?**: [`SettingOption`](SettingOption.md)[]
 
-Defined in: [index.ts:886](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L886)
+Defined in: [index.ts:886](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L886)
 
 Required for `enum`, and only allowed there.

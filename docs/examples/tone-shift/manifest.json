@@ -2,7 +2,7 @@
   "id": "tone-shift",
   "name": "Tone Shift",
   "version": "1.0.0",
-  "apiVersion": "^0.39.0",
+  "apiVersion": "^0.40.0",
   "main": "index.js",
   "needs": ["model provider"],
   "contributes": {

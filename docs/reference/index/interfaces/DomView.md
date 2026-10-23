@@ -1,6 +1,6 @@
 # Interface: DomView
 
-Defined in: [index.ts:1140](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1140)
+Defined in: [index.ts:1140](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1140)
 
 The raw-DOM escape hatch (AD-4). @unstable: may change or go away in any minor version.
 The kernel still owns the frame, tabs, Esc, open/close, and width; `mount` fills the element
@@ -14,7 +14,7 @@ whole query, Up/Down call `move(-1 | 1)`, Enter calls `activate`.
 
 > **kind**: `"dom"`
 
-Defined in: [index.ts:1141](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1141)
+Defined in: [index.ts:1141](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1141)
 
 ## Methods
 
@@ -22,7 +22,7 @@ Defined in: [index.ts:1141](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **mount**(`element`): `void` \| [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1142](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1142)
+Defined in: [index.ts:1142](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1142)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [index.ts:1142](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **filter**(`query`): `void`
 
-Defined in: [index.ts:1143](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1143)
+Defined in: [index.ts:1143](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1143)
 
 #### Parameters
 
@@ -58,7 +58,7 @@ Defined in: [index.ts:1143](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **move**(`delta`): `void`
 
-Defined in: [index.ts:1144](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1144)
+Defined in: [index.ts:1144](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1144)
 
 #### Parameters
 
@@ -76,7 +76,7 @@ Defined in: [index.ts:1144](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **activate**(): `void`
 
-Defined in: [index.ts:1145](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1145)
+Defined in: [index.ts:1145](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1145)
 
 #### Returns
 

@@ -1,6 +1,6 @@
 # Interface: PluginApi
 
-Defined in: [index.ts:2290](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2290)
+Defined in: [index.ts:2290](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2290)
 
 What a plugin receives in `onload`. Every method that registers returns a `Disposable`.
 
@@ -10,7 +10,7 @@ What a plugin receives in `onload`. Every method that registers returns a `Dispo
 
 > `readonly` **pluginId**: `string`
 
-Defined in: [index.ts:2291](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2291)
+Defined in: [index.ts:2291](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2291)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:2291](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `readonly` **apiVersion**: `string`
 
-Defined in: [index.ts:2292](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2292)
+Defined in: [index.ts:2292](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2292)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:2292](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `readonly` **commands**: `object`
 
-Defined in: [index.ts:2293](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2293)
+Defined in: [index.ts:2293](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2293)
 
 #### handle()
 
@@ -67,7 +67,7 @@ export function onload(api: PluginApi): void {
 
 > `readonly` **tools**: `object`
 
-Defined in: [index.ts:2311](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2311)
+Defined in: [index.ts:2311](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2311)
 
 #### handle()
 
@@ -109,7 +109,7 @@ api.tools.handle('my-plugin:shout', (input) => ({
 
 > `readonly` **events**: `object`
 
-Defined in: [index.ts:2330](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2330)
+Defined in: [index.ts:2330](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2330)
 
 #### on()
 
@@ -148,7 +148,7 @@ api.events.on('vault:saved', (event) => {
 
 > `readonly` **editor**: `object`
 
-Defined in: [index.ts:2346](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2346)
+Defined in: [index.ts:2346](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2346)
 
 #### registerHost()
 
@@ -436,7 +436,7 @@ api.editor.onMarkClick('my-plugin:notes', (markId) => {
 
 > `readonly` **vault**: `object`
 
-Defined in: [index.ts:2493](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2493)
+Defined in: [index.ts:2493](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2493)
 
 #### process()
 
@@ -859,7 +859,7 @@ console.log(`${linkers.length} documents link to chapter one`)
 
 > `readonly` **workspace**: [`WorkspaceApi`](WorkspaceApi.md)
 
-Defined in: [index.ts:2724](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2724)
+Defined in: [index.ts:2724](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2724)
 
 The project and open document, and opening another (FR-10, AD-14).
 
@@ -869,7 +869,7 @@ The project and open document, and opening another (FR-10, AD-14).
 
 > `readonly` **palette**: [`PaletteApi`](PaletteApi.md)
 
-Defined in: [index.ts:2726](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2726)
+Defined in: [index.ts:2726](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2726)
 
 This plugin's declared palette providers (`contributes.paletteProviders`, FR-9).
 
@@ -879,7 +879,7 @@ This plugin's declared palette providers (`contributes.paletteProviders`, FR-9).
 
 > `readonly` **resources**: [`ResourcesApi`](ResourcesApi.md)
 
-Defined in: [index.ts:2727](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2727)
+Defined in: [index.ts:2727](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2727)
 
 ***
 
@@ -887,7 +887,7 @@ Defined in: [index.ts:2727](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `readonly` **settings**: [`SettingsApi`](SettingsApi.md)
 
-Defined in: [index.ts:2729](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2729)
+Defined in: [index.ts:2729](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2729)
 
 This plugin's declared settings (`contributes.settings`, FR-44).
 
@@ -897,7 +897,7 @@ This plugin's declared settings (`contributes.settings`, FR-44).
 
 > `readonly` **surfaces**: [`SurfacesApi`](SurfacesApi.md)
 
-Defined in: [index.ts:2731](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2731)
+Defined in: [index.ts:2731](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2731)
 
 This plugin's declared side-panel surfaces (`contributes.surfaces`, FR-7).
 
@@ -907,7 +907,7 @@ This plugin's declared side-panel surfaces (`contributes.surfaces`, FR-7).
 
 > `readonly` **providers**: [`ProvidersApi`](ProvidersApi.md)
 
-Defined in: [index.ts:2733](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2733)
+Defined in: [index.ts:2733](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2733)
 
 The writer's models, for plugins that declare a provider tool (FR-34, AD-11).
 
@@ -917,7 +917,7 @@ The writer's models, for plugins that declare a provider tool (FR-34, AD-11).
 
 > `readonly` **net**: [`NetApi`](NetApi.md)
 
-Defined in: [index.ts:2735](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2735)
+Defined in: [index.ts:2735](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2735)
 
 The network, behind the writer's first-time consent (FR-51, AD-6).
 
@@ -927,7 +927,7 @@ The network, behind the writer's first-time consent (FR-51, AD-6).
 
 > `readonly` **secrets**: [`SecretsApi`](SecretsApi.md)
 
-Defined in: [index.ts:2737](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2737)
+Defined in: [index.ts:2737](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2737)
 
 Secret storage scoped to this plugin (Story 9.8, AD-11).
 
@@ -937,7 +937,7 @@ Secret storage scoped to this plugin (Story 9.8, AD-11).
 
 > `readonly` **export**: [`ExportApi`](ExportApi.md)
 
-Defined in: [index.ts:2739](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2739)
+Defined in: [index.ts:2739](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2739)
 
 Saving a produced file where the writer chooses (Story 9.8).
 
@@ -947,7 +947,7 @@ Saving a produced file where the writer chooses (Story 9.8).
 
 > `readonly` **history**: [`HistoryApi`](HistoryApi.md)
 
-Defined in: [index.ts:2741](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2741)
+Defined in: [index.ts:2741](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2741)
 
 Save points and history for the open project, kept as plain git (Story 9.13, AD-20).
 
@@ -957,7 +957,7 @@ Save points and history for the open project, kept as plain git (Story 9.13, AD-
 
 > `readonly` **projectData**: [`ProjectDataApi`](ProjectDataApi.md)
 
-Defined in: [index.ts:2743](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2743)
+Defined in: [index.ts:2743](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2743)
 
 Structured data kept in the open project, per plugin (Story 9.26).
 
@@ -967,7 +967,7 @@ Structured data kept in the open project, per plugin (Story 9.26).
 
 > **notify**(`notice`): `void`
 
-Defined in: [index.ts:2762](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2762)
+Defined in: [index.ts:2762](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2762)
 
 Tells the writer that a long job finished or failed, in a notice the kernel draws and
 names after this plugin (Story 9.20, AD-21). One plain sentence, no modal, no focus taken,

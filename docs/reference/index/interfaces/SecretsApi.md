@@ -1,6 +1,6 @@
 # Interface: SecretsApi
 
-Defined in: [index.ts:3022](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3022)
+Defined in: [index.ts:3022](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3022)
 
 Secret storage for a plugin (Story 9.8, AD-11): a service token, an API key. Values live in the
 system keychain under this plugin's own ID, so no other plugin can read them, and main never
@@ -13,7 +13,7 @@ value is up to 8,192 characters. Removing the plugin removes its secrets.
 
 > **get**(`name`): `Promise`\<`string` \| `null`\>
 
-Defined in: [index.ts:3032](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3032)
+Defined in: [index.ts:3032](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3032)
 
 The secret stored under `name`, or null.
 
@@ -40,7 +40,7 @@ if (token === null) console.log('Ask the writer for a token first')
 
 > **set**(`name`, `value`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3043](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3043)
+Defined in: [index.ts:3043](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3043)
 
 Stores or replaces a secret. Rejects `secrets/invalid` for a bad name or value, and
 `secrets/keychain-unavailable` when the keychain refuses.
@@ -72,7 +72,7 @@ await api.secrets.set('service-token', tokenTheWriterTyped)
 
 > **delete**(`name`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3052](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3052)
+Defined in: [index.ts:3052](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3052)
 
 Removes a secret; one that isn't stored is ignored.
 

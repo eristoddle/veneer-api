@@ -1,6 +1,6 @@
 # Interface: ProvidersApi
 
-Defined in: [index.ts:2796](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2796)
+Defined in: [index.ts:2796](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2796)
 
 The writer's models (FR-34, AD-11). Requests go to the default provider through the kernel;
 a plugin gets text or a `VeneerError` and never a key, a URL, or the provider list. Only a
@@ -14,7 +14,7 @@ plugin whose manifest declares a tool with `needsProvider` may call it
 
 > **complete**(`request`, `signal?`): `Promise`\<`string`\>
 
-Defined in: [index.ts:2806](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2806)
+Defined in: [index.ts:2806](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2806)
 
 The whole reply.
 
@@ -46,7 +46,7 @@ const reply = await api.providers.complete({
 
 > **stream**(`request`, `onText`, `signal?`): `Promise`\<`void`\>
 
-Defined in: [index.ts:2818](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2818)
+Defined in: [index.ts:2818](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2818)
 
 Calls `onText` with each piece as it arrives, in order, then resolves.
 

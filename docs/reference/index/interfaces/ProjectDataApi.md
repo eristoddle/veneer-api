@@ -1,6 +1,6 @@
 # Interface: ProjectDataApi
 
-Defined in: [index.ts:2960](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2960)
+Defined in: [index.ts:2960](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2960)
 
 Structured data that belongs to the open project (Story 9.26): a graph's node positions, a
 timeline's lane order, a book's chapter order. Each key is a JSON file at
@@ -15,7 +15,7 @@ loose file has no project: every call rejects `projectData/no-project`.
 
 > **read**(`key`): `Promise`\<`unknown`\>
 
-Defined in: [index.ts:2971](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2971)
+Defined in: [index.ts:2971](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2971)
 
 The value under `key`, or null when none is stored. Rejects `projectData/invalid` when the
 file on disk is not valid JSON, and `projectData/bad-key` for a key that is not allowed.
@@ -43,7 +43,7 @@ console.log(Object.keys(positions as object).length, 'nodes placed')
 
 > **write**(`key`, `value`): `Promise`\<`void`\>
 
-Defined in: [index.ts:2983](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2983)
+Defined in: [index.ts:2983](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2983)
 
 Stores `value` (anything `JSON.stringify` accepts) under `key`, replacing the old one.
 Keys are lowercase letters, digits, `.`, `_` and `-`, up to 64 characters, starting with a
@@ -76,7 +76,7 @@ await api.projectData.write('graph-positions', { 'chapters/one.md': { x: 120, y:
 
 > **delete**(`key`): `Promise`\<`void`\>
 
-Defined in: [index.ts:2992](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L2992)
+Defined in: [index.ts:2992](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2992)
 
 Removes `key`; one that isn't stored is ignored.
 
@@ -102,7 +102,7 @@ await api.projectData.delete('graph-positions')
 
 > **keys**(): `Promise`\<`string`[]\>
 
-Defined in: [index.ts:3001](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L3001)
+Defined in: [index.ts:3001](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3001)
 
 Every key this plugin has stored in the project, sorted.
 

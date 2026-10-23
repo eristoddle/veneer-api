@@ -1,6 +1,6 @@
 # Interface: TopBarButtonContribution
 
-Defined in: [index.ts:1009](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1009)
+Defined in: [index.ts:1009](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1009)
 
 A top-bar button a plugin offers (FR-53, AD-15, UX-DR7). `id` is `<pluginId>:<name>`; `title`
 names it in its tooltip and in the "Show in top bar" checklist; `icon` is a Lucide name drawn
@@ -15,7 +15,7 @@ never told whether it is shown.
 
 > **id**: `string`
 
-Defined in: [index.ts:1010](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1010)
+Defined in: [index.ts:1010](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1010)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [index.ts:1010](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **title**: `string`
 
-Defined in: [index.ts:1011](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1011)
+Defined in: [index.ts:1011](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1011)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [index.ts:1011](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > **icon**: `string`
 
-Defined in: [index.ts:1012](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1012)
+Defined in: [index.ts:1012](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1012)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [index.ts:1012](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **surface?**: `string`
 
-Defined in: [index.ts:1013](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1013)
+Defined in: [index.ts:1013](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1013)
 
 ***
 
@@ -47,4 +47,4 @@ Defined in: [index.ts:1013](https://github.com/eristoddle/veneer/blob/ecb42c05a6
 
 > `optional` **command?**: `string`
 
-Defined in: [index.ts:1014](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L1014)
+Defined in: [index.ts:1014](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1014)

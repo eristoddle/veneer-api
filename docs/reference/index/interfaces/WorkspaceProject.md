@@ -1,6 +1,6 @@
 # Interface: WorkspaceProject
 
-Defined in: [index.ts:195](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L195)
+Defined in: [index.ts:195](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L195)
 
 The open project as `api.workspace.current()` reports it: base name only, never a path.
 
@@ -10,7 +10,7 @@ The open project as `api.workspace.current()` reports it: base name only, never 
 
 > **name**: `string`
 
-Defined in: [index.ts:196](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L196)
+Defined in: [index.ts:196](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L196)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:196](https://github.com/eristoddle/veneer/blob/ecb42c05a6d
 
 > **kind**: `"project"` \| `"loose"`
 
-Defined in: [index.ts:197](https://github.com/eristoddle/veneer/blob/ecb42c05a6d6e43c966a918018a8945b8e9c725c/packages/api/src/index.ts#L197)
+Defined in: [index.ts:197](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L197)
