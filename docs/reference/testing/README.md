@@ -3,6 +3,7 @@
 ## Interfaces
 
 - [FakeHostOptions](interfaces/FakeHostOptions.md)
+- [FakeSavedAttachment](interfaces/FakeSavedAttachment.md)
 - [FakeSavedImage](interfaces/FakeSavedImage.md)
 - [FakeEdit](interfaces/FakeEdit.md)
 - [FakeHistoryCommit](interfaces/FakeHistoryCommit.md)

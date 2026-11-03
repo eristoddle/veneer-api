@@ -2,7 +2,7 @@
 
 > **PluginContributions** = `object` & `Record`\<`string`, `unknown`\>
 
-Defined in: [index.ts:1753](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1753)
+Defined in: [index.ts:1907](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1907)
 
 ## Type Declaration
 
@@ -33,6 +33,12 @@ Side-panel surfaces the kernel draws (FR-7, AD-4).
 > `optional` **topBarButtons?**: [`TopBarButtonContribution`](../interfaces/TopBarButtonContribution.md)[]
 
 Top-bar buttons offered to the writer, hidden until turned on (FR-53).
+
+### rowActions?
+
+> `optional` **rowActions?**: [`ContributedRowAction`](../interfaces/ContributedRowAction.md)[]
+
+Right-click items added to another plugin's surface, e.g. the Files panel (Story 17.1).
 
 ### colors?
 
@@ -82,3 +88,9 @@ Fenced-block renderers (Story 9.4, AD-19).
 > `optional` **editorHost?**: `boolean`
 
 The plugin may register the editor host (`api.editor.registerHost`, AD-18).
+
+### imageDestination?
+
+> `optional` **imageDestination?**: `boolean`
+
+The plugin chooses where pasted images are saved (`api.vault.onImageDestination`, Story 17.2).

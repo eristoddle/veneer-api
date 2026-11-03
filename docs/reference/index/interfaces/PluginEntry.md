@@ -1,6 +1,6 @@
 # Interface: PluginEntry
 
-Defined in: [index.ts:3374](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3374)
+Defined in: [index.ts:3762](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3762)
 
 The entry module's exports.
 
@@ -10,7 +10,7 @@ The entry module's exports.
 
 > **onload**(`api`): `void` \| `Promise`\<`void`\>
 
-Defined in: [index.ts:3375](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3375)
+Defined in: [index.ts:3763](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3763)
 
 #### Parameters
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:3375](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **onunload**(): `void` \| `Promise`\<`void`\>
 
-Defined in: [index.ts:3376](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3376)
+Defined in: [index.ts:3764](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3764)
 
 #### Returns
 

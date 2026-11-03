@@ -1,6 +1,6 @@
 # Interface: PaletteApi
 
-Defined in: [index.ts:1492](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1492)
+Defined in: [index.ts:1646](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1646)
 
 A plugin's palette providers (FR-9, UX-DR15). Every ID must be declared in this plugin's
 `contributes.paletteProviders`; others throw `plugin/undeclared-contribution`. The kernel
@@ -13,7 +13,7 @@ is open. The palette entering files mode activates the provider's plugin first.
 
 > **setItems**(`id`, `items`): `void`
 
-Defined in: [index.ts:1503](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1503)
+Defined in: [index.ts:1657](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1657)
 
 Replaces the provider's items. Malformed items throw `plugin/bad-items`.
 
@@ -46,7 +46,7 @@ api.palette.setItems('my-plugin:notes', [
 
 > **onRun**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1515](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1515)
+Defined in: [index.ts:1669](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1669)
 
 Called with the item's ID when the writer picks it; the palette has already closed.
 Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
@@ -79,7 +79,7 @@ api.palette.onRun('my-plugin:notes', (itemId) => {
 
 > **onRefresh**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1530](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1530)
+Defined in: [index.ts:1684](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1684)
 
 Called when the kernel wants fresh items, e.g. before listing them again. Nothing about
 when or why: hand over new items with `setItems` if the data changed. The first activation

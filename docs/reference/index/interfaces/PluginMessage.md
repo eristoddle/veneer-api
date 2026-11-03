@@ -1,6 +1,6 @@
 # Interface: PluginMessage
 
-Defined in: [index.ts:2779](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2779)
+Defined in: [index.ts:3069](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3069)
 
 One message of a model request.
 
@@ -10,7 +10,7 @@ One message of a model request.
 
 > **role**: `"user"` \| `"system"` \| `"assistant"`
 
-Defined in: [index.ts:2780](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2780)
+Defined in: [index.ts:3070](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3070)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:2780](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **content**: `string`
 
-Defined in: [index.ts:2781](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2781)
+Defined in: [index.ts:3071](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3071)

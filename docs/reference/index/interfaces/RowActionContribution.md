@@ -1,6 +1,6 @@
 # Interface: RowActionContribution
 
-Defined in: [index.ts:983](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L983)
+Defined in: [index.ts:1108](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1108)
 
 A row action contribution (FR-10, AD-4, AD-5), declared in a surface's `rowActions`. `id` is
 `<pluginId>:<name>`; `title` labels it in the row's native right-click menu; `appliesTo`
@@ -10,13 +10,17 @@ unless it is a function key, so letters still filter. `prompt` is the confirmati
 folder card's text, with `{name}` standing for the row's label (default: the title); `verb`
 is the confirmation hint's word (default `confirm`).
 
+## Extended by
+
+- [`ContributedRowAction`](ContributedRowAction.md)
+
 ## Properties
 
 ### id
 
 > **id**: `string`
 
-Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L984)
+Defined in: [index.ts:1109](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1109)
 
 ***
 
@@ -24,7 +28,7 @@ Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **title**: `string`
 
-Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L985)
+Defined in: [index.ts:1110](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1110)
 
 ***
 
@@ -32,7 +36,7 @@ Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **input**: [`RowActionInput`](../type-aliases/RowActionInput.md)
 
-Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L986)
+Defined in: [index.ts:1111](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1111)
 
 ***
 
@@ -40,7 +44,7 @@ Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **appliesTo**: [`RowActionTarget`](../type-aliases/RowActionTarget.md)[]
 
-Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L987)
+Defined in: [index.ts:1112](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1112)
 
 ***
 
@@ -48,7 +52,7 @@ Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `optional` **key?**: `string`
 
-Defined in: [index.ts:988](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L988)
+Defined in: [index.ts:1113](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1113)
 
 ***
 
@@ -56,7 +60,7 @@ Defined in: [index.ts:988](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `optional` **prompt?**: `string`
 
-Defined in: [index.ts:989](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L989)
+Defined in: [index.ts:1114](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1114)
 
 ***
 
@@ -64,4 +68,15 @@ Defined in: [index.ts:989](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `optional` **verb?**: `string`
 
-Defined in: [index.ts:990](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L990)
+Defined in: [index.ts:1115](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1115)
+
+***
+
+### contributedBy?
+
+> `optional` **contributedBy?**: `string`
+
+Defined in: [index.ts:1120](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1120)
+
+Set by the kernel, never in a manifest: the ID of the plugin that contributed this action to
+a surface it does not own (`contributes.rowActions`). Absent on the owner's own actions.

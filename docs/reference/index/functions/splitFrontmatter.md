@@ -2,7 +2,7 @@
 
 > **splitFrontmatter**(`text`): [`FrontmatterSplit`](../interfaces/FrontmatterSplit.md)
 
-Defined in: [index.ts:361](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L361)
+Defined in: [index.ts:361](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L361)
 
 Splits a document's frontmatter from its body exactly where the editor hides it: a first line
 of `---`, closed by a `---` or `...` line within `FRONTMATTER_MAX_LINES` lines. Anything else

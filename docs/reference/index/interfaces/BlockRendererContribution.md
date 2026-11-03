@@ -1,6 +1,6 @@
 # Interface: BlockRendererContribution
 
-Defined in: [index.ts:769](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L769)
+Defined in: [index.ts:879](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L879)
 
 A fenced-block renderer contribution (Story 9.4, AD-19): a plugin that draws fenced code
 blocks of some languages. `id` is the full contribution ID, `<pluginId>:<name>`. `languages`
@@ -16,7 +16,7 @@ attaches the handler with `api.editor.registerBlockRenderer`; declare an activat
 
 > **id**: `string`
 
-Defined in: [index.ts:770](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L770)
+Defined in: [index.ts:880](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L880)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [index.ts:770](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **languages**: `string`[]
 
-Defined in: [index.ts:771](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L771)
+Defined in: [index.ts:881](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L881)

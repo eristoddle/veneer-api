@@ -2,7 +2,7 @@
   "id": "note-list",
   "name": "Note List",
   "version": "1.0.0",
-  "apiVersion": "^0.40.0",
+  "apiVersion": "^0.46.0",
   "main": "index.js",
   "contributes": {
     "surfaces": [

@@ -1,6 +1,6 @@
 # Interface: FormField
 
-Defined in: [index.ts:1172](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1172)
+Defined in: [index.ts:1317](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1317)
 
 One typed field of a `FormView`.
 
@@ -10,7 +10,7 @@ One typed field of a `FormView`.
 
 > **id**: `string`
 
-Defined in: [index.ts:1174](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1174)
+Defined in: [index.ts:1319](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1319)
 
 Unique within the form; reaches `onFormChange` and the submit values.
 
@@ -20,7 +20,7 @@ Unique within the form; reaches `onFormChange` and the submit values.
 
 > **type**: [`FormFieldType`](../type-aliases/FormFieldType.md)
 
-Defined in: [index.ts:1175](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1175)
+Defined in: [index.ts:1320](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1320)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:1175](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **label**: `string`
 
-Defined in: [index.ts:1176](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1176)
+Defined in: [index.ts:1321](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1321)
 
 ***
 
@@ -36,9 +36,20 @@ Defined in: [index.ts:1176](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **hint?**: `string`
 
-Defined in: [index.ts:1178](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1178)
+Defined in: [index.ts:1323](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1323)
 
 A line under the field in the caption type.
+
+***
+
+### hintAction?
+
+> `optional` **hintAction?**: `string`
+
+Defined in: [index.ts:1328](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1328)
+
+Makes the hint a link: clicking it reaches `api.surfaces.onAction` with this action ID (Story
+13.3). Ignored without a `hint`.
 
 ***
 
@@ -46,7 +57,7 @@ A line under the field in the caption type.
 
 > **value**: [`FormValue`](../type-aliases/FormValue.md)
 
-Defined in: [index.ts:1179](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1179)
+Defined in: [index.ts:1329](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1329)
 
 ***
 
@@ -54,7 +65,7 @@ Defined in: [index.ts:1179](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **error?**: `string`
 
-Defined in: [index.ts:1181](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1181)
+Defined in: [index.ts:1331](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1331)
 
 Shown under the field in the emphasis color; the plugin sets and clears it.
 
@@ -64,7 +75,7 @@ Shown under the field in the emphasis color; the plugin sets and clears it.
 
 > `optional` **options?**: `object`[]
 
-Defined in: [index.ts:1183](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1183)
+Defined in: [index.ts:1333](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1333)
 
 The choices of a `choice` field.
 
@@ -82,4 +93,4 @@ The choices of a `choice` field.
 
 > `optional` **placeholder?**: `string`
 
-Defined in: [index.ts:1184](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1184)
+Defined in: [index.ts:1334](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1334)

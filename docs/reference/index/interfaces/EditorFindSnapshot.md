@@ -1,6 +1,6 @@
 # Interface: EditorFindSnapshot
 
-Defined in: [index.ts:2014](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2014)
+Defined in: [index.ts:2191](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2191)
 
 Session-only literal, case-insensitive find over the entire markdown source (FR-59).
 
@@ -10,7 +10,7 @@ Session-only literal, case-insensitive find over the entire markdown source (FR-
 
 > **query**: `string`
 
-Defined in: [index.ts:2015](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2015)
+Defined in: [index.ts:2192](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2192)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:2015](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **count**: `number`
 
-Defined in: [index.ts:2016](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2016)
+Defined in: [index.ts:2193](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2193)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:2016](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **current**: `number`
 
-Defined in: [index.ts:2018](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2018)
+Defined in: [index.ts:2195](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2195)
 
 One-based current match, or zero when there is no current match.
 
@@ -36,4 +36,4 @@ One-based current match, or zero when there is no current match.
 
 > **readOnly**: `boolean`
 
-Defined in: [index.ts:2019](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2019)
+Defined in: [index.ts:2196](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2196)

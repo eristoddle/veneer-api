@@ -2,7 +2,7 @@
 
 > `const` **PROJECT\_DATA\_ERROR**: `object`
 
-Defined in: [index.ts:2927](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2927)
+Defined in: [index.ts:3241](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3241)
 
 Error codes for `api.projectData` (Story 9.26).
 

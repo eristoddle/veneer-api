@@ -1,6 +1,6 @@
 # Interface: SavedImage
 
-Defined in: [index.ts:2279](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2279)
+Defined in: [index.ts:2502](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2502)
 
 What `api.vault.saveImage` resolves to: the pieces of `![alt](link)`.
 
@@ -10,7 +10,7 @@ What `api.vault.saveImage` resolves to: the pieces of `![alt](link)`.
 
 > **link**: `string`
 
-Defined in: [index.ts:2281](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2281)
+Defined in: [index.ts:2504](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2504)
 
 Relative to the document, `/` separators, percent-encoded: ready for `(...)`.
 
@@ -20,6 +20,6 @@ Relative to the document, `/` separators, percent-encoded: ready for `(...)`.
 
 > **alt**: `string`
 
-Defined in: [index.ts:2283](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2283)
+Defined in: [index.ts:2506](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2506)
 
 The file's stem, escaped for `[...]`.

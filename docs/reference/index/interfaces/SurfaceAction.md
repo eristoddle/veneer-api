@@ -1,6 +1,6 @@
 # Interface: SurfaceAction
 
-Defined in: [index.ts:1065](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1065)
+Defined in: [index.ts:1210](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1210)
 
 A button a view offers beside its rows, e.g. "Open its folder as a project".
 
@@ -10,7 +10,7 @@ A button a view offers beside its rows, e.g. "Open its folder as a project".
 
 > **id**: `string`
 
-Defined in: [index.ts:1066](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1066)
+Defined in: [index.ts:1211](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1211)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:1066](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **label**: `string`
 
-Defined in: [index.ts:1067](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1067)
+Defined in: [index.ts:1212](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1212)

@@ -1,6 +1,6 @@
 # Interface: EditorSelection
 
-Defined in: [index.ts:1935](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1935)
+Defined in: [index.ts:2112](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2112)
 
 The main selection range as document offsets into the editor text (`\n` line endings).
 
@@ -10,7 +10,7 @@ The main selection range as document offsets into the editor text (`\n` line end
 
 > **from**: `number`
 
-Defined in: [index.ts:1936](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1936)
+Defined in: [index.ts:2113](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2113)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:1936](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **to**: `number`
 
-Defined in: [index.ts:1937](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1937)
+Defined in: [index.ts:2114](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2114)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [index.ts:1937](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **origin**: [`SelectionOrigin`](../type-aliases/SelectionOrigin.md)
 
-Defined in: [index.ts:1938](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1938)
+Defined in: [index.ts:2115](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2115)

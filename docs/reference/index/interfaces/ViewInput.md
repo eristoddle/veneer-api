@@ -1,6 +1,6 @@
 # Interface: ViewInput
 
-Defined in: [index.ts:1128](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1128)
+Defined in: [index.ts:1273](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1273)
 
 `ItemsView.input`: the field's placeholder and value.
 
@@ -10,7 +10,7 @@ Defined in: [index.ts:1128](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **placeholder**: `string`
 
-Defined in: [index.ts:1129](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1129)
+Defined in: [index.ts:1274](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1274)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:1129](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **value**: `string`
 
-Defined in: [index.ts:1130](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1130)
+Defined in: [index.ts:1275](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1275)

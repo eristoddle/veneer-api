@@ -1,6 +1,6 @@
 # Interface: FakeEdit
 
-Defined in: [testing.ts:197](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L197)
+Defined in: [testing.ts:216](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L216)
 
 One `api.editor.edit` (or `vault.process` on the open document), as the kernel would tag it.
 
@@ -10,7 +10,7 @@ One `api.editor.edit` (or `vault.process` on the open document), as the kernel w
 
 > **source**: `string`
 
-Defined in: [testing.ts:198](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L198)
+Defined in: [testing.ts:217](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L217)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [testing.ts:198](https://github.com/eristoddle/veneer/blob/702b1c402
 
 > **changes**: [`TextChange`](../../index/interfaces/TextChange.md)[]
 
-Defined in: [testing.ts:199](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L199)
+Defined in: [testing.ts:218](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L218)

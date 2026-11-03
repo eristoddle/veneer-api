@@ -1,6 +1,6 @@
 # Interface: HistoryBranch
 
-Defined in: [index.ts:3114](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3114)
+Defined in: [index.ts:3502](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3502)
 
 A branch in the project's history (Story 9.14).
 
@@ -10,7 +10,7 @@ A branch in the project's history (Story 9.14).
 
 > **name**: `string`
 
-Defined in: [index.ts:3115](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3115)
+Defined in: [index.ts:3503](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3503)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:3115](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **current**: `boolean`
 
-Defined in: [index.ts:3117](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3117)
+Defined in: [index.ts:3505](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3505)
 
 Whether the project's files are on this branch now.
 
@@ -28,6 +28,6 @@ Whether the project's files are on this branch now.
 
 > **commit**: `string` \| `null`
 
-Defined in: [index.ts:3119](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3119)
+Defined in: [index.ts:3507](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3507)
 
 Its newest commit, or null for a new repository's branch with no commit yet.

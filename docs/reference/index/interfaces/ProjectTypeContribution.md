@@ -1,6 +1,6 @@
 # Interface: ProjectTypeContribution
 
-Defined in: [index.ts:1570](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1570)
+Defined in: [index.ts:1724](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1724)
 
 A kind of project a plugin offers (FR-36, AD-13). The ID is `<pluginId>/<typeId>`. A project has
 exactly one type; the schema covers frontmatter fields and default settings only, and only
@@ -13,7 +13,7 @@ frontmatter fields and default settings, and satisfies a `requiredProjectType` o
 
 > **id**: `string`
 
-Defined in: [index.ts:1571](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1571)
+Defined in: [index.ts:1725](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1725)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:1571](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **name**: `string`
 
-Defined in: [index.ts:1572](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1572)
+Defined in: [index.ts:1726](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1726)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [index.ts:1572](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **description?**: `string`
 
-Defined in: [index.ts:1573](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1573)
+Defined in: [index.ts:1727](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1727)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [index.ts:1573](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **extends?**: `string`
 
-Defined in: [index.ts:1574](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1574)
+Defined in: [index.ts:1728](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1728)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [index.ts:1574](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **frontmatter?**: [`FrontmatterField`](FrontmatterField.md)[]
 
-Defined in: [index.ts:1575](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1575)
+Defined in: [index.ts:1729](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1729)
 
 ***
 
@@ -53,6 +53,6 @@ Defined in: [index.ts:1575](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **settings?**: `Record`\<`string`, [`SettingValue`](../type-aliases/SettingValue.md)\>
 
-Defined in: [index.ts:1577](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1577)
+Defined in: [index.ts:1731](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1731)
 
 Default values for declared settings, by setting ID, while a project has this type.

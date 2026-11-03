@@ -2,7 +2,7 @@
 
 > `const` **VAULT\_ERROR**: `object`
 
-Defined in: [index.ts:3680](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3680)
+Defined in: [index.ts:4068](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L4068)
 
 Vault error codes a plugin can see from `api.vault` (AD-6, AD-8).
 

@@ -50,7 +50,7 @@
  * document), and `setSelection`, or `workspace.open` with `select` (origin `find`), fires
  * `editor.onSelectionChanged` listeners while a document is open.
  */
-import { type NetRequest, type NetResponse, type PluginCompletion, type DiffAction, type FormValue, type Mark, type ReorderEvent, type EditorHost, type BlockRenderer, type EditingModeExtension, type ExportFile, type HistoryCommit, type HistorySyncOptions, type HistorySyncResult, type PluginApi, type PluginEntry, type PaletteItem, type PluginManifest, type ProjectSwitchedEvent, type SelectionOrigin, type SettingValue, type SurfaceView, type TextChange, type ToolReport, type ToolInput, type ToolResult, type VeneerEvent, type ResolvedProjectType, type WorkspaceProject } from './index.js';
+import { type NetRequest, type NetResponse, type PluginCompletion, type DiffAction, type FormValue, type Mark, type ReorderEvent, type EditorHost, type BlockRenderer, type EditingModeExtension, type ExportFile, type AskOptions, type PickedImage, type HistoryCommit, type HistorySyncOptions, type HistorySyncResult, type PluginApi, type PluginEntry, type PaletteItem, type PluginManifest, type ProjectSwitchedEvent, type SelectionOrigin, type SettingValue, type SurfaceView, type TextChange, type ToolReport, type ToolInput, type ToolResult, type VeneerEvent, type ResolvedProjectType, type ImageDestination, type ImageDestinationRequest, type TextReplacement, type WorkspaceProject } from './index.js';
 export interface FakeHostOptions {
     /** The open document's text; null (the default) means no document. */
     text?: string | null;
@@ -79,6 +79,8 @@ export interface FakeHostOptions {
      * rejects `provider/none`.
      */
     replies?: (string | string[])[];
+    /** Whether AI features are on (default true). Off, `api.providers` rejects `ai/off` and `api.ai.enabled()` is false. */
+    aiFeatures?: boolean;
     /** Makes `api.providers` calls reject with this code and sentence instead of answering. */
     providerFailure?: {
         code: string;
@@ -90,6 +92,13 @@ export interface FakeHostOptions {
      * The fake does not gate by tool: the real host refuses read-only tools and asks the writer.
      */
     netReplies?: (string | Partial<NetResponse>)[];
+}
+/** One `api.vault.saveAttachment` call, as the fake host recorded it. */
+export interface FakeSavedAttachment {
+    bytes: Uint8Array;
+    name: string;
+    /** The link the fake returned, or null when the call was made to fail. */
+    link: string | null;
 }
 /** One `api.vault.saveImage` call, as the fake host recorded it. */
 export interface FakeSavedImage {
@@ -151,6 +160,30 @@ export interface FakeHost {
     readonly secrets: Map<string, string>;
     /** Every file `api.export.saveAs` was given, in order; the fake "writer" always saves (Story 9.8). */
     readonly exported: ExportFile[];
+    /**
+     * What `api.clipboard` holds (Story 11.2): set `text` or `html` to seed a read; a write or
+     * `writeImage` replaces it. `image` is the project path last given to `writeImage`.
+     */
+    readonly clipboard: {
+        text: string;
+        html: string | null;
+        image: string | null;
+    };
+    /** What `api.workspace.pickImages` resolves next, in order (Story 11.13); empty is a cancel. */
+    readonly pickedImages: PickedImage[][];
+    /** Every path `api.workspace.revealImage` was given, in order (Story 11.13). */
+    readonly revealed: string[];
+    /** What `api.workspace.pickGrid` resolves next, in order (Story 11.8); `null` or empty is a cancel. */
+    readonly gridAnswers: ({
+        rows: number;
+        cols: number;
+    } | null)[];
+    /** How many times `api.resources.reload` ran (Story 13.5). */
+    readonly reloadCount: number;
+    /** What `api.workspace.ask` resolves next, in order (Story 13.5); `null` or empty is a cancel. */
+    readonly askAnswers: (string | null)[];
+    /** Every `api.workspace.ask` the plugin made, in order. */
+    readonly asked: AskOptions[];
     /** Every `api.providers` request that was allowed through, in order. */
     readonly modelRequests: PluginCompletion[];
     /** The API object handed to `onload`. */
@@ -226,6 +259,12 @@ export interface FakeHost {
     setRemoteAllowed(on: boolean): void;
     /** Every `vault.saveImage` call, in order. */
     readonly images: FakeSavedImage[];
+    /** What `api.workspace.textReplacements` resolves (Story 17.8); push pairs to seed it. */
+    readonly textReplacements: TextReplacement[];
+    /** Asks the plugin's `vault.onImageDestination` handler, as the kernel would (Story 17.2). */
+    askImageDestination(request: ImageDestinationRequest): Promise<ImageDestination | undefined>;
+    /** Every `vault.saveAttachment` call, in order; `setImageFailure` and `holdImages` apply too. */
+    readonly attachments: FakeSavedAttachment[];
     /** Makes later `vault.saveImage` calls reject with `code`, or succeed again with null. */
     setImageFailure(code: string | null): void;
     /**
@@ -273,6 +312,11 @@ export interface FakeHost {
         from: string;
         to: string;
         kind: 'file' | 'folder';
+    }[];
+    /** Every `vault.copy`, in order. */
+    readonly copies: {
+        from: string;
+        to: string;
     }[];
     /** Every path `vault.trash` trashed, in order. */
     readonly trashed: string[];

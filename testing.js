@@ -50,7 +50,7 @@
  * document), and `setSelection`, or `workspace.open` with `select` (origin `find`), fires
  * `editor.onSelectionChanged` listeners while a document is open.
  */
-import { API_VERSION, EDITOR_ERROR, HISTORY_ERROR, MAX_PROJECT_DATA_KEY_BYTES, MAX_PROJECT_DATA_PLUGIN_BYTES, PROJECT_DATA_ERROR, MAX_HISTORY_LOG, MAX_NET_BYTES, MAX_NOTICE_ACTION_LABEL, MAX_NOTICE_MESSAGE, NOTICE_LIMIT_PER_MINUTE, PLUGIN_ERROR, STORAGE_ERROR, VAULT_ERROR, checkMarks, MAX_QUERY_KEYS, MAX_QUERY_RESULTS, MAX_QUERY_TEXT, MAX_SEARCH_MATCHES, MAX_SEARCH_QUERY, splitFrontmatter, changedSpan, findInText, cleanPaletteItems, checkTextChanges, cleanSurfaceView, isRelativeSource, isRemoteSource, isToolResult, isVeneerError, veneerError } from './index.js';
+import { API_VERSION, EDITOR_ERROR, HISTORY_ERROR, MAX_PROJECT_DATA_KEY_BYTES, MAX_PROJECT_DATA_PLUGIN_BYTES, PROJECT_DATA_ERROR, MAX_ATTACHMENT_BYTES, MAX_HISTORY_LOG, MAX_NET_BYTES, MAX_NOTICE_ACTION_LABEL, MAX_NOTICE_MESSAGE, NOTICE_LIMIT_PER_MINUTE, PLUGIN_ERROR, STORAGE_ERROR, VAULT_ERROR, checkMarks, MAX_QUERY_KEYS, MAX_QUERY_RESULTS, MAX_QUERY_TEXT, MAX_SEARCH_MATCHES, MAX_SEARCH_QUERY, splitFrontmatter, changedSpan, findInText, cleanPaletteItems, checkTextChanges, cleanSurfaceView, isRelativeSource, isRemoteSource, isToolResult, isVeneerError, veneerError, CLIPBOARD_ERROR, MAX_CLIPBOARD_BYTES } from './index.js';
 /** A project-data key as the real `api.projectData` checks it. */
 function projectDataKey(key) {
     if (typeof key !== 'string' || !/^[a-z0-9][a-z0-9._-]{0,63}$/.test(key) || key.includes('..')) {
@@ -271,6 +271,7 @@ export function createFakeHost(manifest, entry, options = {}) {
     const source = `plugin:${manifest.id}`;
     let remoteAllowed = options.remoteAllowed ?? false;
     const images = [];
+    const attachments = [];
     let imageFailure = options.imageFailure ?? null;
     let imageGate = null;
     const resourceListeners = new Set();
@@ -292,6 +293,13 @@ export function createFakeHost(manifest, entry, options = {}) {
     const notices = [];
     let noticeTimes = [];
     const exported = [];
+    const clipboard = { text: '', html: null, image: null };
+    const gridAnswers = [];
+    const askAnswers = [];
+    let reloads = 0;
+    const asked = [];
+    const revealed = [];
+    const pickedImages = [];
     const history = {
         repository: false,
         commits: [],
@@ -312,8 +320,11 @@ export function createFakeHost(manifest, entry, options = {}) {
     const folders = new Set();
     const created = [];
     const renames = [];
+    const copies = [];
     const trashed = [];
     const participants = new Set();
+    const imageDestinationHandlers = new Set();
+    const textReplacementPairs = [];
     const rowActionHandlers = new Map();
     const begunRowActions = [];
     const searches = [];
@@ -685,6 +696,26 @@ export function createFakeHost(manifest, entry, options = {}) {
                 images.push({ bytes, name, link });
                 return { link, alt: stem.replace(/[\\[\]]/g, '\\$&') };
             },
+            async saveAttachment(bytes, name) {
+                if (imageGate !== null)
+                    await imageGate;
+                if (imageFailure !== null) {
+                    attachments.push({ bytes, name, link: null });
+                    throw veneerError(imageFailure, 'the file could not be saved', manifest.id);
+                }
+                if (bytes.byteLength > MAX_ATTACHMENT_BYTES) {
+                    attachments.push({ bytes, name, link: null });
+                    throw veneerError(VAULT_ERROR.tooLarge, 'the file is larger than 100 MB', manifest.id);
+                }
+                const link = name.includes(' ')
+                    ? `<${name}>`
+                    : name
+                        .split('/')
+                        .map((part) => encodeURIComponent(part).replace(/\(/g, '%28').replace(/\)/g, '%29'))
+                        .join('/');
+                attachments.push({ bytes, name, link });
+                return { link, label: name.replace(/[\\[\]]/g, '\\$&') };
+            },
             async create(path, initial = '') {
                 checkNew(path);
                 if (!FAKE_MARKDOWN.test(path)) {
@@ -732,6 +763,17 @@ export function createFakeHost(manifest, entry, options = {}) {
                     await participant({ ...rename });
                 await emitEvent({ type: 'vault:renamed', ...rename });
             },
+            async copy(from, to) {
+                if (kindAt(from) !== 'file') {
+                    throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id);
+                }
+                checkNew(to);
+                if (kindAt(to) !== null)
+                    throw veneerError(VAULT_ERROR.exists, 'that name is taken', manifest.id);
+                files.set(to, files.get(from) ?? '');
+                copies.push({ from, to });
+                await emitEvent({ type: 'vault:created', path: to, kind: 'file' });
+            },
             async trash(path) {
                 const kind = kindAt(path);
                 if (kind === null) {
@@ -749,6 +791,10 @@ export function createFakeHost(manifest, entry, options = {}) {
                 }
                 trashed.push(path);
                 await emitEvent({ type: 'vault:trashed', path, kind });
+            },
+            onImageDestination(handler) {
+                imageDestinationHandlers.add(handler);
+                return track(() => imageDestinationHandlers.delete(handler));
             },
             onRename(participant) {
                 participants.add(participant);
@@ -912,6 +958,29 @@ export function createFakeHost(manifest, entry, options = {}) {
                 await emitEvent({ type: 'document:opened', path });
                 moveSelection();
             },
+            async pickImages() {
+                return pickedImages.shift() ?? [];
+            },
+            async textReplacements() {
+                return textReplacementPairs.map((p) => ({ ...p }));
+            },
+            async revealImage(path) {
+                if (!/\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i.test(path) ||
+                    path.startsWith('/') ||
+                    path.split('/').includes('..')) {
+                    throw veneerError(CLIPBOARD_ERROR.badImage, 'That is not an image in the project.', manifest.id);
+                }
+                revealed.push(path);
+            },
+            async ask(options) {
+                asked.push(options);
+                const next = askAnswers.shift();
+                return next === undefined ? null : next;
+            },
+            async pickGrid() {
+                const next = gridAnswers.shift();
+                return next === undefined ? null : next;
+            },
             async openFolderAsProject() {
                 if (openPath === undefined) {
                     throw veneerError(VAULT_ERROR.unknownDocument, 'No document is open', manifest.id);
@@ -952,6 +1021,9 @@ export function createFakeHost(manifest, entry, options = {}) {
                 return out;
             },
             async stream(request, onText, signal) {
+                if (options.aiFeatures === false) {
+                    throw veneerError('ai/off', 'AI features are off in Settings.', manifest.id);
+                }
                 if (!needsModel) {
                     throw veneerError(PLUGIN_ERROR.undeclaredContribution, 'api.providers needs a tool that declares needsProvider', manifest.id);
                 }
@@ -971,6 +1043,11 @@ export function createFakeHost(manifest, entry, options = {}) {
                 for (const piece of typeof reply === 'string' ? [reply] : reply)
                     onText(piece);
             }
+        },
+        ai: {
+            enabled: () => options.aiFeatures !== false,
+            // The fake's switch is fixed for the run; nothing changes it.
+            onChanged: () => ({ dispose: () => undefined })
         },
         net: {
             async fetch(request, signal) {
@@ -1260,6 +1337,43 @@ export function createFakeHost(manifest, entry, options = {}) {
                 return { saved: true, name: file.suggestedName };
             }
         },
+        clipboard: {
+            async readText() {
+                return clipboard.text;
+            },
+            async write(content) {
+                const html = content?.html;
+                if (typeof content?.text !== 'string' ||
+                    (html !== undefined && typeof html !== 'string') ||
+                    content.text.length > MAX_CLIPBOARD_BYTES ||
+                    (html !== undefined && html.length > MAX_CLIPBOARD_BYTES)) {
+                    throw veneerError(CLIPBOARD_ERROR.invalid, 'The clipboard takes text and HTML.', manifest.id);
+                }
+                clipboard.text = content.text;
+                clipboard.html = html ?? null;
+                clipboard.image = null;
+            },
+            async writePath(path, form) {
+                if (path === '' ||
+                    path.startsWith('/') ||
+                    path.split('/').some((p) => p === '..' || p === '')) {
+                    throw veneerError(CLIPBOARD_ERROR.invalid, 'That path is not in the open project.', manifest.id);
+                }
+                clipboard.text = form === 'project' ? path : `/fake-project/${path}`;
+                clipboard.html = null;
+                clipboard.image = null;
+            },
+            async writeImage(path) {
+                if (!/\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i.test(path) ||
+                    path.startsWith('/') ||
+                    path.split('/').includes('..')) {
+                    throw veneerError(CLIPBOARD_ERROR.badImage, 'That is not an image in the project.', manifest.id);
+                }
+                clipboard.text = '';
+                clipboard.html = null;
+                clipboard.image = path;
+            }
+        },
         resources: {
             // Text only: the fake never builds DOM from the HTML, so nothing in it can run.
             sanitizeHtml(html) {
@@ -1287,6 +1401,11 @@ export function createFakeHost(manifest, entry, options = {}) {
             onChanged(listener) {
                 resourceListeners.add(listener);
                 return track(() => resourceListeners.delete(listener));
+            },
+            reload() {
+                reloads += 1;
+                for (const listener of [...resourceListeners])
+                    listener();
             }
         },
         settings: {
@@ -1369,6 +1488,15 @@ export function createFakeHost(manifest, entry, options = {}) {
         notices,
         projectDataChanged: (key) => emitEvent({ type: 'project-data:changed', key }),
         exported,
+        clipboard,
+        gridAnswers,
+        askAnswers,
+        asked,
+        get reloadCount() {
+            return reloads;
+        },
+        revealed,
+        pickedImages,
         async load() {
             await entry.onload(api);
         },
@@ -1437,6 +1565,12 @@ export function createFakeHost(manifest, entry, options = {}) {
                 listener();
         },
         images,
+        textReplacements: textReplacementPairs,
+        askImageDestination: async (request) => {
+            const [handler] = [...imageDestinationHandlers];
+            return handler === undefined ? undefined : handler(request);
+        },
+        attachments,
         setImageFailure(code) {
             imageFailure = code;
         },
@@ -1481,6 +1615,7 @@ export function createFakeHost(manifest, entry, options = {}) {
         folders,
         created,
         renames,
+        copies,
         trashed,
         begunRowActions,
         searches,

@@ -1,6 +1,6 @@
 # Interface: FakeHost
 
-Defined in: [testing.ts:227](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L227)
+Defined in: [testing.ts:246](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L246)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [testing.ts:227](https://github.com/eristoddle/veneer/blob/702b1c402
 
 > `readonly` **history**: [`FakeHistory`](FakeHistory.md)
 
-Defined in: [testing.ts:229](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L229)
+Defined in: [testing.ts:248](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L248)
 
 The in-memory history `api.history` reads and writes (Story 9.13).
 
@@ -18,7 +18,7 @@ The in-memory history `api.history` reads and writes (Story 9.13).
 
 > `readonly` **notices**: `object`[]
 
-Defined in: [testing.ts:231](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L231)
+Defined in: [testing.ts:250](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L250)
 
 The notices `api.notify` let through (at most `NOTICE_LIMIT_PER_MINUTE` a minute), in order (Story 9.20).
 
@@ -44,7 +44,7 @@ The notices `api.notify` let through (at most `NOTICE_LIMIT_PER_MINUTE` a minute
 
 > `readonly` **projectData**: `Map`\<`string`, `string`\>
 
-Defined in: [testing.ts:233](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L233)
+Defined in: [testing.ts:252](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L252)
 
 The JSON text `api.projectData` holds for this plugin, by key (Story 9.26).
 
@@ -54,7 +54,7 @@ The JSON text `api.projectData` holds for this plugin, by key (Story 9.26).
 
 > `readonly` **netRequests**: [`NetRequest`](../../index/interfaces/NetRequest.md)[]
 
-Defined in: [testing.ts:237](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L237)
+Defined in: [testing.ts:256](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L256)
 
 Every `api.net.fetch` request that was allowed through, in order.
 
@@ -64,7 +64,7 @@ Every `api.net.fetch` request that was allowed through, in order.
 
 > `readonly` **secrets**: `Map`\<`string`, `string`\>
 
-Defined in: [testing.ts:239](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L239)
+Defined in: [testing.ts:258](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L258)
 
 The secrets `api.secrets` holds for this plugin, by name (Story 9.8).
 
@@ -74,9 +74,92 @@ The secrets `api.secrets` holds for this plugin, by name (Story 9.8).
 
 > `readonly` **exported**: [`ExportFile`](../../index/interfaces/ExportFile.md)[]
 
-Defined in: [testing.ts:241](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L241)
+Defined in: [testing.ts:260](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L260)
 
 Every file `api.export.saveAs` was given, in order; the fake "writer" always saves (Story 9.8).
+
+***
+
+### clipboard
+
+> `readonly` **clipboard**: `object`
+
+Defined in: [testing.ts:265](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L265)
+
+What `api.clipboard` holds (Story 11.2): set `text` or `html` to seed a read; a write or
+`writeImage` replaces it. `image` is the project path last given to `writeImage`.
+
+#### text
+
+> **text**: `string`
+
+#### html
+
+> **html**: `string` \| `null`
+
+#### image
+
+> **image**: `string` \| `null`
+
+***
+
+### pickedImages
+
+> `readonly` **pickedImages**: [`PickedImage`](../../index/interfaces/PickedImage.md)[][]
+
+Defined in: [testing.ts:267](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L267)
+
+What `api.workspace.pickImages` resolves next, in order (Story 11.13); empty is a cancel.
+
+***
+
+### revealed
+
+> `readonly` **revealed**: `string`[]
+
+Defined in: [testing.ts:269](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L269)
+
+Every path `api.workspace.revealImage` was given, in order (Story 11.13).
+
+***
+
+### gridAnswers
+
+> `readonly` **gridAnswers**: (\{ `rows`: `number`; `cols`: `number`; \} \| `null`)[]
+
+Defined in: [testing.ts:271](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L271)
+
+What `api.workspace.pickGrid` resolves next, in order (Story 11.8); `null` or empty is a cancel.
+
+***
+
+### reloadCount
+
+> `readonly` **reloadCount**: `number`
+
+Defined in: [testing.ts:273](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L273)
+
+How many times `api.resources.reload` ran (Story 13.5).
+
+***
+
+### askAnswers
+
+> `readonly` **askAnswers**: (`string` \| `null`)[]
+
+Defined in: [testing.ts:275](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L275)
+
+What `api.workspace.ask` resolves next, in order (Story 13.5); `null` or empty is a cancel.
+
+***
+
+### asked
+
+> `readonly` **asked**: [`AskOptions`](../../index/interfaces/AskOptions.md)[]
+
+Defined in: [testing.ts:277](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L277)
+
+Every `api.workspace.ask` the plugin made, in order.
 
 ***
 
@@ -84,7 +167,7 @@ Every file `api.export.saveAs` was given, in order; the fake "writer" always sav
 
 > `readonly` **modelRequests**: [`PluginCompletion`](../../index/interfaces/PluginCompletion.md)[]
 
-Defined in: [testing.ts:243](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L243)
+Defined in: [testing.ts:279](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L279)
 
 Every `api.providers` request that was allowed through, in order.
 
@@ -94,7 +177,7 @@ Every `api.providers` request that was allowed through, in order.
 
 > `readonly` **api**: [`PluginApi`](../../index/interfaces/PluginApi.md)
 
-Defined in: [testing.ts:245](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L245)
+Defined in: [testing.ts:281](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L281)
 
 The API object handed to `onload`.
 
@@ -104,7 +187,7 @@ The API object handed to `onload`.
 
 > `readonly` **edits**: [`FakeEdit`](FakeEdit.md)[]
 
-Defined in: [testing.ts:288](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L288)
+Defined in: [testing.ts:324](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L324)
 
 Every edit applied to the open document, in order.
 
@@ -114,7 +197,7 @@ Every edit applied to the open document, in order.
 
 > `readonly` **modes**: `ReadonlyMap`\<`string`, `unknown`\>
 
-Defined in: [testing.ts:290](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L290)
+Defined in: [testing.ts:326](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L326)
 
 Live `api.editor.registerMode` registrations: mode ID to its extension set.
 
@@ -124,7 +207,7 @@ Live `api.editor.registerMode` registrations: mode ID to its extension set.
 
 > `readonly` **blockRenderers**: `ReadonlyMap`\<`string`, [`BlockRenderer`](../../index/type-aliases/BlockRenderer.md)\>
 
-Defined in: [testing.ts:292](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L292)
+Defined in: [testing.ts:328](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L328)
 
 Live `api.editor.registerBlockRenderer` registrations: contribution ID to its handler.
 
@@ -134,7 +217,7 @@ Live `api.editor.registerBlockRenderer` registrations: contribution ID to its ha
 
 > `readonly` **marks**: `ReadonlyMap`\<`string`, [`Mark`](../../index/interfaces/Mark.md)[]\>
 
-Defined in: [testing.ts:297](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L297)
+Defined in: [testing.ts:333](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L333)
 
 The marks the plugin has set with `api.editor.setMarks` (Story 9.17): set ID to its marks.
 Opening another document or switching project clears them, as the kernel does.
@@ -145,7 +228,7 @@ Opening another document or switching project clears them, as the kernel does.
 
 > `readonly` **files**: `Map`\<`string`, `string`\>
 
-Defined in: [testing.ts:304](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L304)
+Defined in: [testing.ts:340](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L340)
 
 Closed files by API path; `vault.process` reads and writes here.
 
@@ -155,9 +238,29 @@ Closed files by API path; `vault.process` reads and writes here.
 
 > `readonly` **images**: [`FakeSavedImage`](FakeSavedImage.md)[]
 
-Defined in: [testing.ts:308](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L308)
+Defined in: [testing.ts:344](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L344)
 
 Every `vault.saveImage` call, in order.
+
+***
+
+### textReplacements
+
+> `readonly` **textReplacements**: [`TextReplacement`](../../index/interfaces/TextReplacement.md)[]
+
+Defined in: [testing.ts:346](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L346)
+
+What `api.workspace.textReplacements` resolves (Story 17.8); push pairs to seed it.
+
+***
+
+### attachments
+
+> `readonly` **attachments**: [`FakeSavedAttachment`](FakeSavedAttachment.md)[]
+
+Defined in: [testing.ts:350](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L350)
+
+Every `vault.saveAttachment` call, in order; `setImageFailure` and `holdImages` apply too.
 
 ***
 
@@ -165,7 +268,7 @@ Every `vault.saveImage` call, in order.
 
 > `readonly` **views**: `ReadonlyMap`\<`string`, [`SurfaceView`](../../index/type-aliases/SurfaceView.md)\>
 
-Defined in: [testing.ts:322](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L322)
+Defined in: [testing.ts:364](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L364)
 
 The last view `api.surfaces.setView` gave each declared surface, by surface ID.
 
@@ -175,7 +278,7 @@ The last view `api.surfaces.setView` gave each declared surface, by surface ID.
 
 > `readonly` **opens**: `string`[]
 
-Defined in: [testing.ts:333](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L333)
+Defined in: [testing.ts:375](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L375)
 
 Every path `workspace.open` opened, in order.
 
@@ -185,7 +288,7 @@ Every path `workspace.open` opened, in order.
 
 > `readonly` **paletteItems**: `ReadonlyMap`\<`string`, [`PaletteItem`](../../index/interfaces/PaletteItem.md)[]\>
 
-Defined in: [testing.ts:347](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L347)
+Defined in: [testing.ts:389](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L389)
 
 The last items `api.palette.setItems` gave each declared provider, by provider ID.
 
@@ -195,7 +298,7 @@ The last items `api.palette.setItems` gave each declared provider, by provider I
 
 > `readonly` **folders**: `Set`\<`string`\>
 
-Defined in: [testing.ts:353](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L353)
+Defined in: [testing.ts:395](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L395)
 
 Empty folders `createFolder` made (folders holding a file show through `files`).
 
@@ -205,7 +308,7 @@ Empty folders `createFolder` made (folders holding a file show through `files`).
 
 > `readonly` **created**: `string`[]
 
-Defined in: [testing.ts:355](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L355)
+Defined in: [testing.ts:397](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L397)
 
 Every path `vault.create` and `createFolder` made, in order.
 
@@ -215,7 +318,7 @@ Every path `vault.create` and `createFolder` made, in order.
 
 > `readonly` **renames**: `object`[]
 
-Defined in: [testing.ts:357](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L357)
+Defined in: [testing.ts:399](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L399)
 
 Every rename or move, in order.
 
@@ -233,11 +336,29 @@ Every rename or move, in order.
 
 ***
 
+### copies
+
+> `readonly` **copies**: `object`[]
+
+Defined in: [testing.ts:401](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L401)
+
+Every `vault.copy`, in order.
+
+#### from
+
+> **from**: `string`
+
+#### to
+
+> **to**: `string`
+
+***
+
 ### trashed
 
 > `readonly` **trashed**: `string`[]
 
-Defined in: [testing.ts:359](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L359)
+Defined in: [testing.ts:403](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L403)
 
 Every path `vault.trash` trashed, in order.
 
@@ -247,7 +368,7 @@ Every path `vault.trash` trashed, in order.
 
 > `readonly` **begunRowActions**: `object`[]
 
-Defined in: [testing.ts:366](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L366)
+Defined in: [testing.ts:410](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L410)
 
 Every `surfaces.beginRowAction` call, in order.
 
@@ -269,7 +390,7 @@ Every `surfaces.beginRowAction` call, in order.
 
 > `readonly` **searches**: `string`[]
 
-Defined in: [testing.ts:368](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L368)
+Defined in: [testing.ts:412](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L412)
 
 Every query `vault.search` searched (an empty one never searches), in order.
 
@@ -279,7 +400,7 @@ Every query `vault.search` searched (an empty one never searches), in order.
 
 > `readonly` **selections**: `object`[]
 
-Defined in: [testing.ts:375](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L375)
+Defined in: [testing.ts:419](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L419)
 
 Every `workspace.open` that carried `select`, in order.
 
@@ -301,7 +422,7 @@ Every `workspace.open` that carried `select`, in order.
 
 > `readonly` **shown**: `string`[]
 
-Defined in: [testing.ts:402](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L402)
+Defined in: [testing.ts:446](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L446)
 
 Every `surfaces.show` call, by surface ID, in order.
 
@@ -311,7 +432,7 @@ Every `surfaces.show` call, by surface ID, in order.
 
 > `readonly` **shownFocus**: (`string` \| `undefined`)[]
 
-Defined in: [testing.ts:404](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L404)
+Defined in: [testing.ts:448](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L448)
 
 The `focus` option of every `surfaces.show` call, one entry per call (Story 9.23).
 
@@ -321,7 +442,7 @@ The `focus` option of every `surfaces.show` call, one entry per call (Story 9.23
 
 > `readonly` **closed**: `string`[]
 
-Defined in: [testing.ts:406](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L406)
+Defined in: [testing.ts:450](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L450)
 
 Every `surfaces.close` call, in order (Story 9.22).
 
@@ -331,7 +452,7 @@ Every `surfaces.close` call, in order (Story 9.22).
 
 > **projectDataChanged**(`key`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:235](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L235)
+Defined in: [testing.ts:254](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L254)
 
 Simulates a pull or checkout changing `key` on disk: emits `project-data:changed` to the plugin.
 
@@ -351,7 +472,7 @@ Simulates a pull or checkout changing `key` on disk: emits `project-data:changed
 
 > **load**(): `Promise`\<`void`\>
 
-Defined in: [testing.ts:247](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L247)
+Defined in: [testing.ts:283](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L283)
 
 Calls `onload(api)`.
 
@@ -365,7 +486,7 @@ Calls `onload(api)`.
 
 > **run**(`commandId`, ...`args`): `Promise`\<`unknown`\>
 
-Defined in: [testing.ts:249](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L249)
+Defined in: [testing.ts:285](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L285)
 
 Runs a declared command's handler; rejects if the plugin attached none.
 
@@ -389,7 +510,7 @@ Runs a declared command's handler; rejects if the plugin attached none.
 
 > **emit**(`event`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:251](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L251)
+Defined in: [testing.ts:287](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L287)
 
 Delivers an event to every listener the plugin subscribed for its `type`.
 
@@ -409,7 +530,7 @@ Delivers an event to every listener the plugin subscribed for its `type`.
 
 > **switchProject**(`project`, `next?`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:257](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L257)
+Defined in: [testing.ts:293](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L293)
 
 Switches to another project the way the kernel would: replaces the closed files with
 `files` (paths relative to the new root), clears the open document unless `text` is
@@ -451,7 +572,7 @@ given with `openPath`, then emits one `project:switched` with `name` and `kind`.
 
 > **unload**(): `Promise`\<`void`\>
 
-Defined in: [testing.ts:262](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L262)
+Defined in: [testing.ts:298](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L298)
 
 Calls `onunload()` and disposes everything the plugin registered.
 
@@ -465,7 +586,7 @@ Calls `onunload()` and disposes everything the plugin registered.
 
 > **liveDisposables**(): `number`
 
-Defined in: [testing.ts:264](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L264)
+Defined in: [testing.ts:300](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L300)
 
 How many registrations and subscriptions are still live.
 
@@ -479,7 +600,7 @@ How many registrations and subscriptions are still live.
 
 > **mountEditor**(`parent`): [`EditorHost`](../../index/interfaces/EditorHost.md)
 
-Defined in: [testing.ts:272](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L272)
+Defined in: [testing.ts:308](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L308)
 
 Calls the registered editor host factory with `parent` as the mount, the way the kernel
 does (AD-18), then applies the default editing mode (the manifest's first, if registered)
@@ -503,7 +624,7 @@ decorations belong to the registered editor factory, not the fake plugin facade.
 
 > **text**(): `string` \| `null`
 
-Defined in: [testing.ts:274](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L274)
+Defined in: [testing.ts:310](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L310)
 
 The open document's text, or null.
 
@@ -517,7 +638,7 @@ The open document's text, or null.
 
 > **setText**(`text`): `void`
 
-Defined in: [testing.ts:276](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L276)
+Defined in: [testing.ts:312](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L312)
 
 Replaces the open document's text (null: no document). Not recorded as an edit.
 
@@ -537,7 +658,7 @@ Replaces the open document's text (null: no document). Not recorded as an edit.
 
 > **changeText**(`text`): `void`
 
-Defined in: [testing.ts:281](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L281)
+Defined in: [testing.ts:317](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L317)
 
 Replaces the open document's text (null: no document) the way the writer typing or a
 document switch would, firing `editor.onChanged` listeners. Not recorded as an edit.
@@ -558,7 +679,7 @@ document switch would, firing `editor.onChanged` listeners. Not recorded as an e
 
 > **setSelection**(`selection`): `void`
 
-Defined in: [testing.ts:286](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L286)
+Defined in: [testing.ts:322](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L322)
 
 Moves the main selection (origin `keyboard` unless given) and fires
 `editor.onSelectionChanged` listeners when a document is open.
@@ -589,7 +710,7 @@ Moves the main selection (origin `keyboard` unless given) and fires
 
 > **markClick**(`setId`, `markId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:302](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L302)
+Defined in: [testing.ts:338](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L338)
 
 Clicks a mark the way the kernel does (Story 9.17): calls every live `onMarkClick` handler
 for `setId` with the mark's ID, in order.
@@ -614,7 +735,7 @@ for `setId` with the mark's ID, in order.
 
 > **setRemoteAllowed**(`on`): `void`
 
-Defined in: [testing.ts:306](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L306)
+Defined in: [testing.ts:342](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L342)
 
 Flips the remote allowance and fires `resources.onChanged` listeners.
 
@@ -630,11 +751,31 @@ Flips the remote allowance and fires `resources.onChanged` listeners.
 
 ***
 
+### askImageDestination()
+
+> **askImageDestination**(`request`): `Promise`\<[`ImageDestination`](../../index/interfaces/ImageDestination.md) \| `undefined`\>
+
+Defined in: [testing.ts:348](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L348)
+
+Asks the plugin's `vault.onImageDestination` handler, as the kernel would (Story 17.2).
+
+#### Parameters
+
+##### request
+
+[`ImageDestinationRequest`](../../index/interfaces/ImageDestinationRequest.md)
+
+#### Returns
+
+`Promise`\<[`ImageDestination`](../../index/interfaces/ImageDestination.md) \| `undefined`\>
+
+***
+
 ### setImageFailure()
 
 > **setImageFailure**(`code`): `void`
 
-Defined in: [testing.ts:310](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L310)
+Defined in: [testing.ts:352](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L352)
 
 Makes later `vault.saveImage` calls reject with `code`, or succeed again with null.
 
@@ -654,7 +795,7 @@ Makes later `vault.saveImage` calls reject with `code`, or succeed again with nu
 
 > **holdImages**(): () => `void`
 
-Defined in: [testing.ts:315](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L315)
+Defined in: [testing.ts:357](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L357)
 
 Holds every later `vault.saveImage` until the returned release is called, so a test can
 edit the document while a save is in flight.
@@ -669,7 +810,7 @@ edit the document while a save is in flight.
 
 > **setSetting**(`id`, `value`): `void`
 
-Defined in: [testing.ts:320](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L320)
+Defined in: [testing.ts:362](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L362)
 
 Sets a declared setting's value (null: back to its default) and fires `settings.onChanged`
 listeners when it changed, as a write in the settings surface would.
@@ -694,7 +835,7 @@ listeners when it changed, as a write in the settings surface would.
 
 > **openItem**(`surfaceId`, `itemId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:327](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L327)
+Defined in: [testing.ts:369](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L369)
 
 Opens a row the way the kernel does when the writer picks it: calls every live `onOpen`
 handler for `surfaceId` with `itemId`, in registration order.
@@ -719,7 +860,7 @@ handler for `surfaceId` with `itemId`, in registration order.
 
 > **pressAction**(`surfaceId`, `actionId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:329](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L329)
+Defined in: [testing.ts:371](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L371)
 
 Calls every live `onAction` handler for `surfaceId` with `actionId`.
 
@@ -743,7 +884,7 @@ Calls every live `onAction` handler for `surfaceId` with `actionId`.
 
 > **refreshSurface**(`surfaceId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:331](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L331)
+Defined in: [testing.ts:373](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L373)
 
 Calls every live `onRefresh` handler for `surfaceId`, as the kernel does before a redraw.
 
@@ -763,7 +904,7 @@ Calls every live `onRefresh` handler for `surfaceId`, as the kernel does before 
 
 > **runTool**(`id`, `input?`, `signal?`, `report?`): `Promise`\<[`ToolResult`](../../index/type-aliases/ToolResult.md)\>
 
-Defined in: [testing.ts:340](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L340)
+Defined in: [testing.ts:382](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L382)
 
 Runs a declared tool's handler the way the kernel does (Story 4.1): `input` is the context
 (`selection` defaults to null) and `signal` a live one unless given. Rejects
@@ -798,7 +939,7 @@ attached, and `plugin/bad-result` for a malformed Result.
 
 > **runPaletteItem**(`providerId`, `itemId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:349](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L349)
+Defined in: [testing.ts:391](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L391)
 
 Picks an item the way the palette does: calls every live `onRun` handler for the provider.
 
@@ -822,7 +963,7 @@ Picks an item the way the palette does: calls every live `onRun` handler for the
 
 > **refreshPalette**(`providerId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:351](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L351)
+Defined in: [testing.ts:393](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L393)
 
 Calls every live `palette.onRefresh` handler for the provider, as entering files mode does.
 
@@ -842,7 +983,7 @@ Calls every live `palette.onRefresh` handler for the provider, as entering files
 
 > **rowAction**(`surfaceId`, `actionId`, `rowId`, `value?`): `Promise`\<`unknown`\>
 
-Defined in: [testing.ts:364](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L364)
+Defined in: [testing.ts:408](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L408)
 
 Finishes a row action the way the kernel does: calls every live `onRowAction` handler for
 the surface, in order, and resolves to the last one's result.
@@ -875,7 +1016,7 @@ the surface, in order, and resolves to the last one's result.
 
 > **holdSearches**(): () => `void`
 
-Defined in: [testing.ts:373](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L373)
+Defined in: [testing.ts:417](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L417)
 
 Holds every later `vault.search` until the returned release is called. A search started
 while another is held supersedes it: the held one rejects `vault/superseded` on release.
@@ -890,7 +1031,7 @@ while another is held supersedes it: the held one rejects `vault/superseded` on 
 
 > **input**(`surfaceId`, `value`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:380](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L380)
+Defined in: [testing.ts:424](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L424)
 
 Types in a view's input field the way the kernel reports it: calls every live `onInput`
 handler for `surfaceId` with the whole `value`, in order.
@@ -915,7 +1056,7 @@ handler for `surfaceId` with the whole `value`, in order.
 
 > **reorder**(`surfaceId`, `event`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:385](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L385)
+Defined in: [testing.ts:429](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L429)
 
 Moves a row the way the kernel does (Story 9.24): calls every live `onReorder` handler for
 `surfaceId` with `event`, in order.
@@ -940,7 +1081,7 @@ Moves a row the way the kernel does (Story 9.24): calls every live `onReorder` h
 
 > **formChange**(`surfaceId`, `fieldId`, `value`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:390](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L390)
+Defined in: [testing.ts:434](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L434)
 
 Changes a form field the way the kernel does (Story 9.25): calls every live `onFormChange`
 handler for `surfaceId` with the field ID and value, in order.
@@ -969,7 +1110,7 @@ handler for `surfaceId` with the field ID and value, in order.
 
 > **formSubmit**(`surfaceId`, `values`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:395](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L395)
+Defined in: [testing.ts:439](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L439)
 
 Submits a form the way the kernel does (Story 9.25): calls every live `onFormSubmit`
 handler for `surfaceId` with the values by field ID, in order.
@@ -994,7 +1135,7 @@ handler for `surfaceId` with the values by field ID, in order.
 
 > **diffAction**(`surfaceId`, `action`, `changeId`): `Promise`\<`void`\>
 
-Defined in: [testing.ts:400](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/testing.ts#L400)
+Defined in: [testing.ts:444](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L444)
 
 Chooses Accept or Reject on a diff's change the way the kernel does (Story 9.16): calls every
 live `onDiffAction` handler for `surfaceId` with the action and the change's ID, in order.

@@ -1,6 +1,6 @@
 # Interface: VaultChangedOutsideEvent
 
-Defined in: [index.ts:115](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L115)
+Defined in: [index.ts:115](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L115)
 
 Emitted when a markdown file in the open project (or the open loose file) changes on disk
 outside Veneer, e.g. by git, sync, or another editor (FR-55, Story 3.1). Veneer's own saves
@@ -17,7 +17,7 @@ page has already reloaded when this arrives, unless it held unsaved edits.
 
 > `readonly` **type**: `"vault:changed-outside"`
 
-Defined in: [index.ts:116](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L116)
+Defined in: [index.ts:116](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L116)
 
 #### Overrides
 
@@ -29,4 +29,4 @@ Defined in: [index.ts:116](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `readonly` **path**: `string`
 
-Defined in: [index.ts:117](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L117)
+Defined in: [index.ts:117](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L117)

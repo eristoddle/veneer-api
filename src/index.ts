@@ -33,11 +33,11 @@
  * `api.providers` (`complete`, `stream`; FR-34, AD-11), so 0.12.0. Story 5.6 adds the optional `report`
  * argument to `ToolHandler`, for options that arrive while a tool runs (FR-39), so 0.13.0. Story 6.7 adds `contributes.keybindings`, keys a plugin suggests and the writer accepts
  * in Settings (FR-27, AD-5), so 0.14.0. Story 7.6 adds `api.vault.read`, a document's text as of its last save (FR-55), so 0.15.0. Story 7.4 adds `contributes.projectTypes` and `api.workspace.projectType()` (FR-36, FR-37,
- * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0.
+ * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0. Story 11.2 adds `api.clipboard`, the system clipboard through main (AD-6), so 0.41.0. Story 11.8 adds `api.workspace.pickGrid`, a kernel-drawn rows-by-columns picker (AD-4), so 0.44.0.  Epic 13 adds the `open` tool Result (Story 13.2), `api.vault.saveAttachment` and `api.vault.copy` (13.4, 13.5), and an optional form-field action (13.3), so 0.45.0. Epic 17 adds `api.clipboard.writePath`, the `none` row-action input, and `contributes.rowActions` (Story 17.1), `api.vault.onImageDestination` (Story 17.2), and `SurfaceContribution.stayOpenOnOpen` (Story 17.4), `api.workspace.textReplacements` and `SettingContribution.macOnly` (Story 17.8), so 0.46.0.
  */
 
 /** The running API version. A manifest's `apiVersion` must accept it (AD-5: Compatibility). */
-export const API_VERSION = '0.40.0'
+export const API_VERSION = '0.46.0'
 
 /** Plugin IDs are lowercase-hyphen, e.g. `word-count` (spine: naming). */
 export const PLUGIN_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -719,6 +719,17 @@ export interface WorkspaceApi {
    */
   open(path: string, options?: WorkspaceOpenOptions): Promise<void>
   /**
+   * Shows an image from the open project in the system file manager (Finder), by API path
+   * (`images/cover.png`). Rejects `clipboard/bad-image` for anything that is not an image inside
+   * the project.
+   *
+   * @example
+   * ```ts
+   * await api.workspace.revealImage('images/cover.png')
+   * ```
+   */
+  revealImage(path: string): Promise<void>
+  /**
    * Opens the loose file's folder as a project, the same flow as File > Open Folder…: the
    * document stays open with the same key, so its snapshots and session survive (AD-14).
    * Rejects, carrying `pluginId`, with `vault/out-of-scope` when the open document isn't a
@@ -730,12 +741,111 @@ export interface WorkspaceApi {
    * ```
    */
   openFolderAsProject(): Promise<void>
+  /**
+   * Asks the writer for a grid size with the kernel's grid picker (Story 11.8, AD-4): a small
+   * popover of cells, "3 × 4" while the pointer moves across it, a click or Enter to choose, Esc
+   * to cancel. Resolves the chosen `{ rows, cols }`, or `null` when the writer cancelled (or the
+   * picker is not available). A second call while one is open cancels the first.
+   *
+   * @example
+   * ```ts
+   * const size = await api.workspace.pickGrid({ anchor: { x: 200, y: 120 } })
+   * if (size !== null) console.log(`${size.rows} rows by ${size.cols} columns`)
+   * ```
+   */
+  pickGrid(options?: GridPickOptions): Promise<GridChoice | null>
+  /**
+   * Asks the writer one question with the kernel's text field (Story 13.5, AD-4): a title, a
+   * line to type in (starting with `value`, selected), Enter to answer, Esc or a click outside
+   * to cancel. Resolves the text as typed (not trimmed), or `null` when the writer cancelled (or
+   * no card is available). A second call while one is open cancels the first. A plugin never
+   * draws its own input. Rejects with `plugin/failed` when `title` is empty.
+   *
+   * @example
+   * ```ts
+   * const name = await api.workspace.ask({ title: 'Rename image', value: 'cover.png' })
+   * if (name !== null) await api.vault.rename('images/cover.png', `images/${name}`)
+   * ```
+   */
+  ask(options: AskOptions): Promise<string | null>
+  /**
+   * Asks the writer for image files with the system file dialog (Story 11.13, AD-6): it starts
+   * where Open Folder starts and allows several files. Resolves each chosen file's name and bytes
+   * (a file over `MAX_IMAGE_BYTES` comes back one byte past it, so `vault.saveImage` refuses it
+   * as too large), or an empty list when the writer cancelled. The plugin saves them with
+   * `vault.saveImage`, which applies the paste rules.
+   *
+   * @example
+   * ```ts
+   * for (const image of await api.workspace.pickImages()) {
+   *   const saved = await api.vault.saveImage(image.bytes, image.name)
+   *   console.log(`![${saved.alt}](${saved.link})`)
+   * }
+   * ```
+   */
+  pickImages(): Promise<PickedImage[]>
+  /**
+   * The writer's macOS text replacements (System Settings > Keyboard > Text Replacements), as
+   * `{ shortcut, phrase }` pairs (Story 17.8). Main reads them; a plugin never touches the
+   * system. Resolves an empty list unless the writer turned on Text replacements in Settings,
+   * and always off macOS, so a plugin sees the list only when the writer asked for it. The
+   * pairs are the writer's own text: never log them.
+   *
+   * @example
+   * ```ts
+   * const pairs = await api.workspace.textReplacements()
+   * console.log(`${pairs.length} text replacements`)
+   * ```
+   */
+  textReplacements(): Promise<TextReplacement[]>
+}
+
+/** One macOS text replacement: typing `shortcut` and a space becomes `phrase`. */
+export interface TextReplacement {
+  shortcut: string
+  phrase: string
+}
+
+/** One file chosen in `api.workspace.pickImages`. */
+export interface PickedImage {
+  /** The file's own name, without its folder. */
+  name: string
+  bytes: Uint8Array
+}
+
+/** Where and how `api.workspace.pickGrid` opens (Story 11.8). */
+export interface GridPickOptions {
+  /**
+   * Window coordinates, in CSS pixels (such as an editor's caret position), the picker opens
+   * beside. Without it the picker opens near the top centre of the page.
+   */
+  anchor?: { x: number; y: number }
+  /** Cells the grid starts with, 1 to 10 each; the default is 6 by 6. It grows toward 10 by 10. */
+  rows?: number
+  cols?: number
+}
+
+/** What `api.workspace.ask` shows (Story 13.5). Each text is capped at 500 characters. */
+export interface AskOptions {
+  /** The question, above the field. */
+  title: string
+  /** What the field starts with; selected so typing replaces it. */
+  value?: string
+  placeholder?: string
+}
+
+/** The size the writer chose in `api.workspace.pickGrid`. */
+export interface GridChoice {
+  rows: number
+  cols: number
 }
 
 /** A command contribution. `id` is the full contribution ID, `<pluginId>:<name>`. */
 export interface CommandContribution {
   id: string
   title: string
+  /** True when this feature needs an AI model; hidden while AI features are off. */
+  usesAI?: boolean
 }
 
 /**
@@ -884,6 +994,10 @@ export interface SettingContribution {
   scope: SettingScope
   /** Required for `enum`, and only allowed there. */
   options?: SettingOption[]
+  /** True when this feature needs an AI model; hidden while AI features are off. */
+  usesAI?: boolean
+  /** Shown only on macOS (Story 17.8): for a setting about a macOS feature. */
+  macOnly?: boolean
 }
 
 /**
@@ -942,8 +1056,17 @@ export interface SurfaceContribution {
    * its edge to resize it, and the width is remembered for this surface alone. Default `normal`.
    */
   width?: SurfaceWidth
+  /**
+   * Opening a row (Enter or a click) keeps the panel open and focus where it is (Story 17.4), so
+   * a list of hits can be stepped through: Enter opens the highlighted row and moves the
+   * highlight to the next one, Shift+Enter to the previous (stopping at the ends). Esc closes the
+   * panel as usual. Default false: opening closes a floating panel and returns the caret.
+   */
+  stayOpenOnOpen?: boolean
   /** Actions on the surface's rows, drawn and run by the kernel (Story 2.8, AD-4). */
   rowActions?: RowActionContribution[]
+  /** True when this feature needs an AI model; hidden while AI features are off. */
+  usesAI?: boolean
 }
 
 /** How wide a surface's panel opens (`SurfaceContribution.width`). */
@@ -966,10 +1089,12 @@ export type RowActionTarget = RowKind | 'root'
  *   itself, its descendants, and its parent; the value is the picked folder row's ID.
  * - `confirm`: the row reads `prompt`, with "↵ <verb> · esc cancel" beside it; Enter confirms
  *   and there is no value.
+ * - `none` (Story 17.1): the action runs at once from the menu or its key, with no field and no
+ *   confirmation, and there is no value. For harmless actions such as copying a path.
  * An empty or unchanged name, Esc, or a click away from a confirmation does nothing; a name
  * with a `/` is refused with a notice.
  */
-export type RowActionInput = 'name' | 'new-name' | 'folder' | 'confirm'
+export type RowActionInput = 'name' | 'new-name' | 'folder' | 'confirm' | 'none'
 
 /**
  * A row action contribution (FR-10, AD-4, AD-5), declared in a surface's `rowActions`. `id` is
@@ -988,6 +1113,24 @@ export interface RowActionContribution {
   key?: string
   prompt?: string
   verb?: string
+  /**
+   * Set by the kernel, never in a manifest: the ID of the plugin that contributed this action to
+   * a surface it does not own (`contributes.rowActions`). Absent on the owner's own actions.
+   */
+  contributedBy?: string
+}
+
+/**
+ * A row action a plugin adds to a surface another plugin owns (Story 17.1, AD-5), declared in
+ * `contributes.rowActions` with the `surface` it targets (for the Files panel, `files:tree`). It
+ * is a `RowActionContribution` limited to the `confirm` and `none` inputs, since the other inputs
+ * drive the owner's tree. The kernel lists it after the owner's items, and the contributing plugin
+ * handles it with `api.surfaces.onRowAction(surface, handler)`; the handler gets the row's ID (for
+ * the Files panel, the project-relative path, which `api.vault` takes). Turning the plugin off
+ * removes it.
+ */
+export interface ContributedRowAction extends RowActionContribution {
+  surface: string
 }
 
 /**
@@ -1012,6 +1155,8 @@ export interface TopBarButtonContribution {
   icon: string
   surface?: string
   command?: string
+  /** True when this feature needs an AI model; hidden while AI features are off. */
+  usesAI?: boolean
 }
 
 /** One row of a list or tree view. `id` is what `onOpen` handlers receive. */
@@ -1176,6 +1321,11 @@ export interface FormField {
   label: string
   /** A line under the field in the caption type. */
   hint?: string
+  /**
+   * Makes the hint a link: clicking it reaches `api.surfaces.onAction` with this action ID (Story
+   * 13.3). Ignored without a `hint`.
+   */
+  hintAction?: string
   value: FormValue
   /** Shown under the field in the emphasis color; the plugin sets and clears it. */
   error?: string
@@ -1418,7 +1568,8 @@ export interface SurfacesApi {
   /**
    * Called when the writer chooses Accept or Reject on a change of a `diff` view (Story 9.16),
    * with the action and the change's `id`. The kernel changes nothing; set the next view to
-   * show what is left to decide.
+   * show what is left to decide. A click can arrive after the plugin set a newer view, so the `id`
+   * may name a change that is no longer shown: ignore an `id` you don't know.
    *
    * Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
    *
@@ -1453,7 +1604,8 @@ export interface SurfacesApi {
   /**
    * Closes the surface if it is showing, and focus returns to the caret: a modal surface after
    * its job is done (Story 9.22), or a side panel that isn't pinned. Not showing, it does
-   * nothing.
+   * nothing. A side the writer has pinned stays open, since only they unpin it, but focus still
+   * returns to the caret, as Esc does on a pinned panel (Story 17.5).
    *
    * @example
    * ```ts
@@ -1470,6 +1622,8 @@ export interface SurfacesApi {
 export interface PaletteProviderContribution {
   id: string
   title: string
+  /** True when this feature needs an AI model; hidden while AI features are off. */
+  usesAI?: boolean
 }
 
 /**
@@ -1760,6 +1914,8 @@ export type PluginContributions = {
   surfaces?: SurfaceContribution[]
   /** Top-bar buttons offered to the writer, hidden until turned on (FR-53). */
   topBarButtons?: TopBarButtonContribution[]
+  /** Right-click items added to another plugin's surface, e.g. the Files panel (Story 17.1). */
+  rowActions?: ContributedRowAction[]
   /** Color tokens the plugin adds, as `--vnp-<pluginId>-<id>`, each with a light and dark default (FR-57). */
   colors?: PluginColorContribution[]
   /** Color themes the plugin offers, a light and dark pair each (FR-45). */
@@ -1779,6 +1935,8 @@ export type PluginContributions = {
   blockRenderers?: BlockRendererContribution[]
   /** The plugin may register the editor host (`api.editor.registerHost`, AD-18). */
   editorHost?: boolean
+  /** The plugin chooses where pasted images are saved (`api.vault.onImageDestination`, Story 17.2). */
+  imageDestination?: boolean
 } & Record<string, unknown>
 
 /** `manifest.json` (AD-5). */
@@ -1807,7 +1965,17 @@ export interface PluginManifest {
   activationEvents?: EventName[]
   /** Declared capabilities. Recorded, not enforced, until Epic 6. */
   needs?: string[]
+  /**
+   * How much the plugin depends on an AI model. `none` has no AI contribution; `optional` has
+   * some, which are hidden while AI features are off; `required` is useless without AI and does
+   * not load while it is off. When absent it is derived: `optional` if any contribution sets
+   * `usesAI`, a tool sets `needsProvider`, or the plugin bundles skills, otherwise `none`.
+   */
+  ai?: PluginAiLevel
 }
+
+/** How much a plugin depends on an AI model (see `PluginManifest.ai`). */
+export type PluginAiLevel = 'none' | 'optional' | 'required'
 
 export type CommandHandler = (...args: unknown[]) => unknown
 
@@ -1870,6 +2038,14 @@ export type ToolResult =
   | { kind: 'replace'; options: string[] }
   | { kind: 'insert'; text: string }
   | { kind: 'info'; items: ToolInfoItem[] }
+  /**
+   * Opens a web page in the writer's browser and closes the selection box (Story 13.2). Only
+   * `http:` and `https:` URLs open; any other is shown as a tool error. The document and undo
+   * history are untouched. It is a Result, not a call, so a plugin can open a page only as the
+   * answer to something the writer picked. For example:
+   * `{ kind: 'open', url: 'https://example.com/search?q=word' }`.
+   */
+  | { kind: 'open'; url: string }
 
 /**
  * Shows options that have arrived so far while the handler is still running (Story 5.6). Each
@@ -1899,6 +2075,7 @@ export function isToolResult(value: unknown): value is ToolResult {
     )
   }
   if (r.kind === 'insert') return typeof r.text === 'string'
+  if (r.kind === 'open') return typeof r.url === 'string' && r.url.length <= 8192
   if (r.kind === 'info') {
     return (
       Array.isArray(r.items) &&
@@ -2126,6 +2303,7 @@ export type MarkKind = 'note' | 'flag' | 'change'
 /**
  * A range of the open document a plugin marks (Story 9.17). `from` and `to` are character
  * offsets into the text `api.editor.getText` returns (`\n` endings); `id` is unique within the set.
+ * `id` and `label` are at most 1000 characters each.
  */
 export interface Mark {
   id: string
@@ -2163,6 +2341,8 @@ export function checkMarks(
     if (typeof m.id !== 'string' || m.id === '' || ids.has(m.id)) {
       return bad('Every mark needs an id that no other mark in its set uses.')
     }
+    if (m.id.length > MAX_VIEW_TEXT)
+      return bad(`A mark’s id is at most ${MAX_VIEW_TEXT} characters.`)
     ids.add(m.id)
     if (
       typeof m.from !== 'number' ||
@@ -2179,6 +2359,9 @@ export function checkMarks(
     }
     if (m.label !== undefined && typeof m.label !== 'string') {
       return bad('A mark’s label must be text.')
+    }
+    if (typeof m.label === 'string' && m.label.length > MAX_VIEW_TEXT) {
+      return bad(`A mark’s label is at most ${MAX_VIEW_TEXT} characters.`)
     }
     const mark: Mark = { id: m.id, from: m.from, to: m.to, kind: m.kind as MarkKind }
     if (typeof m.label === 'string' && m.label !== '') mark.label = m.label
@@ -2272,8 +2455,48 @@ export interface ResourcesApi {
    * ```
    */
   onChanged(listener: () => void): Disposable
+  /**
+   * Re-reads the project's images from disk (Story 13.5): `imageSource` gives fresh URLs from
+   * now on and every `onChanged` listener fires, so a plugin that drew images redraws them. Text
+   * and undo history are untouched.
+   *
+   * @example
+   * ```ts
+   * api.commands.handle('my-plugin:reload-images', () => api.resources.reload())
+   * ```
+   */
+  reload(): void
 }
 export type EventListener = (event: VeneerEvent) => unknown
+
+/**
+ * What the kernel tells a plugin that chooses where a pasted or dropped image is saved
+ * (Story 17.2): `document` is the open document's project path, `name` the file name core would
+ * use (a dropped file's own name, else `image-YYYYMMDD-HHMMSS.png`-style), and `siteRoot`
+ * whether the project has a site root set (`veneer:site-root`).
+ */
+export interface ImageDestinationRequest {
+  document: string
+  name: string
+  siteRoot: boolean
+}
+
+/**
+ * A folder a plugin picks for an image (Story 17.2). `folder` is relative, with `/` separators,
+ * under `base`: `'project'` is the project root; `'site'` is the project's site root, and the
+ * link is written in site-root form (`/images/2026/x.png`). Main checks that the folder stays
+ * inside that base (AD-6); a folder outside it is refused with a notice and the image is saved
+ * the usual way.
+ */
+export interface ImageDestination {
+  folder: string
+  base: 'project' | 'site'
+}
+
+/** An image-destination handler: a destination, or `undefined` for the default. */
+export type ImageDestinationHandler = (
+  request: ImageDestinationRequest
+) => ImageDestination | undefined | Promise<ImageDestination | undefined>
 
 /** What `api.vault.saveImage` resolves to: the pieces of `![alt](link)`. */
 export interface SavedImage {
@@ -2285,6 +2508,17 @@ export interface SavedImage {
 
 /** The largest image `api.vault.saveImage` accepts, in bytes (FR-62). */
 export const MAX_IMAGE_BYTES = 25 * 1024 * 1024
+
+/** What `api.vault.saveAttachment` resolves to: the pieces of `[label](link)` (Story 13.4). */
+export interface SavedAttachment {
+  /** Ready for `(...)`: relative to the document, wrapped in `<...>` when the path has a space. */
+  link: string
+  /** The saved file's name, escaped for `[...]`. */
+  label: string
+}
+
+/** The largest file `api.vault.saveAttachment` accepts, in bytes (Story 13.4). */
+export const MAX_ATTACHMENT_BYTES = 100 * 1024 * 1024
 
 /** What a plugin receives in `onload`. Every method that registers returns a `Disposable`. */
 export interface PluginApi {
@@ -2580,6 +2814,43 @@ export interface PluginApi {
      */
     saveImage(bytes: Uint8Array, name?: string): Promise<SavedImage>
     /**
+     * Chooses where pasted and dropped images are saved (Story 17.2). Needs
+     * `contributes.imageDestination: true` in the manifest, which also activates the plugin when
+     * an image arrives. The kernel asks with the document, the file name, and whether a site
+     * root is set; return a folder under the project or the site root, or `undefined` for the
+     * default. A throw, no answer within 2 seconds, or a folder outside the project and site
+     * root raises one notice naming the plugin and falls back to the default. With several
+     * such plugins the first in load order wins. Stops when disposed or the plugin is turned off. Rejects
+     * `plugin/undeclared-contribution` without the manifest flag.
+     *
+     * @example
+     * ```ts
+     * api.vault.onImageDestination(({ siteRoot }) =>
+     *   siteRoot ? { folder: `images/${new Date().getFullYear()}`, base: 'site' } : undefined
+     * )
+     * ```
+     */
+    onImageDestination(handler: ImageDestinationHandler): Disposable
+    /**
+     * Saves a non-image file beside the open document for a link (Story 13.4). The file goes in
+     * the project's `veneer:attachment-folder`, else its image folder, else the document's own
+     * folder, created if missing, and never overwrites (a clash gets `-2`, `-3`). `name` is the
+     * file's own name, made filesystem-safe; the bytes are not inspected, at most
+     * `MAX_ATTACHMENT_BYTES`. `link` is relative to the document and is wrapped in `<...>` when
+     * the path has a space, so it stays one valid link; `label` is the file name with `\`, `[`,
+     * and `]` escaped. On the untitled page the kernel first creates its file. On failure the
+     * kernel raises one notice; the promise rejects, carrying `pluginId`, with `vault/too-large`,
+     * `vault/bad-image-folder`, `vault/write-failed`, `vault/read-only`,
+     * `vault/unknown-document`, `editor/unavailable`, or `plugin/unavailable`.
+     *
+     * @example
+     * ```ts
+     * const { link, label } = await api.vault.saveAttachment(pdfBytes, 'Notes 2026.pdf')
+     * api.editor.edit({ from: 0, to: 0, text: `[${label}](${link})` })
+     * ```
+     */
+    saveAttachment(bytes: Uint8Array, name: string): Promise<SavedAttachment>
+    /**
      * The open scope's documents and folders (FR-10, AD-14), read fresh from disk: every
      * markdown file (`.md`, `.markdown`) and every folder holding one, dot-entries and
      * symlinks skipped, at most `MAX_VIEW_ITEMS` entries. A loose file's scope lists only that
@@ -2637,6 +2908,21 @@ export interface PluginApi {
      * ```
      */
     rename(from: string, to: string): Promise<void>
+    /**
+     * Copies one document or image to a new path in the project (Story 13.5). The copy keeps
+     * the file's kind (a document stays `.md`, an image an image) and nothing is ever
+     * overwritten; no link anywhere changes, so a plugin that wants a link to point at the copy
+     * edits the link itself. Folders can't be copied. The open document's unsaved edits are saved
+     * first. Emits `vault:created` for the copy. Rejects, carrying `pluginId`, with
+     * `vault/exists`, `vault/out-of-scope`, `vault/read-failed`, `vault/write-failed`, or
+     * `plugin/unavailable`; for the vault codes the kernel has already shown its notice.
+     *
+     * @example
+     * ```ts
+     * await api.vault.copy('notes/cover.png', 'archive/cover.png')
+     * ```
+     */
+    copy(from: string, to: string): Promise<void>
     /**
      * Moves a document, an image, or a folder (whole) to the OS trash; never a permanent delete
      * (FR-10). The open document's pending edits are saved first; if it was trashed, or sat in
@@ -2731,12 +3017,16 @@ export interface PluginApi {
   readonly surfaces: SurfacesApi
   /** The writer's models, for plugins that declare a provider tool (FR-34, AD-11). */
   readonly providers: ProvidersApi
+  /** Whether the writer has AI features on, and changes to it (Epic 12). */
+  readonly ai: AiApi
   /** The network, behind the writer's first-time consent (FR-51, AD-6). */
   readonly net: NetApi
   /** Secret storage scoped to this plugin (Story 9.8, AD-11). */
   readonly secrets: SecretsApi
   /** Saving a produced file where the writer chooses (Story 9.8). */
   readonly export: ExportApi
+  /** The system clipboard, read and written through the app (Story 11.2, AD-6). */
+  readonly clipboard: ClipboardApi
   /** Save points and history for the open project, kept as plain git (Story 9.13, AD-20). */
   readonly history: HistoryApi
   /** Structured data kept in the open project, per plugin (Story 9.26). */
@@ -2784,6 +3074,30 @@ export interface PluginMessage {
 /** What a plugin asks the writer's model (FR-34). The provider is always the writer's default. */
 export interface PluginCompletion {
   messages: PluginMessage[]
+}
+
+/** Whether AI features are on (Epic 12). */
+export interface AiApi {
+  /**
+   * Whether AI features are on. While they are off the kernel already hides every contribution
+   * the manifest marks `usesAI`; use this to leave AI rows out of data you hand the kernel, such
+   * as a surface's items or palette items.
+   * @example
+   * ```ts
+   * const rows: ViewItem[] = [{ id: 'plain', label: 'Plain row' }]
+   * if (api.ai.enabled()) rows.push({ id: 'ask', label: 'Ask the model' })
+   * ```
+   */
+  enabled(): boolean
+  /**
+   * Calls `listener` each time the writer turns AI features on or off, with the new state. The
+   * subscription ends when you dispose it or the plugin unloads.
+   * @example
+   * ```ts
+   * api.ai.onChanged((on) => console.log(on ? 'AI is on' : 'AI is off'))
+   * ```
+   */
+  onChanged(listener: (enabled: boolean) => void): Disposable
 }
 
 /**
@@ -3084,6 +3398,80 @@ export interface ExportApi {
    */
   saveAs(file: ExportFile): Promise<{ saved: boolean; name?: string }>
 }
+
+/** Why an `api.clipboard` call was refused. */
+export const CLIPBOARD_ERROR = {
+  /** The text or HTML is not a string, or is over `MAX_CLIPBOARD_BYTES`. */
+  invalid: 'clipboard/invalid',
+  /** `writeImage` was given a path that is not an image inside the open project. */
+  badImage: 'clipboard/bad-image',
+  /** The system clipboard could not be read or written. */
+  failed: 'clipboard/failed'
+} as const
+
+/** The most text or HTML `api.clipboard.write` takes, in characters. */
+export const MAX_CLIPBOARD_BYTES = 16 * 1024 * 1024
+
+/** What `api.clipboard.write` puts on the clipboard. */
+export interface ClipboardContent {
+  /** Plain text; always written, and what a paste into a plain editor gets. */
+  text: string
+  /** Optional HTML for rich targets; `text` is the fallback for everything else. */
+  html?: string
+}
+
+/**
+ * The system clipboard (Story 11.2, AD-6). Main reads and writes it; a plugin never touches the
+ * clipboard itself.
+ */
+export interface ClipboardApi {
+  /**
+   * The clipboard's plain text, or an empty string when it holds none.
+   *
+   * @example
+   * ```ts
+   * const text = await api.clipboard.readText()
+   * if (/^https?:\/\//.test(text.trim())) console.log('The clipboard holds a link')
+   * ```
+   */
+  readText(): Promise<string>
+  /**
+   * Replaces the clipboard with plain text, or with HTML that has the plain text as its fallback.
+   * Rejects `clipboard/invalid` for a non-string or an oversized value.
+   *
+   * @example
+   * ```ts
+   * await api.clipboard.write({ text: 'Chapter one', html: '<h1>Chapter one</h1>' })
+   * ```
+   */
+  write(content: ClipboardContent): Promise<void>
+  /**
+   * Replaces the clipboard with an image from the open project, by API path (`images/cover.png`).
+   * Rejects `clipboard/bad-image` for anything that is not an image inside the project.
+   *
+   * @example
+   * ```ts
+   * await api.clipboard.writeImage('images/cover.png')
+   * ```
+   */
+  writeImage(path: string): Promise<void>
+  /**
+   * Replaces the clipboard with the path of a file or folder in the open project, by API path
+   * (`chapters/one.md`). `'full'` is the whole path on disk; `'project'` is the API path itself,
+   * relative to the project root with forward slashes. A plugin never sees the folder's real
+   * path (AD-6): main resolves it. Rejects `clipboard/invalid` for a path outside the project,
+   * and for `'project'` when a loose file is open (it has no project root).
+   *
+   * @example
+   * ```ts
+   * await api.clipboard.writePath('chapters/one.md', 'project')
+   * ```
+   */
+  writePath(path: string, form: ClipboardPathForm): Promise<void>
+}
+
+/** Which path `api.clipboard.writePath` copies: the full one on disk, or the project-relative one. */
+export type ClipboardPathForm = 'full' | 'project'
 
 /** One save point in a project's history (Story 9.13). */
 export interface HistoryCommit {
@@ -3547,7 +3935,7 @@ function cleanFormView(v: Record<string, unknown>): FormView | null {
       label: f.label,
       value: Array.isArray(f.value) ? [...(f.value as string[])] : (f.value as FormValue)
     }
-    for (const key of ['hint', 'error', 'placeholder'] as const) {
+    for (const key of ['hint', 'error', 'placeholder', 'hintAction'] as const) {
       const text = f[key]
       if (text === undefined) continue
       if (!viewText(text)) return null

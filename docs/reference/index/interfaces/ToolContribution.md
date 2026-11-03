@@ -1,6 +1,6 @@
 # Interface: ToolContribution
 
-Defined in: [index.ts:1835](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1835)
+Defined in: [index.ts:2003](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2003)
 
 A selection-box tool (FR-23, AD-5, AD-10). `id` is `<pluginId>:<name>`. Everything here comes
 from the manifest; a handler attaches by ID with `api.tools.handle`.
@@ -11,7 +11,7 @@ from the manifest; a handler attaches by ID with `api.tools.handle`.
 
 > **id**: `string`
 
-Defined in: [index.ts:1836](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1836)
+Defined in: [index.ts:2004](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2004)
 
 ***
 
@@ -19,7 +19,7 @@ Defined in: [index.ts:1836](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **name**: `string`
 
-Defined in: [index.ts:1837](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1837)
+Defined in: [index.ts:2005](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2005)
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: [index.ts:1837](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **description**: `string`
 
-Defined in: [index.ts:1838](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1838)
+Defined in: [index.ts:2006](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2006)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [index.ts:1838](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **appliesTo**: (`"word"` \| `"phrase"` \| `"sentence"` \| `"paragraph"` \| `"any"`)[]
 
-Defined in: [index.ts:1840](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1840)
+Defined in: [index.ts:2008](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2008)
 
 The selection kinds it works on; never empty.
 
@@ -45,7 +45,7 @@ The selection kinds it works on; never empty.
 
 > **worksWithoutSelection**: `boolean`
 
-Defined in: [index.ts:1842](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1842)
+Defined in: [index.ts:2010](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2010)
 
 Offered when nothing is selected (Cmd+J at the caret). Default false.
 
@@ -55,7 +55,7 @@ Offered when nothing is selected (Cmd+J at the caret). Default false.
 
 > **needsProvider**: `boolean`
 
-Defined in: [index.ts:1844](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1844)
+Defined in: [index.ts:2012](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2012)
 
 Needs a configured model provider. Default false.
 
@@ -65,7 +65,7 @@ Needs a configured model provider. Default false.
 
 > **context**: (`"paragraph"` \| `"document"` \| `"selection"` \| `"section"` \| `"title"` \| `"frontmatter"`)[]
 
-Defined in: [index.ts:1846](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1846)
+Defined in: [index.ts:2014](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2014)
 
 The context the kernel assembles for the handler; never empty. Default `['selection']`.
 
@@ -75,6 +75,6 @@ The context the kernel assembles for the handler; never empty. Default `['select
 
 > **readOnly**: `boolean`
 
-Defined in: [index.ts:1848](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1848)
+Defined in: [index.ts:2016](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2016)
 
 Never changes the text by itself; results are for reading. Default false.

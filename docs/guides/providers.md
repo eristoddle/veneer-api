@@ -38,6 +38,8 @@ Use the `report` argument of a tool handler to show completed options while the 
 
 `api.providers` is text only: a plugin cannot offer the model tools or receive tool calls. (The kernel does that for skills, to let a model read a skill's reference files.)
 
+**AI features off.** While the writer has AI features off, `api.providers.stream` and `complete` reject with `ai/off` before anything else. See [AI features](manifests-and-contributions.md#ai-features-the-writers-switch).
+
 ## The network: `api.net.fetch`
 
 `api.net.fetch(request, signal?)` is a plugin's only way onto the network (since API 0.20.0). The renderer is sandboxed, so main makes the request for you. It resolves with `{ status, ok, headers, text, truncated }`: any status is an answer (a 404 resolves with `ok: false`), and only a failure to get one rejects.

@@ -70,3 +70,5 @@ export function onload(api) {
 ```
 
 A script's own `SKILL.md` body is not sent anywhere; the script decides what to do. A skill with scripts that are not JavaScript (`.py`, `.sh`) is listed in Settings as unsupported, with the reason, and is never offered under `/`.
+
+Skills are model instructions, so they follow the AI features switch: while the writer has AI features off, no skill is listed and the project-skills question is not asked, and a script skill's plugin is `"ai": "required"`, so it does not load. They come back when AI features do.

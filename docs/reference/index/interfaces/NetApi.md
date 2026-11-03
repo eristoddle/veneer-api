@@ -1,6 +1,6 @@
 # Interface: NetApi
 
-Defined in: [index.ts:2892](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2892)
+Defined in: [index.ts:3206](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3206)
 
 The network (FR-51, AD-6). Plugins never reach the network themselves: the renderer is
 sandboxed, and this is main's proxied fetch. A tool marked `readOnly` is refused
@@ -20,7 +20,7 @@ form, and an answer may be read as bytes (see `NetRequest`). Failures reject wit
 
 > **fetch**(`request`, `signal?`): `Promise`\<[`NetResponse`](NetResponse.md)\>
 
-Defined in: [index.ts:2901](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2901)
+Defined in: [index.ts:3215](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3215)
 
 One request, answered in full.
 

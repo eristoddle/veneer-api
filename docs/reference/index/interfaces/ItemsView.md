@@ -1,6 +1,6 @@
 # Interface: ItemsView
 
-Defined in: [index.ts:1085](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1085)
+Defined in: [index.ts:1230](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1230)
 
 A view the kernel draws (AD-4): rows, keyboard, filtering, and focus are the kernel's. `list`
 ignores `children`. `selectedId` marks the row that stands for "here" (the open file, the
@@ -12,7 +12,7 @@ current heading); the panel opens with focus on it.
 
 > **kind**: `"list"` \| `"tree"`
 
-Defined in: [index.ts:1086](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1086)
+Defined in: [index.ts:1231](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1231)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [index.ts:1086](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **items**: [`ViewItem`](ViewItem.md)[]
 
-Defined in: [index.ts:1087](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1087)
+Defined in: [index.ts:1232](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1232)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:1087](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **selectedId?**: `string`
 
-Defined in: [index.ts:1088](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1088)
+Defined in: [index.ts:1233](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1233)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:1088](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **layout?**: `"rows"` \| `"cards"`
 
-Defined in: [index.ts:1094](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1094)
+Defined in: [index.ts:1239](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1239)
 
 `cards` (Story 9.23) draws the items as a grid of cards (picture, label, one line of
 `detail`) when the panel is at least 360px wide, and as rows when it is narrower. Default
@@ -48,7 +48,7 @@ Defined in: [index.ts:1094](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **reorderable?**: `boolean`
 
-Defined in: [index.ts:1101](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1101)
+Defined in: [index.ts:1246](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1246)
 
 True lets the writer rearrange the rows among their siblings (Story 9.24): drag a row, or
 press Alt+Up / Alt+Down on the highlighted one. The kernel reorders nothing itself; each move
@@ -61,7 +61,7 @@ the writer's type-to-filter is active.
 
 > `optional` **empty?**: [`ViewEmptyState`](ViewEmptyState.md)
 
-Defined in: [index.ts:1102](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1102)
+Defined in: [index.ts:1247](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1247)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [index.ts:1102](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **input?**: [`ViewInput`](ViewInput.md)
 
-Defined in: [index.ts:1111](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1111)
+Defined in: [index.ts:1256](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1256)
 
 A text field the kernel draws above the rows (Story 2.10), e.g. a search box. Typing goes
 to it, not to filtering the rows; each change reaches `api.surfaces.onInput`. `value` is
@@ -84,6 +84,6 @@ highlighted row.
 
 > `optional` **note?**: `string`
 
-Defined in: [index.ts:1113](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1113)
+Defined in: [index.ts:1258](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1258)
 
 Quiet text under the rows, shown whether or not there are rows.

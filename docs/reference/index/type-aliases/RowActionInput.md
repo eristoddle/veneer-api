@@ -1,8 +1,8 @@
 # Type Alias: RowActionInput
 
-> **RowActionInput** = `"name"` \| `"new-name"` \| `"folder"` \| `"confirm"`
+> **RowActionInput** = `"name"` \| `"new-name"` \| `"folder"` \| `"confirm"` \| `"none"`
 
-Defined in: [index.ts:972](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L972)
+Defined in: [index.ts:1097](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1097)
 
 How the kernel asks for a row action's value (AD-4): plugins never draw an input or a
 confirmation.
@@ -14,5 +14,7 @@ confirmation.
   itself, its descendants, and its parent; the value is the picked folder row's ID.
 - `confirm`: the row reads `prompt`, with "↵ <verb> · esc cancel" beside it; Enter confirms
   and there is no value.
+- `none` (Story 17.1): the action runs at once from the menu or its key, with no field and no
+  confirmation, and there is no value. For harmless actions such as copying a path.
 An empty or unchanged name, Esc, or a click away from a confirmation does nothing; a name
 with a `/` is refused with a notice.

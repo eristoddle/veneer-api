@@ -1,6 +1,6 @@
 # Interface: HistorySwitchedEvent
 
-Defined in: [index.ts:3132](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3132)
+Defined in: [index.ts:3520](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3520)
 
 Emitted after `api.history.switchTo` changes the project's files to another branch.
 
@@ -14,7 +14,7 @@ Emitted after `api.history.switchTo` changes the project's files to another bran
 
 > `readonly` **type**: `"history:switched"`
 
-Defined in: [index.ts:3133](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3133)
+Defined in: [index.ts:3521](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3521)
 
 #### Overrides
 
@@ -26,4 +26,4 @@ Defined in: [index.ts:3133](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `readonly` **branch**: `string`
 
-Defined in: [index.ts:3134](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3134)
+Defined in: [index.ts:3522](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3522)

@@ -57,6 +57,7 @@ import {
   MAX_PROJECT_DATA_KEY_BYTES,
   MAX_PROJECT_DATA_PLUGIN_BYTES,
   PROJECT_DATA_ERROR,
+  MAX_ATTACHMENT_BYTES,
   MAX_HISTORY_LOG,
   MAX_NET_BYTES,
   MAX_NOTICE_ACTION_LABEL,
@@ -99,6 +100,10 @@ import {
   type BlockRenderer,
   type EditingModeExtension,
   type ExportFile,
+  type AskOptions,
+  type PickedImage,
+  CLIPBOARD_ERROR,
+  MAX_CLIPBOARD_BYTES,
   type HistoryCommit,
   type HistorySavedEvent,
   type HistorySyncOptions,
@@ -127,6 +132,10 @@ import {
   type VaultEntry,
   type VeneerEvent,
   type ResolvedProjectType,
+  type ImageDestination,
+  type ImageDestinationHandler,
+  type ImageDestinationRequest,
+  type TextReplacement,
   type WorkspaceProject
 } from './index'
 
@@ -158,6 +167,8 @@ export interface FakeHostOptions {
    * rejects `provider/none`.
    */
   replies?: (string | string[])[]
+  /** Whether AI features are on (default true). Off, `api.providers` rejects `ai/off` and `api.ai.enabled()` is false. */
+  aiFeatures?: boolean
   /** Makes `api.providers` calls reject with this code and sentence instead of answering. */
   providerFailure?: { code: string; message: string } | null
   /**
@@ -182,6 +193,14 @@ function secretName(name: string): string {
     throw veneerError(STORAGE_ERROR.badSecret, 'That secret name is not valid.')
   }
   return name
+}
+
+/** One `api.vault.saveAttachment` call, as the fake host recorded it. */
+export interface FakeSavedAttachment {
+  bytes: Uint8Array
+  name: string
+  /** The link the fake returned, or null when the call was made to fail. */
+  link: string | null
 }
 
 /** One `api.vault.saveImage` call, as the fake host recorded it. */
@@ -239,6 +258,23 @@ export interface FakeHost {
   readonly secrets: Map<string, string>
   /** Every file `api.export.saveAs` was given, in order; the fake "writer" always saves (Story 9.8). */
   readonly exported: ExportFile[]
+  /**
+   * What `api.clipboard` holds (Story 11.2): set `text` or `html` to seed a read; a write or
+   * `writeImage` replaces it. `image` is the project path last given to `writeImage`.
+   */
+  readonly clipboard: { text: string; html: string | null; image: string | null }
+  /** What `api.workspace.pickImages` resolves next, in order (Story 11.13); empty is a cancel. */
+  readonly pickedImages: PickedImage[][]
+  /** Every path `api.workspace.revealImage` was given, in order (Story 11.13). */
+  readonly revealed: string[]
+  /** What `api.workspace.pickGrid` resolves next, in order (Story 11.8); `null` or empty is a cancel. */
+  readonly gridAnswers: ({ rows: number; cols: number } | null)[]
+  /** How many times `api.resources.reload` ran (Story 13.5). */
+  readonly reloadCount: number
+  /** What `api.workspace.ask` resolves next, in order (Story 13.5); `null` or empty is a cancel. */
+  readonly askAnswers: (string | null)[]
+  /** Every `api.workspace.ask` the plugin made, in order. */
+  readonly asked: AskOptions[]
   /** Every `api.providers` request that was allowed through, in order. */
   readonly modelRequests: PluginCompletion[]
   /** The API object handed to `onload`. */
@@ -306,6 +342,12 @@ export interface FakeHost {
   setRemoteAllowed(on: boolean): void
   /** Every `vault.saveImage` call, in order. */
   readonly images: FakeSavedImage[]
+  /** What `api.workspace.textReplacements` resolves (Story 17.8); push pairs to seed it. */
+  readonly textReplacements: TextReplacement[]
+  /** Asks the plugin's `vault.onImageDestination` handler, as the kernel would (Story 17.2). */
+  askImageDestination(request: ImageDestinationRequest): Promise<ImageDestination | undefined>
+  /** Every `vault.saveAttachment` call, in order; `setImageFailure` and `holdImages` apply too. */
+  readonly attachments: FakeSavedAttachment[]
   /** Makes later `vault.saveImage` calls reject with `code`, or succeed again with null. */
   setImageFailure(code: string | null): void
   /**
@@ -355,6 +397,8 @@ export interface FakeHost {
   readonly created: string[]
   /** Every rename or move, in order. */
   readonly renames: { from: string; to: string; kind: 'file' | 'folder' }[]
+  /** Every `vault.copy`, in order. */
+  readonly copies: { from: string; to: string }[]
   /** Every path `vault.trash` trashed, in order. */
   readonly trashed: string[]
   /**
@@ -610,6 +654,7 @@ export function createFakeHost(
   const source = `plugin:${manifest.id}`
   let remoteAllowed = options.remoteAllowed ?? false
   const images: FakeSavedImage[] = []
+  const attachments: FakeSavedAttachment[] = []
   let imageFailure = options.imageFailure ?? null
   let imageGate: Promise<void> | null = null
   const resourceListeners = new Set<() => void>()
@@ -631,6 +676,13 @@ export function createFakeHost(
   const notices: FakeHost['notices'] = []
   let noticeTimes: number[] = []
   const exported: ExportFile[] = []
+  const clipboard: FakeHost['clipboard'] = { text: '', html: null, image: null }
+  const gridAnswers: FakeHost['gridAnswers'] = []
+  const askAnswers: FakeHost['askAnswers'] = []
+  let reloads = 0
+  const asked: AskOptions[] = []
+  const revealed: string[] = []
+  const pickedImages: PickedImage[][] = []
   const history: FakeHistory = {
     repository: false,
     commits: [],
@@ -651,8 +703,11 @@ export function createFakeHost(
   const folders = new Set<string>()
   const created: string[] = []
   const renames: { from: string; to: string; kind: 'file' | 'folder' }[] = []
+  const copies: { from: string; to: string }[] = []
   const trashed: string[] = []
   const participants = new Set<RenameParticipant>()
+  const imageDestinationHandlers = new Set<ImageDestinationHandler>()
+  const textReplacementPairs: TextReplacement[] = []
   const rowActionHandlers = new Map<string, Set<RowActionHandler>>()
   const begunRowActions: { surfaceId: string; actionId: string; rowId: string }[] = []
   const searches: string[] = []
@@ -1089,6 +1144,25 @@ export function createFakeHost(
         images.push({ bytes, name, link })
         return { link, alt: stem.replace(/[\\[\]]/g, '\\$&') }
       },
+      async saveAttachment(bytes, name) {
+        if (imageGate !== null) await imageGate
+        if (imageFailure !== null) {
+          attachments.push({ bytes, name, link: null })
+          throw veneerError(imageFailure, 'the file could not be saved', manifest.id)
+        }
+        if (bytes.byteLength > MAX_ATTACHMENT_BYTES) {
+          attachments.push({ bytes, name, link: null })
+          throw veneerError(VAULT_ERROR.tooLarge, 'the file is larger than 100 MB', manifest.id)
+        }
+        const link = name.includes(' ')
+          ? `<${name}>`
+          : name
+              .split('/')
+              .map((part) => encodeURIComponent(part).replace(/\(/g, '%28').replace(/\)/g, '%29'))
+              .join('/')
+        attachments.push({ bytes, name, link })
+        return { link, label: name.replace(/[\\[\]]/g, '\\$&') }
+      },
       async create(path, initial = '') {
         checkNew(path)
         if (!FAKE_MARKDOWN.test(path)) {
@@ -1132,6 +1206,17 @@ export function createFakeHost(
         for (const participant of [...participants]) await participant({ ...rename })
         await emitEvent({ type: 'vault:renamed', ...rename } as VeneerEvent)
       },
+      async copy(from, to) {
+        if (kindAt(from) !== 'file') {
+          throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id)
+        }
+        checkNew(to)
+        if (kindAt(to) !== null)
+          throw veneerError(VAULT_ERROR.exists, 'that name is taken', manifest.id)
+        files.set(to, files.get(from) ?? '')
+        copies.push({ from, to })
+        await emitEvent({ type: 'vault:created', path: to, kind: 'file' } as VeneerEvent)
+      },
       async trash(path) {
         const kind = kindAt(path)
         if (kind === null) {
@@ -1145,6 +1230,10 @@ export function createFakeHost(
         }
         trashed.push(path)
         await emitEvent({ type: 'vault:trashed', path, kind } as VeneerEvent)
+      },
+      onImageDestination(handler) {
+        imageDestinationHandlers.add(handler)
+        return track(() => imageDestinationHandlers.delete(handler))
       },
       onRename(participant) {
         participants.add(participant)
@@ -1290,6 +1379,35 @@ export function createFakeHost(
         await emitEvent({ type: 'document:opened', path } as VeneerEvent)
         moveSelection()
       },
+      async pickImages() {
+        return pickedImages.shift() ?? []
+      },
+      async textReplacements() {
+        return textReplacementPairs.map((p) => ({ ...p }))
+      },
+      async revealImage(path) {
+        if (
+          !/\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i.test(path) ||
+          path.startsWith('/') ||
+          path.split('/').includes('..')
+        ) {
+          throw veneerError(
+            CLIPBOARD_ERROR.badImage,
+            'That is not an image in the project.',
+            manifest.id
+          )
+        }
+        revealed.push(path)
+      },
+      async ask(options) {
+        asked.push(options)
+        const next = askAnswers.shift()
+        return next === undefined ? null : next
+      },
+      async pickGrid() {
+        const next = gridAnswers.shift()
+        return next === undefined ? null : next
+      },
       async openFolderAsProject() {
         if (openPath === undefined) {
           throw veneerError(VAULT_ERROR.unknownDocument, 'No document is open', manifest.id)
@@ -1334,6 +1452,9 @@ export function createFakeHost(
         return out
       },
       async stream(request, onText, signal) {
+        if (options.aiFeatures === false) {
+          throw veneerError('ai/off', 'AI features are off in Settings.', manifest.id)
+        }
         if (!needsModel) {
           throw veneerError(
             PLUGIN_ERROR.undeclaredContribution,
@@ -1355,6 +1476,11 @@ export function createFakeHost(
         modelCalls += 1
         for (const piece of typeof reply === 'string' ? [reply] : reply) onText(piece)
       }
+    },
+    ai: {
+      enabled: () => options.aiFeatures !== false,
+      // The fake's switch is fixed for the run; nothing changes it.
+      onChanged: () => ({ dispose: () => undefined })
     },
     net: {
       async fetch(request, signal) {
@@ -1703,6 +1829,61 @@ export function createFakeHost(
         return { saved: true, name: file.suggestedName }
       }
     },
+    clipboard: {
+      async readText() {
+        return clipboard.text
+      },
+      async write(content) {
+        const html = content?.html
+        if (
+          typeof content?.text !== 'string' ||
+          (html !== undefined && typeof html !== 'string') ||
+          content.text.length > MAX_CLIPBOARD_BYTES ||
+          (html !== undefined && html.length > MAX_CLIPBOARD_BYTES)
+        ) {
+          throw veneerError(
+            CLIPBOARD_ERROR.invalid,
+            'The clipboard takes text and HTML.',
+            manifest.id
+          )
+        }
+        clipboard.text = content.text
+        clipboard.html = html ?? null
+        clipboard.image = null
+      },
+      async writePath(path, form) {
+        if (
+          path === '' ||
+          path.startsWith('/') ||
+          path.split('/').some((p) => p === '..' || p === '')
+        ) {
+          throw veneerError(
+            CLIPBOARD_ERROR.invalid,
+            'That path is not in the open project.',
+            manifest.id
+          )
+        }
+        clipboard.text = form === 'project' ? path : `/fake-project/${path}`
+        clipboard.html = null
+        clipboard.image = null
+      },
+      async writeImage(path) {
+        if (
+          !/\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i.test(path) ||
+          path.startsWith('/') ||
+          path.split('/').includes('..')
+        ) {
+          throw veneerError(
+            CLIPBOARD_ERROR.badImage,
+            'That is not an image in the project.',
+            manifest.id
+          )
+        }
+        clipboard.text = ''
+        clipboard.html = null
+        clipboard.image = path
+      }
+    },
     resources: {
       // Text only: the fake never builds DOM from the HTML, so nothing in it can run.
       sanitizeHtml(html) {
@@ -1727,6 +1908,10 @@ export function createFakeHost(
       onChanged(listener) {
         resourceListeners.add(listener)
         return track(() => resourceListeners.delete(listener))
+      },
+      reload() {
+        reloads += 1
+        for (const listener of [...resourceListeners]) listener()
       }
     },
     settings: {
@@ -1810,6 +1995,15 @@ export function createFakeHost(
     projectDataChanged: (key) =>
       emitEvent({ type: 'project-data:changed', key } as ProjectDataChangedEvent),
     exported,
+    clipboard,
+    gridAnswers,
+    askAnswers,
+    asked,
+    get reloadCount() {
+      return reloads
+    },
+    revealed,
+    pickedImages,
     async load() {
       await entry.onload(api)
     },
@@ -1871,6 +2065,12 @@ export function createFakeHost(
       for (const listener of [...resourceListeners]) listener()
     },
     images,
+    textReplacements: textReplacementPairs,
+    askImageDestination: async (request) => {
+      const [handler] = [...imageDestinationHandlers]
+      return handler === undefined ? undefined : handler(request)
+    },
+    attachments,
     setImageFailure(code) {
       imageFailure = code
     },
@@ -1908,6 +2108,7 @@ export function createFakeHost(
     folders,
     created,
     renames,
+    copies,
     trashed,
     begunRowActions,
     searches,

@@ -1,6 +1,6 @@
 # Interface: ReorderEvent
 
-Defined in: [index.ts:1121](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1121)
+Defined in: [index.ts:1266](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1266)
 
 A row move asked for in a `reorderable` view. `beforeId` is the sibling the row now sits
 before, or null for the end of its siblings; `parentId` is the parent row's ID, or null at the
@@ -12,7 +12,7 @@ top level. A row only moves among its siblings.
 
 > **movedId**: `string`
 
-Defined in: [index.ts:1122](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1122)
+Defined in: [index.ts:1267](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1267)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [index.ts:1122](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **beforeId**: `string` \| `null`
 
-Defined in: [index.ts:1123](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1123)
+Defined in: [index.ts:1268](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1268)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [index.ts:1123](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **parentId**: `string` \| `null`
 
-Defined in: [index.ts:1124](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1124)
+Defined in: [index.ts:1269](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1269)

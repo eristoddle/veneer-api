@@ -1,6 +1,6 @@
 # Interface: ToolInput
 
-Defined in: [index.ts:1852](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1852)
+Defined in: [index.ts:2020](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2020)
 
 What a tool handler receives; the fields it declared in `context` are present.
 
@@ -10,7 +10,7 @@ What a tool handler receives; the fields it declared in `context` are present.
 
 > **selection**: \{ `text`: `string`; `from`: `number`; `to`: `number`; \} \| `null`
 
-Defined in: [index.ts:1854](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1854)
+Defined in: [index.ts:2022](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2022)
 
 The selected text and its range, or null with nothing selected.
 
@@ -20,7 +20,7 @@ The selected text and its range, or null with nothing selected.
 
 > `optional` **paragraph?**: `string`
 
-Defined in: [index.ts:1855](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1855)
+Defined in: [index.ts:2023](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2023)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:1855](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **section?**: `string`
 
-Defined in: [index.ts:1856](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1856)
+Defined in: [index.ts:2024](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2024)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:1856](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **title?**: `string`
 
-Defined in: [index.ts:1857](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1857)
+Defined in: [index.ts:2025](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2025)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [index.ts:1857](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **frontmatter?**: `string`
 
-Defined in: [index.ts:1858](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1858)
+Defined in: [index.ts:2026](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2026)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [index.ts:1858](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **document?**: `string`
 
-Defined in: [index.ts:1859](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1859)
+Defined in: [index.ts:2027](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2027)

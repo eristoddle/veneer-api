@@ -1,6 +1,6 @@
 # Interface: DocumentOpenedEvent
 
-Defined in: [index.ts:139](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L139)
+Defined in: [index.ts:139](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L139)
 
 Emitted when a document becomes the open one (FR-10): a Finder open, `api.workspace.open`, or
 a window loading with a document open. `path` is the API path: project-relative with `/`, or
@@ -16,7 +16,7 @@ absolute for a loose file. `api.workspace.current()` already reports it when thi
 
 > `readonly` **type**: `"document:opened"`
 
-Defined in: [index.ts:140](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L140)
+Defined in: [index.ts:140](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L140)
 
 #### Overrides
 
@@ -28,4 +28,4 @@ Defined in: [index.ts:140](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `readonly` **path**: `string`
 
-Defined in: [index.ts:141](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L141)
+Defined in: [index.ts:141](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L141)

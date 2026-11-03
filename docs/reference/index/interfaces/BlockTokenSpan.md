@@ -1,6 +1,6 @@
 # Interface: BlockTokenSpan
 
-Defined in: [index.ts:802](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L802)
+Defined in: [index.ts:912](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L912)
 
 A token over `from`..`to`, offsets into `BlockInfo.text`.
 
@@ -10,7 +10,7 @@ A token over `from`..`to`, offsets into `BlockInfo.text`.
 
 > **from**: `number`
 
-Defined in: [index.ts:803](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L803)
+Defined in: [index.ts:913](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L913)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:803](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **to**: `number`
 
-Defined in: [index.ts:804](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L804)
+Defined in: [index.ts:914](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L914)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [index.ts:804](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > **token**: `"string"` \| `"number"` \| `"function"` \| `"keyword"` \| `"comment"` \| `"type"` \| `"variable"` \| `"operator"` \| `"punctuation"` \| `"tag"` \| `"attribute"`
 
-Defined in: [index.ts:805](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L805)
+Defined in: [index.ts:915](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L915)

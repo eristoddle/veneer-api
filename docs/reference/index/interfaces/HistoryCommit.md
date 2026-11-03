@@ -1,6 +1,6 @@
 # Interface: HistoryCommit
 
-Defined in: [index.ts:3089](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3089)
+Defined in: [index.ts:3477](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3477)
 
 One save point in a project's history (Story 9.13).
 
@@ -14,7 +14,7 @@ One save point in a project's history (Story 9.13).
 
 > **id**: `string`
 
-Defined in: [index.ts:3091](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3091)
+Defined in: [index.ts:3479](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3479)
 
 The full commit ID (40 hex characters).
 
@@ -24,7 +24,7 @@ The full commit ID (40 hex characters).
 
 > **message**: `string`
 
-Defined in: [index.ts:3093](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3093)
+Defined in: [index.ts:3481](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3481)
 
 The message's first line.
 
@@ -34,7 +34,7 @@ The message's first line.
 
 > **body**: `string`
 
-Defined in: [index.ts:3095](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3095)
+Defined in: [index.ts:3483](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3483)
 
 The rest of the message after the first line and the blank line after it, or `''`.
 
@@ -44,7 +44,7 @@ The rest of the message after the first line and the blank line after it, or `''
 
 > **author**: `object`
 
-Defined in: [index.ts:3096](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3096)
+Defined in: [index.ts:3484](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3484)
 
 #### name
 
@@ -60,7 +60,7 @@ Defined in: [index.ts:3096](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **date**: `string`
 
-Defined in: [index.ts:3098](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3098)
+Defined in: [index.ts:3486](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3486)
 
 When it was made, as an ISO 8601 string.
 
@@ -70,6 +70,6 @@ When it was made, as an ISO 8601 string.
 
 > **parents**: `string`[]
 
-Defined in: [index.ts:3100](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L3100)
+Defined in: [index.ts:3488](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3488)
 
 The commits it follows: none for the first, two for a merge.

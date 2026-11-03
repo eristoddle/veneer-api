@@ -2,7 +2,7 @@
 
 > **EditingModeExtension** = `unknown`
 
-Defined in: [index.ts:758](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L758)
+Defined in: [index.ts:868](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L868)
 
 A mode's CodeMirror 6 extension set: a CM6 `Extension` handed to the editor as-is (the
 raw-CM6 escape hatch, unstable and unenforced). Typed `unknown` so `@veneer/api` takes no

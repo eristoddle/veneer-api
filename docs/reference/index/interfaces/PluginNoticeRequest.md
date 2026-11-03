@@ -1,6 +1,6 @@
 # Interface: PluginNoticeRequest
 
-Defined in: [index.ts:2766](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2766)
+Defined in: [index.ts:3056](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3056)
 
 What a plugin asks the kernel to show with `api.notify` (Story 9.20).
 
@@ -10,7 +10,7 @@ What a plugin asks the kernel to show with `api.notify` (Story 9.20).
 
 > **message**: `string`
 
-Defined in: [index.ts:2768](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2768)
+Defined in: [index.ts:3058](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3058)
 
 One plain sentence: up to `MAX_NOTICE_MESSAGE` characters, on one line.
 
@@ -20,7 +20,7 @@ One plain sentence: up to `MAX_NOTICE_MESSAGE` characters, on one line.
 
 > `optional` **action?**: `object`
 
-Defined in: [index.ts:2770](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2770)
+Defined in: [index.ts:3060](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3060)
 
 A button that opens one of the plugin's declared surfaces.
 

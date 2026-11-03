@@ -1,6 +1,6 @@
 # Interface: PluginManifest
 
-Defined in: [index.ts:1785](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1785)
+Defined in: [index.ts:1943](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1943)
 
 `manifest.json` (AD-5).
 
@@ -10,7 +10,7 @@ Defined in: [index.ts:1785](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **id**: `string`
 
-Defined in: [index.ts:1787](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1787)
+Defined in: [index.ts:1945](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1945)
 
 Lowercase-hyphen, e.g. `word-count`.
 
@@ -20,7 +20,7 @@ Lowercase-hyphen, e.g. `word-count`.
 
 > **name**: `string`
 
-Defined in: [index.ts:1789](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1789)
+Defined in: [index.ts:1947](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1947)
 
 Display name, used in notices ("<name> failed to load: ...").
 
@@ -30,7 +30,7 @@ Display name, used in notices ("<name> failed to load: ...").
 
 > **version**: `string`
 
-Defined in: [index.ts:1790](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1790)
+Defined in: [index.ts:1948](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1948)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [index.ts:1790](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > **apiVersion**: `string`
 
-Defined in: [index.ts:1792](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1792)
+Defined in: [index.ts:1950](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1950)
 
 The API versions this plugin accepts: `^x.y.z` or an exact `x.y.z`.
 
@@ -48,7 +48,7 @@ The API versions this plugin accepts: `^x.y.z` or an exact `x.y.z`.
 
 > **main**: `string`
 
-Defined in: [index.ts:1797](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1797)
+Defined in: [index.ts:1955](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1955)
 
 Entry module path, relative to the plugin folder. Bundled plugins must use `index.ts`: the
 composition root (`src/renderer/plugins.ts`) globs only that file.
@@ -59,7 +59,7 @@ composition root (`src/renderer/plugins.ts`) globs only that file.
 
 > **contributes**: [`PluginContributions`](../type-aliases/PluginContributions.md)
 
-Defined in: [index.ts:1798](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1798)
+Defined in: [index.ts:1956](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1956)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [index.ts:1798](https://github.com/eristoddle/veneer/blob/702b1c4020
 
 > `optional` **requiredProjectType?**: `string`
 
-Defined in: [index.ts:1805](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1805)
+Defined in: [index.ts:1963](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1963)
 
 A project type (`<pluginId>/<typeId>`) the open project must have, or have a type that
 `extends` it, for the plugin to be active (FR-38, AD-13). Elsewhere it stays inactive and
@@ -80,7 +80,7 @@ there; a plugin without this field works everywhere.
 
 > `optional` **activationEvents?**: `` `${string}:${string}` ``[]
 
-Defined in: [index.ts:1807](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1807)
+Defined in: [index.ts:1965](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1965)
 
 Events that activate the plugin before first use of a contribution.
 
@@ -90,6 +90,19 @@ Events that activate the plugin before first use of a contribution.
 
 > `optional` **needs?**: `string`[]
 
-Defined in: [index.ts:1809](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L1809)
+Defined in: [index.ts:1967](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1967)
 
 Declared capabilities. Recorded, not enforced, until Epic 6.
+
+***
+
+### ai?
+
+> `optional` **ai?**: [`PluginAiLevel`](../type-aliases/PluginAiLevel.md)
+
+Defined in: [index.ts:1974](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1974)
+
+How much the plugin depends on an AI model. `none` has no AI contribution; `optional` has
+some, which are hidden while AI features are off; `required` is useless without AI and does
+not load while it is off. When absent it is derived: `optional` if any contribution sets
+`usesAI`, a tool sets `needsProvider`, or the plugin bundles skills, otherwise `none`.

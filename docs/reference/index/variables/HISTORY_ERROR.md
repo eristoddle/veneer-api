@@ -2,7 +2,7 @@
 
 > `const` **HISTORY\_ERROR**: `object`
 
-Defined in: [index.ts:2905](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L2905)
+Defined in: [index.ts:3219](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3219)
 
 Error codes for `api.history` (Story 9.13).
 

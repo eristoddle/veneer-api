@@ -1,6 +1,6 @@
 # Interface: ProjectSwitchedEvent
 
-Defined in: [index.ts:128](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L128)
+Defined in: [index.ts:128](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L128)
 
 Emitted when the project changes (FR-2, AD-14): File > Open Folder…, or opening a file that
 belongs to another project or folder. Once per change of scope root or kind (a loose folder
@@ -19,7 +19,7 @@ plugins learn the current project. `name` is the folder's base name, never a pat
 
 > `readonly` **type**: `"project:switched"`
 
-Defined in: [index.ts:129](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L129)
+Defined in: [index.ts:129](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L129)
 
 #### Overrides
 
@@ -31,7 +31,7 @@ Defined in: [index.ts:129](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `readonly` **name**: `string`
 
-Defined in: [index.ts:130](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L130)
+Defined in: [index.ts:130](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L130)
 
 ***
 
@@ -39,4 +39,4 @@ Defined in: [index.ts:130](https://github.com/eristoddle/veneer/blob/702b1c40200
 
 > `readonly` **kind**: `"project"` \| `"loose"`
 
-Defined in: [index.ts:131](https://github.com/eristoddle/veneer/blob/702b1c402005dd279ac22886cccb0c724c29d498/packages/api/src/index.ts#L131)
+Defined in: [index.ts:131](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L131)
