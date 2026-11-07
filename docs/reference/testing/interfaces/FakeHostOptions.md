@@ -1,14 +1,34 @@
 # Interface: FakeHostOptions
 
-Defined in: [testing.ts:142](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L142)
+Defined in: [testing.ts:160](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L160)
 
 ## Properties
+
+### installedPlugins?
+
+> `optional` **installedPlugins?**: [`PluginManifest`](../../index/interfaces/PluginManifest.md)[]
+
+Defined in: [testing.ts:162](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L162)
+
+Other plugins `api.plugins` reports besides this one (Epic 35), as installed and on.
+
+***
+
+### obsidianDailyNotes?
+
+> `optional` **obsidianDailyNotes?**: [`ObsidianDailyNotes`](../../index/interfaces/ObsidianDailyNotes.md) \| `null`
+
+Defined in: [testing.ts:164](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L164)
+
+What `api.workspace.obsidianDailyNotes` resolves; null (the default) means the project has none.
+
+***
 
 ### text?
 
 > `optional` **text?**: `string` \| `null`
 
-Defined in: [testing.ts:144](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L144)
+Defined in: [testing.ts:166](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L166)
 
 The open document's text; null (the default) means no document.
 
@@ -18,7 +38,7 @@ The open document's text; null (the default) means no document.
 
 > `optional` **openPath?**: `string`
 
-Defined in: [testing.ts:146](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L146)
+Defined in: [testing.ts:168](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L168)
 
 The API path of the open document, for `vault.process`.
 
@@ -28,7 +48,7 @@ The API path of the open document, for `vault.process`.
 
 > `optional` **files?**: `Record`\<`string`, `string`\>
 
-Defined in: [testing.ts:148](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L148)
+Defined in: [testing.ts:170](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L170)
 
 Closed files by API path, for `vault.process`.
 
@@ -38,7 +58,7 @@ Closed files by API path, for `vault.process`.
 
 > `optional` **binaryFiles?**: `Record`\<`string`, `Uint8Array`\<`ArrayBufferLike`\>\>
 
-Defined in: [testing.ts:150](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L150)
+Defined in: [testing.ts:172](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L172)
 
 Image files' bytes by API path, for `vault.readFile` (Story 9.19).
 
@@ -48,7 +68,7 @@ Image files' bytes by API path, for `vault.readFile` (Story 9.19).
 
 > `optional` **remoteAllowed?**: `boolean`
 
-Defined in: [testing.ts:152](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L152)
+Defined in: [testing.ts:174](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L174)
 
 Whether `resources.imageSource` lets remote images through (default false).
 
@@ -58,7 +78,7 @@ Whether `resources.imageSource` lets remote images through (default false).
 
 > `optional` **imageFailure?**: `string` \| `null`
 
-Defined in: [testing.ts:157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L157)
+Defined in: [testing.ts:179](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L179)
 
 Makes `vault.saveImage` reject with this code (e.g. `vault/not-image`) instead of saving.
 `setImageFailure` changes it later.
@@ -69,7 +89,7 @@ Makes `vault.saveImage` reject with this code (e.g. `vault/not-image`) instead o
 
 > `optional` **settings?**: `Record`\<`string`, [`SettingValue`](../../index/type-aliases/SettingValue.md)\>
 
-Defined in: [testing.ts:159](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L159)
+Defined in: [testing.ts:181](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L181)
 
 Setting values by ID, standing in for what the writer set (FR-44).
 
@@ -79,7 +99,7 @@ Setting values by ID, standing in for what the writer set (FR-44).
 
 > `optional` **project?**: [`WorkspaceProject`](../../index/interfaces/WorkspaceProject.md) \| `null`
 
-Defined in: [testing.ts:161](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L161)
+Defined in: [testing.ts:183](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L183)
 
 The open project for `workspace.current()`; null (the default) means nothing is open.
 
@@ -89,7 +109,7 @@ The open project for `workspace.current()`; null (the default) means nothing is 
 
 > `optional` **projectType?**: [`ResolvedProjectType`](../../index/interfaces/ResolvedProjectType.md) \| `null`
 
-Defined in: [testing.ts:163](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L163)
+Defined in: [testing.ts:185](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L185)
 
 What `workspace.projectType()` answers (Story 7.4); null (the default) means no type.
 
@@ -99,7 +119,7 @@ What `workspace.projectType()` answers (Story 7.4); null (the default) means no 
 
 > `optional` **replies?**: (`string` \| `string`[])[]
 
-Defined in: [testing.ts:169](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L169)
+Defined in: [testing.ts:191](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L191)
 
 What `api.providers` answers, one entry per call in order (the last repeats). A string is the
 whole reply, an array its pieces. An empty list (the default) has no provider: each call
@@ -107,11 +127,47 @@ rejects `provider/none`.
 
 ***
 
+### imageReplies?
+
+> `optional` **imageReplies?**: (`"ok"` \| \{ `code`: `string`; `message`: `string`; \})[]
+
+Defined in: [testing.ts:197](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L197)
+
+What `api.providers.image` answers, one entry per call in order (the last repeats): the
+number of pictures is the request's `count`, each a tiny PNG whose first byte after the
+signature is the entry's index. An empty list (the default) has no image provider.
+
+***
+
+### sourceFolders?
+
+> `optional` **sourceFolders?**: `object`[]
+
+Defined in: [testing.ts:203](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L203)
+
+The folders the writer would pick for `api.sources.pickFolder`, in order: a name and its
+files (text by relative path). Once they are used up the pick is canceled. `api.sources`
+needs the manifest's `needs` to include `sourceFolders`, as the kernel does (Story 27.1).
+
+#### name
+
+> **name**: `string`
+
+#### files
+
+> **files**: `Record`\<`string`, `string`\>
+
+#### markers?
+
+> `optional` **markers?**: `string`[]
+
+***
+
 ### aiFeatures?
 
 > `optional` **aiFeatures?**: `boolean`
 
-Defined in: [testing.ts:171](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L171)
+Defined in: [testing.ts:205](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L205)
 
 Whether AI features are on (default true). Off, `api.providers` rejects `ai/off` and `api.ai.enabled()` is false.
 
@@ -121,7 +177,7 @@ Whether AI features are on (default true). Off, `api.providers` rejects `ai/off`
 
 > `optional` **providerFailure?**: \{ `code`: `string`; `message`: `string`; \} \| `null`
 
-Defined in: [testing.ts:173](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L173)
+Defined in: [testing.ts:207](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L207)
 
 Makes `api.providers` calls reject with this code and sentence instead of answering.
 
@@ -131,7 +187,7 @@ Makes `api.providers` calls reject with this code and sentence instead of answer
 
 > `optional` **netReplies?**: (`string` \| `Partial`\<[`NetResponse`](../../index/interfaces/NetResponse.md)\>)[]
 
-Defined in: [testing.ts:179](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L179)
+Defined in: [testing.ts:213](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L213)
 
 What `api.net.fetch` answers, one entry per call in order (the last repeats). A string is the
 body of a 200 answer. An empty list (the default) has no network: each call rejects `offline`.

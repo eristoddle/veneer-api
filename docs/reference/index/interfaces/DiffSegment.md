@@ -1,6 +1,6 @@
 # Interface: DiffSegment
 
-Defined in: [index.ts:1357](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1357)
+Defined in: [index.ts:2001](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2001)
 
 One piece of a `DiffView`: a `wordDiff` segment, with an optional `id` on the insert and
 delete segments that make up one change. Neighbouring segments with the same `id` are one
@@ -16,7 +16,7 @@ change, so a replaced word (a delete then an insert) is accepted or rejected as 
 
 > **kind**: `"equal"` \| `"insert"` \| `"delete"`
 
-Defined in: [index.ts:389](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L389)
+Defined in: [index.ts:521](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L521)
 
 #### Inherited from
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:389](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **text**: `string`
 
-Defined in: [index.ts:390](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L390)
+Defined in: [index.ts:522](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L522)
 
 #### Inherited from
 
@@ -40,6 +40,6 @@ Defined in: [index.ts:390](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `optional` **id?**: `string`
 
-Defined in: [index.ts:1359](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1359)
+Defined in: [index.ts:2003](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2003)
 
 Names the change this segment belongs to; ignored on `equal` segments.

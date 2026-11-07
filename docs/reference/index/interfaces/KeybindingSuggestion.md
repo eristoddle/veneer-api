@@ -1,6 +1,6 @@
 # Interface: KeybindingSuggestion
 
-Defined in: [index.ts:1696](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1696)
+Defined in: [index.ts:2360](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2360)
 
 A key a plugin suggests for one of its commands, tools, or surfaces (FR-27, AD-5). It binds
 nothing: the writer accepts it in Settings, and only then does it go in `keybindings.json`.
@@ -11,7 +11,7 @@ nothing: the writer accepts it in Settings, and only then does it go in `keybind
 
 > **command**: `string`
 
-Defined in: [index.ts:1698](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1698)
+Defined in: [index.ts:2362](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2362)
 
 The ID of a command, tool, or surface this plugin declares.
 
@@ -21,6 +21,6 @@ The ID of a command, tool, or surface this plugin declares.
 
 > **key**: `string`
 
-Defined in: [index.ts:1700](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1700)
+Defined in: [index.ts:2364](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2364)
 
 An accelerator such as `CmdOrCtrl+Shift+K`.

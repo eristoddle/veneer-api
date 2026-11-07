@@ -1,6 +1,6 @@
 # Interface: TextChange
 
-Defined in: [index.ts:2122](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2122)
+Defined in: [index.ts:3026](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3026)
 
 One replacement in the editor text: the span `from`..`to` (offsets into the current text,
 `\n` line endings) becomes `text`. An insert has `from === to`; a delete has `text === ''`.
@@ -11,7 +11,7 @@ One replacement in the editor text: the span `from`..`to` (offsets into the curr
 
 > **from**: `number`
 
-Defined in: [index.ts:2123](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2123)
+Defined in: [index.ts:3027](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3027)
 
 ***
 
@@ -19,7 +19,7 @@ Defined in: [index.ts:2123](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **to**: `number`
 
-Defined in: [index.ts:2124](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2124)
+Defined in: [index.ts:3028](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3028)
 
 ***
 
@@ -27,4 +27,4 @@ Defined in: [index.ts:2124](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **text**: `string`
 
-Defined in: [index.ts:2125](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2125)
+Defined in: [index.ts:3029](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3029)

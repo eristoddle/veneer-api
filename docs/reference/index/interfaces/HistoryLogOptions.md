@@ -1,6 +1,6 @@
 # Interface: HistoryLogOptions
 
-Defined in: [index.ts:3492](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3492)
+Defined in: [index.ts:4935](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4935)
 
 What `api.history.log` lists (Story 9.13).
 
@@ -10,7 +10,7 @@ What `api.history.log` lists (Story 9.13).
 
 > `optional` **path?**: `string`
 
-Defined in: [index.ts:3494](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3494)
+Defined in: [index.ts:4937](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4937)
 
 Only commits that changed this file (an API path).
 
@@ -20,7 +20,7 @@ Only commits that changed this file (an API path).
 
 > `optional` **branch?**: `string`
 
-Defined in: [index.ts:3496](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3496)
+Defined in: [index.ts:4939](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4939)
 
 Read this branch instead of the current one.
 
@@ -30,6 +30,6 @@ Read this branch instead of the current one.
 
 > `optional` **limit?**: `number`
 
-Defined in: [index.ts:3498](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3498)
+Defined in: [index.ts:4941](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4941)
 
 At most this many, newest first; default 100, at most `MAX_HISTORY_LOG`.

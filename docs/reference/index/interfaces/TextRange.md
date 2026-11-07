@@ -1,6 +1,6 @@
 # Interface: TextRange
 
-Defined in: [index.ts:209](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L209)
+Defined in: [index.ts:210](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L210)
 
 A span of document text by offsets (`\n` line endings, no BOM).
 
@@ -10,7 +10,7 @@ A span of document text by offsets (`\n` line endings, no BOM).
 
 > **from**: `number`
 
-Defined in: [index.ts:210](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L210)
+Defined in: [index.ts:211](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L211)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:210](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **to**: `number`
 
-Defined in: [index.ts:211](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L211)
+Defined in: [index.ts:212](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L212)

@@ -1,6 +1,6 @@
 # Interface: FakeSavedAttachment
 
-Defined in: [testing.ts:199](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L199)
+Defined in: [testing.ts:233](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L233)
 
 One `api.vault.saveAttachment` call, as the fake host recorded it.
 
@@ -10,7 +10,7 @@ One `api.vault.saveAttachment` call, as the fake host recorded it.
 
 > **bytes**: `Uint8Array`
 
-Defined in: [testing.ts:200](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L200)
+Defined in: [testing.ts:234](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L234)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [testing.ts:200](https://github.com/eristoddle/veneer/blob/5ad3c1ead
 
 > **name**: `string`
 
-Defined in: [testing.ts:201](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L201)
+Defined in: [testing.ts:235](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L235)
 
 ***
 
@@ -26,6 +26,6 @@ Defined in: [testing.ts:201](https://github.com/eristoddle/veneer/blob/5ad3c1ead
 
 > **link**: `string` \| `null`
 
-Defined in: [testing.ts:203](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L203)
+Defined in: [testing.ts:237](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L237)
 
 The link the fake returned, or null when the call was made to fail.

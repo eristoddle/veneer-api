@@ -2,7 +2,7 @@
   "id": "title-case",
   "name": "Title Case",
   "version": "1.0.0",
-  "apiVersion": "^0.46.0",
+  "apiVersion": "^0.60.0",
   "main": "index.js",
   "contributes": {
     "tools": [

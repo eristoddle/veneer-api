@@ -27,6 +27,9 @@ See [the tone guide](references/tone.md).
   - `veneer-result`: `replace` (options that replace the selection, the default) or `info` (text to read).
   - `veneer-options`: how many versions a `replace` skill asks for, 1 to 10. Default 3.
   - `veneer-without-selection`: `true` to offer it at the caret.
+  - `veneer-interactive`: `true` for a skill that needs a conversation (API 0.59.0). Running it from the palette, the `/` list, or the selection box opens the project chat with the skill loaded instead of a one-shot run; the chat's top row names it, and the skill's linked files are readable through `read_skill_file`. If a chat is already open the writer is asked to finish or drop it first. The `/` list marks it "(opens the chat)".
+  - `veneer-role`: `writing`, `quick`, or `building`: the model role an interactive skill's chat uses (API 0.59.0). Default `writing`.
+  - `veneer-tools`: for an interactive skill, extra chat tools it asks for, space or comma separated: `plugins` (`list_plugins`, `read_plugin_manifest`: what is installed, from `api.plugins`) `validate` (`validate_plugin`, `validate_skill`: check a plugin or skill folder in the project), and `skills` (`list_skills`, `read_skill`: the writer's installed skills, read for adapting). Only the first-party Builder uses them today.
 - A skill that breaks a rule is refused at install with one sentence ("The skill has no description.").
 
 ## Install
@@ -50,7 +53,7 @@ Links with `..`, absolute paths, or URLs are never followed. A model that ignore
 
 ## Project and plugin skills
 
-A project can keep skills in `.veneer/skills/<name>/`. The first time the project opens, the writer is asked once whether to allow them; until they say yes the skills are neither listed nor read. If a skill in the project is added, removed, or edited, the writer is asked again. They appear as `skill.project:<name>` with "This project" in the plugin column.
+A project can keep skills in `.veneer/skills/<name>/`, `.agents/skills/<name>/`, or `.claude/skills/<name>/` (read in that order; on a name clash the first wins). The first time the project opens, the writer is asked once whether to allow them; until they say yes the skills are neither listed nor read. If a skill in any of the folders is added, removed, or edited, the writer is asked again. They appear as `skill.project:<name>` with "This project" in the plugin column. A writer can also install a skill into the open project from Settings > Skills (the Install for choice: Me or This project); it is copied to `.agents/skills/<name>/` (or the folder in the Project skills folder setting) and trusted at once.
 
 A plugin can bundle skills in `skills/<name>/` inside its own folder. They appear as `<pluginId>:<name>` under the plugin's name, and go when the plugin is disabled.
 
@@ -72,3 +75,12 @@ export function onload(api) {
 A script's own `SKILL.md` body is not sent anywhere; the script decides what to do. A skill with scripts that are not JavaScript (`.py`, `.sh`) is listed in Settings as unsupported, with the reason, and is never offered under `/`.
 
 Skills are model instructions, so they follow the AI features switch: while the writer has AI features off, no skill is listed and the project-skills question is not asked, and a script skill's plugin is `"ai": "required"`, so it does not load. They come back when AI features do.
+
+## Skills from other apps
+
+Skills written for Claude Code, OpenCode, or similar tools often assume a shell, that app's tool names (`Bash`, `Grep`, `WebFetch`), home paths, or `$ARGUMENTS`. Settings > Skills marks a skill like that **may need adapting** with the reasons (a plain scan, no model; it never blocks anything), and **Adapt for Veneer** rewrites it with the writer's Building model: the skill's text files and a bundled guide to what Veneer gives a skill (selection and document context, `read_skill_file`, the chat's tools, the rule that a chat only proposes changes, and the `veneer-*` keys above) go in, and the writer reviews a diff per file before anything is written. Non-JavaScript scripts are never rewritten.
+
+## Opening the chat from a plugin (API 0.59.0)
+
+`api.chat.open({ skill, prompt })` opens the project chat panel. `skill` may be one this plugin bundles (`<pluginId>:<name>`) or one of the writer's own (`skill.user:<name>`, `skill.project:<name>`); another plugin's skill is refused with `chat/skill-not-allowed`. `prompt` only fills the message box: the writer reads it and sends it. A plugin cannot read the conversation or send a turn. `api.chat.onSessionEnded` tells you when the session ended with Done or Discard and whether the writer saved it (`{ saved, path? }`); no text comes with it.
+

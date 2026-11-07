@@ -1,6 +1,6 @@
 # Interface: ClipboardApi
 
-Defined in: [index.ts:3427](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3427)
+Defined in: [index.ts:4870](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4870)
 
 The system clipboard (Story 11.2, AD-6). Main reads and writes it; a plugin never touches the
 clipboard itself.
@@ -11,7 +11,7 @@ clipboard itself.
 
 > **readText**(): `Promise`\<`string`\>
 
-Defined in: [index.ts:3437](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3437)
+Defined in: [index.ts:4880](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4880)
 
 The clipboard's plain text, or an empty string when it holds none.
 
@@ -32,7 +32,7 @@ if (/^https?:///.test(text.trim())) console.log('The clipboard holds a link')
 
 > **write**(`content`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3447](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3447)
+Defined in: [index.ts:4890](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4890)
 
 Replaces the clipboard with plain text, or with HTML that has the plain text as its fallback.
 Rejects `clipboard/invalid` for a non-string or an oversized value.
@@ -59,7 +59,7 @@ await api.clipboard.write({ text: 'Chapter one', html: '<h1>Chapter one</h1>' })
 
 > **writeImage**(`path`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3457](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3457)
+Defined in: [index.ts:4900](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4900)
 
 Replaces the clipboard with an image from the open project, by API path (`images/cover.png`).
 Rejects `clipboard/bad-image` for anything that is not an image inside the project.
@@ -86,7 +86,7 @@ await api.clipboard.writeImage('images/cover.png')
 
 > **writePath**(`path`, `form`): `Promise`\<`void`\>
 
-Defined in: [index.ts:3470](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3470)
+Defined in: [index.ts:4913](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4913)
 
 Replaces the clipboard with the path of a file or folder in the open project, by API path
 (`chapters/one.md`). `'full'` is the whole path on disk; `'project'` is the API path itself,

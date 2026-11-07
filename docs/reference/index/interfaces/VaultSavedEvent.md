@@ -1,6 +1,6 @@
 # Interface: VaultSavedEvent
 
-Defined in: [index.ts:103](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L103)
+Defined in: [index.ts:103](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L103)
 
 Emitted after a document save resolves (AD-8). `path` is the API path: project-relative with
 `/` for a project file, absolute for a loose one. `content` is the saved text (`\n` endings).
@@ -15,7 +15,7 @@ Emitted after a document save resolves (AD-8). `path` is the API path: project-r
 
 > `readonly` **type**: `"vault:saved"`
 
-Defined in: [index.ts:104](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L104)
+Defined in: [index.ts:104](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L104)
 
 #### Overrides
 
@@ -27,7 +27,7 @@ Defined in: [index.ts:104](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `readonly` **path**: `string`
 
-Defined in: [index.ts:105](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L105)
+Defined in: [index.ts:105](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L105)
 
 ***
 
@@ -35,4 +35,4 @@ Defined in: [index.ts:105](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `readonly` **content**: `string`
 
-Defined in: [index.ts:106](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L106)
+Defined in: [index.ts:106](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L106)

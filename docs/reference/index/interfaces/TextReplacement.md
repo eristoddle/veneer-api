@@ -1,6 +1,6 @@
 # Interface: TextReplacement
 
-Defined in: [index.ts:804](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L804)
+Defined in: [index.ts:1283](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1283)
 
 One macOS text replacement: typing `shortcut` and a space becomes `phrase`.
 
@@ -10,7 +10,7 @@ One macOS text replacement: typing `shortcut` and a space becomes `phrase`.
 
 > **shortcut**: `string`
 
-Defined in: [index.ts:805](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L805)
+Defined in: [index.ts:1284](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1284)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:805](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **phrase**: `string`
 
-Defined in: [index.ts:806](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L806)
+Defined in: [index.ts:1285](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1285)

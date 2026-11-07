@@ -1,6 +1,6 @@
 # Interface: SurfacesApi
 
-Defined in: [index.ts:1391](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1391)
+Defined in: [index.ts:2035](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2035)
 
 A plugin's side-panel surfaces (FR-7, AD-4, AD-15). Every ID must be declared in this
 plugin's `contributes.surfaces`; others throw `plugin/undeclared-contribution`. The kernel
@@ -12,7 +12,7 @@ decides when a panel opens and closes; showing a surface activates its plugin fi
 
 > **setView**(`id`, `view`): `void`
 
-Defined in: [index.ts:1404](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1404)
+Defined in: [index.ts:2048](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2048)
 
 Hands the kernel what the surface shows, replacing the previous view. Call it again with a
 new view whenever the data changes. A malformed view throws `plugin/bad-view`.
@@ -46,7 +46,7 @@ api.surfaces.setView('my-plugin:list', {
 
 > **onOpen**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1418](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1418)
+Defined in: [index.ts:2062](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2062)
 
 Called when the writer opens a row; the floating panel has already closed. Group rows never
 reach it: they expand and collapse.
@@ -81,7 +81,7 @@ api.surfaces.onOpen('my-plugin:list', (id) => {
 
 > **onAction**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1430](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1430)
+Defined in: [index.ts:2074](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2074)
 
 Called with the action's ID when the writer presses the view's `empty.action` button.
 Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
@@ -114,7 +114,7 @@ api.surfaces.onAction('my-plugin:list', (actionId) => {
 
 > **onRefresh**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1445](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1445)
+Defined in: [index.ts:2089](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2089)
 
 Called when the kernel wants a fresh view of the surface, e.g. before it draws it again.
 Nothing about when or why: hand over a new view with `setView` if the data changed. The
@@ -150,7 +150,7 @@ api.surfaces.onRefresh('my-plugin:list', async () => {
 
 > **onRowAction**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1459](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1459)
+Defined in: [index.ts:2103](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2103)
 
 Called when the writer finishes one of the surface's row actions (Story 2.8): from the
 row's right-click menu, its key, or `beginRowAction`. See `RowActionHandler`.
@@ -185,7 +185,7 @@ api.surfaces.onRowAction('my-plugin:list', async (actionId, rowId, value) => {
 
 > **beginRowAction**(`id`, `actionId`, `rowId`): `void`
 
-Defined in: [index.ts:1475](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1475)
+Defined in: [index.ts:2119](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2119)
 
 Starts a declared row action as if the writer had picked it on `rowId` (`''` for the
 root): the kernel opens the surface's panel on that row and asks for the value. For
@@ -226,7 +226,7 @@ api.commands.handle('my-plugin:rename-open', () => {
 
 > **onInput**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1493](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1493)
+Defined in: [index.ts:2137](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2137)
 
 Called with the whole text of the view's input field (`ItemsView.input`) each time the
 writer changes it (Story 2.10).
@@ -265,7 +265,7 @@ api.surfaces.onInput('my-plugin:search', async (value) => {
 
 > **onReorder**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1515](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1515)
+Defined in: [index.ts:2159](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2159)
 
 Called when the writer moves a row in a `reorderable` view (Story 9.24), by dragging it or
 with Alt+Up / Alt+Down. Set the next view to show the new order; a handler that sets none
@@ -304,11 +304,49 @@ api.surfaces.onReorder('my-plugin:chapters', ({ movedId, beforeId }) => {
 
 ***
 
+### onItemEdit()
+
+> **onItemEdit**(`id`, `handler`): [`Disposable`](Disposable.md)
+
+Defined in: [index.ts:2176](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2176)
+
+Called when the writer edits a card's synopsis in place (Story 29.1): double-click it, or
+press Enter on a focused card, then Enter to save (Shift+Enter is a new line, Escape
+cancels, leaving the field saves). Only items with `editable.synopsis` can be edited. The
+value may be empty. Set the next view to show the change.
+
+Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+
+#### Parameters
+
+##### id
+
+`string`
+
+##### handler
+
+(`itemId`, `field`, `value`) => `unknown`
+
+#### Returns
+
+[`Disposable`](Disposable.md)
+
+#### Example
+
+```ts
+const notes = new Map<string, string>()
+api.surfaces.onItemEdit('my-plugin:scenes', (itemId, field, value) => {
+  if (field === 'synopsis') notes.set(itemId, value)
+})
+```
+
+***
+
 ### onFormChange()
 
 > **onFormChange**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1540](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1540)
+Defined in: [index.ts:2204](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2204)
 
 Called when the writer changes a field of a `form` view (Story 9.25): text fields as they
 type (debounced), the others at once. Set the next view to change the form; a handler that
@@ -354,7 +392,7 @@ api.surfaces.onFormChange('my-plugin:character', (fieldId, value) => {
 
 > **onFormSubmit**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1567](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1567)
+Defined in: [index.ts:2231](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2231)
 
 Called with every field's value, by field ID, when the writer submits a `form` view with
 Cmd+Enter or the submit button (Story 9.25).
@@ -402,7 +440,7 @@ api.surfaces.onFormSubmit('my-plugin:character', (values) => {
 
 > **onDiffAction**(`id`, `handler`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:1589](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1589)
+Defined in: [index.ts:2253](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2253)
 
 Called when the writer chooses Accept or Reject on a change of a `diff` view (Story 9.16),
 with the action and the change's `id`. The kernel changes nothing; set the next view to
@@ -445,7 +483,7 @@ api.surfaces.onDiffAction('my-plugin:compare', (action, changeId) => {
 
 > **show**(`id`, `options?`): `void`
 
-Defined in: [index.ts:1603](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1603)
+Defined in: [index.ts:2267](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2267)
 
 Opens the surface's panel with the surface selected and focus in it: on its input field
 when the view has one, else on the highlighted row (Story 2.10). For a palette command
@@ -482,7 +520,7 @@ view (a tree expands its ancestors). An unknown ID changes nothing.
 
 > **close**(`id`): `void`
 
-Defined in: [index.ts:1615](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1615)
+Defined in: [index.ts:2279](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2279)
 
 Closes the surface if it is showing, and focus returns to the caret: a modal surface after
 its job is done (Story 9.22), or a side panel that isn't pinned. Not showing, it does

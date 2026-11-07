@@ -2,7 +2,7 @@
 
 > **adviseFrontmatter**(`frontmatter`, `fields`): [`FrontmatterAdvice`](../interfaces/FrontmatterAdvice.md)[]
 
-Defined in: [index.ts:1794](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1794)
+Defined in: [index.ts:2599](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2599)
 
 Compares a document's frontmatter text (what sits between the `---` lines, or null for none)
 to a project type's fields (FR-37, AD-13). It only advises: it returns sentences and never

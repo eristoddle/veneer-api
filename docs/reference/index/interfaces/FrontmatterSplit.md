@@ -1,6 +1,6 @@
 # Interface: FrontmatterSplit
 
-Defined in: [index.ts:339](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L339)
+Defined in: [index.ts:361](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L361)
 
 A document cut where the editor hides its frontmatter (Story 9.19).
 
@@ -10,7 +10,7 @@ A document cut where the editor hides its frontmatter (Story 9.19).
 
 > **frontmatter**: `string`
 
-Defined in: [index.ts:341](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L341)
+Defined in: [index.ts:363](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L363)
 
 The whole leading block, `---` through the closing `---` or `...` line and its newline; `''` when there is none.
 
@@ -20,7 +20,7 @@ The whole leading block, `---` through the closing `---` or `...` line and its n
 
 > **yaml**: `string`
 
-Defined in: [index.ts:343](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L343)
+Defined in: [index.ts:365](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L365)
 
 The lines between the fences (the YAML itself), without the fences.
 
@@ -30,6 +30,6 @@ The lines between the fences (the YAML itself), without the fences.
 
 > **body**: `string`
 
-Defined in: [index.ts:345](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L345)
+Defined in: [index.ts:367](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L367)
 
 Everything after the block. `frontmatter + body` is always the original text.

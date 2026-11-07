@@ -1,6 +1,6 @@
 # Interface: FormField
 
-Defined in: [index.ts:1317](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1317)
+Defined in: [index.ts:1961](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1961)
 
 One typed field of a `FormView`.
 
@@ -10,7 +10,7 @@ One typed field of a `FormView`.
 
 > **id**: `string`
 
-Defined in: [index.ts:1319](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1319)
+Defined in: [index.ts:1963](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1963)
 
 Unique within the form; reaches `onFormChange` and the submit values.
 
@@ -20,7 +20,7 @@ Unique within the form; reaches `onFormChange` and the submit values.
 
 > **type**: [`FormFieldType`](../type-aliases/FormFieldType.md)
 
-Defined in: [index.ts:1320](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1320)
+Defined in: [index.ts:1964](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1964)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:1320](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **label**: `string`
 
-Defined in: [index.ts:1321](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1321)
+Defined in: [index.ts:1965](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1965)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:1321](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **hint?**: `string`
 
-Defined in: [index.ts:1323](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1323)
+Defined in: [index.ts:1967](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1967)
 
 A line under the field in the caption type.
 
@@ -46,7 +46,7 @@ A line under the field in the caption type.
 
 > `optional` **hintAction?**: `string`
 
-Defined in: [index.ts:1328](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1328)
+Defined in: [index.ts:1972](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1972)
 
 Makes the hint a link: clicking it reaches `api.surfaces.onAction` with this action ID (Story
 13.3). Ignored without a `hint`.
@@ -57,7 +57,7 @@ Makes the hint a link: clicking it reaches `api.surfaces.onAction` with this act
 
 > **value**: [`FormValue`](../type-aliases/FormValue.md)
 
-Defined in: [index.ts:1329](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1329)
+Defined in: [index.ts:1973](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1973)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [index.ts:1329](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **error?**: `string`
 
-Defined in: [index.ts:1331](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1331)
+Defined in: [index.ts:1975](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1975)
 
 Shown under the field in the emphasis color; the plugin sets and clears it.
 
@@ -75,7 +75,7 @@ Shown under the field in the emphasis color; the plugin sets and clears it.
 
 > `optional` **options?**: `object`[]
 
-Defined in: [index.ts:1333](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1333)
+Defined in: [index.ts:1977](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1977)
 
 The choices of a `choice` field.
 
@@ -93,4 +93,4 @@ The choices of a `choice` field.
 
 > `optional` **placeholder?**: `string`
 
-Defined in: [index.ts:1334](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1334)
+Defined in: [index.ts:1978](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1978)

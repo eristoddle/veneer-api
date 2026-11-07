@@ -1,6 +1,6 @@
 # Interface: ResourcesApi
 
-Defined in: [index.ts:2407](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2407)
+Defined in: [index.ts:3325](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3325)
 
 How documents' HTML and images reach the page (FR-46, AD-16). The kernel decides; plugins
 never load a remote resource themselves.
@@ -11,7 +11,7 @@ never load a remote resource themselves.
 
 > **sanitizeHtml**(`html`): `DocumentFragment`
 
-Defined in: [index.ts:2419](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2419)
+Defined in: [index.ts:3337](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3337)
 
 Sanitizes untrusted HTML into an inert fragment: no scripts, styles, frames, forms, event
 handlers, `style` attributes, or link targets. Images in it follow `imageSource`; a
@@ -40,7 +40,7 @@ mount.append(fragment)
 
 > **sanitizeSvg**(`svg`): `DocumentFragment`
 
-Defined in: [index.ts:2433](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2433)
+Defined in: [index.ts:3351](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3351)
 
 An SVG drawing (a diagram's output) as an inert fragment (Story 9.6, AD-16): like
 `sanitizeHtml`, but it keeps what a drawing needs to look right, its `<style>` and `style`
@@ -71,7 +71,7 @@ mount.append(fragment)
 
 > **imageSource**(`src`): `string` \| `null`
 
-Defined in: [index.ts:2447](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2447)
+Defined in: [index.ts:3365](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3365)
 
 The `src` to give an `<img>` for a document's image source: a kernel-owned URL for an
 allowed remote one or a relative one (`isRelativeSource`, read from the open document's
@@ -102,7 +102,7 @@ if (src !== null) img.src = src
 
 > **onChanged**(`listener`): [`Disposable`](Disposable.md)
 
-Defined in: [index.ts:2457](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2457)
+Defined in: [index.ts:3375](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3375)
 
 Fires when the remote allowance changes; re-render images and HTML.
 Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
@@ -129,7 +129,7 @@ api.resources.onChanged(() => rerenderImages())
 
 > **reload**(): `void`
 
-Defined in: [index.ts:2468](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2468)
+Defined in: [index.ts:3386](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3386)
 
 Re-reads the project's images from disk (Story 13.5): `imageSource` gives fresh URLs from
 now on and every `onChanged` listener fires, so a plugin that drew images redraws them. Text

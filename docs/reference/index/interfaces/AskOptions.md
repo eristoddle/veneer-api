@@ -1,6 +1,6 @@
 # Interface: AskOptions
 
-Defined in: [index.ts:829](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L829)
+Defined in: [index.ts:1308](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1308)
 
 What `api.workspace.ask` shows (Story 13.5). Each text is capped at 500 characters.
 
@@ -10,7 +10,7 @@ What `api.workspace.ask` shows (Story 13.5). Each text is capped at 500 characte
 
 > **title**: `string`
 
-Defined in: [index.ts:831](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L831)
+Defined in: [index.ts:1310](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1310)
 
 The question, above the field.
 
@@ -20,7 +20,7 @@ The question, above the field.
 
 > `optional` **value?**: `string`
 
-Defined in: [index.ts:833](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L833)
+Defined in: [index.ts:1312](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1312)
 
 What the field starts with; selected so typing replaces it.
 
@@ -30,4 +30,4 @@ What the field starts with; selected so typing replaces it.
 
 > `optional` **placeholder?**: `string`
 
-Defined in: [index.ts:834](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L834)
+Defined in: [index.ts:1313](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1313)

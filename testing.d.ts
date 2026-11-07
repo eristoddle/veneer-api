@@ -50,8 +50,12 @@
  * document), and `setSelection`, or `workspace.open` with `select` (origin `find`), fires
  * `editor.onSelectionChanged` listeners while a document is open.
  */
-import { type NetRequest, type NetResponse, type PluginCompletion, type DiffAction, type FormValue, type Mark, type ReorderEvent, type EditorHost, type BlockRenderer, type EditingModeExtension, type ExportFile, type AskOptions, type PickedImage, type HistoryCommit, type HistorySyncOptions, type HistorySyncResult, type PluginApi, type PluginEntry, type PaletteItem, type PluginManifest, type ProjectSwitchedEvent, type SelectionOrigin, type SettingValue, type SurfaceView, type TextChange, type ToolReport, type ToolInput, type ToolResult, type VeneerEvent, type ResolvedProjectType, type ImageDestination, type ImageDestinationRequest, type TextReplacement, type WorkspaceProject } from './index.js';
+import { type ChatOpenOptions, type ChatSessionEndedEvent, type ObsidianDailyNotes, type PageLook, type TypingKind, type NetRequest, type NetResponse, type PluginCompletion, type ModelToolArgs, type PluginImageRequest, type DiffAction, type FormValue, type Mark, type ReorderEvent, type EditorHost, type BlockRenderer, type SyntaxClickHandler, type SyntaxRenderer, type EditingModeExtension, type ExportFile, type AskOptions, type PickedImage, type HistoryCommit, type HistorySyncOptions, type HistorySyncResult, type PluginApi, type PluginEntry, type PaletteItem, type PluginManifest, type ProjectSwitchedEvent, type SelectionOrigin, type SettingValue, type SurfaceView, type TextChange, type ToolReport, type ToolInput, type ToolResult, type VeneerEvent, type ResolvedProjectType, type ImageDestination, type ImageDestinationRequest, type TextReplacement, type WorkspaceProject } from './index.js';
 export interface FakeHostOptions {
+    /** Other plugins `api.plugins` reports besides this one (Epic 35), as installed and on. */
+    installedPlugins?: PluginManifest[];
+    /** What `api.workspace.obsidianDailyNotes` resolves; null (the default) means the project has none. */
+    obsidianDailyNotes?: ObsidianDailyNotes | null;
     /** The open document's text; null (the default) means no document. */
     text?: string | null;
     /** The API path of the open document, for `vault.process`. */
@@ -79,6 +83,25 @@ export interface FakeHostOptions {
      * rejects `provider/none`.
      */
     replies?: (string | string[])[];
+    /**
+     * What `api.providers.image` answers, one entry per call in order (the last repeats): the
+     * number of pictures is the request's `count`, each a tiny PNG whose first byte after the
+     * signature is the entry's index. An empty list (the default) has no image provider.
+     */
+    imageReplies?: ('ok' | {
+        code: string;
+        message: string;
+    })[];
+    /**
+     * The folders the writer would pick for `api.sources.pickFolder`, in order: a name and its
+     * files (text by relative path). Once they are used up the pick is canceled. `api.sources`
+     * needs the manifest's `needs` to include `sourceFolders`, as the kernel does (Story 27.1).
+     */
+    sourceFolders?: {
+        name: string;
+        files: Record<string, string>;
+        markers?: string[];
+    }[];
     /** Whether AI features are on (default true). Off, `api.providers` rejects `ai/off` and `api.ai.enabled()` is false. */
     aiFeatures?: boolean;
     /** Makes `api.providers` calls reject with this code and sentence instead of answering. */
@@ -173,6 +196,33 @@ export interface FakeHost {
     readonly pickedImages: PickedImage[][];
     /** Every path `api.workspace.revealImage` was given, in order (Story 11.13). */
     readonly revealed: string[];
+    /** Every path `api.workspace.reveal` was given, in order (Story 18.1). */
+    readonly revealedEntries: string[];
+    /** Every folder `api.workspace.openFolder` opened, in order (Story 18.1). */
+    readonly openedFolders: {
+        path: string;
+        newWindow: boolean;
+    }[];
+    /** Every document `api.workspace.open(path, { newWindow: true })` opened (Story 18.1). */
+    readonly openedInNewWindow: string[];
+    /** Pages `createFromTemplate` opened with `lazy: true`: shown, nothing written (0.55.0). */
+    readonly lazyPages: {
+        path: string;
+        text: string;
+    }[];
+    /** Every `api.sound.play` and `api.sound.loop` in order; a loop is `loop: true` (0.55.0). */
+    readonly sounds: {
+        id: string;
+        volume: number;
+        loop: boolean;
+        stopped: boolean;
+    }[];
+    /** The plugin's current page look, or null (0.55.0). */
+    readonly pageLook: PageLook | null;
+    /** Simulates the writer's keystroke for `api.editor.onTyping` listeners (0.55.0). */
+    typing(kind: TypingKind): void;
+    /** The IDs of other commands `api.commands.run` was asked to run, in order (0.55.0). */
+    readonly commandsRun: string[];
     /** What `api.workspace.pickGrid` resolves next, in order (Story 11.8); `null` or empty is a cancel. */
     readonly gridAnswers: ({
         rows: number;
@@ -186,6 +236,12 @@ export interface FakeHost {
     readonly asked: AskOptions[];
     /** Every `api.providers` request that was allowed through, in order. */
     readonly modelRequests: PluginCompletion[];
+    /** Every `api.providers.image` request that was allowed through, in order. */
+    readonly imageRequests: PluginImageRequest[];
+    /** Every `api.chat.open` that was allowed through, in order (0.59.0). */
+    readonly chatOpened: ChatOpenOptions[];
+    /** Ends the chat session as the writer would: calls the `api.chat.onSessionEnded` handlers (0.59.0). */
+    endChatSession(event: ChatSessionEndedEvent): void;
     /** The API object handed to `onload`. */
     readonly api: PluginApi;
     /** Calls `onload(api)`. */
@@ -243,6 +299,10 @@ export interface FakeHost {
     readonly modes: ReadonlyMap<string, EditingModeExtension>;
     /** Live `api.editor.registerBlockRenderer` registrations: contribution ID to its handler. */
     readonly blockRenderers: ReadonlyMap<string, BlockRenderer>;
+    /** Live `api.editor.onRenderSyntax` registrations: contribution ID to its handler (Story 22.4). */
+    readonly syntaxRenderers: ReadonlyMap<string, SyntaxRenderer>;
+    /** Live `api.editor.onSyntaxClick` registrations: contribution ID to its handler. */
+    readonly syntaxClicks: ReadonlyMap<string, SyntaxClickHandler>;
     /**
      * The marks the plugin has set with `api.editor.setMarks` (Story 9.17): set ID to its marks.
      * Opening another document or switching project clears them, as the kernel does.
@@ -296,6 +356,16 @@ export interface FakeHost {
      * `plugin/undeclared-contribution` for an undeclared ID, `plugin/no-handler` with none
      * attached, and `plugin/bad-result` for a malformed Result.
      */
+    /**
+     * Calls a model tool's handler as the kernel would for the model (Story 27.2): the text it
+     * answered, cut to `MAX_MODEL_TOOL_RESULT`; a throw becomes a short error sentence. Rejects
+     * `plugin/undeclared-contribution` for an undeclared ID and `plugin/no-handler` with none.
+     */
+    callModelTool(id: string, args: ModelToolArgs): Promise<string>;
+    /** What the plugin last said with `api.ai.describeModelTool`, by tool ID (Story 27.2). */
+    readonly modelToolDetails: Map<string, string>;
+    /** Every address `api.workspace.openExternal` was given, in order (Story 27.3). */
+    readonly openedExternal: string[];
     runTool(id: string, input?: Partial<ToolInput>, signal?: AbortSignal, report?: ToolReport): Promise<ToolResult>;
     /** The last items `api.palette.setItems` gave each declared provider, by provider ID. */
     readonly paletteItems: ReadonlyMap<string, PaletteItem[]>;
@@ -333,6 +403,8 @@ export interface FakeHost {
     }[];
     /** Every query `vault.search` searched (an empty one never searches), in order. */
     readonly searches: string[];
+    /** The `folder` of every `api.vault.search` call, in order; '' is the whole project (Story 18.2). */
+    readonly searchFolders: string[];
     /**
      * Holds every later `vault.search` until the returned release is called. A search started
      * while another is held supersedes it: the held one rejects `vault/superseded` on release.
@@ -354,6 +426,11 @@ export interface FakeHost {
      * `surfaceId` with `event`, in order.
      */
     reorder(surfaceId: string, event: ReorderEvent): Promise<void>;
+    /**
+     * Edits a card's synopsis the way the kernel does (Story 29.1): calls every live `onItemEdit`
+     * handler for `surfaceId` with the item and the new text, in order.
+     */
+    itemEdit(surfaceId: string, itemId: string, value: string): Promise<void>;
     /**
      * Changes a form field the way the kernel does (Story 9.25): calls every live `onFormChange`
      * handler for `surfaceId` with the field ID and value, in order.

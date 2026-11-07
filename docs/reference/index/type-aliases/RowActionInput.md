@@ -2,7 +2,7 @@
 
 > **RowActionInput** = `"name"` \| `"new-name"` \| `"folder"` \| `"confirm"` \| `"none"`
 
-Defined in: [index.ts:1097](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1097)
+Defined in: [index.ts:1702](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1702)
 
 How the kernel asks for a row action's value (AD-4): plugins never draw an input or a
 confirmation.

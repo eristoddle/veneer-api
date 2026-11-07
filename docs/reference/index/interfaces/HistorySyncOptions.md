@@ -1,6 +1,6 @@
 # Interface: HistorySyncOptions
 
-Defined in: [index.ts:3532](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3532)
+Defined in: [index.ts:4975](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4975)
 
 What `api.history.sync` syncs (Story 9.18).
 
@@ -10,7 +10,7 @@ What `api.history.sync` syncs (Story 9.18).
 
 > `optional` **remote?**: `string`
 
-Defined in: [index.ts:3534](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3534)
+Defined in: [index.ts:4977](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4977)
 
 The remote's name; default `origin`.
 
@@ -20,7 +20,7 @@ The remote's name; default `origin`.
 
 > `optional` **branch?**: `string`
 
-Defined in: [index.ts:3536](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3536)
+Defined in: [index.ts:4979](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4979)
 
 The branch; default (and only) the current one.
 
@@ -30,7 +30,7 @@ The branch; default (and only) the current one.
 
 > `optional` **token?**: `string`
 
-Defined in: [index.ts:3538](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3538)
+Defined in: [index.ts:4981](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4981)
 
 A token for the host, read from `api.secrets`; sent as the HTTP Basic password.
 
@@ -40,6 +40,6 @@ A token for the host, read from `api.secrets`; sent as the HTTP Basic password.
 
 > `optional` **username?**: `string`
 
-Defined in: [index.ts:3540](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3540)
+Defined in: [index.ts:4983](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4983)
 
 The HTTP Basic user name with the token; default `x-access-token` (GitHub accepts it).

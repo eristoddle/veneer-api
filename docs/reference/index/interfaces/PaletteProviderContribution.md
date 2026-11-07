@@ -1,6 +1,6 @@
 # Interface: PaletteProviderContribution
 
-Defined in: [index.ts:1622](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1622)
+Defined in: [index.ts:2286](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2286)
 
 A palette provider contribution (FR-9, UX-DR15, AD-5): items listed when the writer deletes
 the `>` (files mode). `id` is `<pluginId>:<name>`; `title` names it.
@@ -11,7 +11,7 @@ the `>` (files mode). `id` is `<pluginId>:<name>`; `title` names it.
 
 > **id**: `string`
 
-Defined in: [index.ts:1623](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1623)
+Defined in: [index.ts:2287](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2287)
 
 ***
 
@@ -19,7 +19,7 @@ Defined in: [index.ts:1623](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **title**: `string`
 
-Defined in: [index.ts:1624](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1624)
+Defined in: [index.ts:2288](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2288)
 
 ***
 
@@ -27,6 +27,6 @@ Defined in: [index.ts:1624](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **usesAI?**: `boolean`
 
-Defined in: [index.ts:1626](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1626)
+Defined in: [index.ts:2290](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2290)
 
 True when this feature needs an AI model; hidden while AI features are off.

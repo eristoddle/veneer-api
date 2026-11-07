@@ -1,6 +1,6 @@
 # Interface: SettingOption
 
-Defined in: [index.ts:971](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L971)
+Defined in: [index.ts:1545](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1545)
 
 One choice of an `enum` setting.
 
@@ -10,7 +10,7 @@ One choice of an `enum` setting.
 
 > **value**: `string`
 
-Defined in: [index.ts:972](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L972)
+Defined in: [index.ts:1546](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1546)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:972](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **label**: `string`
 
-Defined in: [index.ts:973](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L973)
+Defined in: [index.ts:1547](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1547)

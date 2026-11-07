@@ -1,6 +1,6 @@
 # Interface: ExportApi
 
-Defined in: [index.ts:3383](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3383)
+Defined in: [index.ts:4757](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4757)
 
 Saving a file the plugin produced, such as an exported EPUB (Story 9.8, AD-6). The writer
 chooses where in a save dialog, and main writes the bytes: a plugin never names a path.
@@ -11,7 +11,7 @@ chooses where in a save dialog, and main writes the bytes: a plugin never names 
 
 > **saveAs**(`file`): `Promise`\<\{ `saved`: `boolean`; `name?`: `string`; \}\>
 
-Defined in: [index.ts:3399](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3399)
+Defined in: [index.ts:4773](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4773)
 
 Opens the save dialog and writes the file where the writer chooses. Resolves `{ saved: false }`
 when the writer cancels. Rejects `export/too-large` or `export/write-failed`.

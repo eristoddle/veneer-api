@@ -1,6 +1,6 @@
 # Interface: FormView
 
-Defined in: [index.ts:1344](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1344)
+Defined in: [index.ts:1988](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1988)
 
 A form (Story 9.25): typed fields the kernel draws, so a plugin never draws its own inputs
 (AD-4). Each change reaches `api.surfaces.onFormChange`; Cmd+Enter or the submit button
@@ -14,7 +14,7 @@ until a view brings a different `value` for it. Works in a panel, the modal, and
 
 > **kind**: `"form"`
 
-Defined in: [index.ts:1345](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1345)
+Defined in: [index.ts:1989](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1989)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [index.ts:1345](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **fields**: [`FormField`](FormField.md)[]
 
-Defined in: [index.ts:1346](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1346)
+Defined in: [index.ts:1990](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1990)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [index.ts:1346](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **submitLabel?**: `string`
 
-Defined in: [index.ts:1347](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1347)
+Defined in: [index.ts:1991](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1991)
 
 ***
 
@@ -38,6 +38,6 @@ Defined in: [index.ts:1347](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **note?**: `string`
 
-Defined in: [index.ts:1349](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1349)
+Defined in: [index.ts:1993](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1993)
 
 A line above the fields.

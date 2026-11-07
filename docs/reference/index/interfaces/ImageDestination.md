@@ -1,6 +1,6 @@
 # Interface: ImageDestination
 
-Defined in: [index.ts:2491](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2491)
+Defined in: [index.ts:3409](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3409)
 
 A folder a plugin picks for an image (Story 17.2). `folder` is relative, with `/` separators,
 under `base`: `'project'` is the project root; `'site'` is the project's site root, and the
@@ -14,7 +14,7 @@ the usual way.
 
 > **folder**: `string`
 
-Defined in: [index.ts:2492](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2492)
+Defined in: [index.ts:3410](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3410)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [index.ts:2492](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **base**: `"project"` \| `"site"`
 
-Defined in: [index.ts:2493](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2493)
+Defined in: [index.ts:3411](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3411)

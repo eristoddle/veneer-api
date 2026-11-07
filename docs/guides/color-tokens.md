@@ -65,3 +65,26 @@ The writer may add `custom.css` (Settings > Custom CSS > Open custom.css) and it
 
 - Don't read or set a `--vn-*` variable on the document root from plugin code, and don't override a host class. (A theme is how a plugin changes colors.) Only the variable catalog is a stable contract; host classes and the CSS override layer are [unstable](unstable.md).
 - Don't ship fonts, images of UI, or global CSS.
+
+## Theme-only packages and theme fonts (API 0.49.0)
+
+A package whose `contributes` holds only `themes` and `colors` may leave out `main`. It has no code, so nothing runs and Veneer installs it without the plugin warning.
+
+A page theme may also bring fonts and name a code theme:
+
+```json
+{
+  "id": "paper:day",
+  "name": "Day",
+  "fonts": {
+    "body": { "family": "Literata", "files": [{ "path": "fonts/literata.woff2", "weight": 400 }] },
+    "heading": { "family": "Literata", "files": [{ "path": "fonts/literata-bold.woff2", "weight": 700 }] },
+    "code": { "family": "Fira Code" }
+  },
+  "codeTheme": "paper:code",
+  "light": {},
+  "dark": {}
+}
+```
+
+Font files must be `.woff2`, `.woff`, `.ttf`, or `.otf` and inside the package. The page typeface a writer chose in page settings still wins over the theme's fonts, and interface controls never change. `codeTheme` names a `scope: 'code'` theme in the same package and applies while the Code theme setting is on "Match page theme".

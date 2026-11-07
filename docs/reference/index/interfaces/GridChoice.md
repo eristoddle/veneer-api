@@ -1,6 +1,6 @@
 # Interface: GridChoice
 
-Defined in: [index.ts:838](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L838)
+Defined in: [index.ts:1317](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1317)
 
 The size the writer chose in `api.workspace.pickGrid`.
 
@@ -10,7 +10,7 @@ The size the writer chose in `api.workspace.pickGrid`.
 
 > **rows**: `number`
 
-Defined in: [index.ts:839](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L839)
+Defined in: [index.ts:1318](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1318)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:839](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **cols**: `number`
 
-Defined in: [index.ts:840](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L840)
+Defined in: [index.ts:1319](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1319)

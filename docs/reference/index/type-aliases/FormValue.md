@@ -2,7 +2,7 @@
 
 > **FormValue** = `string` \| `number` \| `boolean` \| `string`[] \| `null`
 
-Defined in: [index.ts:1314](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1314)
+Defined in: [index.ts:1958](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1958)
 
 A form field's value: a string for `text`, `longtext`, `date`, and `choice` (a date is
 `YYYY-MM-DD`); a number or null for `number`; a string array for `tags`; a boolean for `toggle`;

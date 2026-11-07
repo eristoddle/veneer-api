@@ -1,6 +1,6 @@
 # Interface: TopBarButtonContribution
 
-Defined in: [index.ts:1152](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1152)
+Defined in: [index.ts:1757](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1757)
 
 A top-bar button a plugin offers (FR-53, AD-15, UX-DR7). `id` is `<pluginId>:<name>`; `title`
 names it in its tooltip and in the "Show in top bar" checklist; `icon` is a Lucide name drawn
@@ -15,7 +15,7 @@ never told whether it is shown.
 
 > **id**: `string`
 
-Defined in: [index.ts:1153](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1153)
+Defined in: [index.ts:1758](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1758)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [index.ts:1153](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **title**: `string`
 
-Defined in: [index.ts:1154](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1154)
+Defined in: [index.ts:1759](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1759)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [index.ts:1154](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **icon**: `string`
 
-Defined in: [index.ts:1155](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1155)
+Defined in: [index.ts:1760](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1760)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [index.ts:1155](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **surface?**: `string`
 
-Defined in: [index.ts:1156](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1156)
+Defined in: [index.ts:1761](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1761)
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: [index.ts:1156](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **command?**: `string`
 
-Defined in: [index.ts:1157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1157)
+Defined in: [index.ts:1762](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1762)
 
 ***
 
@@ -55,6 +55,6 @@ Defined in: [index.ts:1157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **usesAI?**: `boolean`
 
-Defined in: [index.ts:1159](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1159)
+Defined in: [index.ts:1764](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1764)
 
 True when this feature needs an AI model; hidden while AI features are off.

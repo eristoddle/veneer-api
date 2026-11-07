@@ -1,6 +1,6 @@
 # Interface: NetResponse
 
-Defined in: [index.ts:3180](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3180)
+Defined in: [index.ts:4554](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4554)
 
 What `api.net.fetch` resolves with: any status, since a 404 is an answer, not a failure.
 
@@ -10,7 +10,7 @@ What `api.net.fetch` resolves with: any status, since a 404 is an answer, not a 
 
 > **status**: `number`
 
-Defined in: [index.ts:3181](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3181)
+Defined in: [index.ts:4555](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4555)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:3181](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **ok**: `boolean`
 
-Defined in: [index.ts:3182](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3182)
+Defined in: [index.ts:4556](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4556)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:3182](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **headers**: `Record`\<`string`, `string`\>
 
-Defined in: [index.ts:3184](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3184)
+Defined in: [index.ts:4558](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4558)
 
 Response headers, names in lowercase.
 
@@ -36,7 +36,7 @@ Response headers, names in lowercase.
 
 > **text**: `string`
 
-Defined in: [index.ts:3186](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3186)
+Defined in: [index.ts:4560](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4560)
 
 The body as text, cut off at 5 MB. Empty when the request asked for `bytes`.
 
@@ -46,7 +46,7 @@ The body as text, cut off at 5 MB. Empty when the request asked for `bytes`.
 
 > `optional` **data?**: `Uint8Array`\<`ArrayBufferLike`\>
 
-Defined in: [index.ts:3188](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3188)
+Defined in: [index.ts:4562](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4562)
 
 The body's bytes, when the request asked for `as: 'bytes'`.
 
@@ -56,6 +56,6 @@ The body's bytes, when the request asked for `as: 'bytes'`.
 
 > **truncated**: `boolean`
 
-Defined in: [index.ts:3190](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3190)
+Defined in: [index.ts:4564](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4564)
 
 True when the body was cut off at the limit.

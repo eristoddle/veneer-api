@@ -1,6 +1,6 @@
 # Interface: SurfaceContribution
 
-Defined in: [index.ts:1049](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1049)
+Defined in: [index.ts:1629](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1629)
 
 A side-panel surface contribution (FR-7, AD-4, AD-15). `id` is the full contribution ID,
 `<pluginId>:<name>`; `title` names it for assistive tech and tooltips; `icon` is a Lucide icon
@@ -14,7 +14,7 @@ panel frame, the tab, and the rows; the plugin only hands it a view (`api.surfac
 
 > **id**: `string`
 
-Defined in: [index.ts:1050](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1050)
+Defined in: [index.ts:1630](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1630)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [index.ts:1050](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **title**: `string`
 
-Defined in: [index.ts:1051](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1051)
+Defined in: [index.ts:1631](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1631)
 
 ***
 
@@ -30,15 +30,38 @@ Defined in: [index.ts:1051](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **icon**: `string`
 
-Defined in: [index.ts:1052](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1052)
+Defined in: [index.ts:1632](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1632)
 
 ***
 
-### side
+### side?
 
-> **side**: [`SurfaceSide`](../type-aliases/SurfaceSide.md)
+> `optional` **side?**: [`SurfaceSide`](../type-aliases/SurfaceSide.md)
 
-Defined in: [index.ts:1053](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1053)
+Defined in: [index.ts:1638](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1638)
+
+The panel it opens in. Optional since 0.49.0 (Story 20.1): leave it out and `scope` picks the
+default (`project` is left, `file` is right). A surface with neither is refused. When both
+are given, `side` wins. The writer can still move a panel, and the move is remembered.
+
+***
+
+### scope?
+
+> `optional` **scope?**: [`SurfaceScope`](../type-aliases/SurfaceScope.md)
+
+Defined in: [index.ts:1648](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1648)
+
+Whether the panel is about the whole project (`project`: left, like Files and Search) or the
+file being written (`file`: right, like Outline and Properties). With no `side`, this sets
+where the panel first opens; with a `side`, it only describes the panel. Added in 0.49.0.
+
+#### Example
+
+```ts
+// manifest.json: { "id": "notes:days", "title": "Days", "icon": "calendar", "scope": "project" }
+const scope: SurfaceScope = 'project'
+```
 
 ***
 
@@ -46,7 +69,7 @@ Defined in: [index.ts:1053](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **width?**: [`SurfaceWidth`](../type-aliases/SurfaceWidth.md)
 
-Defined in: [index.ts:1058](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1058)
+Defined in: [index.ts:1653](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1653)
 
 `wide` (Story 9.23) opens the panel at twice a side's width, for cards: the writer drags
 its edge to resize it, and the width is remembered for this surface alone. Default `normal`.
@@ -57,7 +80,7 @@ its edge to resize it, and the width is remembered for this surface alone. Defau
 
 > `optional` **stayOpenOnOpen?**: `boolean`
 
-Defined in: [index.ts:1065](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1065)
+Defined in: [index.ts:1660](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1660)
 
 Opening a row (Enter or a click) keeps the panel open and focus where it is (Story 17.4), so
 a list of hits can be stepped through: Enter opens the highlighted row and moves the
@@ -70,9 +93,28 @@ panel as usual. Default false: opening closes a floating panel and returns the c
 
 > `optional` **rowActions?**: [`RowActionContribution`](RowActionContribution.md)[]
 
-Defined in: [index.ts:1067](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1067)
+Defined in: [index.ts:1662](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1662)
 
 Actions on the surface's rows, drawn and run by the kernel (Story 2.8, AD-4).
+
+***
+
+### projectType?
+
+> `optional` **projectType?**: `string`
+
+Defined in: [index.ts:1672](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1672)
+
+Show this panel only in a project of this type (a full id, `<pluginId>/<type>`) or a type
+that `extends` it. In a project with another type, or none, its tab is not drawn. Commands
+are not gated. Added in 0.58.0.
+
+#### Example
+
+```ts
+// manifest.json: { "id": "notes:board", "title": "Board", "icon": "kanban", "scope": "project", "projectType": "notes/notes-project" }
+const type: string = 'notes/notes-project'
+```
 
 ***
 
@@ -80,6 +122,6 @@ Actions on the surface's rows, drawn and run by the kernel (Story 2.8, AD-4).
 
 > `optional` **usesAI?**: `boolean`
 
-Defined in: [index.ts:1069](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1069)
+Defined in: [index.ts:1674](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1674)
 
 True when this feature needs an AI model; hidden while AI features are off.

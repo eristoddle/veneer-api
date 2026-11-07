@@ -1,6 +1,6 @@
 # Interface: Mark
 
-Defined in: [index.ts:2308](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2308)
+Defined in: [index.ts:3226](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3226)
 
 A range of the open document a plugin marks (Story 9.17). `from` and `to` are character
 offsets into the text `api.editor.getText` returns (`\n` endings); `id` is unique within the set.
@@ -12,7 +12,7 @@ offsets into the text `api.editor.getText` returns (`\n` endings); `id` is uniqu
 
 > **id**: `string`
 
-Defined in: [index.ts:2309](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2309)
+Defined in: [index.ts:3227](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3227)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [index.ts:2309](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **from**: `number`
 
-Defined in: [index.ts:2310](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2310)
+Defined in: [index.ts:3228](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3228)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:2310](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **to**: `number`
 
-Defined in: [index.ts:2311](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2311)
+Defined in: [index.ts:3229](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3229)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:2311](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **kind**: [`MarkKind`](../type-aliases/MarkKind.md)
 
-Defined in: [index.ts:2312](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2312)
+Defined in: [index.ts:3230](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3230)
 
 ***
 
@@ -44,6 +44,6 @@ Defined in: [index.ts:2312](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **label?**: `string`
 
-Defined in: [index.ts:2314](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2314)
+Defined in: [index.ts:3232](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3232)
 
 Shown as a tooltip on the marked text.

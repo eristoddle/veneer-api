@@ -2,7 +2,7 @@
 
 The `--vn-*` variables are the stable contract for Veneer's appearance (see [unstable](guides/unstable.md) for what is not). The catalog has its own semantic version, kept apart from the API's. It is the version in the first comment of `catalog.css`, the last entry of `tests/support/catalog-releases.json`, and the one named below; a test fails if any of them disagree with the variables the catalog really defines.
 
-**Current catalog version: 0.4.0**
+**Current catalog version: 0.5.0**
 
 ## What the catalog holds
 
@@ -18,6 +18,13 @@ Adding, renaming, or removing a `--vn-*` token changes the catalog's version, an
 - A token's *value* changing (a color adjusted) is a patch change and is not listed here.
 
 ## Versions
+
+### 0.5.0
+
+Adds the card label colors (Story 29.1): `--vn-label-1` to `--vn-label-6`, each with a light and a dark value. A plugin gives a card's label a color number 1 to 6 (`ViewItem.cardLabel.color`); the host draws the bar and the chip.
+
+- Added: the six `--vn-label-*` tokens.
+- Breaking changes: none.
 
 ### 0.4.0
 
@@ -64,6 +71,12 @@ Earlier work added tokens one story at a time without a recorded version; 0.2.0 
 - `--vn-kind-person`
 - `--vn-kind-place`
 - `--vn-kind-thing`
+- `--vn-label-1`
+- `--vn-label-2`
+- `--vn-label-3`
+- `--vn-label-4`
+- `--vn-label-5`
+- `--vn-label-6`
 - `--vn-measure`
 - `--vn-page`
 - `--vn-page-body-font-family`

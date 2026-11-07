@@ -2,7 +2,7 @@
 
 > **findInText**(`text`, `query`, `max?`): [`SearchMatch`](../interfaces/SearchMatch.md)[]
 
-Defined in: [index.ts:301](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L301)
+Defined in: [index.ts:323](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L323)
 
 Project search's matching (FR-59), the same as the editor's find: case-insensitive, literal,
 non-overlapping substrings over the whole text, frontmatter included. Returns at most `max`

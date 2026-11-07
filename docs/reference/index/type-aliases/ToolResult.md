@@ -1,8 +1,8 @@
 # Type Alias: ToolResult
 
-> **ToolResult** = \{ `kind`: `"replace"`; `options`: `string`[]; \} \| \{ `kind`: `"insert"`; `text`: `string`; \} \| \{ `kind`: `"info"`; `items`: [`ToolInfoItem`](../interfaces/ToolInfoItem.md)[]; \} \| \{ `kind`: `"open"`; `url`: `string`; \}
+> **ToolResult** = \{ `kind`: `"replace"`; `options`: `string`[]; `groups?`: [`ResultGroup`](../interfaces/ResultGroup.md)[]; `more?`: [`ResultMore`](../interfaces/ResultMore.md); \} \| \{ `kind`: `"insert"`; `text`: `string`; \} \| \{ `kind`: `"info"`; `items`: [`ToolInfoItem`](../interfaces/ToolInfoItem.md)[]; \} \| \{ `kind`: `"open"`; `url`: `string`; \}
 
-Defined in: [index.ts:2037](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2037)
+Defined in: [index.ts:2921](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2921)
 
 A tool's answer (AD-10). Only the kernel applies it, and only when the writer picks.
 
@@ -10,7 +10,14 @@ A tool's answer (AD-10). Only the kernel applies it, and only when the writer pi
 
 ### Type Literal
 
-\{ `kind`: `"replace"`; `options`: `string`[]; \}
+\{ `kind`: `"replace"`; `options`: `string`[]; `groups?`: [`ResultGroup`](../interfaces/ResultGroup.md)[]; `more?`: [`ResultMore`](../interfaces/ResultMore.md); \}
+
+Options to pick from; picking one replaces the selection as one undo step. `groups` splits
+the same options under labels: when given, `options` must be every group's options in order
+(that flat list is what the kernel numbers and applies). `more` adds a last row, drawn only
+while AI features are on, that calls the handler again with `ToolInput.more` set and adds the
+groups it returns to the card. For example:
+`{ kind: 'replace', options: ['glad', 'sunny'], groups: [{ label: 'happy: pleased', options: ['glad'] }, { label: 'happy: bright', options: ['sunny'] }], more: { label: 'More from AI' } }`.
 
 ***
 

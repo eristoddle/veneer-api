@@ -1,6 +1,6 @@
 # Interface: CommandContribution
 
-Defined in: [index.ts:844](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L844)
+Defined in: [index.ts:1323](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1323)
 
 A command contribution. `id` is the full contribution ID, `<pluginId>:<name>`.
 
@@ -10,7 +10,7 @@ A command contribution. `id` is the full contribution ID, `<pluginId>:<name>`.
 
 > **id**: `string`
 
-Defined in: [index.ts:845](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L845)
+Defined in: [index.ts:1324](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1324)
 
 ***
 
@@ -18,7 +18,18 @@ Defined in: [index.ts:845](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **title**: `string`
 
-Defined in: [index.ts:846](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L846)
+Defined in: [index.ts:1325](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1325)
+
+***
+
+### keywords?
+
+> `optional` **keywords?**: `string`[]
+
+Defined in: [index.ts:1330](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1330)
+
+Extra words the command palette matches as if they were in the title (Story 18.4): at most
+`MAX_KEYWORDS` (10), each 1 to `MAX_KEYWORD_LENGTH` (40) characters. Added in 0.47.0.
 
 ***
 
@@ -26,6 +37,6 @@ Defined in: [index.ts:846](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `optional` **usesAI?**: `boolean`
 
-Defined in: [index.ts:848](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L848)
+Defined in: [index.ts:1332](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1332)
 
 True when this feature needs an AI model; hidden while AI features are off.

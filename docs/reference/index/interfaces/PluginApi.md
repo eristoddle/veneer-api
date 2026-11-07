@@ -1,6 +1,6 @@
 # Interface: PluginApi
 
-Defined in: [index.ts:2524](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2524)
+Defined in: [index.ts:3442](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3442)
 
 What a plugin receives in `onload`. Every method that registers returns a `Disposable`.
 
@@ -10,7 +10,7 @@ What a plugin receives in `onload`. Every method that registers returns a `Dispo
 
 > `readonly` **pluginId**: `string`
 
-Defined in: [index.ts:2525](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2525)
+Defined in: [index.ts:3443](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3443)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:2525](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `readonly` **apiVersion**: `string`
 
-Defined in: [index.ts:2526](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2526)
+Defined in: [index.ts:3444](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3444)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:2526](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `readonly` **commands**: `object`
 
-Defined in: [index.ts:2527](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2527)
+Defined in: [index.ts:3445](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3445)
 
 #### handle()
 
@@ -61,13 +61,37 @@ export function onload(api: PluginApi): void {
 }
 ```
 
+#### run()
+
+> **run**(`id`): `Promise`\<`void`\>
+
+Runs a registered command by ID, any plugin's or core's, the way the palette does
+(Story 28.3). Rejects `plugin/unknown-command` for an ID nothing registers; a command that
+needs a selection fails as it does from the palette.
+
+##### Parameters
+
+###### id
+
+`string`
+
+##### Returns
+
+`Promise`\<`void`\>
+
+##### Example
+
+```ts
+await api.commands.run('veneer:typewriter-mode')
+```
+
 ***
 
 ### tools
 
 > `readonly` **tools**: `object`
 
-Defined in: [index.ts:2545](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2545)
+Defined in: [index.ts:3474](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3474)
 
 #### handle()
 
@@ -109,7 +133,7 @@ api.tools.handle('my-plugin:shout', (input) => ({
 
 > `readonly` **events**: `object`
 
-Defined in: [index.ts:2564](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2564)
+Defined in: [index.ts:3493](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3493)
 
 #### on()
 
@@ -148,7 +172,7 @@ api.events.on('vault:saved', (event) => {
 
 > `readonly` **editor**: `object`
 
-Defined in: [index.ts:2580](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2580)
+Defined in: [index.ts:3509](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3509)
 
 #### registerHost()
 
@@ -244,6 +268,76 @@ api.editor.registerBlockRenderer('my-plugin:shout', (block) => ({
 }))
 ```
 
+#### onRenderSyntax()
+
+> **onRenderSyntax**(`id`, `render`): [`Disposable`](Disposable.md)
+
+Draws the matches of a syntax contribution (`contributes.syntax` with `render: true`,
+Story 22.4, AD-5) off the caret line. The handler gets the matched text and groups and
+returns a `SyntaxView` the kernel draws (text, sanitized HTML or SVG, or a project image);
+results are cached by match text. It runs after the editor is idle, only for matches in or
+near the view, and is aborted after `SYNTAX_RENDER_TIMEOUT_MS`; a throw, rejection, or
+timeout leaves the match as styled text and raises one notice naming the plugin. An
+undeclared ID throws `plugin/undeclared-contribution`.
+
+Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+
+##### Parameters
+
+###### id
+
+`string`
+
+###### render
+
+[`SyntaxRenderer`](../type-aliases/SyntaxRenderer.md)
+
+##### Returns
+
+[`Disposable`](Disposable.md)
+
+##### Example
+
+```ts
+api.editor.onRenderSyntax('my-plugin:shout', (match) => ({
+  kind: 'text',
+  text: match.groups[0].toUpperCase(),
+  look: 'chip'
+}))
+```
+
+#### onSyntaxClick()
+
+> **onSyntaxClick**(`id`, `handler`): [`Disposable`](Disposable.md)
+
+Called when the writer clicks the drawn view of a match of syntax contribution `id`. The
+handler may call `api.workspace.open`, `api.vault`, or anything else it may use; the
+caret does not move. Undeclared IDs throw `plugin/undeclared-contribution`.
+
+Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+
+##### Parameters
+
+###### id
+
+`string`
+
+###### handler
+
+[`SyntaxClickHandler`](../type-aliases/SyntaxClickHandler.md)
+
+##### Returns
+
+[`Disposable`](Disposable.md)
+
+##### Example
+
+```ts
+api.editor.onSyntaxClick('my-plugin:tag', (match) => {
+  void api.workspace.open(`tags/${match.groups[0]}.md`)
+})
+```
+
 #### getText()
 
 > **getText**(): `string` \| `null`
@@ -306,6 +400,32 @@ only this plugin.
 ```ts
 const subscription = api.editor.onChanged(() => scheduleRecount())
 // api.editor.onChanged returns a Disposable; the kernel disposes it when the plugin unloads.
+```
+
+#### onTyping()
+
+> **onTyping**(`listener`): [`Disposable`](Disposable.md)
+
+Fires for the writer's own keystrokes in the page: a character, Enter, or a delete
+(Story 28.3). Never for undo, paste, or a result the selection box applied, never with
+the text, and only while the page has focus. Disposed with the plugin.
+
+##### Parameters
+
+###### listener
+
+(`kind`) => `void`
+
+##### Returns
+
+[`Disposable`](Disposable.md)
+
+##### Example
+
+```ts
+api.editor.onTyping((kind) => {
+  if (kind === 'enter') api.sound.play('my-plugin:return')
+})
 ```
 
 #### onSelectionChanged()
@@ -436,7 +556,7 @@ api.editor.onMarkClick('my-plugin:notes', (markId) => {
 
 > `readonly` **vault**: `object`
 
-Defined in: [index.ts:2727](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2727)
+Defined in: [index.ts:3705](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3705)
 
 #### process()
 
@@ -533,7 +653,7 @@ const chapter = await api.vault.read('chapters/one.md')
 > **readFile**(`path`): `Promise`\<`Uint8Array`\<`ArrayBufferLike`\>\>
 
 An image file's bytes, for an export that sends a chapter's pictures or a cover (Story
-9.19). `path` is an API path inside the open project, or inside a loose file's own folder:
+9.19). A `.docx` file's bytes are read the same way (Story 30.6). `path` is an API path inside the open project, or inside a loose file's own folder:
 stricter than the page, which may show `../images/x.png` from outside it. Only the image
 types the editor draws (PNG, JPEG, GIF, WebP, SVG), whose bytes must really be an image,
 up to 100 MB. Anything else rejects `vault/out-of-scope` (or `vault/too-large`).
@@ -862,7 +982,7 @@ api.vault.onRename(async (rename) => {
 
 #### search()
 
-> **search**(`query`): `Promise`\<[`SearchFileResult`](SearchFileResult.md)[]\>
+> **search**(`query`, `options?`): `Promise`\<[`SearchFileResult`](SearchFileResult.md)[]\>
 
 Searches the open scope's markdown documents for `query` (FR-59, Story 2.10), the way find
 matches (see `findInText`): a project's documents by `vault.list`'s walk rules, a loose
@@ -873,13 +993,20 @@ skipped. Resolves to the documents with hits, in path order, at most
 `MAX_SEARCH_MATCHES` hits in all; an empty query resolves to none without searching.
 Rejects, carrying `pluginId`, with `vault/superseded` when a newer search started before
 this one finished (drop it), `vault/out-of-scope` for a query over `MAX_SEARCH_QUERY`
-characters, or `plugin/unavailable`.
+characters, or `plugin/unavailable`. With `options.folder`, only documents inside that
+project folder are searched (the cap of `MAX_SEARCH_MATCHES` then counts only its hits);
+a folder outside the project or that is not a folder rejects `vault/out-of-scope` or
+`vault/read-failed`.
 
 ##### Parameters
 
 ###### query
 
 `string`
+
+###### options?
+
+[`VaultSearchOptions`](VaultSearchOptions.md)
 
 ##### Returns
 
@@ -958,7 +1085,7 @@ console.log(`${linkers.length} documents link to chapter one`)
 
 > `readonly` **workspace**: [`WorkspaceApi`](WorkspaceApi.md)
 
-Defined in: [index.ts:3010](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3010)
+Defined in: [index.ts:3991](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3991)
 
 The project and open document, and opening another (FR-10, AD-14).
 
@@ -968,7 +1095,7 @@ The project and open document, and opening another (FR-10, AD-14).
 
 > `readonly` **palette**: [`PaletteApi`](PaletteApi.md)
 
-Defined in: [index.ts:3012](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3012)
+Defined in: [index.ts:3993](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3993)
 
 This plugin's declared palette providers (`contributes.paletteProviders`, FR-9).
 
@@ -978,7 +1105,7 @@ This plugin's declared palette providers (`contributes.paletteProviders`, FR-9).
 
 > `readonly` **resources**: [`ResourcesApi`](ResourcesApi.md)
 
-Defined in: [index.ts:3013](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3013)
+Defined in: [index.ts:3994](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3994)
 
 ***
 
@@ -986,7 +1113,7 @@ Defined in: [index.ts:3013](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `readonly` **settings**: [`SettingsApi`](SettingsApi.md)
 
-Defined in: [index.ts:3015](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3015)
+Defined in: [index.ts:3996](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3996)
 
 This plugin's declared settings (`contributes.settings`, FR-44).
 
@@ -996,7 +1123,7 @@ This plugin's declared settings (`contributes.settings`, FR-44).
 
 > `readonly` **surfaces**: [`SurfacesApi`](SurfacesApi.md)
 
-Defined in: [index.ts:3017](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3017)
+Defined in: [index.ts:3998](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3998)
 
 This plugin's declared side-panel surfaces (`contributes.surfaces`, FR-7).
 
@@ -1006,7 +1133,7 @@ This plugin's declared side-panel surfaces (`contributes.surfaces`, FR-7).
 
 > `readonly` **providers**: [`ProvidersApi`](ProvidersApi.md)
 
-Defined in: [index.ts:3019](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3019)
+Defined in: [index.ts:4000](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4000)
 
 The writer's models, for plugins that declare a provider tool (FR-34, AD-11).
 
@@ -1016,9 +1143,44 @@ The writer's models, for plugins that declare a provider tool (FR-34, AD-11).
 
 > `readonly` **ai**: [`AiApi`](AiApi.md)
 
-Defined in: [index.ts:3021](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3021)
+Defined in: [index.ts:4002](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4002)
 
 Whether the writer has AI features on, and changes to it (Epic 12).
+
+***
+
+### chat
+
+> `readonly` **chat**: [`ChatApi`](ChatApi.md)
+
+Defined in: [index.ts:4013](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4013)
+
+The project chat panel (Epic 33): open it, optionally with a skill loaded, and hear when a
+session ends. A plugin cannot read the conversation or send turns; the writer is always the
+one who sends. Added in 0.59.0.
+
+#### Example
+
+```ts
+api.commands.handle('my-plugin:interview', () => api.chat.open({ skill: 'my-plugin:interview' }))
+```
+
+***
+
+### plugins
+
+> `readonly` **plugins**: [`PluginsApi`](PluginsApi.md)
+
+Defined in: [index.ts:4023](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4023)
+
+What is installed, read-only (Epic 35): summaries and validated manifests of every plugin and
+theme, never code or files. Added in 0.60.0.
+
+#### Example
+
+```ts
+const names = (await api.plugins.list()).map((plugin) => plugin.name)
+```
 
 ***
 
@@ -1026,7 +1188,7 @@ Whether the writer has AI features on, and changes to it (Epic 12).
 
 > `readonly` **net**: [`NetApi`](NetApi.md)
 
-Defined in: [index.ts:3023](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3023)
+Defined in: [index.ts:4025](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4025)
 
 The network, behind the writer's first-time consent (FR-51, AD-6).
 
@@ -1036,9 +1198,19 @@ The network, behind the writer's first-time consent (FR-51, AD-6).
 
 > `readonly` **secrets**: [`SecretsApi`](SecretsApi.md)
 
-Defined in: [index.ts:3025](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3025)
+Defined in: [index.ts:4027](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4027)
 
 Secret storage scoped to this plugin (Story 9.8, AD-11).
+
+***
+
+### sources
+
+> `readonly` **sources**: [`SourcesApi`](SourcesApi.md)
+
+Defined in: [index.ts:4029](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4029)
+
+Read-only folders the writer grants this plugin, outside the project (Story 27.1).
 
 ***
 
@@ -1046,7 +1218,7 @@ Secret storage scoped to this plugin (Story 9.8, AD-11).
 
 > `readonly` **export**: [`ExportApi`](ExportApi.md)
 
-Defined in: [index.ts:3027](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3027)
+Defined in: [index.ts:4031](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4031)
 
 Saving a produced file where the writer chooses (Story 9.8).
 
@@ -1056,9 +1228,19 @@ Saving a produced file where the writer chooses (Story 9.8).
 
 > `readonly` **clipboard**: [`ClipboardApi`](ClipboardApi.md)
 
-Defined in: [index.ts:3029](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3029)
+Defined in: [index.ts:4033](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4033)
 
 The system clipboard, read and written through the app (Story 11.2, AD-6).
+
+***
+
+### sound
+
+> `readonly` **sound**: [`SoundApi`](SoundApi.md)
+
+Defined in: [index.ts:4035](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4035)
+
+Short sounds the plugin bundles (Story 28.2).
 
 ***
 
@@ -1066,7 +1248,7 @@ The system clipboard, read and written through the app (Story 11.2, AD-6).
 
 > `readonly` **history**: [`HistoryApi`](HistoryApi.md)
 
-Defined in: [index.ts:3031](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3031)
+Defined in: [index.ts:4037](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4037)
 
 Save points and history for the open project, kept as plain git (Story 9.13, AD-20).
 
@@ -1076,7 +1258,7 @@ Save points and history for the open project, kept as plain git (Story 9.13, AD-
 
 > `readonly` **projectData**: [`ProjectDataApi`](ProjectDataApi.md)
 
-Defined in: [index.ts:3033](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3033)
+Defined in: [index.ts:4039](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4039)
 
 Structured data kept in the open project, per plugin (Story 9.26).
 
@@ -1086,7 +1268,7 @@ Structured data kept in the open project, per plugin (Story 9.26).
 
 > **notify**(`notice`): `void`
 
-Defined in: [index.ts:3052](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3052)
+Defined in: [index.ts:4058](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4058)
 
 Tells the writer that a long job finished or failed, in a notice the kernel draws and
 names after this plugin (Story 9.20, AD-21). One plain sentence, no modal, no focus taken,

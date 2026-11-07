@@ -1,6 +1,6 @@
 # Interface: ToolInfoItem
 
-Defined in: [index.ts:2031](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2031)
+Defined in: [index.ts:2901](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2901)
 
 One item of an `info` result; `insertable` marks it sensible to insert.
 
@@ -10,7 +10,7 @@ One item of an `info` result; `insertable` marks it sensible to insert.
 
 > **text**: `string`
 
-Defined in: [index.ts:2032](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2032)
+Defined in: [index.ts:2902](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2902)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [index.ts:2032](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **insertable?**: `boolean`
 
-Defined in: [index.ts:2033](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2033)
+Defined in: [index.ts:2903](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2903)

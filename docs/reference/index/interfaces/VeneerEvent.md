@@ -1,6 +1,6 @@
 # Interface: VeneerEvent
 
-Defined in: [index.ts:95](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L95)
+Defined in: [index.ts:95](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L95)
 
 Every event carries its name in `type`; payload fields sit beside it.
 
@@ -23,4 +23,4 @@ Every event carries its name in `type`; payload fields sit beside it.
 
 > `readonly` **type**: `` `${string}:${string}` ``
 
-Defined in: [index.ts:96](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L96)
+Defined in: [index.ts:96](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L96)

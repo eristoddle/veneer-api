@@ -1,6 +1,6 @@
 # Interface: SearchMatch
 
-Defined in: [index.ts:226](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L226)
+Defined in: [index.ts:245](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L245)
 
 One project-search hit (FR-59, Story 2.10). `from`/`to` are offsets into the document's text
 as the editor holds it (`\n` line endings, no BOM), ready for `workspace.open`'s `select`.
@@ -13,7 +13,7 @@ cut) and stripped of leading whitespace; `marks` are the hit's offsets within `s
 
 > **from**: `number`
 
-Defined in: [index.ts:227](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L227)
+Defined in: [index.ts:246](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L246)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:227](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **to**: `number`
 
-Defined in: [index.ts:228](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L228)
+Defined in: [index.ts:247](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L247)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [index.ts:228](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **line**: `number`
 
-Defined in: [index.ts:229](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L229)
+Defined in: [index.ts:248](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L248)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [index.ts:229](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **snippet**: `string`
 
-Defined in: [index.ts:230](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L230)
+Defined in: [index.ts:249](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L249)
 
 ***
 
@@ -45,4 +45,4 @@ Defined in: [index.ts:230](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **marks**: \[`number`, `number`\][]
 
-Defined in: [index.ts:231](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L231)
+Defined in: [index.ts:250](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L250)

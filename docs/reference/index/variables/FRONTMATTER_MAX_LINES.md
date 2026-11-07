@@ -2,6 +2,6 @@
 
 > `const` **FRONTMATTER\_MAX\_LINES**: `500` = `500`
 
-Defined in: [index.ts:336](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L336)
+Defined in: [index.ts:358](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L358)
 
 Frontmatter longer than this many lines is body text, as the editor treats it.

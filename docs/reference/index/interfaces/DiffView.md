@@ -1,6 +1,6 @@
 # Interface: DiffView
 
-Defined in: [index.ts:1370](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1370)
+Defined in: [index.ts:2014](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2014)
 
 A diff (Story 9.16): the segments of `wordDiff`, drawn in the page's type. Insertions sit on
 the `change` kind tint and are underlined; deletions sit on the `flag` tint and are struck
@@ -15,7 +15,7 @@ and a split's detail.
 
 > **kind**: `"diff"`
 
-Defined in: [index.ts:1371](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1371)
+Defined in: [index.ts:2015](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2015)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [index.ts:1371](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **segments**: [`DiffSegment`](DiffSegment.md)[]
 
-Defined in: [index.ts:1372](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1372)
+Defined in: [index.ts:2016](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2016)
 
 ***
 
@@ -31,6 +31,6 @@ Defined in: [index.ts:1372](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **note?**: `string`
 
-Defined in: [index.ts:1374](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1374)
+Defined in: [index.ts:2018](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2018)
 
 A line above the diff in the caption type.

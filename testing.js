@@ -50,7 +50,7 @@
  * document), and `setSelection`, or `workspace.open` with `select` (origin `find`), fires
  * `editor.onSelectionChanged` listeners while a document is open.
  */
-import { API_VERSION, EDITOR_ERROR, HISTORY_ERROR, MAX_PROJECT_DATA_KEY_BYTES, MAX_PROJECT_DATA_PLUGIN_BYTES, PROJECT_DATA_ERROR, MAX_ATTACHMENT_BYTES, MAX_HISTORY_LOG, MAX_NET_BYTES, MAX_NOTICE_ACTION_LABEL, MAX_NOTICE_MESSAGE, NOTICE_LIMIT_PER_MINUTE, PLUGIN_ERROR, STORAGE_ERROR, VAULT_ERROR, checkMarks, MAX_QUERY_KEYS, MAX_QUERY_RESULTS, MAX_QUERY_TEXT, MAX_SEARCH_MATCHES, MAX_SEARCH_QUERY, splitFrontmatter, changedSpan, findInText, cleanPaletteItems, checkTextChanges, cleanSurfaceView, isRelativeSource, isRemoteSource, isToolResult, isVeneerError, veneerError, CLIPBOARD_ERROR, MAX_CLIPBOARD_BYTES } from './index.js';
+import { API_VERSION, CHAT_ERROR, formatDatePattern, EDITOR_ERROR, HISTORY_ERROR, MAX_PROJECT_DATA_KEY_BYTES, MAX_PROJECT_DATA_PLUGIN_BYTES, PROJECT_DATA_ERROR, MAX_ATTACHMENT_BYTES, MAX_HISTORY_LOG, MAX_NET_BYTES, MAX_NOTICE_ACTION_LABEL, MAX_NOTICE_MESSAGE, NOTICE_LIMIT_PER_MINUTE, PLUGIN_ERROR, STORAGE_ERROR, VAULT_ERROR, WORKSPACE_ERROR, checkMarks, MAX_QUERY_KEYS, MAX_QUERY_RESULTS, MAX_QUERY_TEXT, MAX_SEARCH_MATCHES, MAX_SEARCH_QUERY, splitFrontmatter, changedSpan, findInText, MAX_MODEL_TOOL_RESULT, MAX_SOURCE_HITS, SOURCES_ERROR, cleanPaletteItems, checkTextChanges, cleanSurfaceView, isRelativeSource, isRemoteSource, isToolResult, isVeneerError, veneerError, CLIPBOARD_ERROR, MAX_CLIPBOARD_BYTES } from './index.js';
 /** A project-data key as the real `api.projectData` checks it. */
 function projectDataKey(key) {
     if (typeof key !== 'string' || !/^[a-z0-9][a-z0-9._-]{0,63}$/.test(key) || key.includes('..')) {
@@ -230,7 +230,7 @@ function fakeQuery(entries, query) {
     }
     return { results, truncated };
 }
-const FAKE_IMAGE = /\.(png|jpe?g|gif|webp|svg)$/i;
+const FAKE_IMAGE = /\.(png|jpe?g|gif|webp|svg|docx)$/i;
 function applyChanges(text, changes) {
     let out = text;
     for (const change of [...changes].reverse()) {
@@ -258,6 +258,9 @@ export function createFakeHost(manifest, entry, options = {}) {
     const modes = new Map();
     const declaredRenderers = new Set((manifest.contributes.blockRenderers ?? []).map((r) => r.id));
     const blockRenderers = new Map();
+    const declaredSyntax = new Set((manifest.contributes.syntax ?? []).map((r) => r.id));
+    const syntaxRenderers = new Map();
+    const syntaxClicks = new Map();
     const marks = new Map();
     const markHandlers = new Map();
     const handlers = new Map();
@@ -284,8 +287,39 @@ export function createFakeHost(manifest, entry, options = {}) {
     const actionHandlers = new Map();
     const refreshHandlers = new Map();
     const declaredTools = new Set((manifest.contributes.tools ?? []).map((t) => t.id));
-    const needsModel = (manifest.contributes.tools ?? []).some((t) => t.needsProvider === true);
+    const needsModel = (manifest.contributes.tools ?? []).some((t) => t.needsProvider === true || t.canAskModel === true);
     const modelRequests = [];
+    const imageRequests = [];
+    const chatOpened = [];
+    const chatEndHandlers = new Set();
+    let sourcePicks = 0;
+    const openedExternal = [];
+    const grantedSources = [];
+    const sourceGate = () => {
+        if (manifest.needs?.includes('sourceFolders') !== true) {
+            throw veneerError(SOURCES_ERROR.undeclared, 'api.sources needs the manifest to say needs: ["sourceFolders"]', manifest.id);
+        }
+    };
+    const sourcePath = (raw) => {
+        const parts = String(raw)
+            .replace(/\\/g, '/')
+            .split('/')
+            .filter((p) => p !== '' && p !== '.');
+        if (String(raw).startsWith('/') || parts.includes('..')) {
+            throw veneerError(SOURCES_ERROR.outOfScope, 'That path is not inside the folder.', manifest.id);
+        }
+        return parts.join('/');
+    };
+    const sourceFiles = (id) => {
+        sourceGate();
+        const at = grantedSources.findIndex((f) => f.id === id);
+        const folder = at === -1 ? undefined : (options.sourceFolders ?? [])[Number(id.slice(4)) - 1];
+        if (folder === undefined) {
+            throw veneerError(SOURCES_ERROR.unknownFolder, 'That folder is not granted.', manifest.id);
+        }
+        return folder.files;
+    };
+    let imageCalls = 0;
     let modelCalls = 0;
     const netRequests = [];
     const secrets = new Map();
@@ -299,6 +333,16 @@ export function createFakeHost(manifest, entry, options = {}) {
     let reloads = 0;
     const asked = [];
     const revealed = [];
+    const revealedEntries = [];
+    const openedFolders = [];
+    const openedInNewWindow = [];
+    const lazyPages = [];
+    const sounds = [];
+    let pageLook = null;
+    const typingListeners = new Set();
+    const commandsRun = [];
+    const declaredSounds = new Set((manifest.contributes.sounds ?? []).map((x) => x.id));
+    const declaredFonts = new Set((manifest.contributes.fonts ?? []).map((x) => x.family));
     const pickedImages = [];
     const history = {
         repository: false,
@@ -311,6 +355,9 @@ export function createFakeHost(manifest, entry, options = {}) {
     };
     let netCalls = 0;
     const toolHandlers = new Map();
+    const declaredModelTools = new Set((manifest.contributes.modelTools ?? []).map((t) => t.id));
+    const modelToolHandlers = new Map();
+    const modelToolDetails = new Map();
     const declaredProviders = new Set((manifest.contributes.paletteProviders ?? []).map((d) => d.id));
     const paletteItems = new Map();
     const runHandlers = new Map();
@@ -328,11 +375,13 @@ export function createFakeHost(manifest, entry, options = {}) {
     const rowActionHandlers = new Map();
     const begunRowActions = [];
     const searches = [];
+    const searchFolders = [];
     let searchGate = null;
     let latestSearch = 0;
     const selections = [];
     const inputHandlers = new Map();
     const reorderHandlers = new Map();
+    const itemEditHandlers = new Map();
     const formChangeHandlers = new Map();
     const diffActionHandlers = new Map();
     const formSubmitHandlers = new Map();
@@ -493,6 +542,11 @@ export function createFakeHost(manifest, entry, options = {}) {
     };
     const settingOf = (id) => {
         const declaration = declaredSettings.get(id);
+        // The page's view modes may be read by any plugin (0.55.0); the fake host has them off.
+        if (declaration === undefined &&
+            (id === 'editor:typewriter-mode' || id === 'editor:focus-mode')) {
+            return settingValues.get(id) ?? false;
+        }
         if (declaration === undefined) {
             throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
         }
@@ -540,6 +594,32 @@ export function createFakeHost(manifest, entry, options = {}) {
                 }
                 handlers.set(id, handler);
                 return track(() => handlers.delete(id));
+            },
+            async run(id) {
+                commandsRun.push(id);
+                const handler = handlers.get(id);
+                if (handler === undefined) {
+                    throw veneerError(PLUGIN_ERROR.unknownCommand, `${id} is not a command`, manifest.id);
+                }
+                await handler();
+            }
+        },
+        sound: {
+            play(id, soundOptions) {
+                if (!declaredSounds.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                sounds.push({ id, volume: soundOptions?.volume ?? 1, loop: false, stopped: false });
+            },
+            loop(id, soundOptions) {
+                if (!declaredSounds.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                const entry = { id, volume: soundOptions?.volume ?? 1, loop: true, stopped: false };
+                sounds.push(entry);
+                return track(() => {
+                    entry.stopped = true;
+                });
             }
         },
         tools: {
@@ -602,6 +682,29 @@ export function createFakeHost(manifest, entry, options = {}) {
                         blockRenderers.delete(id);
                 });
             },
+            onRenderSyntax(id, render) {
+                if (!declaredSyntax.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                if (syntaxRenderers.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.duplicateHandler, `${id} is already registered`, manifest.id);
+                }
+                syntaxRenderers.set(id, render);
+                return track(() => {
+                    if (syntaxRenderers.get(id) === render)
+                        syntaxRenderers.delete(id);
+                });
+            },
+            onSyntaxClick(id, handler) {
+                if (!declaredSyntax.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                syntaxClicks.set(id, handler);
+                return track(() => {
+                    if (syntaxClicks.get(id) === handler)
+                        syntaxClicks.delete(id);
+                });
+            },
             getText: () => text,
             getSelection: currentSelection,
             edit(changes) {
@@ -614,6 +717,10 @@ export function createFakeHost(manifest, entry, options = {}) {
             onSelectionChanged(listener) {
                 selectionListeners.add(listener);
                 return track(() => selectionListeners.delete(listener));
+            },
+            onTyping(listener) {
+                typingListeners.add(listener);
+                return track(() => typingListeners.delete(listener));
             },
             setMarks(setId, next) {
                 let others = 0;
@@ -640,7 +747,7 @@ export function createFakeHost(manifest, entry, options = {}) {
             },
             async readFile(path) {
                 const bytes = options.binaryFiles?.[path];
-                if (!/\.(png|jpe?g|gif|webp|svg)$/i.test(path) || bytes === undefined) {
+                if (!/\.(png|jpe?g|gif|webp|svg|docx)$/i.test(path) || bytes === undefined) {
                     throw veneerError(VAULT_ERROR.outOfScope, 'Only image files in the project can be read', manifest.id);
                 }
                 return bytes;
@@ -804,6 +911,8 @@ export function createFakeHost(manifest, entry, options = {}) {
                 if (project === null)
                     return [];
                 const paths = new Set(files.keys());
+                for (const bin of Object.keys(options.binaryFiles ?? {}))
+                    paths.add(bin);
                 if (openPath !== undefined)
                     paths.add(openPath);
                 for (const folder of folders)
@@ -833,13 +942,18 @@ export function createFakeHost(manifest, entry, options = {}) {
                 }
                 return out;
             },
-            async search(query) {
+            async search(query, searchOptions) {
                 if (typeof query !== 'string' || query.length > MAX_SEARCH_QUERY) {
                     throw veneerError(VAULT_ERROR.outOfScope, 'the query is too long', manifest.id);
                 }
                 if (query === '')
                     return [];
                 searches.push(query);
+                const folder = searchOptions?.folder ?? '';
+                if (folder.startsWith('/') || folder.split('/').includes('..')) {
+                    throw veneerError(VAULT_ERROR.outOfScope, 'that folder is outside the project', manifest.id);
+                }
+                searchFolders.push(folder);
                 const mine = ++latestSearch;
                 if (searchGate !== null)
                     await searchGate;
@@ -868,7 +982,8 @@ export function createFakeHost(manifest, entry, options = {}) {
                     }
                     return x.length - y.length;
                 };
-                for (const path of [...docs.keys()].sort(byFolder)) {
+                const inFolder = (p) => folder === '' || p.startsWith(`${folder}/`);
+                for (const path of [...docs.keys()].filter(inFolder).sort(byFolder)) {
                     if (left <= 0)
                         break;
                     const matches = findInText((docs.get(path) ?? '').replace(/\r\n?/g, '\n'), query, left);
@@ -915,6 +1030,53 @@ export function createFakeHost(manifest, entry, options = {}) {
         },
         workspace: {
             projectType: () => (options.projectType === undefined ? null : options.projectType),
+            async createFromTemplate(templateId, templateOptions) {
+                const template = options.projectType?.templates?.find((t) => t.id === templateId);
+                if (template === undefined) {
+                    throw veneerError(WORKSPACE_ERROR.noTemplate, 'No such template', manifest.id);
+                }
+                let when = new Date();
+                if (templateOptions?.date !== undefined) {
+                    const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(templateOptions.date);
+                    const asked = parts === null ? null : new Date(+parts[1], +parts[2] - 1, +parts[3]);
+                    if (asked === null || asked.getDate() !== Number(parts?.[3])) {
+                        throw veneerError(WORKSPACE_ERROR.badDate, 'date must be an ISO date', manifest.id);
+                    }
+                    when = asked;
+                }
+                const fill = (text) => text
+                    .replace(/\{\{title\}\}/g, templateOptions?.title ?? '')
+                    .replace(/\{\{date:([^}]*)\}\}/g, (_m, format) => formatDatePattern(format, when));
+                const pattern = templateOptions?.pattern ?? template.pattern;
+                if (!pattern.endsWith('.md') ||
+                    pattern.split('/').some((part) => part === '' || part.startsWith('.'))) {
+                    throw veneerError(WORKSPACE_ERROR.badPattern, 'that name pattern is not usable', manifest.id);
+                }
+                const bodyText = templateOptions?.body ?? template.body ?? '';
+                const name = fill(pattern);
+                const path = template.folder === undefined ? name : `${template.folder}/${name}`;
+                if (!files.has(path)) {
+                    if (templateOptions?.lazy === true)
+                        lazyPages.push({ path, text: fill(bodyText) });
+                    else
+                        files.set(path, fill(bodyText));
+                }
+                return path;
+            },
+            async pick(pickOptions) {
+                return pickOptions.items[0]?.id ?? null;
+            },
+            async obsidianDailyNotes() {
+                return options.obsidianDailyNotes === undefined || options.obsidianDailyNotes === null
+                    ? null
+                    : { ...options.obsidianDailyNotes };
+            },
+            setPageLook(look) {
+                if (look !== null && look.font !== undefined && !declaredFonts.has(look.font)) {
+                    throw veneerError(WORKSPACE_ERROR.badLook, 'that font is not declared', manifest.id);
+                }
+                pageLook = look === null ? null : { ...look };
+            },
             current: () => ({
                 project: project === null ? null : { ...project },
                 document: openPath ?? null
@@ -930,6 +1092,13 @@ export function createFakeHost(manifest, entry, options = {}) {
                 const next = path === openPath ? text : files.get(path);
                 if (next === undefined) {
                     throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id);
+                }
+                if (options?.newWindow === true) {
+                    if (files.get(path) === undefined && path !== openPath) {
+                        throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id);
+                    }
+                    openedInNewWindow.push(path);
+                    return;
                 }
                 const select = options?.select;
                 if (select !== undefined)
@@ -958,11 +1127,30 @@ export function createFakeHost(manifest, entry, options = {}) {
                 await emitEvent({ type: 'document:opened', path });
                 moveSelection();
             },
+            async openExternal(url) {
+                const ok = /^(https?|obsidian|joplin):\/\//.test(String(url));
+                if (!ok) {
+                    throw veneerError('workspace/refused', 'That kind of address does not open.', manifest.id);
+                }
+                openedExternal.push(String(url));
+            },
             async pickImages() {
                 return pickedImages.shift() ?? [];
             },
             async textReplacements() {
                 return textReplacementPairs.map((p) => ({ ...p }));
+            },
+            async reveal(path) {
+                if (project === null || path.startsWith('/') || path.split('/').includes('..')) {
+                    throw veneerError(VAULT_ERROR.outOfScope, 'That file is outside the project', manifest.id);
+                }
+                revealedEntries.push(path);
+            },
+            async openFolder(path, folderOptions) {
+                if (project === null || path.startsWith('/') || path.split('/').includes('..')) {
+                    throw veneerError(VAULT_ERROR.outOfScope, 'That file is outside the project', manifest.id);
+                }
+                openedFolders.push({ path, newWindow: folderOptions?.newWindow === true });
             },
             async revealImage(path) {
                 if (!/\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i.test(path) ||
@@ -1042,12 +1230,92 @@ export function createFakeHost(manifest, entry, options = {}) {
                 modelCalls += 1;
                 for (const piece of typeof reply === 'string' ? [reply] : reply)
                     onText(piece);
+            },
+            async image(request, signal) {
+                if (options.aiFeatures === false) {
+                    throw veneerError('ai/off', 'AI features are off in Settings.', manifest.id);
+                }
+                if (!needsModel) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, 'api.providers needs a tool that declares needsProvider', manifest.id);
+                }
+                if (signal?.aborted === true) {
+                    throw veneerError('canceled', 'The request was canceled.', manifest.id);
+                }
+                const replies = options.imageReplies ?? [];
+                if (replies.length === 0) {
+                    throw veneerError('provider/none', 'No image provider is set up yet.', manifest.id);
+                }
+                const reply = replies[Math.min(imageCalls, replies.length - 1)];
+                imageCalls += 1;
+                if (reply !== 'ok')
+                    throw veneerError(reply.code, reply.message, manifest.id);
+                imageRequests.push(request);
+                const png = (n) => new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, n]);
+                return {
+                    images: Array.from({ length: request.count ?? 1 }, (_, i) => png(i)),
+                    mime: 'image/png'
+                };
+            }
+        },
+        chat: {
+            open(chatOptions) {
+                if (options.aiFeatures === false) {
+                    return Promise.reject(veneerError(PLUGIN_ERROR.unavailable, 'AI features are off', manifest.id));
+                }
+                const skill = chatOptions?.skill;
+                if (skill !== undefined &&
+                    !(skill.startsWith(`${manifest.id}:`) ||
+                        skill.startsWith('skill.user:') ||
+                        skill.startsWith('skill.project:'))) {
+                    return Promise.reject(veneerError(CHAT_ERROR.skillNotAllowed, 'A plugin can open the chat only with its own skill or one of the writer’s', manifest.id));
+                }
+                chatOpened.push({ ...chatOptions });
+                return Promise.resolve();
+            },
+            onSessionEnded(handler) {
+                chatEndHandlers.add(handler);
+                return track(() => chatEndHandlers.delete(handler));
+            }
+        },
+        plugins: {
+            list() {
+                return Promise.resolve([manifest, ...(options.installedPlugins ?? [])].map((m) => ({
+                    id: m.id,
+                    name: m.name,
+                    version: m.version,
+                    description: m.description ?? '',
+                    kind: m.main === undefined ? 'theme' : 'plugin',
+                    tier: 'installed',
+                    enabled: true,
+                    contributions: Object.fromEntries(Object.entries(m.contributes)
+                        .filter(([, value]) => Array.isArray(value) && value.length > 0)
+                        .map(([kind, value]) => [kind, value.length]))
+                })));
+            },
+            manifest(id) {
+                const found = [manifest, ...(options.installedPlugins ?? [])].find((m) => m.id === id);
+                return found === undefined
+                    ? Promise.reject(veneerError(PLUGIN_ERROR.unknownPlugin, `No plugin ${id}`, manifest.id))
+                    : Promise.resolve(JSON.parse(JSON.stringify(found)));
             }
         },
         ai: {
             enabled: () => options.aiFeatures !== false,
             // The fake's switch is fixed for the run; nothing changes it.
-            onChanged: () => ({ dispose: () => undefined })
+            onChanged: () => ({ dispose: () => undefined }),
+            describeModelTool(id, detail) {
+                if (!declaredModelTools.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                modelToolDetails.set(id, String(detail).replace(/\s+/g, ' ').trim().slice(0, 120));
+            },
+            onModelTool(id, handler) {
+                if (!declaredModelTools.has(id)) {
+                    throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+                }
+                modelToolHandlers.set(id, handler);
+                return track(() => modelToolHandlers.delete(id));
+            }
         },
         net: {
             async fetch(request, signal) {
@@ -1071,6 +1339,75 @@ export function createFakeHost(manifest, entry, options = {}) {
                     ...(part.data === undefined ? {} : { data: part.data }),
                     truncated: part.truncated ?? false
                 };
+            }
+        },
+        sources: {
+            async pickFolder() {
+                sourceGate();
+                const next = (options.sourceFolders ?? [])[sourcePicks];
+                if (next === undefined)
+                    return null;
+                sourcePicks += 1;
+                const folder = { id: `src-${sourcePicks}`, name: next.name, markers: next.markers ?? [] };
+                grantedSources.push(folder);
+                return folder;
+            },
+            async folders() {
+                sourceGate();
+                return grantedSources.map((f) => ({ ...f }));
+            },
+            async remove(id) {
+                sourceGate();
+                const at = grantedSources.findIndex((f) => f.id === id);
+                if (at !== -1)
+                    grantedSources.splice(at, 1);
+            },
+            async list(id, dir = '') {
+                const files = sourceFiles(id);
+                const clean = sourcePath(dir);
+                const prefix = clean === '' ? '' : `${clean}/`;
+                const seen = new Map();
+                for (const path of Object.keys(files)) {
+                    if (!path.startsWith(prefix))
+                        continue;
+                    const rest = path.slice(prefix.length);
+                    const slash = rest.indexOf('/');
+                    if (slash === -1)
+                        seen.set(rest, 'file');
+                    else
+                        seen.set(rest.slice(0, slash), 'folder');
+                }
+                return [...seen]
+                    .map(([name, kind]) => ({ name, path: prefix + name, kind }))
+                    .sort((a, b) => a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === 'folder' ? -1 : 1);
+            },
+            async read(id, path) {
+                const files = sourceFiles(id);
+                const text = files[sourcePath(path)];
+                if (text === undefined) {
+                    throw veneerError(SOURCES_ERROR.notFound, 'That is not in the folder.', manifest.id);
+                }
+                return text;
+            },
+            async search(id, query, searchOptions) {
+                const files = sourceFiles(id);
+                const cap = Math.min(searchOptions?.limit ?? MAX_SOURCE_HITS, MAX_SOURCE_HITS);
+                const hits = [];
+                for (const [path, text] of Object.entries(files)) {
+                    if (!path.endsWith('.md') || hits.length >= cap)
+                        continue;
+                    const found = findInText(text, query, 1)[0];
+                    if (found === undefined)
+                        continue;
+                    const heading = /^#\s+(.+)$/m.exec(text)?.[1];
+                    hits.push({
+                        path,
+                        title: heading ?? (path.split('/').pop() ?? path).replace(/\.md$/, ''),
+                        line: found.line,
+                        snippet: found.snippet
+                    });
+                }
+                return hits;
             }
         },
         secrets: {
@@ -1437,7 +1774,10 @@ export function createFakeHost(manifest, entry, options = {}) {
                 return addHandler(refreshHandlers, id, handler);
             },
             onRowAction(id, handler) {
-                checkSurface(id);
+                // A surface the plugin owns, or one it contributes a row action to (Story 17.1).
+                if (!(manifest.contributes.rowActions ?? []).some((a) => a.surface === id)) {
+                    checkSurface(id);
+                }
                 return addHandler(rowActionHandlers, id, handler);
             },
             beginRowAction(id, actionId, rowId) {
@@ -1454,6 +1794,10 @@ export function createFakeHost(manifest, entry, options = {}) {
             onReorder(id, handler) {
                 checkSurface(id);
                 return addHandler(reorderHandlers, id, handler);
+            },
+            onItemEdit(id, handler) {
+                checkSurface(id);
+                return addHandler(itemEditHandlers, id, handler);
             },
             onFormChange(id, handler) {
                 checkSurface(id);
@@ -1482,6 +1826,12 @@ export function createFakeHost(manifest, entry, options = {}) {
         api,
         history,
         modelRequests,
+        imageRequests,
+        chatOpened,
+        endChatSession: (event) => {
+            for (const handler of [...chatEndHandlers])
+                handler(event);
+        },
         netRequests,
         secrets,
         projectData,
@@ -1496,6 +1846,19 @@ export function createFakeHost(manifest, entry, options = {}) {
             return reloads;
         },
         revealed,
+        revealedEntries,
+        openedFolders,
+        openedInNewWindow,
+        lazyPages,
+        sounds,
+        get pageLook() {
+            return pageLook;
+        },
+        typing(kind) {
+            for (const listener of [...typingListeners])
+                listener(kind);
+        },
+        commandsRun,
         pickedImages,
         async load() {
             await entry.onload(api);
@@ -1553,6 +1916,8 @@ export function createFakeHost(manifest, entry, options = {}) {
         edits,
         modes,
         blockRenderers,
+        syntaxRenderers,
+        syntaxClicks,
         marks,
         async markClick(setId, markId) {
             for (const handler of [...(markHandlers.get(setId) ?? [])])
@@ -1619,6 +1984,7 @@ export function createFakeHost(manifest, entry, options = {}) {
         trashed,
         begunRowActions,
         searches,
+        searchFolders,
         holdSearches() {
             let release = () => undefined;
             searchGate = new Promise((resolve) => {
@@ -1634,6 +2000,12 @@ export function createFakeHost(manifest, entry, options = {}) {
             checkSurface(surfaceId);
             for (const handler of [...(inputHandlers.get(surfaceId) ?? [])])
                 await handler(value);
+        },
+        async itemEdit(surfaceId, itemId, value) {
+            checkSurface(surfaceId);
+            for (const handler of [...(itemEditHandlers.get(surfaceId) ?? [])]) {
+                await handler(itemId, 'synopsis', value);
+            }
         },
         async reorder(surfaceId, event) {
             checkSurface(surfaceId);
@@ -1661,7 +2033,9 @@ export function createFakeHost(manifest, entry, options = {}) {
         shownFocus,
         closed,
         async rowAction(surfaceId, actionId, rowId, value) {
-            checkSurface(surfaceId);
+            if (!(manifest.contributes.rowActions ?? []).some((a) => a.surface === surfaceId)) {
+                checkSurface(surfaceId);
+            }
             let result;
             for (const handler of [...(rowActionHandlers.get(surfaceId) ?? [])]) {
                 result = await handler(actionId, rowId, value);
@@ -1669,6 +2043,23 @@ export function createFakeHost(manifest, entry, options = {}) {
             return result;
         },
         paletteItems,
+        modelToolDetails,
+        openedExternal,
+        async callModelTool(id, args) {
+            if (!declaredModelTools.has(id)) {
+                throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);
+            }
+            const handler = modelToolHandlers.get(id);
+            if (handler === undefined) {
+                throw veneerError(PLUGIN_ERROR.noHandler, `${id} has no handler`, manifest.id);
+            }
+            try {
+                return String(await handler(args)).slice(0, MAX_MODEL_TOOL_RESULT);
+            }
+            catch {
+                return 'The tool failed.';
+            }
+        },
         async runTool(id, input, signal, report) {
             if (!declaredTools.has(id)) {
                 throw veneerError(PLUGIN_ERROR.undeclaredContribution, `${id} is not declared in the manifest`, manifest.id);

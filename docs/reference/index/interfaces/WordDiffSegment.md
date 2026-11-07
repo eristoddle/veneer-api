@@ -1,6 +1,6 @@
 # Interface: WordDiffSegment
 
-Defined in: [index.ts:388](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L388)
+Defined in: [index.ts:520](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L520)
 
 One piece of a `wordDiff` result. `equal` text is in both versions, `delete` text only in the
 first, `insert` text only in the second.
@@ -15,7 +15,7 @@ first, `insert` text only in the second.
 
 > **kind**: `"equal"` \| `"insert"` \| `"delete"`
 
-Defined in: [index.ts:389](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L389)
+Defined in: [index.ts:521](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L521)
 
 ***
 
@@ -23,4 +23,4 @@ Defined in: [index.ts:389](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **text**: `string`
 
-Defined in: [index.ts:390](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L390)
+Defined in: [index.ts:522](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L522)

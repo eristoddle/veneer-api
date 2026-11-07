@@ -1,6 +1,6 @@
 # Interface: FrontmatterAdvice
 
-Defined in: [index.ts:1747](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1747)
+Defined in: [index.ts:2544](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2544)
 
 One way a document's frontmatter differs from a project type's schema. Advice, never a rule.
 
@@ -10,7 +10,7 @@ One way a document's frontmatter differs from a project type's schema. Advice, n
 
 > **key**: `string`
 
-Defined in: [index.ts:1748](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1748)
+Defined in: [index.ts:2545](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2545)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:1748](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **problem**: `"missing"` \| `"wrong-type"`
 
-Defined in: [index.ts:1749](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1749)
+Defined in: [index.ts:2546](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2546)
 
 ***
 
@@ -26,6 +26,6 @@ Defined in: [index.ts:1749](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **message**: `string`
 
-Defined in: [index.ts:1751](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1751)
+Defined in: [index.ts:2548](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2548)
 
 A plain sentence, e.g. `Point of view is missing.`

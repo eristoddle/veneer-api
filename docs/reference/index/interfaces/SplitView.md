@@ -1,6 +1,6 @@
 # Interface: SplitView
 
-Defined in: [index.ts:1299](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1299)
+Defined in: [index.ts:1943](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1943)
 
 Two panes (Story 9.22): a list or tree on the left and any detail on the right, for a tool
 that is a list plus a detail (characters and a character's form). Row opens in the list
@@ -13,7 +13,7 @@ filtering belong to the list. Drawn in a modal surface; a side panel draws the l
 
 > **kind**: `"split"`
 
-Defined in: [index.ts:1300](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1300)
+Defined in: [index.ts:1944](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1944)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:1300](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **list**: [`ItemsView`](ItemsView.md)
 
-Defined in: [index.ts:1301](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1301)
+Defined in: [index.ts:1945](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1945)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [index.ts:1301](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **detail**: [`ItemsView`](ItemsView.md) \| [`DomView`](DomView.md) \| [`FormView`](FormView.md) \| [`DiffView`](DiffView.md)
 
-Defined in: [index.ts:1302](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1302)
+Defined in: [index.ts:1946](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1946)

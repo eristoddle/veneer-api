@@ -2,7 +2,7 @@
 
 > `const` **PLUGIN\_ERROR**: `object`
 
-Defined in: [index.ts:3768](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3768)
+Defined in: [index.ts:5211](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L5211)
 
 Error codes the plugin host uses.
 
@@ -23,6 +23,12 @@ Error codes the plugin host uses.
 ### noHandler
 
 > `readonly` **noHandler**: `"plugin/no-handler"` = `'plugin/no-handler'`
+
+### unknownPlugin
+
+> `readonly` **unknownPlugin**: `"plugin/unknown-plugin"` = `'plugin/unknown-plugin'`
+
+`api.plugins.manifest` named an ID no plugin or theme has. Added in 0.60.0.
 
 ### unavailable
 

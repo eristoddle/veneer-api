@@ -1,6 +1,6 @@
 # Interface: NetFile
 
-Defined in: [index.ts:3143](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3143)
+Defined in: [index.ts:4517](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4517)
 
 A file in a multipart upload (Story 9.8).
 
@@ -10,7 +10,7 @@ A file in a multipart upload (Story 9.8).
 
 > **name**: `string`
 
-Defined in: [index.ts:3145](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3145)
+Defined in: [index.ts:4519](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4519)
 
 The file name the service sees.
 
@@ -20,7 +20,7 @@ The file name the service sees.
 
 > `optional` **type?**: `string`
 
-Defined in: [index.ts:3147](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3147)
+Defined in: [index.ts:4521](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4521)
 
 Its media type; `application/octet-stream` when left out.
 
@@ -30,4 +30,4 @@ Its media type; `application/octet-stream` when left out.
 
 > **data**: `Uint8Array`
 
-Defined in: [index.ts:3148](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3148)
+Defined in: [index.ts:4522](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4522)

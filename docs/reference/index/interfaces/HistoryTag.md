@@ -1,6 +1,6 @@
 # Interface: HistoryTag
 
-Defined in: [index.ts:3511](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3511)
+Defined in: [index.ts:4954](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4954)
 
 A named milestone in the project's history (Story 9.14).
 
@@ -10,7 +10,7 @@ A named milestone in the project's history (Story 9.14).
 
 > **name**: `string`
 
-Defined in: [index.ts:3512](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3512)
+Defined in: [index.ts:4955](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4955)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [index.ts:3512](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **commit**: `string`
 
-Defined in: [index.ts:3514](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3514)
+Defined in: [index.ts:4957](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4957)
 
 The commit it names.
 
@@ -28,6 +28,6 @@ The commit it names.
 
 > **message**: `string`
 
-Defined in: [index.ts:3516](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3516)
+Defined in: [index.ts:4959](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4959)
 
 Its message, or `''` for a tag made without one.

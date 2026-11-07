@@ -50,6 +50,29 @@ api.tools.handle('my-plugin:shout', async (input, signal, report) => {
 
 Returning anything else rejects with `plugin/bad-result` and fails the plugin.
 
+### Groups and a "more" row
+
+A `replace` Result can split its options under quiet labels and offer a last row that asks for more (the built-in Thesaurus does both). Add `groups` (each `{ label, options }`) and give `options` as every group's options in order: that flat list is what the card numbers (keys 1 to 9, then no number) and applies. Add `more: { label }` for a last row. The card draws it only while AI features are on; when the writer picks it, the handler runs again with `input.more === true` and returns only the extra options (as groups), which the card adds under their labels. A tool that works with no model but may ask one for that extra step declares `"canAskModel": true` in its manifest (so it stays available with AI off, and `api.providers` is open to it), and the plugin's `ai` is `optional`.
+
+```ts
+api.tools.handle('words:synonyms', async (input) => {
+  if (input.more) {
+    const reply = await api.providers.complete({
+      role: 'quick',
+      messages: [{ role: 'user', content: `Give 5 synonyms for "${input.selection?.text}", one per line.` }]
+    })
+    const options = reply.split('\n').map((l) => l.trim()).filter(Boolean)
+    return { kind: 'replace', options, groups: [{ label: 'From AI', options }] }
+  }
+  return {
+    kind: 'replace',
+    options: ['glad', 'sunny'],
+    groups: [{ label: 'happy: pleased', options: ['glad'] }, { label: 'happy: bright', options: ['sunny'] }],
+    more: { label: 'More from AI' }
+  }
+})
+```
+
 ## Tools with side effects
 
 A tool that is not `readOnly` and writes another file (`api.vault.create`, `createFolder`, `rename`, `trash`, `saveImage`, or `process` on a file other than the open one) is **confirmed by the writer the first time**: the box names the effect ("Back up from My Plugin wants to create backup.md. Allow it?"). Declining ends the run with nothing written, and it is not counted as a failure. After Allow, that tool runs without asking again.

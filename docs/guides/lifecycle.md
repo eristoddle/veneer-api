@@ -23,7 +23,7 @@ export function onunload(): void {
 ## Install, enable, disable
 
 - **Install** from Settings > Plugins (a folder or a `.zip`). The package goes to `userData/plugins/<id>/` and is enabled everywhere by default. A package with a missing or invalid manifest is refused with one plain sentence and leaves nothing behind.
-- **Compatibility.** `apiVersion` in your manifest is `^x.y.z` or an exact `x.y.z`. While the API is below 1.0, `^0.46.0` accepts only `0.17.x`. A plugin built for another version is installed but not enabled, and Settings marks it "Incompatible".
+- **Compatibility.** `apiVersion` in your manifest is `^x.y.z` or an exact `x.y.z`. While the API is below 1.0, `^0.55.0` accepts only `0.17.x`. A plugin built for another version is installed but not enabled, and Settings marks it "Incompatible".
 - **Disable / enable** from Settings > Plugins, with no restart. Disabling runs `onunload`, disposes every registration you made, and withdraws your contributions. Enabling brings you back unloaded; you wake on first use.
 - **Project overrides.** A project may turn plugins on or off in `.veneer/plugins.json`; the writer is asked once before it applies.
 
@@ -46,10 +46,20 @@ If `onload` throws, a handler throws, or a promise you return rejects, the kerne
 
 Throw a `VeneerError` (`veneerError(code, message)`) for a failure you want described plainly.
 
+## Core, built-in, and shelf
+
+Veneer's own features are plugins too, in three tiers. All of them import only `@veneer/api`, and a plugin in any tier can be replaced by one you write.
+
+- **Core plugins** are what any markdown writing app is expected to have: the editor, files, search, outline, properties, word count, code styling. They ship in the app and are on by default.
+- **Built-in first-party plugins** are Veneer's own extras that make the first launch feel like Veneer: N versions, the thesaurus, diagnostics, mermaid, web search. They ship in the app and the writer can turn them off in Settings > Plugins.
+- **The shelf** is everything else Veneer's author makes: installed from the browser, one package at a time, never part of the app.
+
+The test for a new item: if anyone opening a markdown file would expect it, it is core; if it is part of Veneer's first impression, it is built-in; otherwise it belongs on the shelf. Your own plugin is a shelf plugin whatever you call it.
+
 ## What a plugin never does
 
 Plugins never raise modals and raise a notice only through `api.notify`, add visible chrome on their own, touch Node, read a key, or use the network directly. There is no API for any of those: files go through `api.vault`, models through `api.providers`. Anything you contribute starts hidden: a panel opens from the palette, and a top-bar button shows only after the writer turns it on.
 
 ## The development loop
 
-In a development build, the palette has **Load plugin from folder** (it reads your working folder in place, with no copy) and **Reload plugin** (the old instance is disposed completely, `onunload` included, and the edited code is loaded, with no restart). These commands do not exist in a packaged build.
+In a development build, or in a packaged build once **Plugin development** is on in Settings > Plugins (it is off by default, and a packaged build asks you to confirm each folder), the palette has **Load plugin from this project** (it reads your working folder in place, with no copy) and **Reload plugin** (the old instance is disposed completely, `onunload` included, and the edited code is loaded, with no restart). These commands are not in the palette while Plugin development is off in a packaged build. A loaded folder is remembered until you quit; the loaded notice's **Install it** sends it through the usual install warning to keep it.

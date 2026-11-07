@@ -33,10 +33,10 @@
  * `api.providers` (`complete`, `stream`; FR-34, AD-11), so 0.12.0. Story 5.6 adds the optional `report`
  * argument to `ToolHandler`, for options that arrive while a tool runs (FR-39), so 0.13.0. Story 6.7 adds `contributes.keybindings`, keys a plugin suggests and the writer accepts
  * in Settings (FR-27, AD-5), so 0.14.0. Story 7.6 adds `api.vault.read`, a document's text as of its last save (FR-55), so 0.15.0. Story 7.4 adds `contributes.projectTypes` and `api.workspace.projectType()` (FR-36, FR-37,
- * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0. Story 11.2 adds `api.clipboard`, the system clipboard through main (AD-6), so 0.41.0. Story 11.8 adds `api.workspace.pickGrid`, a kernel-drawn rows-by-columns picker (AD-4), so 0.44.0.  Epic 13 adds the `open` tool Result (Story 13.2), `api.vault.saveAttachment` and `api.vault.copy` (13.4, 13.5), and an optional form-field action (13.3), so 0.45.0. Epic 17 adds `api.clipboard.writePath`, the `none` row-action input, and `contributes.rowActions` (Story 17.1), `api.vault.onImageDestination` (Story 17.2), and `SurfaceContribution.stayOpenOnOpen` (Story 17.4), `api.workspace.textReplacements` and `SettingContribution.macOnly` (Story 17.8), so 0.46.0.
+ * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0. Story 11.2 adds `api.clipboard`, the system clipboard through main (AD-6), so 0.41.0. Story 11.8 adds `api.workspace.pickGrid`, a kernel-drawn rows-by-columns picker (AD-4), so 0.44.0.  Epic 13 adds the `open` tool Result (Story 13.2), `api.vault.saveAttachment` and `api.vault.copy` (13.4, 13.5), and an optional form-field action (13.3), so 0.45.0. Epic 17 adds `api.clipboard.writePath`, the `none` row-action input, and `contributes.rowActions` (Story 17.1), `api.vault.onImageDestination` (Story 17.2), and `SurfaceContribution.stayOpenOnOpen` (Story 17.4), `api.workspace.textReplacements` and `SettingContribution.macOnly` (Story 17.8), so 0.46.0. Epic 18 adds `api.workspace.reveal`, `api.workspace.openFolder`, `WorkspaceOpenOptions.newWindow` (Story 18.1), `api.vault.search`'s `folder` option (18.2), and `keywords` on commands and tools (18.4), so 0.47.0. Epic 19 makes `main` optional for a package that only contributes themes and colors, and adds `ThemeContribution.fonts` and `codeTheme` (Story 19.1), so 0.48.0. Epic 20 adds `DocumentTemplate`, `api.workspace.createFromTemplate` and `pick`, `folders`, `detect`, and the `choice` field kind (Stories 20.3 to 20.6), and starts with `SurfaceContribution.scope` (`project` or `file`), which sets a panel's default side when it names no `side` (Story 20.1), and `ProjectTypeContribution.homePanel` (Story 20.2), so 0.49.0. Epic 21 adds `PluginCompletion.role` and `ProviderRole` (Story 21.8), so 0.50.0. Epic 22 adds `contributes.syntax`, `api.editor.onRenderSyntax`, `onSyntaxClick`, `EditorHost.setSyntax` (Story 22.4) and the wikilink helpers `parseWikiInner`, `createWikiResolver`, `wikiTargetFor` (Story 22.3), so 0.51.0. Epic 25 adds `ResultGroup`, the `groups` and `more` fields of the `replace` Result, `ToolInput.more`, and `ToolContribution.canAskModel` (Stories 25.2 and 25.3), so 0.52.0. Epic 26 adds `api.providers.image`, `PluginImageRequest`, and `PluginImages` (Story 26.1), so 0.53.0. Epic 27 adds `api.sources` (read-only folders the writer grants a plugin, Story 27.1), `contributes.modelTools` with `api.ai.onModelTool` (Story 27.2), and `api.workspace.openExternal` (Story 27.3), so 0.54.0. Epic 28 (lazy pages, sounds, page looks, typing pulses) is 0.55.0. Epic 29 adds richer cards (`ViewItem.synopsis`, `cardLabel`, `tags`, `editable`, `api.surfaces.onItemEdit`; Story 29.1) and `ProjectTypeContribution.cards` (Story 29.4), so 0.56.0. Epic 31 adds `contributes.help` (`HelpContribution`, Story 31.1), so 0.57.0. Epic 32 adds `SurfaceContribution.projectType` (Story 32.1) and `PluginManifest.description` (Story 32.3), so 0.58.0. Epic 33 adds `api.chat` (`open`, `onSessionEnded`; Story 33.6) and `ProjectTypeContribution.chatTranscripts`, so 0.59.0. Epic 35 adds `api.plugins` (`list` and `manifest`, `PluginSummary`; Story 35.1), so 0.60.0.
  */
 /** The running API version. A manifest's `apiVersion` must accept it (AD-5: Compatibility). */
-export const API_VERSION = '0.46.0';
+export const API_VERSION = '0.60.0';
 /** Plugin IDs are lowercase-hyphen, e.g. `word-count` (spine: naming). */
 export const PLUGIN_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /**
@@ -74,6 +74,9 @@ export function isVeneerError(value) {
 export const MAX_SEARCH_MATCHES = 500;
 /** The longest query `api.vault.search` takes; a longer one rejects `vault/out-of-scope`. */
 export const MAX_SEARCH_QUERY = 500;
+/** The most `keywords` a command or tool may declare, and the longest one (Story 18.4). */
+export const MAX_KEYWORDS = 10;
+export const MAX_KEYWORD_LENGTH = 40;
 /** `api.vault.query` answers with at most this many documents; `limit` is capped here. */
 export const MAX_QUERY_RESULTS = 2000;
 /** The most keys a query's `frontmatter` may name, and the longest string in a query. */
@@ -133,6 +136,97 @@ export function findInText(text, query, max = MAX_SEARCH_MATCHES) {
 }
 /** Frontmatter longer than this many lines is body text, as the editor treats it. */
 export const FRONTMATTER_MAX_LINES = 500;
+/**
+ * Reads the text between `[[` and `]]` into its target, heading, and alias. Pure.
+ *
+ * @example
+ * ```ts
+ * const { target, heading, alias } = parseWikiInner('chapters/one#Opening|the start')
+ * console.log(target, heading, alias) // 'chapters/one' 'Opening' 'the start'
+ * ```
+ */
+export function parseWikiInner(inner) {
+    const bar = inner.indexOf('|');
+    const alias = bar === -1 ? null : inner.slice(bar + 1).trim();
+    const left = bar === -1 ? inner : inner.slice(0, bar);
+    const hash = left.indexOf('#');
+    const heading = hash === -1 ? null : left.slice(hash + 1).trim();
+    const target = (hash === -1 ? left : left.slice(0, hash)).trim();
+    return { target, heading, alias: alias === '' ? null : alias };
+}
+const WIKI_FILE_EXT = /\.(md|markdown|png|jpe?g|gif|webp|svg|pdf)$/i;
+const WIKI_DOC_EXT = /\.(md|markdown)$/i;
+const wikiDir = (path) => path.slice(0, Math.max(0, path.lastIndexOf('/')));
+const wikiBase = (path) => path.slice(path.lastIndexOf('/') + 1);
+/**
+ * A wikilink resolver over `paths` (the project's file paths, as `api.vault.list` gives them),
+ * with Obsidian's rule simplified: a target with a `/` is a project-relative path (`.md` added
+ * when missing); a bare name matches a file of that name anywhere, preferring the document's own
+ * folder, then the shortest path, then alphabetical. Case-insensitive. Pure.
+ *
+ * @example
+ * ```ts
+ * const resolve = createWikiResolver(['notes/a.md', 'b.md', 'notes/b.md'])
+ * console.log(resolve('notes/a.md', 'b')) // 'notes/b.md' (same folder wins)
+ * console.log(resolve('x.md', 'b')) // 'b.md' (shortest path)
+ * console.log(resolve('x.md', 'missing')) // null
+ * ```
+ */
+export function createWikiResolver(paths) {
+    const exact = new Map();
+    const byName = new Map();
+    const put = (key, path) => {
+        const list = byName.get(key);
+        if (list === undefined)
+            byName.set(key, [path]);
+        else if (!list.includes(path))
+            list.push(path);
+    };
+    for (const p of paths) {
+        exact.set(p.toLowerCase(), p);
+        const base = wikiBase(p).toLowerCase();
+        put(base, p);
+        put(base.replace(WIKI_DOC_EXT, ''), p);
+    }
+    return (docPath, raw) => {
+        const target = raw.trim();
+        if (target === '')
+            return docPath;
+        if (target.includes('/')) {
+            const bare = target.replace(/^\/+/, '');
+            return exact.get((WIKI_FILE_EXT.test(bare) ? bare : `${bare}.md`).toLowerCase()) ?? null;
+        }
+        const found = byName.get(target.toLowerCase());
+        if (found === undefined || found.length === 0)
+            return null;
+        const dir = docPath === null ? '' : wikiDir(docPath);
+        return ([...found].sort((a, b) => {
+            const sameA = wikiDir(a) === dir ? 0 : 1;
+            const sameB = wikiDir(b) === dir ? 0 : 1;
+            if (sameA !== sameB)
+                return sameA - sameB;
+            if (a.length !== b.length)
+                return a.length - b.length;
+            return a < b ? -1 : a > b ? 1 : 0;
+        })[0] ?? null);
+    };
+}
+/**
+ * What to write inside `[[ ]]` to link `path` from `docPath`: the bare name when it resolves
+ * back to that file, else the path. `.md` is left off unless `keepExtension`. Pure.
+ *
+ * @example
+ * ```ts
+ * const resolve = createWikiResolver(['notes/a.md', 'b.md', 'notes/b.md'])
+ * console.log(wikiTargetFor('notes/a.md', 'x.md', resolve)) // 'a' (only one file is named a)
+ * console.log(wikiTargetFor('notes/b.md', 'x.md', resolve)) // 'notes/b' ('b' alone would find b.md)
+ * ```
+ */
+export function wikiTargetFor(path, docPath, resolve, keepExtension = false) {
+    const strip = (p) => (keepExtension ? p : p.replace(WIKI_DOC_EXT, ''));
+    const name = strip(wikiBase(path));
+    return resolve(docPath, name) === path ? name : strip(path);
+}
 /**
  * Splits a document's frontmatter from its body exactly where the editor hides it: a first line
  * of `---`, closed by a `---` or `...` line within `FRONTMATTER_MAX_LINES` lines. Anything else
@@ -464,6 +558,215 @@ function tidyWordDiff(raw) {
     flushChange();
     return out;
 }
+const DATE_TOKEN = /\[([^\]]*)\]|YYYY|YY|MMMM|MMM|MM|M|DD|D|dddd|ddd|HH|mm/g;
+const MONTH_NAMES = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+/**
+ * Writes `date` in a moment-style `format` (what Obsidian's daily notes use), in English. The
+ * tokens are `YYYY`, `YY`, `MMMM` (November), `MMM` (Nov), `MM`, `M`, `DD`, `D`, `dddd`
+ * (Monday), `ddd` (Mon), `HH`, and `mm`; text in `[square brackets]` is written as it is, and
+ * every other character is literal. A pure function; it never throws. Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const day = formatDatePattern('dddd, MMMM D, YYYY', new Date(2026, 10, 3))
+ * console.log(day) // 'Tuesday, November 3, 2026'
+ * ```
+ */
+export function formatDatePattern(format, date) {
+    const pad = (n, width = 2) => String(n).padStart(width, '0');
+    return format.replace(DATE_TOKEN, (token, literal) => {
+        if (literal !== undefined)
+            return literal;
+        switch (token) {
+            case 'YYYY':
+                return pad(date.getFullYear(), 4);
+            case 'YY':
+                return pad(date.getFullYear() % 100);
+            case 'MMMM':
+                return MONTH_NAMES[date.getMonth()];
+            case 'MMM':
+                return MONTH_NAMES[date.getMonth()].slice(0, 3);
+            case 'MM':
+                return pad(date.getMonth() + 1);
+            case 'M':
+                return String(date.getMonth() + 1);
+            case 'DD':
+                return pad(date.getDate());
+            case 'D':
+                return String(date.getDate());
+            case 'dddd':
+                return DAY_NAMES[date.getDay()];
+            case 'ddd':
+                return DAY_NAMES[date.getDay()].slice(0, 3);
+            case 'HH':
+                return pad(date.getHours());
+            default:
+                return pad(date.getMinutes());
+        }
+    });
+}
+/** The first letters in `format` that are not a date token, or null when every one is. */
+function unsupportedDateToken(format) {
+    const rest = format.replace(DATE_TOKEN, '\u0000');
+    const found = /([A-Za-z])\1*/.exec(rest);
+    return found === null ? null : found[0];
+}
+/**
+ * Why `pattern` (a path pattern holding `{{date:FORMAT}}` parts) can't be used, in a sentence
+ * naming the token, or null when it can: a letter that is not a `formatDatePattern` token, or
+ * `{{title}}`, which names no date. Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const problem = datePatternProblem('{{date:YYYY-MM-DD HH:ss}}.md')
+ * console.log(problem) // 'The date token "ss" is not supported.'
+ * ```
+ */
+export function datePatternProblem(pattern) {
+    if (pattern.includes('{{title}}'))
+        return 'A date pattern cannot use {{title}}.';
+    for (const part of pattern.matchAll(/\{\{date:([^}]*)\}\}/g)) {
+        const bad = unsupportedDateToken(part[1]);
+        if (bad !== null)
+            return `The date token "${bad}" is not supported.`;
+    }
+    return null;
+}
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+/**
+ * Reads the date a path stands for: the inverse of writing `pattern` (parts like
+ * `{{date:YYYY}}/{{date:YYYY-MM-DD}}.md`) with `formatDatePattern`. Resolves an ISO date
+ * (`2026-11-03`) when the whole path fits the pattern, names a real day (not February 30), and
+ * every part that names the same thing agrees (the year in the folder and in the file name), or
+ * null. Needs a year, a month, and a day among the tokens. A pure function; it never throws.
+ * Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const date = parseDatePattern('{{date:YYYY}}/{{date:YYYY-MM-DD}}.md', '2026/2026-11-03.md')
+ * console.log(date) // '2026-11-03'
+ * ```
+ */
+export function parseDatePattern(pattern, path) {
+    if (datePatternProblem(pattern) !== null)
+        return null;
+    const kinds = [];
+    const source = pattern
+        .split(/(\{\{date:[^}]*\}\})/)
+        .map((part) => {
+        const date = /^\{\{date:([^}]*)\}\}$/.exec(part);
+        if (date === null)
+            return escapeRegExp(part);
+        let out = '';
+        let last = 0;
+        for (const m of date[1].matchAll(DATE_TOKEN)) {
+            out += escapeRegExp(date[1].slice(last, m.index));
+            last = m.index + m[0].length;
+            if (m[1] !== undefined) {
+                out += escapeRegExp(m[1]);
+                continue;
+            }
+            kinds.push(m[0]);
+            switch (m[0]) {
+                case 'YYYY':
+                    out += '(\\d{4})';
+                    break;
+                case 'YY':
+                case 'MM':
+                case 'DD':
+                case 'HH':
+                case 'mm':
+                    out += '(\\d{2})';
+                    break;
+                case 'M':
+                case 'D':
+                    out += '(\\d{1,2})';
+                    break;
+                case 'MMMM':
+                    out += `(${MONTH_NAMES.join('|')})`;
+                    break;
+                case 'MMM':
+                    out += `(${MONTH_NAMES.map((n) => n.slice(0, 3)).join('|')})`;
+                    break;
+                case 'dddd':
+                    out += `(${DAY_NAMES.join('|')})`;
+                    break;
+                default:
+                    out += `(${DAY_NAMES.map((n) => n.slice(0, 3)).join('|')})`;
+            }
+        }
+        return out + escapeRegExp(date[1].slice(last));
+    })
+        .join('');
+    const match = new RegExp(`^${source}$`, 'i').exec(path);
+    if (match === null)
+        return null;
+    let year = null;
+    let month = null;
+    let day = null;
+    let weekday = null;
+    let agree = true;
+    const set = (current, next) => {
+        if (current !== null && current !== next)
+            agree = false;
+        return next;
+    };
+    kinds.forEach((kind, i) => {
+        const text = match[i + 1];
+        switch (kind) {
+            case 'YYYY':
+                year = set(year, Number(text));
+                break;
+            case 'YY':
+                year = set(year, 2000 + Number(text));
+                break;
+            case 'MM':
+            case 'M':
+                month = set(month, Number(text));
+                break;
+            case 'MMMM':
+                month = set(month, MONTH_NAMES.findIndex((n) => n.toLowerCase() === text.toLowerCase()) + 1);
+                break;
+            case 'MMM':
+                month = set(month, MONTH_NAMES.findIndex((n) => n.slice(0, 3).toLowerCase() === text.toLowerCase()) + 1);
+                break;
+            case 'DD':
+            case 'D':
+                day = set(day, Number(text));
+                break;
+            case 'dddd':
+            case 'ddd':
+                weekday = text.slice(0, 3).toLowerCase();
+                break;
+            default:
+                break;
+        }
+    });
+    if (!agree || year === null || month === null || day === null)
+        return null;
+    const check = new Date(year, month - 1, day);
+    if (check.getFullYear() !== year || check.getMonth() !== month - 1 || check.getDate() !== day) {
+        return null;
+    }
+    if (weekday !== null && DAY_NAMES[check.getDay()].slice(0, 3).toLowerCase() !== weekday) {
+        return null;
+    }
+    return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
 /** The syntax token names a `tokens` result may use; each maps to `--vn-syntax-<token>`. */
 export const BLOCK_TOKENS = [
     'keyword',
@@ -480,18 +783,32 @@ export const BLOCK_TOKENS = [
 ];
 /** How long a renderer may take before the plain block stays and the failure is reported. */
 export const BLOCK_RENDER_TIMEOUT_MS = 2000;
+/** The values `SyntaxContribution.look` and `SyntaxView.look` may take. */
+export const SYNTAX_LOOKS = ['plain', 'chip', 'faint', 'superscript'];
+/** How long a syntax handler may take. */
+export const SYNTAX_RENDER_TIMEOUT_MS = 2000;
+/** The most tags a card shows. */
+export const MAX_CARD_TAGS = 3;
 /** The deepest `ViewItem.depth` a list row can take (six heading levels: 0 to 5). */
 export const MAX_LIST_DEPTH = 5;
 /** The kinds of value a project type's frontmatter field can hold. */
-export const FRONTMATTER_FIELD_TYPES = ['text', 'number', 'boolean', 'date', 'list'];
+export const FRONTMATTER_FIELD_TYPES = [
+    'text',
+    'number',
+    'boolean',
+    'date',
+    'list',
+    'choice'
+];
 const FRONTMATTER_TYPE_NAMES = {
     text: 'text',
     number: 'a number',
     boolean: 'true or false',
     date: 'a date like 2026-10-16',
-    list: 'a list'
+    list: 'a list',
+    choice: 'one of the choices'
 };
-function fitsFieldType(type, value, hasList) {
+function fitsFieldType(type, value, hasList, options) {
     const v = value.trim().replace(/^(['"])(.*)\1$/, '$2');
     switch (type) {
         case 'text':
@@ -504,6 +821,8 @@ function fitsFieldType(type, value, hasList) {
             return /^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/.test(v);
         case 'list':
             return hasList || /^\[.*\]$/.test(v);
+        case 'choice':
+            return options === undefined || options.includes(v);
     }
 }
 /**
@@ -545,11 +864,13 @@ export function adviseFrontmatter(frontmatter, fields) {
             }
             continue;
         }
-        if (!fitsFieldType(field.type, found.value, found.list)) {
+        if (!fitsFieldType(field.type, found.value, found.list, field.options)) {
             out.push({
                 key: field.key,
                 problem: 'wrong-type',
-                message: `${label} should be ${FRONTMATTER_TYPE_NAMES[field.type]}.`
+                message: field.type === 'choice' && field.options !== undefined
+                    ? `${label} is not one of ${field.options.join(', ')}.`
+                    : `${label} should be ${FRONTMATTER_TYPE_NAMES[field.type]}.`
             });
         }
     }
@@ -611,9 +932,27 @@ export function isToolResult(value) {
         return false;
     const r = value;
     if (r.kind === 'replace') {
-        return (Array.isArray(r.options) &&
-            r.options.length > 0 &&
-            r.options.every((o) => typeof o === 'string'));
+        const strings = (v) => Array.isArray(v) && v.length > 0 && v.every((o) => typeof o === 'string');
+        if (!strings(r.options))
+            return false;
+        if (r.groups !== undefined) {
+            const groups = r.groups;
+            if (!Array.isArray(groups))
+                return false;
+            for (const g of groups) {
+                if (typeof g !== 'object' || g === null)
+                    return false;
+                const group = g;
+                if (typeof group.label !== 'string' || !strings(group.options))
+                    return false;
+            }
+        }
+        if (r.more !== undefined) {
+            const more = r.more;
+            if (typeof more !== 'object' || more === null || typeof more.label !== 'string')
+                return false;
+        }
+        return true;
     }
     if (r.kind === 'insert')
         return typeof r.text === 'string';
@@ -770,6 +1109,32 @@ export function isRelativeSource(src) {
 export const MAX_IMAGE_BYTES = 25 * 1024 * 1024;
 /** The largest file `api.vault.saveAttachment` accepts, in bytes (Story 13.4). */
 export const MAX_ATTACHMENT_BYTES = 100 * 1024 * 1024;
+/** Chat error codes a plugin can see from `api.chat` (Epic 33). Added in 0.59.0. */
+export const CHAT_ERROR = {
+    /** `open` named a skill that is not this plugin's own or one of the writer's. */
+    skillNotAllowed: 'chat/skill-not-allowed'
+};
+/** The most text one model-tool call may hand back to the model: 20 KB. */
+export const MAX_MODEL_TOOL_RESULT = 20 * 1024;
+/** The most model-tool calls one ask may make. */
+export const MAX_MODEL_TOOL_CALLS = 5;
+/** Error codes for `api.sources` (Story 27.1). */
+export const SOURCES_ERROR = {
+    /** The manifest does not say `needs: ["sourceFolders"]`. */
+    undeclared: 'sources/undeclared',
+    /** A folder ID this plugin was not granted. */
+    unknownFolder: 'sources/unknown-folder',
+    /** A path that is absolute, has `..`, or leaves the granted folder. */
+    outOfScope: 'sources/out-of-scope',
+    /** The file or folder is not there. */
+    notFound: 'sources/not-found',
+    /** The file is not markdown or plain text, or is over the size cap. */
+    unreadable: 'sources/unreadable'
+};
+/** The most text `api.sources.read` returns: 1 MB. */
+export const MAX_SOURCE_READ_BYTES = 1024 * 1024;
+/** `api.sources.search` returns at most this many hits. */
+export const MAX_SOURCE_HITS = 50;
 /** The most bytes a request body or a `bytes` response may hold (a book's files, an EPUB). */
 export const MAX_NET_BYTES = 100 * 1024 * 1024;
 /** Error codes for `api.history` (Story 9.13). */
@@ -830,6 +1195,8 @@ export const CLIPBOARD_ERROR = {
 };
 /** The most text or HTML `api.clipboard.write` takes, in characters. */
 export const MAX_CLIPBOARD_BYTES = 16 * 1024 * 1024;
+/** The most sounds one plugin may have playing at once; the oldest is cut (Story 28.2). */
+export const MAX_PLUGIN_SOUNDS = 8;
 /** The most commits one `api.history.log` call returns. */
 export const MAX_HISTORY_LOG = 5000;
 /** Error codes the plugin host uses. */
@@ -838,6 +1205,8 @@ export const PLUGIN_ERROR = {
     duplicateHandler: 'plugin/duplicate-handler',
     unknownCommand: 'plugin/unknown-command',
     noHandler: 'plugin/no-handler',
+    /** `api.plugins.manifest` named an ID no plugin or theme has. Added in 0.60.0. */
+    unknownPlugin: 'plugin/unknown-plugin',
     unavailable: 'plugin/unavailable',
     failed: 'plugin/failed',
     /** `api.surfaces.setView` got something that isn't a list, tree, DOM, split, form, or diff view. */
@@ -881,6 +1250,32 @@ function marksOf(raw) {
     }
     return out;
 }
+/** A card label: non-empty text up to 40 characters, and a color of 1 to 6 or none. */
+function cardLabelOf(raw) {
+    if (typeof raw !== 'object' || raw === null)
+        return null;
+    const r = raw;
+    if (typeof r.text !== 'string' || r.text === '' || r.text.length > 40)
+        return null;
+    if (r.color === undefined)
+        return { text: r.text };
+    if (typeof r.color !== 'number' || ![1, 2, 3, 4, 5, 6].includes(r.color))
+        return null;
+    return { text: r.text, color: r.color };
+}
+/** Card tags: strings up to 40 characters; only the first `MAX_CARD_TAGS` are kept. */
+function cardTagsOf(raw) {
+    if (!Array.isArray(raw) || raw.length > 50)
+        return null;
+    const out = [];
+    for (const t of raw) {
+        if (typeof t !== 'string' || t.length > 40)
+            return null;
+        if (t !== '')
+            out.push(t);
+    }
+    return out.slice(0, MAX_CARD_TAGS);
+}
 function viewItemsOf(raw, depth, count) {
     if (!Array.isArray(raw) || depth > MAX_VIEW_DEPTH)
         return null;
@@ -899,6 +1294,8 @@ function viewItemsOf(raw, depth, count) {
             return null;
         if (r.opens !== undefined && typeof r.opens !== 'boolean')
             return null;
+        if (r.keepsPanel !== undefined && typeof r.keepsPanel !== 'boolean')
+            return null;
         if (r.kind !== undefined && r.kind !== 'file' && r.kind !== 'image' && r.kind !== 'folder') {
             return null;
         }
@@ -906,6 +1303,22 @@ function viewItemsOf(raw, depth, count) {
             return null;
         if (r.image !== undefined && (typeof r.image !== 'string' || r.image.length > 500)) {
             return null;
+        }
+        if (r.synopsis !== undefined && (typeof r.synopsis !== 'string' || r.synopsis.length > 4000)) {
+            return null;
+        }
+        const cardLabel = r.cardLabel === undefined ? undefined : cardLabelOf(r.cardLabel);
+        if (cardLabel === null)
+            return null;
+        const tags = r.tags === undefined ? undefined : cardTagsOf(r.tags);
+        if (tags === null)
+            return null;
+        if (r.editable !== undefined) {
+            if (typeof r.editable !== 'object' || r.editable === null)
+                return null;
+            const e = r.editable.synopsis;
+            if (e !== undefined && typeof e !== 'boolean')
+                return null;
         }
         const marks = r.marks === undefined ? undefined : marksOf(r.marks);
         if (marks === null)
@@ -919,12 +1332,23 @@ function viewItemsOf(raw, depth, count) {
             clean.kind = r.kind;
         if (r.opens === false)
             clean.opens = false;
+        if (r.keepsPanel === true)
+            clean.keepsPanel = true;
         if (typeof r.detail === 'string')
             clean.detail = r.detail;
         if (typeof r.image === 'string' && r.image !== '')
             clean.image = r.image;
         if (marks !== undefined)
             clean.marks = marks;
+        if (typeof r.synopsis === 'string' && r.synopsis !== '')
+            clean.synopsis = r.synopsis;
+        if (cardLabel !== undefined)
+            clean.cardLabel = cardLabel;
+        if (tags !== undefined && tags.length > 0)
+            clean.tags = tags;
+        if (r.editable?.synopsis === true) {
+            clean.editable = { synopsis: true };
+        }
         if (r.depth !== undefined) {
             if (typeof r.depth !== 'number' || Number.isNaN(r.depth))
                 return null;
@@ -1129,6 +1553,10 @@ export function cleanSurfaceView(raw) {
         return null;
     if (v.layout === 'cards')
         view.layout = 'cards';
+    if (v.cardsWhenNarrow !== undefined && typeof v.cardsWhenNarrow !== 'boolean')
+        return null;
+    if (v.cardsWhenNarrow === true && v.layout === 'cards')
+        view.cardsWhenNarrow = true;
     if (v.reorderable !== undefined && typeof v.reorderable !== 'boolean')
         return null;
     if (v.reorderable === true)
@@ -1183,6 +1611,19 @@ export const EDITOR_ERROR = {
     hostTaken: 'editor/host-taken',
     badChange: 'editor/bad-change',
     unavailable: 'editor/unavailable'
+};
+/** Error codes from `api.workspace.createFromTemplate` (Epic 20). */
+export const WORKSPACE_ERROR = {
+    /** The writer cancelled the title question. */
+    cancelled: 'workspace/cancelled',
+    /** The open project's type has no template with that ID. */
+    noTemplate: 'workspace/no-template',
+    /** `createFromTemplate` got a `date` that is not an ISO date naming a real day (0.55.0). */
+    badDate: 'workspace/bad-date',
+    /** `setPageLook` named a font the plugin does not declare, or a color that is not one (0.55.0). */
+    badLook: 'workspace/bad-look',
+    /** `createFromTemplate` got a `pattern` that is not a safe `.md` name pattern (0.55.0). */
+    badPattern: 'workspace/bad-pattern'
 };
 /** Vault error codes a plugin can see from `api.vault` (AD-6, AD-8). */
 export const VAULT_ERROR = {

@@ -2,7 +2,7 @@
 
 > **RowActionHandler** = (`actionId`, `rowId`, `value?`) => `unknown`
 
-Defined in: [index.ts:1142](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1142)
+Defined in: [index.ts:1747](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1747)
 
 A row action's handler: `rowId` is the row it was started on (`''` for the root); `value` is
 what the kernel asked for (see `RowActionInput`). It may resolve to the ID of a row to focus

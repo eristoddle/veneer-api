@@ -1,6 +1,6 @@
 # Interface: RowActionContribution
 
-Defined in: [index.ts:1108](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1108)
+Defined in: [index.ts:1713](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1713)
 
 A row action contribution (FR-10, AD-4, AD-5), declared in a surface's `rowActions`. `id` is
 `<pluginId>:<name>`; `title` labels it in the row's native right-click menu; `appliesTo`
@@ -20,7 +20,7 @@ is the confirmation hint's word (default `confirm`).
 
 > **id**: `string`
 
-Defined in: [index.ts:1109](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1109)
+Defined in: [index.ts:1714](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1714)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:1109](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **title**: `string`
 
-Defined in: [index.ts:1110](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1110)
+Defined in: [index.ts:1715](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1715)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:1110](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **input**: [`RowActionInput`](../type-aliases/RowActionInput.md)
 
-Defined in: [index.ts:1111](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1111)
+Defined in: [index.ts:1716](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1716)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [index.ts:1111](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **appliesTo**: [`RowActionTarget`](../type-aliases/RowActionTarget.md)[]
 
-Defined in: [index.ts:1112](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1112)
+Defined in: [index.ts:1717](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1717)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [index.ts:1112](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **key?**: `string`
 
-Defined in: [index.ts:1113](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1113)
+Defined in: [index.ts:1718](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1718)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [index.ts:1113](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **prompt?**: `string`
 
-Defined in: [index.ts:1114](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1114)
+Defined in: [index.ts:1719](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1719)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [index.ts:1114](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **verb?**: `string`
 
-Defined in: [index.ts:1115](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1115)
+Defined in: [index.ts:1720](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1720)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [index.ts:1115](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `optional` **contributedBy?**: `string`
 
-Defined in: [index.ts:1120](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1120)
+Defined in: [index.ts:1725](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1725)
 
 Set by the kernel, never in a manifest: the ID of the plugin that contributed this action to
 a surface it does not own (`contributes.rowActions`). Absent on the owner's own actions.

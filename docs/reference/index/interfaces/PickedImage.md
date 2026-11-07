@@ -1,6 +1,6 @@
 # Interface: PickedImage
 
-Defined in: [index.ts:810](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L810)
+Defined in: [index.ts:1289](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1289)
 
 One file chosen in `api.workspace.pickImages`.
 
@@ -10,7 +10,7 @@ One file chosen in `api.workspace.pickImages`.
 
 > **name**: `string`
 
-Defined in: [index.ts:812](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L812)
+Defined in: [index.ts:1291](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1291)
 
 The file's own name, without its folder.
 
@@ -20,4 +20,4 @@ The file's own name, without its folder.
 
 > **bytes**: `Uint8Array`
 
-Defined in: [index.ts:813](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L813)
+Defined in: [index.ts:1292](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1292)

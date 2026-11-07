@@ -1,6 +1,6 @@
 # Interface: FakeSavedImage
 
-Defined in: [testing.ts:207](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L207)
+Defined in: [testing.ts:241](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L241)
 
 One `api.vault.saveImage` call, as the fake host recorded it.
 
@@ -10,7 +10,7 @@ One `api.vault.saveImage` call, as the fake host recorded it.
 
 > **bytes**: `Uint8Array`
 
-Defined in: [testing.ts:208](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L208)
+Defined in: [testing.ts:242](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L242)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [testing.ts:208](https://github.com/eristoddle/veneer/blob/5ad3c1ead
 
 > **name**: `string` \| `undefined`
 
-Defined in: [testing.ts:210](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L210)
+Defined in: [testing.ts:244](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L244)
 
 The dropped file's name; undefined for a paste.
 
@@ -28,6 +28,6 @@ The dropped file's name; undefined for a paste.
 
 > **link**: `string` \| `null`
 
-Defined in: [testing.ts:212](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/testing.ts#L212)
+Defined in: [testing.ts:246](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/testing.ts#L246)
 
 The link the fake returned, or null when the call was made to fail.

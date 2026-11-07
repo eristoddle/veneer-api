@@ -33,11 +33,11 @@
  * `api.providers` (`complete`, `stream`; FR-34, AD-11), so 0.12.0. Story 5.6 adds the optional `report`
  * argument to `ToolHandler`, for options that arrive while a tool runs (FR-39), so 0.13.0. Story 6.7 adds `contributes.keybindings`, keys a plugin suggests and the writer accepts
  * in Settings (FR-27, AD-5), so 0.14.0. Story 7.6 adds `api.vault.read`, a document's text as of its last save (FR-55), so 0.15.0. Story 7.4 adds `contributes.projectTypes` and `api.workspace.projectType()` (FR-36, FR-37,
- * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0. Story 11.2 adds `api.clipboard`, the system clipboard through main (AD-6), so 0.41.0. Story 11.8 adds `api.workspace.pickGrid`, a kernel-drawn rows-by-columns picker (AD-4), so 0.44.0.  Epic 13 adds the `open` tool Result (Story 13.2), `api.vault.saveAttachment` and `api.vault.copy` (13.4, 13.5), and an optional form-field action (13.3), so 0.45.0. Epic 17 adds `api.clipboard.writePath`, the `none` row-action input, and `contributes.rowActions` (Story 17.1), `api.vault.onImageDestination` (Story 17.2), and `SurfaceContribution.stayOpenOnOpen` (Story 17.4), `api.workspace.textReplacements` and `SettingContribution.macOnly` (Story 17.8), so 0.46.0.
+ * AD-13), so 0.16.0. Story 7.5 adds the manifest's `requiredProjectType` (FR-38, AD-13), so 0.17.0. Story 8.3 adds `contributes.themes` (a light and dark pair of color values; FR-45, AD-5), so 0.18.0. Story 8.4 adds `contributes.colors` (a plugin's own color tokens, `--vnp-<pluginId>-<token>`; FR-57), so 0.19.0. Story 6.8 adds `api.net.fetch`, a plugin's only way onto the network (FR-51, AD-6), so 0.20.0. A setting's optional `category` (a page for it in Settings, FR-44), so 0.23.0. Story 9.4 adds fenced-block renderers (`contributes.blockRenderers`, `api.editor.registerBlockRenderer`, `EditorHost.setBlockRenderers`; AD-19), so 0.22.0. Story 9.5 adds the syntax color tokens and code themes (`ThemeContribution.scope: 'code'`; AD-19), so 0.23.0. Story 9.6 adds `api.resources.sanitizeSvg` and the `svg` block result (AD-16, AD-19), so 0.24.0. Story 9.8 adds `api.secrets`, `api.export`, binary and multipart `api.net.fetch` bodies, and network use from commands and events, so 0.25.0. Story 9.15 adds `wordDiff`, a word-by-word diff for compare views, so 0.26.0. Story 9.13 adds `api.history` and `history:saved` (AD-20), so 0.27.0. Story 9.14 adds branches, tags, merge, `commitOn`, and `history:switched`, so 0.28.0. Story 9.18 adds `remotes`, `setRemote`, and `sync`, so 0.29.0. Story 9.19 adds `vault.saveNow`, `vault.readFile`, and `splitFrontmatter`, so 0.30.0. Story 9.22 adds modal surfaces, the `split` view, and `surfaces.close`, so 0.31.0. Story 9.23 adds wide panels (`SurfaceContribution.width`), card layout (`ItemsView.layout`, `ViewItem.image`), and `surfaces.show(id, { focus })`, so 0.32.0. Story 9.24 adds reorderable lists (`ItemsView.reorderable`, `surfaces.onReorder`), so 0.33.0. Story 9.25 adds the `form` view (`FormView`, `surfaces.onFormChange`, `surfaces.onFormSubmit`), so 0.34.0. Story 9.26 adds `api.projectData` and its change event (first named `projectData:changed`), so 0.35.0. Story 9.27 adds `api.vault.query` and `api.vault.backlinks`, the project index made readable, so 0.36.0. Story 9.20 adds `api.notify`, a limited, kernel-drawn notice a plugin may request (AD-21), so 0.37.0. Story 9.16 adds the `diff` view (`DiffView`, `surfaces.onDiffAction`), so 0.38.0. Story 9.17 adds `api.editor.setMarks` and `onMarkClick`, marks on the text in the page (`Mark`, `EditorHost.setMarks`), so 0.39.0. The project-data change event is renamed `project-data:changed`, so a plugin can list it in `activationEvents`, so 0.40.0. Story 11.2 adds `api.clipboard`, the system clipboard through main (AD-6), so 0.41.0. Story 11.8 adds `api.workspace.pickGrid`, a kernel-drawn rows-by-columns picker (AD-4), so 0.44.0.  Epic 13 adds the `open` tool Result (Story 13.2), `api.vault.saveAttachment` and `api.vault.copy` (13.4, 13.5), and an optional form-field action (13.3), so 0.45.0. Epic 17 adds `api.clipboard.writePath`, the `none` row-action input, and `contributes.rowActions` (Story 17.1), `api.vault.onImageDestination` (Story 17.2), and `SurfaceContribution.stayOpenOnOpen` (Story 17.4), `api.workspace.textReplacements` and `SettingContribution.macOnly` (Story 17.8), so 0.46.0. Epic 18 adds `api.workspace.reveal`, `api.workspace.openFolder`, `WorkspaceOpenOptions.newWindow` (Story 18.1), `api.vault.search`'s `folder` option (18.2), and `keywords` on commands and tools (18.4), so 0.47.0. Epic 19 makes `main` optional for a package that only contributes themes and colors, and adds `ThemeContribution.fonts` and `codeTheme` (Story 19.1), so 0.48.0. Epic 20 adds `DocumentTemplate`, `api.workspace.createFromTemplate` and `pick`, `folders`, `detect`, and the `choice` field kind (Stories 20.3 to 20.6), and starts with `SurfaceContribution.scope` (`project` or `file`), which sets a panel's default side when it names no `side` (Story 20.1), and `ProjectTypeContribution.homePanel` (Story 20.2), so 0.49.0. Epic 21 adds `PluginCompletion.role` and `ProviderRole` (Story 21.8), so 0.50.0. Epic 22 adds `contributes.syntax`, `api.editor.onRenderSyntax`, `onSyntaxClick`, `EditorHost.setSyntax` (Story 22.4) and the wikilink helpers `parseWikiInner`, `createWikiResolver`, `wikiTargetFor` (Story 22.3), so 0.51.0. Epic 25 adds `ResultGroup`, the `groups` and `more` fields of the `replace` Result, `ToolInput.more`, and `ToolContribution.canAskModel` (Stories 25.2 and 25.3), so 0.52.0. Epic 26 adds `api.providers.image`, `PluginImageRequest`, and `PluginImages` (Story 26.1), so 0.53.0. Epic 27 adds `api.sources` (read-only folders the writer grants a plugin, Story 27.1), `contributes.modelTools` with `api.ai.onModelTool` (Story 27.2), and `api.workspace.openExternal` (Story 27.3), so 0.54.0. Epic 28 (lazy pages, sounds, page looks, typing pulses) is 0.55.0. Epic 29 adds richer cards (`ViewItem.synopsis`, `cardLabel`, `tags`, `editable`, `api.surfaces.onItemEdit`; Story 29.1) and `ProjectTypeContribution.cards` (Story 29.4), so 0.56.0. Epic 31 adds `contributes.help` (`HelpContribution`, Story 31.1), so 0.57.0. Epic 32 adds `SurfaceContribution.projectType` (Story 32.1) and `PluginManifest.description` (Story 32.3), so 0.58.0. Epic 33 adds `api.chat` (`open`, `onSessionEnded`; Story 33.6) and `ProjectTypeContribution.chatTranscripts`, so 0.59.0. Epic 35 adds `api.plugins` (`list` and `manifest`, `PluginSummary`; Story 35.1), so 0.60.0.
  */
 
 /** The running API version. A manifest's `apiVersion` must accept it (AD-5: Compatibility). */
-export const API_VERSION = '0.46.0'
+export const API_VERSION = '0.60.0'
 
 /** Plugin IDs are lowercase-hyphen, e.g. `word-count` (spine: naming). */
 export const PLUGIN_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -149,6 +149,7 @@ export interface DocumentOpenedEvent extends VeneerEvent {
 export interface VaultEntry {
   path: string
   name: string
+  /** `image` also covers `.docx` files (since 0.58.0): listed so they can be renamed and moved. */
   kind: 'file' | 'folder' | 'image'
 }
 
@@ -215,6 +216,24 @@ export interface TextRange {
 export interface WorkspaceOpenOptions {
   /** Select this range once the document shows (origin `find`), scrolled into view. */
   select?: TextRange
+  /**
+   * Open the document in a window of its own (the same as opening it from Finder into a new
+   * window); when a window already shows it, that window comes forward instead. `select` is
+   * ignored. Added in 0.47.0.
+   */
+  newWindow?: boolean
+}
+
+/** Options for `api.vault.search` (Story 18.2). */
+export interface VaultSearchOptions {
+  /** Search only inside this project folder (an API path; `''` is the whole project). */
+  folder?: string
+}
+
+/** How `api.workspace.openFolder` opens a project folder (Story 18.1). */
+export interface WorkspaceOpenFolderOptions {
+  /** Open it in a new window; a window that already has the project comes forward instead. */
+  newWindow?: boolean
 }
 
 /**
@@ -241,6 +260,9 @@ export interface SearchFileResult {
 export const MAX_SEARCH_MATCHES = 500
 /** The longest query `api.vault.search` takes; a longer one rejects `vault/out-of-scope`. */
 export const MAX_SEARCH_QUERY = 500
+/** The most `keywords` a command or tool may declare, and the longest one (Story 18.4). */
+export const MAX_KEYWORDS = 10
+export const MAX_KEYWORD_LENGTH = 40
 /** `api.vault.query` answers with at most this many documents; `limit` is capped here. */
 export const MAX_QUERY_RESULTS = 2000
 /** The most keys a query's `frontmatter` may name, and the longest string in a query. */
@@ -343,6 +365,116 @@ export interface FrontmatterSplit {
   yaml: string
   /** Everything after the block. `frontmatter + body` is always the original text. */
   body: string
+}
+
+/**
+ * The pieces of a wikilink (`[[note#Heading|shown text]]`) as `parseWikiInner` reads them.
+ * `target` is the note name or path as written, trimmed (empty for a same-document
+ * `[[#Heading]]`); `heading` and `alias` are null when absent.
+ */
+export interface WikiParts {
+  target: string
+  heading: string | null
+  alias: string | null
+}
+
+/**
+ * Reads the text between `[[` and `]]` into its target, heading, and alias. Pure.
+ *
+ * @example
+ * ```ts
+ * const { target, heading, alias } = parseWikiInner('chapters/one#Opening|the start')
+ * console.log(target, heading, alias) // 'chapters/one' 'Opening' 'the start'
+ * ```
+ */
+export function parseWikiInner(inner: string): WikiParts {
+  const bar = inner.indexOf('|')
+  const alias = bar === -1 ? null : inner.slice(bar + 1).trim()
+  const left = bar === -1 ? inner : inner.slice(0, bar)
+  const hash = left.indexOf('#')
+  const heading = hash === -1 ? null : left.slice(hash + 1).trim()
+  const target = (hash === -1 ? left : left.slice(0, hash)).trim()
+  return { target, heading, alias: alias === '' ? null : alias }
+}
+
+/** Resolves a wikilink's target, written in the document at `docPath`, to a project path, or null. */
+export type WikiResolver = (docPath: string | null, target: string) => string | null
+
+const WIKI_FILE_EXT = /\.(md|markdown|png|jpe?g|gif|webp|svg|pdf)$/i
+const WIKI_DOC_EXT = /\.(md|markdown)$/i
+const wikiDir = (path: string): string => path.slice(0, Math.max(0, path.lastIndexOf('/')))
+const wikiBase = (path: string): string => path.slice(path.lastIndexOf('/') + 1)
+
+/**
+ * A wikilink resolver over `paths` (the project's file paths, as `api.vault.list` gives them),
+ * with Obsidian's rule simplified: a target with a `/` is a project-relative path (`.md` added
+ * when missing); a bare name matches a file of that name anywhere, preferring the document's own
+ * folder, then the shortest path, then alphabetical. Case-insensitive. Pure.
+ *
+ * @example
+ * ```ts
+ * const resolve = createWikiResolver(['notes/a.md', 'b.md', 'notes/b.md'])
+ * console.log(resolve('notes/a.md', 'b')) // 'notes/b.md' (same folder wins)
+ * console.log(resolve('x.md', 'b')) // 'b.md' (shortest path)
+ * console.log(resolve('x.md', 'missing')) // null
+ * ```
+ */
+export function createWikiResolver(paths: readonly string[]): WikiResolver {
+  const exact = new Map<string, string>()
+  const byName = new Map<string, string[]>()
+  const put = (key: string, path: string): void => {
+    const list = byName.get(key)
+    if (list === undefined) byName.set(key, [path])
+    else if (!list.includes(path)) list.push(path)
+  }
+  for (const p of paths) {
+    exact.set(p.toLowerCase(), p)
+    const base = wikiBase(p).toLowerCase()
+    put(base, p)
+    put(base.replace(WIKI_DOC_EXT, ''), p)
+  }
+  return (docPath, raw) => {
+    const target = raw.trim()
+    if (target === '') return docPath
+    if (target.includes('/')) {
+      const bare = target.replace(/^\/+/, '')
+      return exact.get((WIKI_FILE_EXT.test(bare) ? bare : `${bare}.md`).toLowerCase()) ?? null
+    }
+    const found = byName.get(target.toLowerCase())
+    if (found === undefined || found.length === 0) return null
+    const dir = docPath === null ? '' : wikiDir(docPath)
+    return (
+      [...found].sort((a, b) => {
+        const sameA = wikiDir(a) === dir ? 0 : 1
+        const sameB = wikiDir(b) === dir ? 0 : 1
+        if (sameA !== sameB) return sameA - sameB
+        if (a.length !== b.length) return a.length - b.length
+        return a < b ? -1 : a > b ? 1 : 0
+      })[0] ?? null
+    )
+  }
+}
+
+/**
+ * What to write inside `[[ ]]` to link `path` from `docPath`: the bare name when it resolves
+ * back to that file, else the path. `.md` is left off unless `keepExtension`. Pure.
+ *
+ * @example
+ * ```ts
+ * const resolve = createWikiResolver(['notes/a.md', 'b.md', 'notes/b.md'])
+ * console.log(wikiTargetFor('notes/a.md', 'x.md', resolve)) // 'a' (only one file is named a)
+ * console.log(wikiTargetFor('notes/b.md', 'x.md', resolve)) // 'notes/b' ('b' alone would find b.md)
+ * ```
+ */
+export function wikiTargetFor(
+  path: string,
+  docPath: string | null,
+  resolve: WikiResolver,
+  keepExtension = false
+): string {
+  const strip = (p: string): string => (keepExtension ? p : p.replace(WIKI_DOC_EXT, ''))
+  const name = strip(wikiBase(path))
+  return resolve(docPath, name) === path ? name : strip(path)
 }
 
 /**
@@ -669,6 +801,265 @@ function tidyWordDiff(raw: WordDiffSegment[]): WordDiffSegment[] {
   return out
 }
 
+const DATE_TOKEN = /\[([^\]]*)\]|YYYY|YY|MMMM|MMM|MM|M|DD|D|dddd|ddd|HH|mm/g
+const MONTH_NAMES = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+/**
+ * Writes `date` in a moment-style `format` (what Obsidian's daily notes use), in English. The
+ * tokens are `YYYY`, `YY`, `MMMM` (November), `MMM` (Nov), `MM`, `M`, `DD`, `D`, `dddd`
+ * (Monday), `ddd` (Mon), `HH`, and `mm`; text in `[square brackets]` is written as it is, and
+ * every other character is literal. A pure function; it never throws. Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const day = formatDatePattern('dddd, MMMM D, YYYY', new Date(2026, 10, 3))
+ * console.log(day) // 'Tuesday, November 3, 2026'
+ * ```
+ */
+export function formatDatePattern(format: string, date: Date): string {
+  const pad = (n: number, width = 2): string => String(n).padStart(width, '0')
+  return format.replace(DATE_TOKEN, (token, literal: string | undefined) => {
+    if (literal !== undefined) return literal
+    switch (token) {
+      case 'YYYY':
+        return pad(date.getFullYear(), 4)
+      case 'YY':
+        return pad(date.getFullYear() % 100)
+      case 'MMMM':
+        return MONTH_NAMES[date.getMonth()]
+      case 'MMM':
+        return MONTH_NAMES[date.getMonth()].slice(0, 3)
+      case 'MM':
+        return pad(date.getMonth() + 1)
+      case 'M':
+        return String(date.getMonth() + 1)
+      case 'DD':
+        return pad(date.getDate())
+      case 'D':
+        return String(date.getDate())
+      case 'dddd':
+        return DAY_NAMES[date.getDay()]
+      case 'ddd':
+        return DAY_NAMES[date.getDay()].slice(0, 3)
+      case 'HH':
+        return pad(date.getHours())
+      default:
+        return pad(date.getMinutes())
+    }
+  })
+}
+
+/** The first letters in `format` that are not a date token, or null when every one is. */
+function unsupportedDateToken(format: string): string | null {
+  const rest = format.replace(DATE_TOKEN, '\u0000')
+  const found = /([A-Za-z])\1*/.exec(rest)
+  return found === null ? null : found[0]
+}
+
+/**
+ * Why `pattern` (a path pattern holding `{{date:FORMAT}}` parts) can't be used, in a sentence
+ * naming the token, or null when it can: a letter that is not a `formatDatePattern` token, or
+ * `{{title}}`, which names no date. Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const problem = datePatternProblem('{{date:YYYY-MM-DD HH:ss}}.md')
+ * console.log(problem) // 'The date token "ss" is not supported.'
+ * ```
+ */
+export function datePatternProblem(pattern: string): string | null {
+  if (pattern.includes('{{title}}')) return 'A date pattern cannot use {{title}}.'
+  for (const part of pattern.matchAll(/\{\{date:([^}]*)\}\}/g)) {
+    const bad = unsupportedDateToken(part[1])
+    if (bad !== null) return `The date token "${bad}" is not supported.`
+  }
+  return null
+}
+
+const escapeRegExp = (text: string): string => text.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')
+
+/**
+ * Reads the date a path stands for: the inverse of writing `pattern` (parts like
+ * `{{date:YYYY}}/{{date:YYYY-MM-DD}}.md`) with `formatDatePattern`. Resolves an ISO date
+ * (`2026-11-03`) when the whole path fits the pattern, names a real day (not February 30), and
+ * every part that names the same thing agrees (the year in the folder and in the file name), or
+ * null. Needs a year, a month, and a day among the tokens. A pure function; it never throws.
+ * Added in 0.55.0.
+ *
+ * @example
+ * ```ts
+ * const date = parseDatePattern('{{date:YYYY}}/{{date:YYYY-MM-DD}}.md', '2026/2026-11-03.md')
+ * console.log(date) // '2026-11-03'
+ * ```
+ */
+export function parseDatePattern(pattern: string, path: string): string | null {
+  if (datePatternProblem(pattern) !== null) return null
+  const kinds: string[] = []
+  const source = pattern
+    .split(/(\{\{date:[^}]*\}\})/)
+    .map((part) => {
+      const date = /^\{\{date:([^}]*)\}\}$/.exec(part)
+      if (date === null) return escapeRegExp(part)
+      let out = ''
+      let last = 0
+      for (const m of date[1].matchAll(DATE_TOKEN)) {
+        out += escapeRegExp(date[1].slice(last, m.index))
+        last = m.index + m[0].length
+        if (m[1] !== undefined) {
+          out += escapeRegExp(m[1])
+          continue
+        }
+        kinds.push(m[0])
+        switch (m[0]) {
+          case 'YYYY':
+            out += '(\\d{4})'
+            break
+          case 'YY':
+          case 'MM':
+          case 'DD':
+          case 'HH':
+          case 'mm':
+            out += '(\\d{2})'
+            break
+          case 'M':
+          case 'D':
+            out += '(\\d{1,2})'
+            break
+          case 'MMMM':
+            out += `(${MONTH_NAMES.join('|')})`
+            break
+          case 'MMM':
+            out += `(${MONTH_NAMES.map((n) => n.slice(0, 3)).join('|')})`
+            break
+          case 'dddd':
+            out += `(${DAY_NAMES.join('|')})`
+            break
+          default:
+            out += `(${DAY_NAMES.map((n) => n.slice(0, 3)).join('|')})`
+        }
+      }
+      return out + escapeRegExp(date[1].slice(last))
+    })
+    .join('')
+  const match = new RegExp(`^${source}$`, 'i').exec(path)
+  if (match === null) return null
+  let year: number | null = null
+  let month: number | null = null
+  let day: number | null = null
+  let weekday: string | null = null
+  let agree = true
+  const set = (current: number | null, next: number): number | null => {
+    if (current !== null && current !== next) agree = false
+    return next
+  }
+  kinds.forEach((kind, i) => {
+    const text = match[i + 1]
+    switch (kind) {
+      case 'YYYY':
+        year = set(year, Number(text))
+        break
+      case 'YY':
+        year = set(year, 2000 + Number(text))
+        break
+      case 'MM':
+      case 'M':
+        month = set(month, Number(text))
+        break
+      case 'MMMM':
+        month = set(month, MONTH_NAMES.findIndex((n) => n.toLowerCase() === text.toLowerCase()) + 1)
+        break
+      case 'MMM':
+        month = set(
+          month,
+          MONTH_NAMES.findIndex((n) => n.slice(0, 3).toLowerCase() === text.toLowerCase()) + 1
+        )
+        break
+      case 'DD':
+      case 'D':
+        day = set(day, Number(text))
+        break
+      case 'dddd':
+      case 'ddd':
+        weekday = text.slice(0, 3).toLowerCase()
+        break
+      default:
+        break
+    }
+  })
+  if (!agree || year === null || month === null || day === null) return null
+  const check = new Date(year, month - 1, day)
+  if (check.getFullYear() !== year || check.getMonth() !== month - 1 || check.getDate() !== day) {
+    return null
+  }
+  if (weekday !== null && DAY_NAMES[check.getDay()].slice(0, 3).toLowerCase() !== weekday) {
+    return null
+  }
+  return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+}
+
+/**
+ * Obsidian's daily-notes settings in the open project (`.obsidian/daily-notes.json`), as
+ * `api.workspace.obsidianDailyNotes` reads them (Story 28.4). Obsidian's own defaults fill what
+ * the file leaves out.
+ */
+export interface ObsidianDailyNotes {
+  /** The folder daily notes live in, project-relative, no slashes at the ends; '' for the root. */
+  folder: string
+  /** A moment-style date format, `YYYY-MM-DD` by default; may hold `/` for sub-folders. */
+  format: string
+  /** A project-relative path to the template note, or '' for none. */
+  template: string
+}
+
+/** Options for `api.workspace.createFromTemplate`. */
+export interface CreateFromTemplateOptions {
+  /** Fills `{{title}}`; without it the writer is asked when the template needs one. */
+  title?: string
+  /**
+   * An ISO date (`2026-11-03`) for the pattern's and body's `{{date:FORMAT}}` parts; today when
+   * left out. Added in 0.55.0.
+   */
+  date?: string
+  /**
+   * When no file is at the path, opens a page holding the rendered text and writes nothing: the
+   * file is made on the writer's first change (a typed key, a paste, a Properties edit, a result
+   * applied from the selection box). Closing the page untouched leaves no file, no Files entry,
+   * and no `vault:created` event. Added in 0.55.0.
+   */
+  lazy?: boolean
+  /**
+   * Replaces the template's name pattern for this one call, with the same `{{date:FORMAT}}`
+   * parts and `/` for folders (a plugin that follows the writer's own layout). Must end in
+   * `.md`; rejects `workspace/bad-pattern` otherwise. Added in 0.55.0.
+   */
+  pattern?: string
+  /**
+   * Replaces the template's body for this one call (up to 100 KB). `{{date:FORMAT}}` and
+   * `{{title}}` in it are still filled. Added in 0.55.0.
+   */
+  body?: string
+}
+
+/** Options for `api.workspace.pick`. */
+export interface WorkspacePickOptions {
+  title: string
+  items: { id: string; title: string; detail?: string }[]
+}
+
 /**
  * The window's project and open document (FR-10, AD-14). Plugins never touch the filesystem
  * (AD-6): opening goes through main, which scope-checks every path.
@@ -699,6 +1090,30 @@ export interface WorkspaceApi {
    */
   projectType(): ResolvedProjectType | null
   /**
+   * Makes a document from one of the open project's type's templates, by template ID, and opens
+   * it with the caret after the frontmatter. Resolves the project-relative path. When the
+   * template's name uses `{{title}}` and no `title` is given, the writer is asked for one; a
+   * cancel rejects with `workspace/cancelled`. When the file already exists it opens and nothing
+   * is written. Rejects `workspace/no-template` for an unknown template, and `workspace/bad-date`
+   * for a `date` that names no real day. Added in 0.49.0; `date` and `lazy` in 0.55.0.
+   *
+   * @example
+   * ```ts
+   * const path = await api.workspace.createFromTemplate('today')
+   * ```
+   */
+  createFromTemplate(templateId: string, options?: CreateFromTemplateOptions): Promise<string>
+  /**
+   * Asks the writer to pick one of a short list with the kernel's pick card. Resolves the chosen
+   * item's `id`, or `null` when cancelled. Added in 0.49.0.
+   *
+   * @example
+   * ```ts
+   * const id = await api.workspace.pick({ title: 'New…', items: [{ id: 'a', title: 'Day' }] })
+   * ```
+   */
+  pick(options: WorkspacePickOptions): Promise<string | null>
+  /**
    * Makes the document at `path` (an API path) the open one, the way a Finder open does: the
    * current document is saved first. Resolves once main has opened it. Rejects, carrying
    * `pluginId`, with `vault/out-of-scope` (outside the project or loose file, or not a markdown
@@ -718,6 +1133,31 @@ export interface WorkspaceApi {
    * ```
    */
   open(path: string, options?: WorkspaceOpenOptions): Promise<void>
+  /**
+   * Opens a folder of the open project (an API path) as a project of its own, the same as File >
+   * Open Folder…: with `newWindow` in a new window (a window that already has that project
+   * comes forward instead), otherwise in this window. Rejects, carrying `pluginId`, with
+   * `vault/out-of-scope` for a path outside the project and `vault/read-failed` when it is not
+   * a folder. Added in 0.47.0.
+   *
+   * @example
+   * ```ts
+   * await api.workspace.openFolder('drafts', { newWindow: true })
+   * ```
+   */
+  openFolder(path: string, options?: WorkspaceOpenFolderOptions): Promise<void>
+  /**
+   * Shows a file, image, or folder of the open project in the system file manager (Finder), by
+   * API path; `''` is the project root. Rejects, carrying `pluginId`, with `vault/out-of-scope`
+   * for a path outside the project and `vault/read-failed` when it does not exist. Added in
+   * 0.47.0.
+   *
+   * @example
+   * ```ts
+   * await api.workspace.reveal('chapters/one.md')
+   * ```
+   */
+  reveal(path: string): Promise<void>
   /**
    * Shows an image from the open project in the system file manager (Finder), by API path
    * (`images/cover.png`). Rejects `clipboard/bad-image` for anything that is not an image inside
@@ -785,6 +1225,18 @@ export interface WorkspaceApi {
    */
   pickImages(): Promise<PickedImage[]>
   /**
+   * Opens an address outside Veneer (Story 27.3): a web address (`http` or `https`) in the
+   * browser, or an `obsidian://` or `joplin://` link in that app. The app links open only for a
+   * plugin that has a matching source: `obsidian` after the writer granted it a folder with
+   * `api.sources`, `joplin` after the writer allowed it a local address. Rejects
+   * `workspace/refused` for anything else.
+   * @example
+   * ```ts
+   * await api.workspace.openExternal('https://example.com/docs')
+   * ```
+   */
+  openExternal(url: string): Promise<void>
+  /**
    * The writer's macOS text replacements (System Settings > Keyboard > Text Replacements), as
    * `{ shortcut, phrase }` pairs (Story 17.8). Main reads them; a plugin never touches the
    * system. Resolves an empty list unless the writer turned on Text replacements in Settings,
@@ -798,6 +1250,33 @@ export interface WorkspaceApi {
    * ```
    */
   textReplacements(): Promise<TextReplacement[]>
+  /**
+   * Sets this plugin's look for the page, or clears it with `null` (Story 28.3). `font` must be
+   * a family the plugin declares in `contributes.fonts` and applies to the body text only,
+   * winning over the writer's page font while set. `tint` is blended over the page at 12%,
+   * moving there over `transitionMs` (no motion under Reduce Motion). One look per plugin; the
+   * last plugin to set one wins; it clears when the plugin is disabled or unloaded. Rejects
+   * `workspace/bad-look` for an undeclared font or a bad color.
+   *
+   * @example
+   * ```ts
+   * api.workspace.setPageLook({ font: 'Special Elite', tint: '#c9b79c', transitionMs: 2000 })
+   * ```
+   */
+  setPageLook(look: PageLook | null): void
+  /**
+   * Obsidian's daily-notes settings for the open project: the one file
+   * `.obsidian/daily-notes.json`, read-only and nothing else under `.obsidian`. Resolves `null`
+   * when the project has none (or it is unreadable), so a diary can follow the layout a vault
+   * already uses (Story 28.4). Added in 0.55.0.
+   *
+   * @example
+   * ```ts
+   * const notes = await api.workspace.obsidianDailyNotes()
+   * const pattern = notes === null ? 'Diary/{{date:YYYY-MM-DD}}.md' : `${notes.folder}/{{date:${notes.format}}}.md`
+   * ```
+   */
+  obsidianDailyNotes(): Promise<ObsidianDailyNotes | null>
 }
 
 /** One macOS text replacement: typing `shortcut` and a space becomes `phrase`. */
@@ -844,6 +1323,11 @@ export interface GridChoice {
 export interface CommandContribution {
   id: string
   title: string
+  /**
+   * Extra words the command palette matches as if they were in the title (Story 18.4): at most
+   * `MAX_KEYWORDS` (10), each 1 to `MAX_KEYWORD_LENGTH` (40) characters. Added in 0.47.0.
+   */
+  keywords?: string[]
   /** True when this feature needs an AI model; hidden while AI features are off. */
   usesAI?: boolean
 }
@@ -951,6 +1435,96 @@ export interface BlockRendererEntry {
   report(err: unknown): void
 }
 
+/** How a syntax match or view is dressed: a quiet chip, faint text, or a superscript. */
+export type SyntaxLook = 'plain' | 'chip' | 'faint' | 'superscript'
+
+/** The values `SyntaxContribution.look` and `SyntaxView.look` may take. */
+export const SYNTAX_LOOKS = ['plain', 'chip', 'faint', 'superscript'] as const
+
+/**
+ * A syntax contribution (Story 22.4, AD-5, AD-7): a pattern the editor draws in the page, so a
+ * plugin can add markup (`#tags`, `%%comments%%`, `$math$`) without touching the editor. Declared
+ * in `contributes.syntax`; the kernel runs the patterns over the lines in view, never inside code,
+ * front matter, HTML, or comments the core draws, and only off the caret (the text under the caret
+ * always shows as source). The text in the file never changes. A pattern that does not compile, or
+ * is too slow on a test string, is dropped with a notice naming the plugin. Declare an activation
+ * event (such as `app:started`) so the plugin is loaded before the page is drawn.
+ *
+ * - `inline` matches within one line. `pattern` is a JavaScript regular expression source; the
+ *   kernel sets the flags (`u`, with capture indices).
+ * - `line` matches a whole line (anchor it with `^` and `$`).
+ * - `block` spans lines: `pattern` matches the opening line and `end` the closing line (they may
+ *   be the same line for a one-line span; a block that is never closed does not match).
+ *
+ * `hide` lists capture groups (1 is the first) to hide off the caret. `token` colors the match
+ * (`--vn-*`, or the plugin's own `--vnp-<pluginId>-*`). `look` picks a chip, faint, or superscript
+ * dress. With `render: true` the plugin answers `api.editor.onRenderSyntax` with a `SyntaxView`
+ * that replaces the match. A `callout` contribution adds a kind of callout (`> [!kind] Title`) the
+ * core draws; it needs no `pattern`.
+ */
+export interface SyntaxContribution {
+  /** The full contribution ID, `<pluginId>:<name>`. */
+  id: string
+  kind: 'inline' | 'line' | 'block'
+  /** A JavaScript regular expression source; the opening pattern for a `block`. Not needed with `callout`. */
+  pattern?: string
+  /** The closing pattern of a `block`. */
+  end?: string
+  /** Capture groups to hide off the caret line. */
+  hide?: number[]
+  /** A `--vn-*` or `--vnp-<pluginId>-*` color token for the match. */
+  token?: string
+  look?: SyntaxLook
+  /** True when the plugin draws the match through `api.editor.onRenderSyntax`. */
+  render?: boolean
+  /** A callout kind the core draws: its lower-case name, its label, and a `--vn-kind-*` tint token. */
+  callout?: { kind: string; label: string; tint: string }
+}
+
+/** What a syntax handler is given: the matched text and its capture groups (`''` for an unmatched group). */
+export interface SyntaxMatch {
+  /** The whole match, as written. */
+  text: string
+  /** The capture groups, in order. */
+  groups: string[]
+  /** Which Veneer theme is showing. */
+  theme: 'light' | 'dark'
+}
+
+/**
+ * What `api.editor.onRenderSyntax` returns, drawn by the kernel (AD-4, AD-16): `text` plain text,
+ * `html` and `svg` through the kernel's sanitizers, `image` a document image by project-relative
+ * path (optionally at `width` pixels). `title` is a hover tip; `look` dresses a text view.
+ * `null` leaves the match as styled text.
+ */
+export type SyntaxView =
+  | { kind: 'text'; text: string; title?: string; look?: SyntaxLook }
+  | { kind: 'html'; html: string; title?: string }
+  | { kind: 'svg'; svg: string; title?: string }
+  | { kind: 'image'; path: string; width?: number; title?: string }
+  | null
+
+/** A handler that draws a rendered syntax match. A throw or a timeout leaves the styled text. */
+export type SyntaxRenderer = (
+  match: SyntaxMatch,
+  signal: AbortSignal
+) => SyntaxView | Promise<SyntaxView>
+
+/** A handler for a click on a drawn match (a click on its widget). */
+export type SyntaxClickHandler = (match: SyntaxMatch) => unknown
+
+/** How long a syntax handler may take. */
+export const SYNTAX_RENDER_TIMEOUT_MS = 2000
+
+/** One available syntax contribution as the kernel hands it to the editor (`EditorHost.setSyntax`). */
+export interface SyntaxEntry extends SyntaxContribution {
+  render?: boolean
+  renderer?: SyntaxRenderer
+  onClick?: SyntaxClickHandler
+  /** Called at most once per contribution per session with a failure; the kernel raises the notice. */
+  report(err: unknown): void
+}
+
 /** A setting's value as stored: settings are flat JSON scalars (FR-44). */
 export type SettingValue = boolean | number | string
 
@@ -1008,7 +1582,10 @@ export interface SettingContribution {
 export interface SettingsApi {
   /**
    * The setting's current value, read fresh. Rejects `plugin/undeclared-contribution` for an
-   * ID this plugin's manifest doesn't declare, including another plugin's.
+   * ID this plugin's manifest doesn't declare, including another plugin's. The one exception
+   * (0.55.0): `editor:typewriter-mode` and `editor:focus-mode`, the page's view modes, which any
+   * plugin may read (never write; `api.commands.run` toggles them), so a plugin can turn one on
+   * only when it is off.
    *
    * @example
    * ```ts
@@ -1039,6 +1616,9 @@ export interface SettingsApi {
  */
 export type SurfaceSide = 'left' | 'right' | 'modal'
 
+/** What a panel is about: the whole `project` (left by default) or the current `file` (right). */
+export type SurfaceScope = 'project' | 'file'
+
 /**
  * A side-panel surface contribution (FR-7, AD-4, AD-15). `id` is the full contribution ID,
  * `<pluginId>:<name>`; `title` names it for assistive tech and tooltips; `icon` is a Lucide icon
@@ -1050,7 +1630,22 @@ export interface SurfaceContribution {
   id: string
   title: string
   icon: string
-  side: SurfaceSide
+  /**
+   * The panel it opens in. Optional since 0.49.0 (Story 20.1): leave it out and `scope` picks the
+   * default (`project` is left, `file` is right). A surface with neither is refused. When both
+   * are given, `side` wins. The writer can still move a panel, and the move is remembered.
+   */
+  side?: SurfaceSide
+  /**
+   * Whether the panel is about the whole project (`project`: left, like Files and Search) or the
+   * file being written (`file`: right, like Outline and Properties). With no `side`, this sets
+   * where the panel first opens; with a `side`, it only describes the panel. Added in 0.49.0.
+   *
+   * @example
+   * // manifest.json: { "id": "notes:days", "title": "Days", "icon": "calendar", "scope": "project" }
+   * const scope: SurfaceScope = 'project'
+   */
+  scope?: SurfaceScope
   /**
    * `wide` (Story 9.23) opens the panel at twice a side's width, for cards: the writer drags
    * its edge to resize it, and the width is remembered for this surface alone. Default `normal`.
@@ -1065,6 +1660,16 @@ export interface SurfaceContribution {
   stayOpenOnOpen?: boolean
   /** Actions on the surface's rows, drawn and run by the kernel (Story 2.8, AD-4). */
   rowActions?: RowActionContribution[]
+  /**
+   * Show this panel only in a project of this type (a full id, `<pluginId>/<type>`) or a type
+   * that `extends` it. In a project with another type, or none, its tab is not drawn. Commands
+   * are not gated. Added in 0.58.0.
+   *
+   * @example
+   * // manifest.json: { "id": "notes:board", "title": "Board", "icon": "kanban", "scope": "project", "projectType": "notes/notes-project" }
+   * const type: string = 'notes/notes-project'
+   */
+  projectType?: string
   /** True when this feature needs an AI model; hidden while AI features are off. */
   usesAI?: boolean
 }
@@ -1183,6 +1788,12 @@ export interface ViewItem {
    */
   opens?: boolean
   /**
+   * True keeps the panel open when the row is opened (Story 29.3): `onOpen` still gets it, and
+   * the plugin shows what it likes, e.g. a folder that turns the panel into its own cards.
+   * Default false: a floating panel closes after the row opens.
+   */
+  keepsPanel?: boolean
+  /**
    * A second line in quieter, smaller text under the label (a search hit's snippet, Story
    * 2.10). A row with an empty `label` shows only its detail.
    */
@@ -1201,7 +1812,35 @@ export interface ViewItem {
    * project, and missing files draw no picture. Rows ignore it.
    */
   image?: string
+  /**
+   * A card's synopsis (Story 29.1): a few sentences drawn under the title, clamped to four
+   * lines. Rows ignore it.
+   */
+  synopsis?: string
+  /**
+   * A card's label, such as a status: a color bar on the card's leading edge and the text first
+   * in the tag row. `color` is a number 1 to 6 (the `--vn-label-*` tokens); without one the
+   * host picks a color from the text, the same each time. Rows ignore it.
+   */
+  cardLabel?: CardLabel
+  /** A card's tags, small chips under the synopsis. The first three show. Rows ignore them. */
+  tags?: string[]
+  /**
+   * What the writer may edit on the card. `synopsis: true` lets a double-click on the synopsis
+   * (or Enter on a focused card) open a text field; the new text reaches
+   * `api.surfaces.onItemEdit`.
+   */
+  editable?: { synopsis?: boolean }
 }
+
+/** `ViewItem.cardLabel`: a card's label text and an optional color number from 1 to 6. */
+export interface CardLabel {
+  text: string
+  color?: 1 | 2 | 3 | 4 | 5 | 6
+}
+
+/** The most tags a card shows. */
+export const MAX_CARD_TAGS = 3
 
 /** The deepest `ViewItem.depth` a list row can take (six heading levels: 0 to 5). */
 export const MAX_LIST_DEPTH = 5
@@ -1237,6 +1876,11 @@ export interface ItemsView {
    * `rows`. Keyboard, filtering, and row actions work the same either way.
    */
   layout?: 'rows' | 'cards'
+  /**
+   * With `layout: 'cards'`, true draws cards however narrow the panel is (Story 29.3): one
+   * column below 520px, two from there. Default false: a panel under 360px draws rows.
+   */
+  cardsWhenNarrow?: boolean
   /**
    * True lets the writer rearrange the rows among their siblings (Story 9.24): drag a row, or
    * press Alt+Up / Alt+Down on the highlighted one. The kernel reorders nothing itself; each move
@@ -1514,6 +2158,26 @@ export interface SurfacesApi {
    */
   onReorder(id: string, handler: (event: ReorderEvent) => unknown): Disposable
   /**
+   * Called when the writer edits a card's synopsis in place (Story 29.1): double-click it, or
+   * press Enter on a focused card, then Enter to save (Shift+Enter is a new line, Escape
+   * cancels, leaving the field saves). Only items with `editable.synopsis` can be edited. The
+   * value may be empty. Set the next view to show the change.
+   *
+   * Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+   *
+   * @example
+   * ```ts
+   * const notes = new Map<string, string>()
+   * api.surfaces.onItemEdit('my-plugin:scenes', (itemId, field, value) => {
+   *   if (field === 'synopsis') notes.set(itemId, value)
+   * })
+   * ```
+   */
+  onItemEdit(
+    id: string,
+    handler: (itemId: string, field: 'synopsis', value: string) => unknown
+  ): Disposable
+  /**
    * Called when the writer changes a field of a `form` view (Story 9.25): text fields as they
    * type (debounced), the others at once. Set the next view to change the form; a handler that
    * sets none leaves it as it was.
@@ -1701,7 +2365,14 @@ export interface KeybindingSuggestion {
 }
 
 /** The kinds of value a project type's frontmatter field can hold. */
-export const FRONTMATTER_FIELD_TYPES = ['text', 'number', 'boolean', 'date', 'list'] as const
+export const FRONTMATTER_FIELD_TYPES = [
+  'text',
+  'number',
+  'boolean',
+  'date',
+  'list',
+  'choice'
+] as const
 export type FrontmatterFieldType = (typeof FRONTMATTER_FIELD_TYPES)[number]
 
 /** One frontmatter field a project type describes. Advisory only: nothing enforces it (AD-13). */
@@ -1713,6 +2384,44 @@ export interface FrontmatterField {
   label?: string
   /** A document without it is advised, never blocked. */
   required?: boolean
+  /** For `choice` (required there): the values the field offers. Epic 20. */
+  options?: string[]
+  /**
+   * The value a document made from one of the type's templates starts with. Only a template
+   * writes it: Properties and opening a file never do. Epic 20.
+   */
+  default?: FrontmatterValue
+}
+
+/** A value a frontmatter field or a template's frontmatter can hold. */
+export type FrontmatterValue = string | number | boolean | string[]
+
+/**
+ * A document a project type can make (Epic 20). `pattern` is the file name, ending in `.md`, with
+ * `{{date:FORMAT}}` (tokens `YYYY`, `MM`, `DD`, `HH`, `mm`; anything else is literal) and
+ * `{{title}}`. The same two variables work in `body` and in the frontmatter values.
+ */
+export interface DocumentTemplate {
+  /** Unique within the type; a child type's template of the same ID replaces its parent's. */
+  id: string
+  name: string
+  pattern: string
+  /** A project-relative folder; created if missing. Default: the project root. */
+  folder?: string
+  frontmatter?: Record<string, FrontmatterValue>
+  /** The text after the frontmatter. */
+  body?: string
+}
+
+/** Rules for a type to suggest itself for an untyped folder (Epic 20). Either part matching is a match. */
+export interface ProjectTypeDetect {
+  /** Project-relative paths; any one present matches. */
+  exists?: string[]
+  /**
+   * File names at the top of the project. `pattern` is `{{date:FORMAT}}` or a glob using only
+   * `*`; `share` (default 0.6) of the markdown files must match, and at least 3 must exist.
+   */
+  names?: { pattern: string; share?: number }
 }
 
 /**
@@ -1729,6 +2438,73 @@ export interface ProjectTypeContribution {
   frontmatter?: FrontmatterField[]
   /** Default values for declared settings, by setting ID, while a project has this type. */
   settings?: Record<string, SettingValue>
+  /**
+   * The surface ID of the panel that is this type's home (Epic 20): when a project of the type
+   * opens, the left sidebar shows it in place of Files (Files stays one click away in the
+   * switcher). Any plugin's surface, as long as it is a project panel (`scope: "project"`) or sits
+   * on the left; anything else is ignored. A child type inherits it unless it names its own. The
+   * writer can set a project's home back to Files in Settings.
+   */
+  homePanel?: string
+  /** Documents this type can make from New Document (Epic 20). */
+  templates?: DocumentTemplate[]
+  /**
+   * Project-relative folders the type expects (at most 20, no `..`). When the type is assigned,
+   * the writer is asked once whether to create the missing ones; nothing else checks them.
+   */
+  folders?: string[]
+  /** How the type recognizes a folder it fits. */
+  detect?: ProjectTypeDetect
+  /**
+   * How Files cards are filled for this type, and which folders show as cards (Story 29.4). A
+   * child type inherits this and overrides it per key. The writer can swap any slot.
+   */
+  cards?: ProjectTypeCards
+  /**
+   * Lets a saved chat become one of this type's documents (the diary type: today's entry). Save
+   * then offers "Save as today's entry" first, filled through `template`. A child type inherits
+   * it. Added in 0.59.0.
+   *
+   * @example
+   * // manifest.json, in a project type: { "id": "notes/daily", "name": "Daily", "templates": [{ "id": "chat", "name": "Chat", "pattern": "{{date:YYYY-MM-DD}}.md", "body": "# {{date:LL}}\n\n## Chat\n\n" }], "chatTranscripts": { "template": "chat" } }
+   * const transcripts: ProjectTypeChatTranscripts = { template: 'chat' }
+   */
+  chatTranscripts?: ProjectTypeChatTranscripts
+}
+
+/** How a project type takes a saved chat as one of its documents (Epic 33). Added in 0.59.0. */
+export interface ProjectTypeChatTranscripts {
+  /**
+   * The ID of one of the type's own `templates`. Its pattern names the file (the date is today's)
+   * and its body is written first; the conversation follows it. If the file exists, the
+   * conversation is added at the end. Added in 0.59.0.
+   *
+   * @example
+   * const template: string = 'chat'
+   */
+  template: string
+}
+
+/**
+ * What fills each slot of a card in the Files panel (Story 29.4): the name of a front matter
+ * field, or `@words` (the document's word count) in `tags`. At most three tags show.
+ */
+export interface CardSlots {
+  title?: string
+  synopsis?: string
+  image?: string
+  label?: string
+  tags?: string[]
+}
+
+/** How a project type wants Files cards filled (Story 29.4). */
+export interface ProjectTypeCards {
+  /** Which field fills each slot; a slot left out keeps the default (`title`, `description`, `image`, `status`, `tags`). */
+  slots?: CardSlots
+  /** Project-relative folders that start in Cards mode, until the writer switches them. */
+  folders?: string[]
+  /** Label text (as written in the front matter) to label color number, 1 to 6. */
+  labelColors?: Record<string, 1 | 2 | 3 | 4 | 5 | 6>
 }
 
 /** A project type with everything it inherits applied, as the open project has it (FR-37). */
@@ -1741,6 +2517,27 @@ export interface ResolvedProjectType {
   frontmatter: FrontmatterField[]
   /** The parent's defaults, overridden by the child's. */
   settings: Record<string, SettingValue>
+  /**
+   * The home panel's surface ID, from the nearest type in the chain that names one, else null.
+   * The host always sets it; it is optional only so a test double need not.
+   */
+  homePanel?: string | null
+  /** The parent's templates, a child's of the same ID replacing them. Set by the host. */
+  templates?: DocumentTemplate[]
+  /** Expected folders, the parent's merged with the child's. Set by the host. */
+  folders?: string[]
+  /** The nearest detect rule in the chain (a child's replaces its parent's), else null. */
+  detect?: ProjectTypeDetect | null
+  /** The card slots, folders, and label colors, merged per key down the chain. Set by the host. */
+  cards?: ProjectTypeCards
+  /**
+   * How a saved chat becomes a document of this type, from the nearest type in the chain that
+   * declares it, else null. Set by the host. Added in 0.59.0.
+   *
+   * @example
+   * const takesChats = api.workspace.projectType()?.chatTranscripts != null
+   */
+  chatTranscripts?: ProjectTypeChatTranscripts | null
 }
 
 /** One way a document's frontmatter differs from a project type's schema. Advice, never a rule. */
@@ -1756,10 +2553,16 @@ const FRONTMATTER_TYPE_NAMES: Record<FrontmatterFieldType, string> = {
   number: 'a number',
   boolean: 'true or false',
   date: 'a date like 2026-10-16',
-  list: 'a list'
+  list: 'a list',
+  choice: 'one of the choices'
 }
 
-function fitsFieldType(type: FrontmatterFieldType, value: string, hasList: boolean): boolean {
+function fitsFieldType(
+  type: FrontmatterFieldType,
+  value: string,
+  hasList: boolean,
+  options?: readonly string[]
+): boolean {
   const v = value.trim().replace(/^(['"])(.*)\1$/, '$2')
   switch (type) {
     case 'text':
@@ -1772,6 +2575,8 @@ function fitsFieldType(type: FrontmatterFieldType, value: string, hasList: boole
       return /^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/.test(v)
     case 'list':
       return hasList || /^\[.*\]$/.test(v)
+    case 'choice':
+      return options === undefined || options.includes(v)
   }
 }
 
@@ -1816,11 +2621,14 @@ export function adviseFrontmatter(
       }
       continue
     }
-    if (!fitsFieldType(field.type, found.value, found.list)) {
+    if (!fitsFieldType(field.type, found.value, found.list, field.options)) {
       out.push({
         key: field.key,
         problem: 'wrong-type',
-        message: `${label} should be ${FRONTMATTER_TYPE_NAMES[field.type]}.`
+        message:
+          field.type === 'choice' && field.options !== undefined
+            ? `${label} is not one of ${field.options.join(', ')}.`
+            : `${label} should be ${FRONTMATTER_TYPE_NAMES[field.type]}.`
       })
     }
   }
@@ -1900,8 +2708,35 @@ export interface ThemeContribution {
   id: string
   name: string
   scope?: 'code'
+  /**
+   * The page fonts this theme brings (Epic 19, 0.48.0): body text, headings, and code. The face
+   * the writer chose in page settings still wins. Ignored on a code-scope theme. Interface
+   * controls are never restyled.
+   */
+  fonts?: { body?: ThemeFont; heading?: ThemeFont; code?: ThemeFont }
+  /**
+   * The ID of a `scope: 'code'` theme in the same package that goes with this page theme (Epic
+   * 19, 0.48.0). Used while the Code theme setting is on "Match page theme".
+   */
+  codeTheme?: string
   light: ThemeColors
   dark: ThemeColors
+}
+
+/**
+ * A font a theme names (Epic 19, 0.48.0). `family` is the CSS family name; `files` are font files
+ * inside the package (`.woff2`, `.woff`, `.ttf`, or `.otf`) the kernel loads under a name private
+ * to the theme.
+ *
+ * @example
+ * const font: ThemeFont = {
+ *   family: 'Literata',
+ *   files: [{ path: 'fonts/literata.woff2', weight: 400, style: 'normal' }]
+ * }
+ */
+export interface ThemeFont {
+  family: string
+  files?: { path: string; weight?: number | string; style?: 'normal' | 'italic' }[]
 }
 
 export type PluginContributions = {
@@ -1933,10 +2768,20 @@ export type PluginContributions = {
   editingModes?: EditingModeContribution[]
   /** Fenced-block renderers (Story 9.4, AD-19). */
   blockRenderers?: BlockRendererContribution[]
+  /** Markup the editor draws for the plugin: patterns, their look, and rendered views (Story 22.4). */
+  syntax?: SyntaxContribution[]
+  /** Tools the model may call on a typed ask, after the writer's say-so (Story 27.2). */
+  modelTools?: ModelToolContribution[]
+  /** Short sound files bundled in the plugin's folder, for `api.sound` (Story 28.2). */
+  sounds?: SoundContribution[]
+  /** Font files bundled in the plugin's folder, for `api.workspace.setPageLook` (Story 28.3). */
+  fonts?: PluginFontContribution[]
   /** The plugin may register the editor host (`api.editor.registerHost`, AD-18). */
   editorHost?: boolean
   /** The plugin chooses where pasted images are saved (`api.vault.onImageDestination`, Story 17.2). */
   imageDestination?: boolean
+  /** One Help chapter, a markdown file in the plugin's folder (Story 31.1). */
+  help?: HelpContribution
 } & Record<string, unknown>
 
 /** `manifest.json` (AD-5). */
@@ -1950,9 +2795,11 @@ export interface PluginManifest {
   apiVersion: string
   /**
    * Entry module path, relative to the plugin folder. Bundled plugins must use `index.ts`: the
-   * composition root (`src/renderer/plugins.ts`) globs only that file.
+   * composition root (`src/renderer/plugins.ts`) globs only that file. Optional only for a
+   * package that contributes nothing but `themes` and `colors` (Epic 19, 0.48.0): such a package
+   * has no code and nothing runs.
    */
-  main: string
+  main?: string
   contributes: PluginContributions
   /**
    * A project type (`<pluginId>/<typeId>`) the open project must have, or have a type that
@@ -1961,6 +2808,15 @@ export interface PluginManifest {
    * there; a plugin without this field works everywhere.
    */
   requiredProjectType?: string
+  /**
+   * One line (at most 160 characters) saying what the plugin or theme does; Settings > Plugins
+   * and Browse show it under the name. Added in 0.58.0.
+   *
+   * @example
+   * // manifest.json: { "id": "notes", "name": "Notes", "description": "Daily notes with a calendar." }
+   * const description: string = 'Daily notes with a calendar.'
+   */
+  description?: string
   /** Events that activate the plugin before first use of a contribution. */
   activationEvents?: EventName[]
   /** Declared capabilities. Recorded, not enforced, until Epic 6. */
@@ -2004,6 +2860,8 @@ export interface ToolContribution {
   id: string
   name: string
   description: string
+  /** Extra words the palette and the `/` list match as if they were in the name (Story 18.4). */
+  keywords?: string[]
   /** The selection kinds it works on; never empty. */
   appliesTo: ToolAppliesTo[]
   /** Offered when nothing is selected (Cmd+J at the caret). Default false. */
@@ -2014,12 +2872,24 @@ export interface ToolContribution {
   context: ToolContext[]
   /** Never changes the text by itself; results are for reading. Default false. */
   readOnly: boolean
+  /**
+   * The tool works without a model, but its handler may ask `api.providers` for more when the
+   * writer picks the Result's `more` row. Unlike `needsProvider`, the tool stays available while
+   * AI features are off (the handler's model call is refused then, and the kernel only draws
+   * the `more` row when they are on). Default false.
+   */
+  canAskModel?: boolean
 }
 
 /** What a tool handler receives; the fields it declared in `context` are present. */
 export interface ToolInput {
   /** The selected text and its range, or null with nothing selected. */
   selection: { text: string; from: number; to: number } | null
+  /**
+   * True when the writer picked the `more` row of this tool's earlier `replace` Result: answer
+   * with only the extra options (as one or more `groups`), not the first ones again.
+   */
+  more?: boolean
   paragraph?: string
   section?: string
   title?: string
@@ -2033,9 +2903,31 @@ export interface ToolInfoItem {
   insertable?: boolean
 }
 
+/** A run of `replace` options under a quiet label, such as "bright: intelligent" (Story 25.2). */
+export interface ResultGroup {
+  /** A short label drawn above the group's rows. */
+  label: string
+  /** The group's options, closest first; never empty. */
+  options: string[]
+}
+
+/** A last row under a `replace` Result that asks the tool for more when picked (Story 25.3). */
+export interface ResultMore {
+  /** The row's text, such as "More from AI". */
+  label: string
+}
+
 /** A tool's answer (AD-10). Only the kernel applies it, and only when the writer picks. */
 export type ToolResult =
-  | { kind: 'replace'; options: string[] }
+  /**
+   * Options to pick from; picking one replaces the selection as one undo step. `groups` splits
+   * the same options under labels: when given, `options` must be every group's options in order
+   * (that flat list is what the kernel numbers and applies). `more` adds a last row, drawn only
+   * while AI features are on, that calls the handler again with `ToolInput.more` set and adds the
+   * groups it returns to the card. For example:
+   * `{ kind: 'replace', options: ['glad', 'sunny'], groups: [{ label: 'happy: pleased', options: ['glad'] }, { label: 'happy: bright', options: ['sunny'] }], more: { label: 'More from AI' } }`.
+   */
+  | { kind: 'replace'; options: string[]; groups?: ResultGroup[]; more?: ResultMore }
   | { kind: 'insert'; text: string }
   | { kind: 'info'; items: ToolInfoItem[] }
   /**
@@ -2068,11 +2960,23 @@ export function isToolResult(value: unknown): value is ToolResult {
   if (typeof value !== 'object' || value === null) return false
   const r = value as Record<string, unknown>
   if (r.kind === 'replace') {
-    return (
-      Array.isArray(r.options) &&
-      r.options.length > 0 &&
-      r.options.every((o) => typeof o === 'string')
-    )
+    const strings = (v: unknown): v is string[] =>
+      Array.isArray(v) && v.length > 0 && v.every((o) => typeof o === 'string')
+    if (!strings(r.options)) return false
+    if (r.groups !== undefined) {
+      const groups = r.groups as unknown
+      if (!Array.isArray(groups)) return false
+      for (const g of groups) {
+        if (typeof g !== 'object' || g === null) return false
+        const group = g as Record<string, unknown>
+        if (typeof group.label !== 'string' || !strings(group.options)) return false
+      }
+    }
+    if (r.more !== undefined) {
+      const more = r.more as Record<string, unknown> | null
+      if (typeof more !== 'object' || more === null || typeof more.label !== 'string') return false
+    }
+    return true
   }
   if (r.kind === 'insert') return typeof r.text === 'string'
   if (r.kind === 'open') return typeof r.url === 'string' && r.url.length <= 8192
@@ -2240,6 +3144,13 @@ export interface EditorHost {
   /** Fires when the writer changes the text (typing, deleting, pasting). */
   onTyping(listener: () => void): Disposable
   /**
+   * Fires for the writer's own keystrokes in the page, never with the text (Story 28.3): a
+   * character (or Space), Enter, or Backspace or Delete. Not for shortcuts, undo, paste, or an
+   * applied result, and only while the page has focus. Optional: a host without it gives
+   * `api.editor.onTyping` nothing.
+   */
+  onKeystroke?(listener: (kind: TypingKind) => void): Disposable
+  /**
    * Fires after every document change from any source: typing, undo, paste, a plugin edit.
    * Not fired by `setDocument`. The kernel's autosave hangs off this (AD-8).
    */
@@ -2280,6 +3191,13 @@ export interface EditorHost {
    * registers or goes away, and when a host mounts.
    */
   setBlockRenderers(entries: BlockRendererEntry[]): void
+  /**
+   * Replaces the available syntax contributions (Story 22.4): the editor draws their patterns
+   * over the lines in view and asks the rendering ones for their views, without changing the
+   * text or the undo history. The kernel calls it when a plugin's syntax registers or goes away,
+   * and when a host mounts.
+   */
+  setSyntax(entries: SyntaxEntry[]): void
   /**
    * Draws a plugin's marks over the real text (Story 9.17): a tint and an underline per kind, no
    * borders. `owner` is the plugin ID and `setId` the plugin's name for the set; setting a set
@@ -2541,6 +3459,17 @@ export interface PluginApi {
      * ```
      */
     handle(id: string, handler: CommandHandler): Disposable
+    /**
+     * Runs a registered command by ID, any plugin's or core's, the way the palette does
+     * (Story 28.3). Rejects `plugin/unknown-command` for an ID nothing registers; a command that
+     * needs a selection fails as it does from the palette.
+     *
+     * @example
+     * ```ts
+     * await api.commands.run('veneer:typewriter-mode')
+     * ```
+     */
+    run(id: string): Promise<void>
   }
   readonly tools: {
     /**
@@ -2626,6 +3555,42 @@ export interface PluginApi {
      */
     registerBlockRenderer(id: string, render: BlockRenderer): Disposable
     /**
+     * Draws the matches of a syntax contribution (`contributes.syntax` with `render: true`,
+     * Story 22.4, AD-5) off the caret line. The handler gets the matched text and groups and
+     * returns a `SyntaxView` the kernel draws (text, sanitized HTML or SVG, or a project image);
+     * results are cached by match text. It runs after the editor is idle, only for matches in or
+     * near the view, and is aborted after `SYNTAX_RENDER_TIMEOUT_MS`; a throw, rejection, or
+     * timeout leaves the match as styled text and raises one notice naming the plugin. An
+     * undeclared ID throws `plugin/undeclared-contribution`.
+     *
+     * Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+     *
+     * @example
+     * ```ts
+     * api.editor.onRenderSyntax('my-plugin:shout', (match) => ({
+     *   kind: 'text',
+     *   text: match.groups[0].toUpperCase(),
+     *   look: 'chip'
+     * }))
+     * ```
+     */
+    onRenderSyntax(id: string, render: SyntaxRenderer): Disposable
+    /**
+     * Called when the writer clicks the drawn view of a match of syntax contribution `id`. The
+     * handler may call `api.workspace.open`, `api.vault`, or anything else it may use; the
+     * caret does not move. Undeclared IDs throw `plugin/undeclared-contribution`.
+     *
+     * Returns a Disposable. The kernel disposes it when the plugin unloads or is turned off; dispose it earlier to stop.
+     *
+     * @example
+     * ```ts
+     * api.editor.onSyntaxClick('my-plugin:tag', (match) => {
+     *   void api.workspace.open(`tags/${match.groups[0]}.md`)
+     * })
+     * ```
+     */
+    onSyntaxClick(id: string, handler: SyntaxClickHandler): Disposable
+    /**
      * The open document's text (`\n` line endings), or null when there is no editor or the
      * page is the untitled page before its first save created a file.
      *
@@ -2661,6 +3626,19 @@ export interface PluginApi {
      * ```
      */
     onChanged(listener: () => void): Disposable
+    /**
+     * Fires for the writer's own keystrokes in the page: a character, Enter, or a delete
+     * (Story 28.3). Never for undo, paste, or a result the selection box applied, never with
+     * the text, and only while the page has focus. Disposed with the plugin.
+     *
+     * @example
+     * ```ts
+     * api.editor.onTyping((kind) => {
+     *   if (kind === 'enter') api.sound.play('my-plugin:return')
+     * })
+     * ```
+     */
+    onTyping(listener: (kind: TypingKind) => void): Disposable
     /**
      * Fires when the open document's main selection or caret moves, from any origin, while
      * `getSelection` would return non-null (Story 2.11). Disposed with the plugin; a throw fails
@@ -2780,7 +3758,7 @@ export interface PluginApi {
     saveNow(): Promise<void>
     /**
      * An image file's bytes, for an export that sends a chapter's pictures or a cover (Story
-     * 9.19). `path` is an API path inside the open project, or inside a loose file's own folder:
+     * 9.19). A `.docx` file's bytes are read the same way (Story 30.6). `path` is an API path inside the open project, or inside a loose file's own folder:
      * stricter than the page, which may show `../images/x.png` from outside it. Only the image
      * types the editor draws (PNG, JPEG, GIF, WebP, SVG), whose bytes must really be an image,
      * up to 100 MB. Anything else rejects `vault/out-of-scope` (or `vault/too-large`).
@@ -2962,7 +3940,10 @@ export interface PluginApi {
      * `MAX_SEARCH_MATCHES` hits in all; an empty query resolves to none without searching.
      * Rejects, carrying `pluginId`, with `vault/superseded` when a newer search started before
      * this one finished (drop it), `vault/out-of-scope` for a query over `MAX_SEARCH_QUERY`
-     * characters, or `plugin/unavailable`.
+     * characters, or `plugin/unavailable`. With `options.folder`, only documents inside that
+     * project folder are searched (the cap of `MAX_SEARCH_MATCHES` then counts only its hits);
+     * a folder outside the project or that is not a folder rejects `vault/out-of-scope` or
+     * `vault/read-failed`.
      *
      * @example
      * ```ts
@@ -2970,7 +3951,7 @@ export interface PluginApi {
      * for (const file of results) console.log(file.path, file.matches.length)
      * ```
      */
-    search(query: string): Promise<SearchFileResult[]>
+    search(query: string, options?: VaultSearchOptions): Promise<SearchFileResult[]>
     /**
      * Asks the project index which documents match, by frontmatter, tag, or links (Story 9.27,
      * AD-17), without reading any file: a compendium listing every character costs the same in a
@@ -3019,14 +4000,39 @@ export interface PluginApi {
   readonly providers: ProvidersApi
   /** Whether the writer has AI features on, and changes to it (Epic 12). */
   readonly ai: AiApi
+  /**
+   * The project chat panel (Epic 33): open it, optionally with a skill loaded, and hear when a
+   * session ends. A plugin cannot read the conversation or send turns; the writer is always the
+   * one who sends. Added in 0.59.0.
+   *
+   * @example
+   * ```ts
+   * api.commands.handle('my-plugin:interview', () => api.chat.open({ skill: 'my-plugin:interview' }))
+   * ```
+   */
+  readonly chat: ChatApi
+  /**
+   * What is installed, read-only (Epic 35): summaries and validated manifests of every plugin and
+   * theme, never code or files. Added in 0.60.0.
+   *
+   * @example
+   * ```ts
+   * const names = (await api.plugins.list()).map((plugin) => plugin.name)
+   * ```
+   */
+  readonly plugins: PluginsApi
   /** The network, behind the writer's first-time consent (FR-51, AD-6). */
   readonly net: NetApi
   /** Secret storage scoped to this plugin (Story 9.8, AD-11). */
   readonly secrets: SecretsApi
+  /** Read-only folders the writer grants this plugin, outside the project (Story 27.1). */
+  readonly sources: SourcesApi
   /** Saving a produced file where the writer chooses (Story 9.8). */
   readonly export: ExportApi
   /** The system clipboard, read and written through the app (Story 11.2, AD-6). */
   readonly clipboard: ClipboardApi
+  /** Short sounds the plugin bundles (Story 28.2). */
+  readonly sound: SoundApi
   /** Save points and history for the open project, kept as plain git (Story 9.13, AD-20). */
   readonly history: HistoryApi
   /** Structured data kept in the open project, per plugin (Story 9.26). */
@@ -3071,10 +4077,144 @@ export interface PluginMessage {
   content: string
 }
 
-/** What a plugin asks the writer's model (FR-34). The provider is always the writer's default. */
+/** The jobs the writer can give a model to: writing, quick small jobs, and building skills and plugins. */
+export type ProviderRole = 'writing' | 'quick' | 'building'
+
+/**
+ * What a plugin asks the writer's model (FR-34). The provider is the writer's default, or the one
+ * the writer set for the request's `role` in Settings (Epic 21); a plugin never names a provider.
+ */
 export interface PluginCompletion {
   messages: PluginMessage[]
+  /**
+   * What the request is for. The writer may give each role its own model, so a quick job can use
+   * a cheap one; a role the writer left alone uses the default. Leave it out for the default.
+   */
+  role?: ProviderRole
 }
+
+/** Options for `api.chat.open` (Epic 33). Added in 0.59.0. */
+export interface ChatOpenOptions {
+  /**
+   * The skill to load into a new session: one this plugin bundles (`<pluginId>:<name>`) or one of
+   * the writer's own (`skill.user:<name>`, `skill.project:<name>`). Another plugin's skill is
+   * refused with `chat/skill-not-allowed`. A skill that is not interactive still loads; the chat
+   * is where it runs. Added in 0.59.0.
+   *
+   * @example
+   * await api.chat.open({ skill: 'my-plugin:interview' })
+   */
+  skill?: string
+  /**
+   * Text placed in the message box for the writer to read and send; nothing is sent until they
+   * do. At most 2000 characters. Added in 0.59.0.
+   *
+   * @example
+   * await api.chat.open({ prompt: 'Help me outline this chapter.' })
+   */
+  prompt?: string
+}
+
+/** What `api.chat.onSessionEnded` hears (Epic 33). Added in 0.59.0. */
+export interface ChatSessionEndedEvent {
+  /**
+   * Whether the writer saved the transcript. A discarded session reports false. Added in 0.59.0.
+   *
+   * @example
+   * api.chat.onSessionEnded((event) => console.log(event.saved ? 'Saved' : 'Not saved'))
+   */
+  saved: boolean
+  /**
+   * The saved document's API path, when `saved` is true. Added in 0.59.0.
+   *
+   * @example
+   * api.chat.onSessionEnded((event) => {
+   *   if (event.path !== undefined) console.log(`Transcript at ${event.path}`)
+   * })
+   */
+  path?: string
+}
+
+/** Whether an installed package is a plugin or only a theme (Epic 35). Added in 0.60.0. */
+export type PluginKind = 'plugin' | 'theme'
+
+/** Where a plugin comes from: shipped as a core feature, shipped with Veneer, or installed. Added in 0.60.0. */
+export type PluginTier = 'core' | 'built-in' | 'installed'
+
+/** A read-only summary of one plugin or theme the app knows about (Epic 35). Added in 0.60.0. */
+export interface PluginSummary {
+  /** Lowercase-hyphen ID. */
+  id: string
+  name: string
+  version: string
+  /** The manifest's one-line description, or an empty string. */
+  description: string
+  /** `theme` for a package that contributes only themes and colors, else `plugin`. */
+  kind: PluginKind
+  tier: PluginTier
+  /** False while the writer has switched it off or it failed to load. */
+  enabled: boolean
+  /** How many of each contribution kind it declares (`commands: 3`); kinds with none are left out. */
+  contributions: Record<string, number>
+}
+
+/** What is installed, read-only (Epic 35). Added in 0.60.0. */
+export interface PluginsApi {
+  /**
+   * Lists every plugin and theme the app knows about, core and built-in ones included, with
+   * counts of what each contributes. It holds no code and no files. Added in 0.60.0.
+   *
+   * @example
+   * ```ts
+   * const plugins = await api.plugins.list()
+   * const taken = plugins.some((plugin) => plugin.id === 'my-plugin')
+   * ```
+   */
+  list(): Promise<PluginSummary[]>
+  /**
+   * The validated manifest of one plugin or theme, for copying a real pattern or checking what
+   * commands exist. Rejects `plugin/unknown-plugin` for an ID nothing has. Added in 0.60.0.
+   *
+   * @example
+   * ```ts
+   * const manifest = await api.plugins.manifest('word-count')
+   * console.log(manifest.contributes.commands?.length)
+   * ```
+   */
+  manifest(id: string): Promise<PluginManifest>
+}
+
+/** The project chat (Epic 33). Added in 0.59.0. */
+export interface ChatApi {
+  /**
+   * Opens the chat panel. With a `skill` it starts a new session with that skill loaded, after
+   * the writer has dealt with a live one (Done, Discard, or cancel: a cancel rejects
+   * `plugin/failed`). Rejects `plugin/unavailable` while AI features are off. Added in 0.59.0.
+   *
+   * @example
+   * ```ts
+   * await api.chat.open({ skill: 'my-plugin:interview', prompt: 'Start with my main character.' })
+   * ```
+   */
+  open(options?: ChatOpenOptions): Promise<void>
+  /**
+   * Calls `handler` when a session ends with Done or Discard. It carries no text from the
+   * conversation. The subscription ends when you dispose it or the plugin unloads. Added in 0.59.0.
+   *
+   * @example
+   * ```ts
+   * const subscription = api.chat.onSessionEnded((event) => console.log(event.saved))
+   * subscription.dispose()
+   * ```
+   */
+  onSessionEnded(handler: (event: ChatSessionEndedEvent) => void): Disposable
+}
+
+/** Chat error codes a plugin can see from `api.chat` (Epic 33). Added in 0.59.0. */
+export const CHAT_ERROR = {
+  /** `open` named a skill that is not this plugin's own or one of the writer's. */
+  skillNotAllowed: 'chat/skill-not-allowed'
+} as const
 
 /** Whether AI features are on (Epic 12). */
 export interface AiApi {
@@ -3098,12 +4238,230 @@ export interface AiApi {
    * ```
    */
   onChanged(listener: (enabled: boolean) => void): Disposable
+  /**
+   * Answers the model's calls to one of this plugin's declared `contributes.modelTools`. The
+   * handler gets the arguments the model gave (checked against the declared parameters: strings
+   * and numbers only) and returns plain text, at most `MAX_MODEL_TOOL_RESULT` characters (longer
+   * is cut). A throw becomes a short error sentence for the model. Rejects
+   * `plugin/undeclared-contribution` for an ID the manifest does not declare. The handler ends
+   * when you dispose the subscription or the plugin unloads. Never called
+   * while AI features are off or from a `/` tool run (Story 27.2). The writer's answer to "Let
+   * the model use this tool?" also covers the network the handler needs (`api.net.fetch` asks no
+   * separate question while it answers), but local addresses still need the writer's allowance.
+   * @example
+   * ```ts
+   * api.ai.onModelTool('notes:find', async (args) => `Found nothing for ${String(args.query)}.`)
+   * ```
+   */
+  onModelTool(id: string, handler: ModelToolHandler): Disposable
+  /**
+   * Says what a model tool will reach right now, for the writer's permission question: the card
+   * asks "Let the model use <plugin>: <tool name>?" and adds "It would search <detail>." Keep it
+   * a short phrase such as `your Obsidian vault and Joplin`; more than 120 characters or a line
+   * break is cut. Call it in `onload` and again when the answer changes. Rejects
+   * `plugin/undeclared-contribution` for an ID the manifest does not declare.
+   * @example
+   * ```ts
+   * api.ai.describeModelTool('notes:find', 'your Obsidian vault')
+   * ```
+   */
+  describeModelTool(id: string, detail: string): void
+}
+
+/** The most text one model-tool call may hand back to the model: 20 KB. */
+export const MAX_MODEL_TOOL_RESULT = 20 * 1024
+/** The most model-tool calls one ask may make. */
+export const MAX_MODEL_TOOL_CALLS = 5
+
+/** A model tool's argument values: what the model sent for the declared parameters. */
+export type ModelToolArgs = Record<string, string | number>
+
+/** The answer to the model's call, as text. */
+export type ModelToolHandler = (args: ModelToolArgs) => string | Promise<string>
+
+/**
+ * `contributes.help` (Story 31.1, AD-5): the plugin's Help chapter. `file` is a markdown file
+ * inside the plugin folder (no leading `/`, no `..`, ending in `.md`); `title` defaults to the
+ * plugin's `name`. The kernel reads the file only when the writer opens the chapter, so no
+ * plugin code runs to show it. In the chapter, a link `[New note](command:my-plugin:new-note)`
+ * runs that command (and closes Help); only `command:` and `https:` links are live. Example:
+ * `"help": { "file": "HELP.md", "title": "My plugin" }`.
+ */
+export interface HelpContribution {
+  file: string
+  title?: string
+}
+
+/**
+ * One `contributes.modelTools` entry (Story 27.2, AD-5). `id` is `<pluginId>:<name>`; `name` is
+ * what the permission question shows ("Let the model use <plugin>: <name>?"); `description`
+ * tells the model when to use it; `parameters` is a small JSON schema (an object with string and
+ * number properties).
+ */
+export interface ModelToolContribution {
+  id: string
+  name: string
+  description: string
+  parameters: {
+    type: 'object'
+    properties: Record<string, { type: 'string' | 'number'; description?: string }>
+    required?: string[]
+  }
+}
+
+/** Error codes for `api.sources` (Story 27.1). */
+export const SOURCES_ERROR = {
+  /** The manifest does not say `needs: ["sourceFolders"]`. */
+  undeclared: 'sources/undeclared',
+  /** A folder ID this plugin was not granted. */
+  unknownFolder: 'sources/unknown-folder',
+  /** A path that is absolute, has `..`, or leaves the granted folder. */
+  outOfScope: 'sources/out-of-scope',
+  /** The file or folder is not there. */
+  notFound: 'sources/not-found',
+  /** The file is not markdown or plain text, or is over the size cap. */
+  unreadable: 'sources/unreadable'
+} as const
+
+/** The most text `api.sources.read` returns: 1 MB. */
+export const MAX_SOURCE_READ_BYTES = 1024 * 1024
+/** `api.sources.search` returns at most this many hits. */
+export const MAX_SOURCE_HITS = 50
+
+/** A folder the writer granted a plugin. The plugin never sees its real path. */
+export interface SourceFolder {
+  /** Opaque; pass it to the other `api.sources` calls. */
+  id: string
+  /** The folder's own name, e.g. `Notes vault`. */
+  name: string
+  /**
+   * The hidden folders directly inside it, such as `.obsidian` or `.git` (at most 10, sorted).
+   * A plugin can tell an Obsidian vault by `.obsidian` without being able to list hidden folders.
+   */
+  markers: string[]
+}
+
+/** One entry of `api.sources.list`. */
+export interface SourceEntry {
+  name: string
+  /** Relative to the granted folder, with `/` separators; pass it to `read` or `list`. */
+  path: string
+  kind: 'file' | 'folder'
+}
+
+/** One note found by `api.sources.search`. */
+export interface SourceHit {
+  /** Relative to the granted folder, with `/` separators. */
+  path: string
+  /** The note's first heading, or its file name without the extension. */
+  title: string
+  /** One-based line of the match; 1 when only the title matched. */
+  line: number
+  /** The matching line shortened around the hit, as `api.vault.search` does. */
+  snippet: string
+}
+
+/** Options for `api.sources.search`. */
+export interface SourceSearchOptions {
+  /** At most this many hits, up to `MAX_SOURCE_HITS`; the default is `MAX_SOURCE_HITS`. */
+  limit?: number
+}
+
+/**
+ * Read-only folders the writer grants a plugin (Story 27.1, AD-6): a notes vault, a research
+ * folder. The manifest must say `needs: ["sourceFolders"]` (the install warning shows it as
+ * "Read folders you choose, outside your project"). The writer picks each folder in a native
+ * dialog; main keeps the real path and checks every call stays inside it, refusing `..`,
+ * absolute paths, and links that leave the folder. There is no write, rename, or delete here.
+ * Removing the plugin removes its grants.
+ */
+export interface SourcesApi {
+  /**
+   * Opens the folder dialog; resolves with the granted folder, or null when the writer cancels.
+   * Choosing a folder the plugin already has returns the existing grant.
+   * @example
+   * ```ts
+   * const vault = await api.sources.pickFolder('Choose your notes folder')
+   * if (vault) console.log(`Granted ${vault.name}`)
+   * ```
+   */
+  pickFolder(label?: string): Promise<SourceFolder | null>
+  /**
+   * The folders this plugin was granted.
+   * @example
+   * ```ts
+   * for (const folder of await api.sources.folders()) console.log(folder.name)
+   * ```
+   */
+  folders(): Promise<SourceFolder[]>
+  /**
+   * Forgets a grant; the folder itself is untouched. An unknown ID is ignored.
+   * @example
+   * ```ts
+   * const [{ id: folderId }] = await api.sources.folders()
+   * await api.sources.remove(folderId)
+   * ```
+   */
+  remove(id: string): Promise<void>
+  /**
+   * The folders and markdown or text files directly inside `dir` (the granted folder's top when
+   * left out), folders first, skipping `.obsidian`, `.git`, `.trash`, `node_modules`, and hidden
+   * files. Rejects `sources/out-of-scope` for a path that leaves the folder.
+   * @example
+   * ```ts
+   * const [{ id: folderId }] = await api.sources.folders()
+   * const entries = await api.sources.list(folderId, 'Projects')
+   * console.log(entries.map((e) => e.name))
+   * ```
+   */
+  list(id: string, dir?: string): Promise<SourceEntry[]>
+  /**
+   * One markdown or plain-text file's text, up to `MAX_SOURCE_READ_BYTES`. Rejects
+   * `sources/out-of-scope`, `sources/not-found`, or `sources/unreadable`.
+   * @example
+   * ```ts
+   * const [{ id: folderId }] = await api.sources.folders()
+   * const text = await api.sources.read(folderId, 'Ideas/Island.md')
+   * console.log(text.length)
+   * ```
+   */
+  read(id: string, path: string): Promise<string>
+  /**
+   * Searches the folder's `.md` files for `query` (case-insensitive, literal) in their text and
+   * titles, skipping the folders `list` skips. It gives up after about two seconds per folder
+   * and returns what it found, at most `limit` hits (`MAX_SOURCE_HITS` at most), notes whose
+   * title matches first.
+   * @example
+   * ```ts
+   * const [{ id: folderId }] = await api.sources.folders()
+   * const hits = await api.sources.search(folderId, 'lighthouse', { limit: 10 })
+   * console.log(hits.map((h) => h.title))
+   * ```
+   */
+  search(id: string, query: string, options?: SourceSearchOptions): Promise<SourceHit[]>
+}
+
+/** What a plugin asks the writer's image provider for (Epic 26). */
+export interface PluginImageRequest {
+  /** What the image shows. */
+  prompt: string
+  /** How many to make, 1 to 4; 1 when left out. */
+  count?: 1 | 2 | 3 | 4
+  /** The picture's shape; `landscape` when left out. */
+  shape?: 'landscape' | 'square' | 'portrait'
+}
+
+/** What `api.providers.image` answers: the picture files' bytes, in the order made. */
+export interface PluginImages {
+  images: Uint8Array[]
+  /** The kind of file every entry in `images` is. */
+  mime: 'image/png' | 'image/jpeg'
 }
 
 /**
  * The writer's models (FR-34, AD-11). Requests go to the default provider through the kernel;
  * a plugin gets text or a `VeneerError` and never a key, a URL, or the provider list. Only a
- * plugin whose manifest declares a tool with `needsProvider` may call it
+ * plugin whose manifest declares a tool with `needsProvider` or `canAskModel` may call it
  * (`plugin/undeclared-contribution` otherwise). Failures reject with `offline`, `auth`,
  * `rate-limit`, `server`, `timeout`, or `canceled`, and a sentence naming the provider.
  */
@@ -3134,6 +4492,22 @@ export interface ProvidersApi {
     onText: (text: string) => void,
     signal?: AbortSignal
   ): Promise<void>
+  /**
+   * Makes pictures with the writer's Images provider (Settings > Providers > Images; the key
+   * never leaves the app). Rejects `provider/none` when no image provider is set up, `ai/off`
+   * while AI features are off, and the usual provider codes; the same manifest rule as `complete`
+   * applies. Save an image with `api.vault.saveAttachment`.
+   * @example
+   * ```ts
+   * const { images, mime } = await api.providers.image({
+   *   prompt: 'A lighthouse at dusk, watercolor, no text',
+   *   count: 2,
+   *   shape: 'landscape'
+   * })
+   * console.log(`${images.length} ${mime} images`)
+   * ```
+   */
+  image(request: PluginImageRequest, signal?: AbortSignal): Promise<PluginImages>
 }
 
 /** The most bytes a request body or a `bytes` response may hold (a book's files, an EPUB). */
@@ -3419,6 +4793,75 @@ export interface ClipboardContent {
   /** Optional HTML for rich targets; `text` is the fallback for everything else. */
   html?: string
 }
+
+/** A sound file a plugin bundles (`contributes.sounds`, Story 28.2). */
+export interface SoundContribution {
+  /** `<pluginId>:<name>`; what `api.sound.play` takes. */
+  id: string
+  /** A `.ogg`, `.mp3`, or `.wav` file inside the plugin's folder. */
+  file: string
+}
+
+/** A font file a plugin bundles (`contributes.fonts`, Story 28.3). */
+export interface PluginFontContribution {
+  /** The family name `PageLook.font` takes. */
+  family: string
+  /** A `.woff2`, `.woff`, `.ttf`, or `.otf` file inside the plugin's folder. */
+  file: string
+  weight?: number
+  style?: 'normal' | 'italic'
+}
+
+/** Options for `api.sound.play` and `api.sound.loop` (Story 28.2). */
+export interface SoundOptions {
+  /** 0 to 1, default 1; multiplied by the writer's "Sound volume" setting. */
+  volume?: number
+}
+
+/** The most sounds one plugin may have playing at once; the oldest is cut (Story 28.2). */
+export const MAX_PLUGIN_SOUNDS = 8
+
+/**
+ * Sounds a plugin bundles, played by the kernel (Story 28.2). The files come from the plugin's
+ * own folder, never a URL. Nothing plays while the writer's "Allow sounds from plugins" is off.
+ */
+export interface SoundApi {
+  /**
+   * Plays one of this plugin's declared sounds once. An undeclared ID throws
+   * `plugin/undeclared-contribution`. Silent while the writer turned plugin sounds off; at most
+   * `MAX_PLUGIN_SOUNDS` sounds play at once, and the oldest is cut for a new one.
+   *
+   * @example
+   * ```ts
+   * api.sound.play('my-plugin:bell', { volume: 0.5 })
+   * ```
+   */
+  play(id: string, options?: SoundOptions): void
+  /**
+   * Plays a declared sound over and over until the returned Disposable is disposed, the writer
+   * turns plugin sounds off, or the plugin is disabled or unloaded.
+   *
+   * @example
+   * ```ts
+   * const rain = api.sound.loop('my-plugin:rain', { volume: 0.4 })
+   * // later: rain.dispose()
+   * ```
+   */
+  loop(id: string, options?: SoundOptions): Disposable
+}
+
+/** A look for the page set with `api.workspace.setPageLook` (Story 28.3). */
+export interface PageLook {
+  /** A family from this plugin's `contributes.fonts`; applies to the page's body text only. */
+  font?: string
+  /** A color blended over the page at a fixed 12%, so text contrast stays the theme's. */
+  tint?: string
+  /** How long the tint takes to change, in milliseconds (0 to 20000, default 0). */
+  transitionMs?: number
+}
+
+/** What a writer's keystroke in the page was, for `api.editor.onTyping` (Story 28.3). */
+export type TypingKind = 'char' | 'enter' | 'delete'
 
 /**
  * The system clipboard (Story 11.2, AD-6). Main reads and writes it; a plugin never touches the
@@ -3770,6 +5213,8 @@ export const PLUGIN_ERROR = {
   duplicateHandler: 'plugin/duplicate-handler',
   unknownCommand: 'plugin/unknown-command',
   noHandler: 'plugin/no-handler',
+  /** `api.plugins.manifest` named an ID no plugin or theme has. Added in 0.60.0. */
+  unknownPlugin: 'plugin/unknown-plugin',
   unavailable: 'plugin/unavailable',
   failed: 'plugin/failed',
   /** `api.surfaces.setView` got something that isn't a list, tree, DOM, split, form, or diff view. */
@@ -3815,6 +5260,27 @@ function marksOf(raw: unknown): [number, number][] | null {
   return out
 }
 
+/** A card label: non-empty text up to 40 characters, and a color of 1 to 6 or none. */
+function cardLabelOf(raw: unknown): CardLabel | null {
+  if (typeof raw !== 'object' || raw === null) return null
+  const r = raw as Record<string, unknown>
+  if (typeof r.text !== 'string' || r.text === '' || r.text.length > 40) return null
+  if (r.color === undefined) return { text: r.text }
+  if (typeof r.color !== 'number' || ![1, 2, 3, 4, 5, 6].includes(r.color)) return null
+  return { text: r.text, color: r.color as CardLabel['color'] }
+}
+
+/** Card tags: strings up to 40 characters; only the first `MAX_CARD_TAGS` are kept. */
+function cardTagsOf(raw: unknown): string[] | null {
+  if (!Array.isArray(raw) || raw.length > 50) return null
+  const out: string[] = []
+  for (const t of raw) {
+    if (typeof t !== 'string' || t.length > 40) return null
+    if (t !== '') out.push(t)
+  }
+  return out.slice(0, MAX_CARD_TAGS)
+}
+
 function viewItemsOf(raw: unknown, depth: number, count: { n: number }): ViewItem[] | null {
   if (!Array.isArray(raw) || depth > MAX_VIEW_DEPTH) return null
   const out: ViewItem[] = []
@@ -3826,12 +5292,25 @@ function viewItemsOf(raw: unknown, depth: number, count: { n: number }): ViewIte
     if (r.group !== undefined && typeof r.group !== 'boolean') return null
     if (r.expanded !== undefined && typeof r.expanded !== 'boolean') return null
     if (r.opens !== undefined && typeof r.opens !== 'boolean') return null
+    if (r.keepsPanel !== undefined && typeof r.keepsPanel !== 'boolean') return null
     if (r.kind !== undefined && r.kind !== 'file' && r.kind !== 'image' && r.kind !== 'folder') {
       return null
     }
     if (r.detail !== undefined && !viewText(r.detail)) return null
     if (r.image !== undefined && (typeof r.image !== 'string' || r.image.length > 500)) {
       return null
+    }
+    if (r.synopsis !== undefined && (typeof r.synopsis !== 'string' || r.synopsis.length > 4000)) {
+      return null
+    }
+    const cardLabel = r.cardLabel === undefined ? undefined : cardLabelOf(r.cardLabel)
+    if (cardLabel === null) return null
+    const tags = r.tags === undefined ? undefined : cardTagsOf(r.tags)
+    if (tags === null) return null
+    if (r.editable !== undefined) {
+      if (typeof r.editable !== 'object' || r.editable === null) return null
+      const e = (r.editable as Record<string, unknown>).synopsis
+      if (e !== undefined && typeof e !== 'boolean') return null
     }
     const marks = r.marks === undefined ? undefined : marksOf(r.marks)
     if (marks === null) return null
@@ -3840,9 +5319,16 @@ function viewItemsOf(raw: unknown, depth: number, count: { n: number }): ViewIte
     if (typeof r.expanded === 'boolean') clean.expanded = r.expanded
     if (r.kind !== undefined) clean.kind = r.kind as RowKind
     if (r.opens === false) clean.opens = false
+    if (r.keepsPanel === true) clean.keepsPanel = true
     if (typeof r.detail === 'string') clean.detail = r.detail
     if (typeof r.image === 'string' && r.image !== '') clean.image = r.image
     if (marks !== undefined) clean.marks = marks
+    if (typeof r.synopsis === 'string' && r.synopsis !== '') clean.synopsis = r.synopsis
+    if (cardLabel !== undefined) clean.cardLabel = cardLabel
+    if (tags !== undefined && tags.length > 0) clean.tags = tags
+    if ((r.editable as { synopsis?: boolean } | undefined)?.synopsis === true) {
+      clean.editable = { synopsis: true }
+    }
     if (r.depth !== undefined) {
       if (typeof r.depth !== 'number' || Number.isNaN(r.depth)) return null
       const level = Math.min(MAX_LIST_DEPTH, Math.max(0, Math.trunc(r.depth)))
@@ -4014,6 +5500,8 @@ export function cleanSurfaceView(raw: unknown): SurfaceView | null {
   if (typeof v.selectedId === 'string') view.selectedId = v.selectedId
   if (v.layout !== undefined && v.layout !== 'rows' && v.layout !== 'cards') return null
   if (v.layout === 'cards') view.layout = 'cards'
+  if (v.cardsWhenNarrow !== undefined && typeof v.cardsWhenNarrow !== 'boolean') return null
+  if (v.cardsWhenNarrow === true && v.layout === 'cards') view.cardsWhenNarrow = true
   if (v.reorderable !== undefined && typeof v.reorderable !== 'boolean') return null
   if (v.reorderable === true) view.reorderable = true
   if (v.empty !== undefined) {
@@ -4062,6 +5550,20 @@ export const EDITOR_ERROR = {
   hostTaken: 'editor/host-taken',
   badChange: 'editor/bad-change',
   unavailable: 'editor/unavailable'
+} as const
+
+/** Error codes from `api.workspace.createFromTemplate` (Epic 20). */
+export const WORKSPACE_ERROR = {
+  /** The writer cancelled the title question. */
+  cancelled: 'workspace/cancelled',
+  /** The open project's type has no template with that ID. */
+  noTemplate: 'workspace/no-template',
+  /** `createFromTemplate` got a `date` that is not an ISO date naming a real day (0.55.0). */
+  badDate: 'workspace/bad-date',
+  /** `setPageLook` named a font the plugin does not declare, or a color that is not one (0.55.0). */
+  badLook: 'workspace/bad-look',
+  /** `createFromTemplate` got a `pattern` that is not a safe `.md` name pattern (0.55.0). */
+  badPattern: 'workspace/bad-pattern'
 } as const
 
 /** Vault error codes a plugin can see from `api.vault` (AD-6, AD-8). */

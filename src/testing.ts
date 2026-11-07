@@ -52,6 +52,13 @@
  */
 import {
   API_VERSION,
+  CHAT_ERROR,
+  type ChatOpenOptions,
+  type ChatSessionEndedEvent,
+  formatDatePattern,
+  type ObsidianDailyNotes,
+  type PageLook,
+  type TypingKind,
   EDITOR_ERROR,
   HISTORY_ERROR,
   MAX_PROJECT_DATA_KEY_BYTES,
@@ -66,9 +73,15 @@ import {
   PLUGIN_ERROR,
   STORAGE_ERROR,
   VAULT_ERROR,
+  WORKSPACE_ERROR,
   type NetRequest,
   type NetResponse,
   type PluginCompletion,
+  type ModelToolArgs,
+  type ModelToolHandler,
+  type PluginImageRequest,
+  type SourceFolder,
+  type SourceHit,
   type DiffAction,
   type FormValue,
   type Mark,
@@ -85,6 +98,9 @@ import {
   type VaultQueryResult,
   changedSpan,
   findInText,
+  MAX_MODEL_TOOL_RESULT,
+  MAX_SOURCE_HITS,
+  SOURCES_ERROR,
   cleanPaletteItems,
   checkTextChanges,
   cleanSurfaceView,
@@ -98,6 +114,8 @@ import {
   type EditorHost,
   type EditorHostFactory,
   type BlockRenderer,
+  type SyntaxClickHandler,
+  type SyntaxRenderer,
   type EditingModeExtension,
   type ExportFile,
   type AskOptions,
@@ -140,6 +158,10 @@ import {
 } from './index'
 
 export interface FakeHostOptions {
+  /** Other plugins `api.plugins` reports besides this one (Epic 35), as installed and on. */
+  installedPlugins?: PluginManifest[]
+  /** What `api.workspace.obsidianDailyNotes` resolves; null (the default) means the project has none. */
+  obsidianDailyNotes?: ObsidianDailyNotes | null
   /** The open document's text; null (the default) means no document. */
   text?: string | null
   /** The API path of the open document, for `vault.process`. */
@@ -167,6 +189,18 @@ export interface FakeHostOptions {
    * rejects `provider/none`.
    */
   replies?: (string | string[])[]
+  /**
+   * What `api.providers.image` answers, one entry per call in order (the last repeats): the
+   * number of pictures is the request's `count`, each a tiny PNG whose first byte after the
+   * signature is the entry's index. An empty list (the default) has no image provider.
+   */
+  imageReplies?: ('ok' | { code: string; message: string })[]
+  /**
+   * The folders the writer would pick for `api.sources.pickFolder`, in order: a name and its
+   * files (text by relative path). Once they are used up the pick is canceled. `api.sources`
+   * needs the manifest's `needs` to include `sourceFolders`, as the kernel does (Story 27.1).
+   */
+  sourceFolders?: { name: string; files: Record<string, string>; markers?: string[] }[]
   /** Whether AI features are on (default true). Off, `api.providers` rejects `ai/off` and `api.ai.enabled()` is false. */
   aiFeatures?: boolean
   /** Makes `api.providers` calls reject with this code and sentence instead of answering. */
@@ -267,6 +301,22 @@ export interface FakeHost {
   readonly pickedImages: PickedImage[][]
   /** Every path `api.workspace.revealImage` was given, in order (Story 11.13). */
   readonly revealed: string[]
+  /** Every path `api.workspace.reveal` was given, in order (Story 18.1). */
+  readonly revealedEntries: string[]
+  /** Every folder `api.workspace.openFolder` opened, in order (Story 18.1). */
+  readonly openedFolders: { path: string; newWindow: boolean }[]
+  /** Every document `api.workspace.open(path, { newWindow: true })` opened (Story 18.1). */
+  readonly openedInNewWindow: string[]
+  /** Pages `createFromTemplate` opened with `lazy: true`: shown, nothing written (0.55.0). */
+  readonly lazyPages: { path: string; text: string }[]
+  /** Every `api.sound.play` and `api.sound.loop` in order; a loop is `loop: true` (0.55.0). */
+  readonly sounds: { id: string; volume: number; loop: boolean; stopped: boolean }[]
+  /** The plugin's current page look, or null (0.55.0). */
+  readonly pageLook: PageLook | null
+  /** Simulates the writer's keystroke for `api.editor.onTyping` listeners (0.55.0). */
+  typing(kind: TypingKind): void
+  /** The IDs of other commands `api.commands.run` was asked to run, in order (0.55.0). */
+  readonly commandsRun: string[]
   /** What `api.workspace.pickGrid` resolves next, in order (Story 11.8); `null` or empty is a cancel. */
   readonly gridAnswers: ({ rows: number; cols: number } | null)[]
   /** How many times `api.resources.reload` ran (Story 13.5). */
@@ -277,6 +327,12 @@ export interface FakeHost {
   readonly asked: AskOptions[]
   /** Every `api.providers` request that was allowed through, in order. */
   readonly modelRequests: PluginCompletion[]
+  /** Every `api.providers.image` request that was allowed through, in order. */
+  readonly imageRequests: PluginImageRequest[]
+  /** Every `api.chat.open` that was allowed through, in order (0.59.0). */
+  readonly chatOpened: ChatOpenOptions[]
+  /** Ends the chat session as the writer would: calls the `api.chat.onSessionEnded` handlers (0.59.0). */
+  endChatSession(event: ChatSessionEndedEvent): void
   /** The API object handed to `onload`. */
   readonly api: PluginApi
   /** Calls `onload(api)`. */
@@ -326,6 +382,10 @@ export interface FakeHost {
   readonly modes: ReadonlyMap<string, EditingModeExtension>
   /** Live `api.editor.registerBlockRenderer` registrations: contribution ID to its handler. */
   readonly blockRenderers: ReadonlyMap<string, BlockRenderer>
+  /** Live `api.editor.onRenderSyntax` registrations: contribution ID to its handler (Story 22.4). */
+  readonly syntaxRenderers: ReadonlyMap<string, SyntaxRenderer>
+  /** Live `api.editor.onSyntaxClick` registrations: contribution ID to its handler. */
+  readonly syntaxClicks: ReadonlyMap<string, SyntaxClickHandler>
   /**
    * The marks the plugin has set with `api.editor.setMarks` (Story 9.17): set ID to its marks.
    * Opening another document or switching project clears them, as the kernel does.
@@ -379,6 +439,16 @@ export interface FakeHost {
    * `plugin/undeclared-contribution` for an undeclared ID, `plugin/no-handler` with none
    * attached, and `plugin/bad-result` for a malformed Result.
    */
+  /**
+   * Calls a model tool's handler as the kernel would for the model (Story 27.2): the text it
+   * answered, cut to `MAX_MODEL_TOOL_RESULT`; a throw becomes a short error sentence. Rejects
+   * `plugin/undeclared-contribution` for an undeclared ID and `plugin/no-handler` with none.
+   */
+  callModelTool(id: string, args: ModelToolArgs): Promise<string>
+  /** What the plugin last said with `api.ai.describeModelTool`, by tool ID (Story 27.2). */
+  readonly modelToolDetails: Map<string, string>
+  /** Every address `api.workspace.openExternal` was given, in order (Story 27.3). */
+  readonly openedExternal: string[]
   runTool(
     id: string,
     input?: Partial<ToolInput>,
@@ -410,6 +480,8 @@ export interface FakeHost {
   readonly begunRowActions: { surfaceId: string; actionId: string; rowId: string }[]
   /** Every query `vault.search` searched (an empty one never searches), in order. */
   readonly searches: string[]
+  /** The `folder` of every `api.vault.search` call, in order; '' is the whole project (Story 18.2). */
+  readonly searchFolders: string[]
   /**
    * Holds every later `vault.search` until the returned release is called. A search started
    * while another is held supersedes it: the held one rejects `vault/superseded` on release.
@@ -427,6 +499,11 @@ export interface FakeHost {
    * `surfaceId` with `event`, in order.
    */
   reorder(surfaceId: string, event: ReorderEvent): Promise<void>
+  /**
+   * Edits a card's synopsis the way the kernel does (Story 29.1): calls every live `onItemEdit`
+   * handler for `surfaceId` with the item and the new text, in order.
+   */
+  itemEdit(surfaceId: string, itemId: string, value: string): Promise<void>
   /**
    * Changes a form field the way the kernel does (Story 9.25): calls every live `onFormChange`
    * handler for `surfaceId` with the field ID and value, in order.
@@ -607,7 +684,7 @@ function fakeQuery(entries: VaultQueryEntry[], query: VaultQuery): VaultQueryRes
   }
   return { results, truncated }
 }
-const FAKE_IMAGE = /\.(png|jpe?g|gif|webp|svg)$/i
+const FAKE_IMAGE = /\.(png|jpe?g|gif|webp|svg|docx)$/i
 
 function applyChanges(text: string, changes: readonly TextChange[]): string {
   let out = text
@@ -641,6 +718,9 @@ export function createFakeHost(
   const modes = new Map<string, EditingModeExtension>()
   const declaredRenderers = new Set((manifest.contributes.blockRenderers ?? []).map((r) => r.id))
   const blockRenderers = new Map<string, BlockRenderer>()
+  const declaredSyntax = new Set((manifest.contributes.syntax ?? []).map((r) => r.id))
+  const syntaxRenderers = new Map<string, SyntaxRenderer>()
+  const syntaxClicks = new Map<string, SyntaxClickHandler>()
   const marks = new Map<string, Mark[]>()
   const markHandlers = new Map<string, Set<(markId: string) => unknown>>()
   const handlers = new Map<string, CommandHandler>()
@@ -667,8 +747,49 @@ export function createFakeHost(
   const actionHandlers = new Map<string, Set<(actionId: string) => unknown>>()
   const refreshHandlers = new Map<string, Set<() => unknown>>()
   const declaredTools = new Set((manifest.contributes.tools ?? []).map((t) => t.id))
-  const needsModel = (manifest.contributes.tools ?? []).some((t) => t.needsProvider === true)
+  const needsModel = (manifest.contributes.tools ?? []).some(
+    (t) => t.needsProvider === true || t.canAskModel === true
+  )
   const modelRequests: PluginCompletion[] = []
+  const imageRequests: PluginImageRequest[] = []
+  const chatOpened: ChatOpenOptions[] = []
+  const chatEndHandlers = new Set<(event: ChatSessionEndedEvent) => void>()
+  let sourcePicks = 0
+  const openedExternal: string[] = []
+  const grantedSources: SourceFolder[] = []
+  const sourceGate = (): void => {
+    if (manifest.needs?.includes('sourceFolders') !== true) {
+      throw veneerError(
+        SOURCES_ERROR.undeclared,
+        'api.sources needs the manifest to say needs: ["sourceFolders"]',
+        manifest.id
+      )
+    }
+  }
+  const sourcePath = (raw: string): string => {
+    const parts = String(raw)
+      .replace(/\\/g, '/')
+      .split('/')
+      .filter((p) => p !== '' && p !== '.')
+    if (String(raw).startsWith('/') || parts.includes('..')) {
+      throw veneerError(
+        SOURCES_ERROR.outOfScope,
+        'That path is not inside the folder.',
+        manifest.id
+      )
+    }
+    return parts.join('/')
+  }
+  const sourceFiles = (id: string): Record<string, string> => {
+    sourceGate()
+    const at = grantedSources.findIndex((f) => f.id === id)
+    const folder = at === -1 ? undefined : (options.sourceFolders ?? [])[Number(id.slice(4)) - 1]
+    if (folder === undefined) {
+      throw veneerError(SOURCES_ERROR.unknownFolder, 'That folder is not granted.', manifest.id)
+    }
+    return folder.files
+  }
+  let imageCalls = 0
   let modelCalls = 0
   const netRequests: NetRequest[] = []
   const secrets = new Map<string, string>()
@@ -682,6 +803,16 @@ export function createFakeHost(
   let reloads = 0
   const asked: AskOptions[] = []
   const revealed: string[] = []
+  const revealedEntries: string[] = []
+  const openedFolders: { path: string; newWindow: boolean }[] = []
+  const openedInNewWindow: string[] = []
+  const lazyPages: { path: string; text: string }[] = []
+  const sounds: { id: string; volume: number; loop: boolean; stopped: boolean }[] = []
+  let pageLook: PageLook | null = null
+  const typingListeners = new Set<(kind: TypingKind) => void>()
+  const commandsRun: string[] = []
+  const declaredSounds = new Set((manifest.contributes.sounds ?? []).map((x) => x.id))
+  const declaredFonts = new Set((manifest.contributes.fonts ?? []).map((x) => x.family))
   const pickedImages: PickedImage[][] = []
   const history: FakeHistory = {
     repository: false,
@@ -694,6 +825,9 @@ export function createFakeHost(
   }
   let netCalls = 0
   const toolHandlers = new Map<string, ToolHandler>()
+  const declaredModelTools = new Set((manifest.contributes.modelTools ?? []).map((t) => t.id))
+  const modelToolHandlers = new Map<string, ModelToolHandler>()
+  const modelToolDetails = new Map<string, string>()
   const declaredProviders = new Set((manifest.contributes.paletteProviders ?? []).map((d) => d.id))
   const paletteItems = new Map<string, PaletteItem[]>()
   const runHandlers = new Map<string, Set<(itemId: string) => unknown>>()
@@ -711,11 +845,16 @@ export function createFakeHost(
   const rowActionHandlers = new Map<string, Set<RowActionHandler>>()
   const begunRowActions: { surfaceId: string; actionId: string; rowId: string }[] = []
   const searches: string[] = []
+  const searchFolders: string[] = []
   let searchGate: Promise<void> | null = null
   let latestSearch = 0
   const selections: { path: string; from: number; to: number }[] = []
   const inputHandlers = new Map<string, Set<(value: string) => unknown>>()
   const reorderHandlers = new Map<string, Set<(event: ReorderEvent) => unknown>>()
+  const itemEditHandlers = new Map<
+    string,
+    Set<(itemId: string, field: 'synopsis', value: string) => unknown>
+  >()
   const formChangeHandlers = new Map<string, Set<(fieldId: string, value: FormValue) => unknown>>()
   const diffActionHandlers = new Map<
     string,
@@ -895,6 +1034,13 @@ export function createFakeHost(
   }
   const settingOf = (id: string): SettingValue => {
     const declaration = declaredSettings.get(id)
+    // The page's view modes may be read by any plugin (0.55.0); the fake host has them off.
+    if (
+      declaration === undefined &&
+      (id === 'editor:typewriter-mode' || id === 'editor:focus-mode')
+    ) {
+      return settingValues.get(id) ?? false
+    }
     if (declaration === undefined) {
       throw veneerError(
         PLUGIN_ERROR.undeclaredContribution,
@@ -955,6 +1101,40 @@ export function createFakeHost(
         }
         handlers.set(id, handler)
         return track(() => handlers.delete(id))
+      },
+      async run(id) {
+        commandsRun.push(id)
+        const handler = handlers.get(id)
+        if (handler === undefined) {
+          throw veneerError(PLUGIN_ERROR.unknownCommand, `${id} is not a command`, manifest.id)
+        }
+        await handler()
+      }
+    },
+    sound: {
+      play(id, soundOptions) {
+        if (!declaredSounds.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        sounds.push({ id, volume: soundOptions?.volume ?? 1, loop: false, stopped: false })
+      },
+      loop(id, soundOptions) {
+        if (!declaredSounds.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        const entry = { id, volume: soundOptions?.volume ?? 1, loop: true, stopped: false }
+        sounds.push(entry)
+        return track(() => {
+          entry.stopped = true
+        })
       }
     },
     tools: {
@@ -1046,6 +1226,39 @@ export function createFakeHost(
           if (blockRenderers.get(id) === render) blockRenderers.delete(id)
         })
       },
+      onRenderSyntax(id, render) {
+        if (!declaredSyntax.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        if (syntaxRenderers.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.duplicateHandler,
+            `${id} is already registered`,
+            manifest.id
+          )
+        }
+        syntaxRenderers.set(id, render)
+        return track(() => {
+          if (syntaxRenderers.get(id) === render) syntaxRenderers.delete(id)
+        })
+      },
+      onSyntaxClick(id, handler) {
+        if (!declaredSyntax.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        syntaxClicks.set(id, handler)
+        return track(() => {
+          if (syntaxClicks.get(id) === handler) syntaxClicks.delete(id)
+        })
+      },
       getText: () => text,
       getSelection: currentSelection,
       edit(changes) {
@@ -1058,6 +1271,10 @@ export function createFakeHost(
       onSelectionChanged(listener) {
         selectionListeners.add(listener)
         return track(() => selectionListeners.delete(listener))
+      },
+      onTyping(listener) {
+        typingListeners.add(listener)
+        return track(() => typingListeners.delete(listener))
       },
       setMarks(setId, next) {
         let others = 0
@@ -1078,7 +1295,7 @@ export function createFakeHost(
       },
       async readFile(path) {
         const bytes = options.binaryFiles?.[path]
-        if (!/\.(png|jpe?g|gif|webp|svg)$/i.test(path) || bytes === undefined) {
+        if (!/\.(png|jpe?g|gif|webp|svg|docx)$/i.test(path) || bytes === undefined) {
           throw veneerError(
             VAULT_ERROR.outOfScope,
             'Only image files in the project can be read',
@@ -1242,6 +1459,7 @@ export function createFakeHost(
       async list() {
         if (project === null) return []
         const paths = new Set(files.keys())
+        for (const bin of Object.keys(options.binaryFiles ?? {})) paths.add(bin)
         if (openPath !== undefined) paths.add(openPath)
         for (const folder of folders) paths.add(`${folder}/`)
         const out: VaultEntry[] = []
@@ -1266,12 +1484,21 @@ export function createFakeHost(
         }
         return out
       },
-      async search(query) {
+      async search(query, searchOptions) {
         if (typeof query !== 'string' || query.length > MAX_SEARCH_QUERY) {
           throw veneerError(VAULT_ERROR.outOfScope, 'the query is too long', manifest.id)
         }
         if (query === '') return []
         searches.push(query)
+        const folder = searchOptions?.folder ?? ''
+        if (folder.startsWith('/') || folder.split('/').includes('..')) {
+          throw veneerError(
+            VAULT_ERROR.outOfScope,
+            'that folder is outside the project',
+            manifest.id
+          )
+        }
+        searchFolders.push(folder)
         const mine = ++latestSearch
         if (searchGate !== null) await searchGate
         if (mine !== latestSearch) {
@@ -1294,7 +1521,8 @@ export function createFakeHost(
           }
           return x.length - y.length
         }
-        for (const path of [...docs.keys()].sort(byFolder)) {
+        const inFolder = (p: string): boolean => folder === '' || p.startsWith(`${folder}/`)
+        for (const path of [...docs.keys()].filter(inFolder).sort(byFolder)) {
           if (left <= 0) break
           const matches = findInText((docs.get(path) ?? '').replace(/\r\n?/g, '\n'), query, left)
           if (matches.length === 0) continue
@@ -1341,6 +1569,60 @@ export function createFakeHost(
     },
     workspace: {
       projectType: () => (options.projectType === undefined ? null : options.projectType),
+      async createFromTemplate(templateId, templateOptions) {
+        const template = options.projectType?.templates?.find((t) => t.id === templateId)
+        if (template === undefined) {
+          throw veneerError(WORKSPACE_ERROR.noTemplate, 'No such template', manifest.id)
+        }
+        let when = new Date()
+        if (templateOptions?.date !== undefined) {
+          const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(templateOptions.date)
+          const asked = parts === null ? null : new Date(+parts[1], +parts[2] - 1, +parts[3])
+          if (asked === null || asked.getDate() !== Number(parts?.[3])) {
+            throw veneerError(WORKSPACE_ERROR.badDate, 'date must be an ISO date', manifest.id)
+          }
+          when = asked
+        }
+        const fill = (text: string): string =>
+          text
+            .replace(/\{\{title\}\}/g, templateOptions?.title ?? '')
+            .replace(/\{\{date:([^}]*)\}\}/g, (_m, format: string) =>
+              formatDatePattern(format, when)
+            )
+        const pattern = templateOptions?.pattern ?? template.pattern
+        if (
+          !pattern.endsWith('.md') ||
+          pattern.split('/').some((part) => part === '' || part.startsWith('.'))
+        ) {
+          throw veneerError(
+            WORKSPACE_ERROR.badPattern,
+            'that name pattern is not usable',
+            manifest.id
+          )
+        }
+        const bodyText = templateOptions?.body ?? template.body ?? ''
+        const name = fill(pattern)
+        const path = template.folder === undefined ? name : `${template.folder}/${name}`
+        if (!files.has(path)) {
+          if (templateOptions?.lazy === true) lazyPages.push({ path, text: fill(bodyText) })
+          else files.set(path, fill(bodyText))
+        }
+        return path
+      },
+      async pick(pickOptions) {
+        return pickOptions.items[0]?.id ?? null
+      },
+      async obsidianDailyNotes() {
+        return options.obsidianDailyNotes === undefined || options.obsidianDailyNotes === null
+          ? null
+          : { ...options.obsidianDailyNotes }
+      },
+      setPageLook(look) {
+        if (look !== null && look.font !== undefined && !declaredFonts.has(look.font)) {
+          throw veneerError(WORKSPACE_ERROR.badLook, 'that font is not declared', manifest.id)
+        }
+        pageLook = look === null ? null : { ...look }
+      },
       current: () => ({
         project: project === null ? null : { ...project },
         document: openPath ?? null
@@ -1357,6 +1639,13 @@ export function createFakeHost(
         const next = path === openPath ? text : files.get(path)
         if (next === undefined) {
           throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id)
+        }
+        if (options?.newWindow === true) {
+          if (files.get(path) === undefined && path !== openPath) {
+            throw veneerError(VAULT_ERROR.readFailed, 'the file does not exist', manifest.id)
+          }
+          openedInNewWindow.push(path)
+          return
         }
         const select = options?.select
         if (select !== undefined) selections.push({ path, from: select.from, to: select.to })
@@ -1379,11 +1668,30 @@ export function createFakeHost(
         await emitEvent({ type: 'document:opened', path } as VeneerEvent)
         moveSelection()
       },
+      async openExternal(url) {
+        const ok = /^(https?|obsidian|joplin):\/\//.test(String(url))
+        if (!ok) {
+          throw veneerError('workspace/refused', 'That kind of address does not open.', manifest.id)
+        }
+        openedExternal.push(String(url))
+      },
       async pickImages() {
         return pickedImages.shift() ?? []
       },
       async textReplacements() {
         return textReplacementPairs.map((p) => ({ ...p }))
+      },
+      async reveal(path) {
+        if (project === null || path.startsWith('/') || path.split('/').includes('..')) {
+          throw veneerError(VAULT_ERROR.outOfScope, 'That file is outside the project', manifest.id)
+        }
+        revealedEntries.push(path)
+      },
+      async openFolder(path, folderOptions) {
+        if (project === null || path.startsWith('/') || path.split('/').includes('..')) {
+          throw veneerError(VAULT_ERROR.outOfScope, 'That file is outside the project', manifest.id)
+        }
+        openedFolders.push({ path, newWindow: folderOptions?.newWindow === true })
       },
       async revealImage(path) {
         if (
@@ -1475,12 +1783,120 @@ export function createFakeHost(
         const reply = replies[Math.min(modelCalls, replies.length - 1)]
         modelCalls += 1
         for (const piece of typeof reply === 'string' ? [reply] : reply) onText(piece)
+      },
+      async image(request, signal) {
+        if (options.aiFeatures === false) {
+          throw veneerError('ai/off', 'AI features are off in Settings.', manifest.id)
+        }
+        if (!needsModel) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            'api.providers needs a tool that declares needsProvider',
+            manifest.id
+          )
+        }
+        if (signal?.aborted === true) {
+          throw veneerError('canceled', 'The request was canceled.', manifest.id)
+        }
+        const replies = options.imageReplies ?? []
+        if (replies.length === 0) {
+          throw veneerError('provider/none', 'No image provider is set up yet.', manifest.id)
+        }
+        const reply = replies[Math.min(imageCalls, replies.length - 1)]
+        imageCalls += 1
+        if (reply !== 'ok') throw veneerError(reply.code, reply.message, manifest.id)
+        imageRequests.push(request)
+        const png = (n: number): Uint8Array =>
+          new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, n])
+        return {
+          images: Array.from({ length: request.count ?? 1 }, (_, i) => png(i)),
+          mime: 'image/png' as const
+        }
+      }
+    },
+    chat: {
+      open(chatOptions) {
+        if (options.aiFeatures === false) {
+          return Promise.reject(
+            veneerError(PLUGIN_ERROR.unavailable, 'AI features are off', manifest.id)
+          )
+        }
+        const skill = chatOptions?.skill
+        if (
+          skill !== undefined &&
+          !(
+            skill.startsWith(`${manifest.id}:`) ||
+            skill.startsWith('skill.user:') ||
+            skill.startsWith('skill.project:')
+          )
+        ) {
+          return Promise.reject(
+            veneerError(
+              CHAT_ERROR.skillNotAllowed,
+              'A plugin can open the chat only with its own skill or one of the writer’s',
+              manifest.id
+            )
+          )
+        }
+        chatOpened.push({ ...chatOptions })
+        return Promise.resolve()
+      },
+      onSessionEnded(handler) {
+        chatEndHandlers.add(handler)
+        return track(() => chatEndHandlers.delete(handler))
+      }
+    },
+    plugins: {
+      list() {
+        return Promise.resolve(
+          [manifest, ...(options.installedPlugins ?? [])].map((m) => ({
+            id: m.id,
+            name: m.name,
+            version: m.version,
+            description: m.description ?? '',
+            kind: m.main === undefined ? ('theme' as const) : ('plugin' as const),
+            tier: 'installed' as const,
+            enabled: true,
+            contributions: Object.fromEntries(
+              Object.entries(m.contributes)
+                .filter(([, value]) => Array.isArray(value) && value.length > 0)
+                .map(([kind, value]) => [kind, (value as unknown[]).length])
+            )
+          }))
+        )
+      },
+      manifest(id) {
+        const found = [manifest, ...(options.installedPlugins ?? [])].find((m) => m.id === id)
+        return found === undefined
+          ? Promise.reject(veneerError(PLUGIN_ERROR.unknownPlugin, `No plugin ${id}`, manifest.id))
+          : Promise.resolve(JSON.parse(JSON.stringify(found)) as PluginManifest)
       }
     },
     ai: {
       enabled: () => options.aiFeatures !== false,
       // The fake's switch is fixed for the run; nothing changes it.
-      onChanged: () => ({ dispose: () => undefined })
+      onChanged: () => ({ dispose: () => undefined }),
+      describeModelTool(id, detail) {
+        if (!declaredModelTools.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        modelToolDetails.set(id, String(detail).replace(/\s+/g, ' ').trim().slice(0, 120))
+      },
+      onModelTool(id, handler) {
+        if (!declaredModelTools.has(id)) {
+          throw veneerError(
+            PLUGIN_ERROR.undeclaredContribution,
+            `${id} is not declared in the manifest`,
+            manifest.id
+          )
+        }
+        modelToolHandlers.set(id, handler)
+        return track(() => modelToolHandlers.delete(id))
+      }
     },
     net: {
       async fetch(request, signal) {
@@ -1504,6 +1920,70 @@ export function createFakeHost(
           ...(part.data === undefined ? {} : { data: part.data }),
           truncated: part.truncated ?? false
         }
+      }
+    },
+    sources: {
+      async pickFolder() {
+        sourceGate()
+        const next = (options.sourceFolders ?? [])[sourcePicks]
+        if (next === undefined) return null
+        sourcePicks += 1
+        const folder = { id: `src-${sourcePicks}`, name: next.name, markers: next.markers ?? [] }
+        grantedSources.push(folder)
+        return folder
+      },
+      async folders() {
+        sourceGate()
+        return grantedSources.map((f) => ({ ...f }))
+      },
+      async remove(id) {
+        sourceGate()
+        const at = grantedSources.findIndex((f) => f.id === id)
+        if (at !== -1) grantedSources.splice(at, 1)
+      },
+      async list(id, dir = '') {
+        const files = sourceFiles(id)
+        const clean = sourcePath(dir)
+        const prefix = clean === '' ? '' : `${clean}/`
+        const seen = new Map<string, 'file' | 'folder'>()
+        for (const path of Object.keys(files)) {
+          if (!path.startsWith(prefix)) continue
+          const rest = path.slice(prefix.length)
+          const slash = rest.indexOf('/')
+          if (slash === -1) seen.set(rest, 'file')
+          else seen.set(rest.slice(0, slash), 'folder')
+        }
+        return [...seen]
+          .map(([name, kind]) => ({ name, path: prefix + name, kind }))
+          .sort((a, b) =>
+            a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === 'folder' ? -1 : 1
+          )
+      },
+      async read(id, path) {
+        const files = sourceFiles(id)
+        const text = files[sourcePath(path)]
+        if (text === undefined) {
+          throw veneerError(SOURCES_ERROR.notFound, 'That is not in the folder.', manifest.id)
+        }
+        return text
+      },
+      async search(id, query, searchOptions) {
+        const files = sourceFiles(id)
+        const cap = Math.min(searchOptions?.limit ?? MAX_SOURCE_HITS, MAX_SOURCE_HITS)
+        const hits: SourceHit[] = []
+        for (const [path, text] of Object.entries(files)) {
+          if (!path.endsWith('.md') || hits.length >= cap) continue
+          const found = findInText(text, query, 1)[0]
+          if (found === undefined) continue
+          const heading = /^#\s+(.+)$/m.exec(text)?.[1]
+          hits.push({
+            path,
+            title: heading ?? (path.split('/').pop() ?? path).replace(/\.md$/, ''),
+            line: found.line,
+            snippet: found.snippet
+          })
+        }
+        return hits
       }
     },
     secrets: {
@@ -1943,7 +2423,10 @@ export function createFakeHost(
         return addHandler(refreshHandlers, id, handler)
       },
       onRowAction(id, handler) {
-        checkSurface(id)
+        // A surface the plugin owns, or one it contributes a row action to (Story 17.1).
+        if (!(manifest.contributes.rowActions ?? []).some((a) => a.surface === id)) {
+          checkSurface(id)
+        }
         return addHandler(rowActionHandlers, id, handler)
       },
       beginRowAction(id, actionId, rowId) {
@@ -1959,6 +2442,10 @@ export function createFakeHost(
       onReorder(id, handler) {
         checkSurface(id)
         return addHandler(reorderHandlers, id, handler)
+      },
+      onItemEdit(id, handler) {
+        checkSurface(id)
+        return addHandler(itemEditHandlers, id, handler)
       },
       onFormChange(id, handler) {
         checkSurface(id)
@@ -1988,6 +2475,11 @@ export function createFakeHost(
     api,
     history,
     modelRequests,
+    imageRequests,
+    chatOpened,
+    endChatSession: (event) => {
+      for (const handler of [...chatEndHandlers]) handler(event)
+    },
     netRequests,
     secrets,
     projectData,
@@ -2003,6 +2495,18 @@ export function createFakeHost(
       return reloads
     },
     revealed,
+    revealedEntries,
+    openedFolders,
+    openedInNewWindow,
+    lazyPages,
+    sounds,
+    get pageLook() {
+      return pageLook
+    },
+    typing(kind) {
+      for (const listener of [...typingListeners]) listener(kind)
+    },
+    commandsRun,
     pickedImages,
     async load() {
       await entry.onload(api)
@@ -2055,6 +2559,8 @@ export function createFakeHost(
     edits,
     modes,
     blockRenderers,
+    syntaxRenderers,
+    syntaxClicks,
     marks,
     async markClick(setId, markId) {
       for (const handler of [...(markHandlers.get(setId) ?? [])]) await handler(markId)
@@ -2112,6 +2618,7 @@ export function createFakeHost(
     trashed,
     begunRowActions,
     searches,
+    searchFolders,
     holdSearches() {
       let release = (): void => undefined
       searchGate = new Promise<void>((resolve) => {
@@ -2126,6 +2633,12 @@ export function createFakeHost(
     async input(surfaceId, value) {
       checkSurface(surfaceId)
       for (const handler of [...(inputHandlers.get(surfaceId) ?? [])]) await handler(value)
+    },
+    async itemEdit(surfaceId, itemId, value) {
+      checkSurface(surfaceId)
+      for (const handler of [...(itemEditHandlers.get(surfaceId) ?? [])]) {
+        await handler(itemId, 'synopsis', value)
+      }
     },
     async reorder(surfaceId, event) {
       checkSurface(surfaceId)
@@ -2151,7 +2664,9 @@ export function createFakeHost(
     shownFocus,
     closed,
     async rowAction(surfaceId, actionId, rowId, value) {
-      checkSurface(surfaceId)
+      if (!(manifest.contributes.rowActions ?? []).some((a) => a.surface === surfaceId)) {
+        checkSurface(surfaceId)
+      }
       let result: unknown
       for (const handler of [...(rowActionHandlers.get(surfaceId) ?? [])]) {
         result = await handler(actionId, rowId, value)
@@ -2159,6 +2674,26 @@ export function createFakeHost(
       return result
     },
     paletteItems,
+    modelToolDetails,
+    openedExternal,
+    async callModelTool(id, args) {
+      if (!declaredModelTools.has(id)) {
+        throw veneerError(
+          PLUGIN_ERROR.undeclaredContribution,
+          `${id} is not declared in the manifest`,
+          manifest.id
+        )
+      }
+      const handler = modelToolHandlers.get(id)
+      if (handler === undefined) {
+        throw veneerError(PLUGIN_ERROR.noHandler, `${id} has no handler`, manifest.id)
+      }
+      try {
+        return String(await handler(args)).slice(0, MAX_MODEL_TOOL_RESULT)
+      } catch {
+        return 'The tool failed.'
+      }
+    },
     async runTool(id, input, signal, report) {
       if (!declaredTools.has(id)) {
         throw veneerError(

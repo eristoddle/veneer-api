@@ -1,6 +1,6 @@
 # Interface: ProjectDataChangedEvent
 
-Defined in: [index.ts:3261](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3261)
+Defined in: [index.ts:4635](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4635)
 
 Emitted to the owning plugin only, when a pull, checkout, or merge (or any tool outside Veneer)
 changes or removes one of its `api.projectData` files. Veneer's own writes do not emit it.
@@ -15,7 +15,7 @@ changes or removes one of its `api.projectData` files. Veneer's own writes do no
 
 > `readonly` **type**: `"project-data:changed"`
 
-Defined in: [index.ts:3262](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3262)
+Defined in: [index.ts:4636](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4636)
 
 #### Overrides
 
@@ -27,4 +27,4 @@ Defined in: [index.ts:3262](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > `readonly` **key**: `string`
 
-Defined in: [index.ts:3263](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3263)
+Defined in: [index.ts:4637](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4637)

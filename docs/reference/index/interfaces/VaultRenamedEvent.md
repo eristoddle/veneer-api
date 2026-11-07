@@ -1,6 +1,6 @@
 # Interface: VaultRenamedEvent
 
-Defined in: [index.ts:176](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L176)
+Defined in: [index.ts:177](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L177)
 
 Emitted after a rename or move finished (FR-10): the file or folder moved, links into it were
 rewritten, and every rename participant ran. `kind` is `file` for a document or an image.
@@ -16,7 +16,7 @@ rewritten, and every rename participant ran. `kind` is `file` for a document or 
 
 > **from**: `string`
 
-Defined in: [index.ts:157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L157)
+Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L158)
 
 #### Inherited from
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **to**: `string`
 
-Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L158)
+Defined in: [index.ts:159](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L159)
 
 #### Inherited from
 
@@ -40,7 +40,7 @@ Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **kind**: `"file"` \| `"folder"`
 
-Defined in: [index.ts:159](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L159)
+Defined in: [index.ts:160](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L160)
 
 #### Inherited from
 
@@ -52,7 +52,7 @@ Defined in: [index.ts:159](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `readonly` **type**: `"vault:renamed"`
 
-Defined in: [index.ts:177](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L177)
+Defined in: [index.ts:178](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L178)
 
 #### Overrides
 

@@ -1,6 +1,6 @@
 # Interface: VaultRename
 
-Defined in: [index.ts:156](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L156)
+Defined in: [index.ts:157](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L157)
 
 What a rename or move did (FR-10): API paths before and after. A move is a rename.
 
@@ -14,7 +14,7 @@ What a rename or move did (FR-10): API paths before and after. A move is a renam
 
 > **from**: `string`
 
-Defined in: [index.ts:157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L157)
+Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L158)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [index.ts:157](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **to**: `string`
 
-Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L158)
+Defined in: [index.ts:159](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L159)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [index.ts:158](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **kind**: `"file"` \| `"folder"`
 
-Defined in: [index.ts:159](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L159)
+Defined in: [index.ts:160](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L160)

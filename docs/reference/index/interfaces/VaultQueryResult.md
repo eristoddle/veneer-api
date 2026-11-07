@@ -1,6 +1,6 @@
 # Interface: VaultQueryResult
 
-Defined in: [index.ts:280](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L280)
+Defined in: [index.ts:302](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L302)
 
 `api.vault.query`'s answer.
 
@@ -10,7 +10,7 @@ Defined in: [index.ts:280](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **results**: [`VaultQueryEntry`](VaultQueryEntry.md)[]
 
-Defined in: [index.ts:282](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L282)
+Defined in: [index.ts:304](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L304)
 
 Matching documents sorted by path.
 
@@ -20,6 +20,6 @@ Matching documents sorted by path.
 
 > **truncated**: `boolean`
 
-Defined in: [index.ts:284](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L284)
+Defined in: [index.ts:306](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L306)
 
 True when more matched than were returned.

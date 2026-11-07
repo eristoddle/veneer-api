@@ -1,6 +1,6 @@
 # Interface: SettingContribution
 
-Defined in: [index.ts:982](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L982)
+Defined in: [index.ts:1556](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1556)
 
 A setting contribution (FR-44, AD-5). `id` is the full contribution ID, `<pluginId>:<name>`.
 The kernel draws the control from this declaration alone; plugins never draw settings UI.
@@ -13,7 +13,7 @@ path, or `''` for none).
 
 > **id**: `string`
 
-Defined in: [index.ts:983](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L983)
+Defined in: [index.ts:1557](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1557)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:983](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **type**: [`SettingType`](../type-aliases/SettingType.md)
 
-Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L984)
+Defined in: [index.ts:1558](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1558)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [index.ts:984](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **default**: [`SettingValue`](../type-aliases/SettingValue.md)
 
-Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L985)
+Defined in: [index.ts:1559](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1559)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [index.ts:985](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > **label**: `string`
 
-Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L986)
+Defined in: [index.ts:1560](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1560)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [index.ts:986](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `optional` **description?**: `string`
 
-Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L987)
+Defined in: [index.ts:1561](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1561)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [index.ts:987](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `optional` **category?**: `string`
 
-Defined in: [index.ts:993](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L993)
+Defined in: [index.ts:1567](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1567)
 
 A page of this plugin's settings in the Settings sidebar, such as `Appearance`. Settings with
 the same category (up to 40 characters) share a page, listed under the plugin's name; settings
@@ -65,7 +65,7 @@ with none stay on the plugin's own page. Optional, and a plugin with few setting
 
 > **scope**: [`SettingScope`](../type-aliases/SettingScope.md)
 
-Defined in: [index.ts:994](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L994)
+Defined in: [index.ts:1568](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1568)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [index.ts:994](https://github.com/eristoddle/veneer/blob/5ad3c1eadc5
 
 > `optional` **options?**: [`SettingOption`](SettingOption.md)[]
 
-Defined in: [index.ts:996](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L996)
+Defined in: [index.ts:1570](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1570)
 
 Required for `enum`, and only allowed there.
 
@@ -83,7 +83,7 @@ Required for `enum`, and only allowed there.
 
 > `optional` **usesAI?**: `boolean`
 
-Defined in: [index.ts:998](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L998)
+Defined in: [index.ts:1572](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1572)
 
 True when this feature needs an AI model; hidden while AI features are off.
 
@@ -93,6 +93,6 @@ True when this feature needs an AI model; hidden while AI features are off.
 
 > `optional` **macOnly?**: `boolean`
 
-Defined in: [index.ts:1000](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1000)
+Defined in: [index.ts:1574](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L1574)
 
 Shown only on macOS (Story 17.8): for a setting about a macOS feature.

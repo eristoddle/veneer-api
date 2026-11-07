@@ -2,7 +2,7 @@
 
 > `const` **STORAGE\_ERROR**: `object`
 
-Defined in: [index.ts:3319](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L3319)
+Defined in: [index.ts:4693](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L4693)
 
 Error codes for `api.secrets` and `api.export` (Story 9.8).
 

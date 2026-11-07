@@ -2,7 +2,7 @@
 
 > **PluginContributions** = `object` & `Record`\<`string`, `unknown`\>
 
-Defined in: [index.ts:1907](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L1907)
+Defined in: [index.ts:2742](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L2742)
 
 ## Type Declaration
 
@@ -83,6 +83,30 @@ Editing modes (FR-12, AD-7). The first mode declared by the plugin that declares
 
 Fenced-block renderers (Story 9.4, AD-19).
 
+### syntax?
+
+> `optional` **syntax?**: [`SyntaxContribution`](../interfaces/SyntaxContribution.md)[]
+
+Markup the editor draws for the plugin: patterns, their look, and rendered views (Story 22.4).
+
+### modelTools?
+
+> `optional` **modelTools?**: [`ModelToolContribution`](../interfaces/ModelToolContribution.md)[]
+
+Tools the model may call on a typed ask, after the writer's say-so (Story 27.2).
+
+### sounds?
+
+> `optional` **sounds?**: [`SoundContribution`](../interfaces/SoundContribution.md)[]
+
+Short sound files bundled in the plugin's folder, for `api.sound` (Story 28.2).
+
+### fonts?
+
+> `optional` **fonts?**: [`PluginFontContribution`](../interfaces/PluginFontContribution.md)[]
+
+Font files bundled in the plugin's folder, for `api.workspace.setPageLook` (Story 28.3).
+
 ### editorHost?
 
 > `optional` **editorHost?**: `boolean`
@@ -94,3 +118,9 @@ The plugin may register the editor host (`api.editor.registerHost`, AD-18).
 > `optional` **imageDestination?**: `boolean`
 
 The plugin chooses where pasted images are saved (`api.vault.onImageDestination`, Story 17.2).
+
+### help?
+
+> `optional` **help?**: [`HelpContribution`](../interfaces/HelpContribution.md)
+
+One Help chapter, a markdown file in the plugin's folder (Story 31.1).

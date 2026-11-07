@@ -1,6 +1,6 @@
 # Interface: ImageDestinationRequest
 
-Defined in: [index.ts:2478](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2478)
+Defined in: [index.ts:3396](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3396)
 
 What the kernel tells a plugin that chooses where a pasted or dropped image is saved
 (Story 17.2): `document` is the open document's project path, `name` the file name core would
@@ -13,7 +13,7 @@ whether the project has a site root set (`veneer:site-root`).
 
 > **document**: `string`
 
-Defined in: [index.ts:2479](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2479)
+Defined in: [index.ts:3397](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3397)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [index.ts:2479](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **name**: `string`
 
-Defined in: [index.ts:2480](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2480)
+Defined in: [index.ts:3398](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3398)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [index.ts:2480](https://github.com/eristoddle/veneer/blob/5ad3c1eadc
 
 > **siteRoot**: `boolean`
 
-Defined in: [index.ts:2481](https://github.com/eristoddle/veneer/blob/5ad3c1eadc588faf752e3fe8662eafe718113df7/packages/api/src/index.ts#L2481)
+Defined in: [index.ts:3399](https://github.com/eristoddle/veneer/blob/1e8bbc12ee3db875d6fe9ec34ab80f352ed7124a/packages/api/src/index.ts#L3399)
